@@ -1,14 +1,47 @@
-\documentclass[18pt]{beamer}
+\documentclass[24pt]{beamer}
 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
 
 \title{Themenvorschläge der Java-Gruppe}
 \subtitle{Netzwerksimulator Sinalgo oder}
-\author{Markus Braun, Daniel Hammann,\\ Dominik Messinger, Dominic Rausch}
+\author{Markus Braun, Daniel Hammann,\\ 
+	Dominik Messinger, Dominic Rausch}
 
 
 \begin{document}
 	\maketitle
 
-	
+	\begin{frame}[c]\frametitle{Sinalgo\footnote{http://disco.ethz.ch/projects/sinalgo/} }
+		\begin{itemize}
+			\item Netzwerksimulator von der ETH
+			\item Features
+			\begin{itemize}
+				\item Bewegliche Knotenpunkte
+				\item Verbindungsmodel
+				\item Interferenz- und Verlässigkeitsmodel
+				\item Übertragungszeit
+			\end{itemize}
+			\item \textbf{Langsam!}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}[c]\frametitle{Sinalgo - Was ist zu tun?}
+		\begin{itemize}
+			\item Status Quo:
+		    \begin{itemize}
+		    	\item Ein Thread
+		    	\item Mehrfache Iteration über jeden Knoten
+		    	\item Asynchron und Synchron Modus
+		    \end{itemize}
+		    \item Herausforderungen:
+		    \begin{itemize}
+		    	\item Nebenläufiges Verschieben und Neuverbinden der Knoten
+		    	\item Nebenläufige Simulation des Knotenverhaltens
+		    	\item Evtl: Anpassung der GUI nötig
+		    \end{itemize}
+		\end{itemize}
+	\end{frame}
+
 \end{document}
