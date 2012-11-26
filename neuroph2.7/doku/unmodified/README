@@ -1,6 +1,12 @@
 Hier findet sich eine ungeordnete Ansamlung von Diagrammen und Doku über Neuroph, wie es im Auslieferungszustand ist.
 Im einzelnen:
 
+Calculate.[pdf, seq]:
+	Sequenzdiagramm zum Auswerten eines ANNs mit einer bestimmten Eingabe
+
+Learn.[pdf,seq]
+	Sequenzdiagramm zum Einlernen eines Datensatzes
+
 Konstruktur.[pdf, seq]:
 	Sequenzdiagramm zur Konstruktion eines MultiLayerPerceptron
 	
