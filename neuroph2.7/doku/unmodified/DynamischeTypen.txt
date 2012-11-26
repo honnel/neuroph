@@ -1,0 +1,5 @@
+
+Beim Aufruf new MultiLayerPerceptron werden folgende dynamischen Typen erstellt:
+ -> layers: List<Layer>
+ -> neuron : Neuron
+ -> learningRule : MomentumBackPropagration

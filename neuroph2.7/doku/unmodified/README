@@ -1,0 +1,11 @@
+Hier findet sich eine ungeordnete Ansamlung von Diagrammen und Doku über Neuroph, wie es im Auslieferungszustand ist.
+Im einzelnen:
+
+Konstruktur.[pdf, seq]:
+	Sequenzdiagramm zur Konstruktion eines MultiLayerPerceptron
+	
+MultilayerPerceptron:
+	Klassendiagramm rund um das MultilayerPerceptron.
+
+DynamischeTypen.txt: 
+	Dynamische Typen der Attribute eines MultiLayerPerceptrons

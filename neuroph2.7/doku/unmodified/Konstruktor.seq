@@ -1,0 +1,29 @@
+#![new MultiLayerPerceptron]
+#!>>
+#! Dieses Diagram beschreibt den Ablauf des erstellen eines MultiLayerPerceptrons
+#!<<
+
+ext:External[pe]
+this:MultiLayerPerceptron [a]
+lf:LayerFactory[a]
+/layer:Layer[a]
+nf:NeuronFactory[a]
+/neuron:Neuron[a]
+
+
+
+this:this.createNetwork(neuronsPerLayer)
+this:return=lf.createLayer(neuronsInInputLayer)
+lf:layer.new(neurons)
+[c: loop neuronsInInputLayer times]
+  layer:nf.createNeuron()
+  nf:neuron.new()
+[/c]
+
+
+[c: (loop layers-1) times]
+   (1)this:lf.createLayer(neuronsInLayer)
+   *1 lf
+       Unteraufrufe weggelassen
+   *1
+[/c]
