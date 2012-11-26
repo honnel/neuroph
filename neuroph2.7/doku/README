@@ -1,1 +1,7 @@
 sdedit ist ein Programm zum Erstellen von Sequencdiagrammen. Alle *.seq Dateien sind damit zu öffnen. Für Klasssendiagramme wird das Eclipse-Plugin ObjectAid verwendet. Install new Software -> http://www.objectaid.com/update 
+
+sdedit:
+	Programm für Sequenzdiagramme
+
+unmodified:
+	Doku bezieht sich auf das unmodifizierte neuroph 2.7, so wie es aus dem zip geschlüpft ist.

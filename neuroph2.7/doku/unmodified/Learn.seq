@@ -1,0 +1,28 @@
+#![new MultiLayerPerceptron]
+#!>>
+#! Dieses Diagram beschreibt den Ablauf eines 'learn' Aufrufes
+#! auf einen Multilayerperceptron. Die Syntax :: zeigt an, die 
+#! Methode aus welcher Klasse eigentlich dynamisch aufgerufen wird.
+#!<<
+
+ext:IrisSample [pe]
+nn:MultiLayerPerceptron[a]
+learningRule:MomentumBackPropagation
+
+ext:nn.NeuralNetwork::learn(trainingSet)
+nn:learningRule.IterativeLearning::learn(trainingSet)
+learningRule:learningRule.MomentumBackprogagration::onStart()
+[c: while(!isStopped)]
+  learningRule[1]:learningRule.SupervisedLearning::beforeEpoch
+  learningRule[1]:learningRule.SupervisedLearning::doLearningEpoch
+    [c: for(datarow : set)]
+      learningRule:learningRule.SupervisedLearning::learnPattern
+      learningRule:learningRule.SupervisedLearning::addToSquareSum
+      learningRule[1]:learningRule.BackPropagation::updateNetworkWeights(:double[])
+      learningRule:learningRule.SigmoidDeltaRule::calculateErrorAndUpdateOutputNeurons
+      learningRule:learningRule.MomentumBackpropagation::updateNeuronWeights(:Neuron)
+      learningRule[2]:learningRule.BackPropagation::calculateErrorAndUpdateHiddenNeurons
+      learningRule:learningRule.MomentumBackpropagation::updateNeuronWeights(:Neuron)
+    [/c]
+  learningRule[1]:learningRule.SupervisedLearning::afterLearningEpoch
+[/c]

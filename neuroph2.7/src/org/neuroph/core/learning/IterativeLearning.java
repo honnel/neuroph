@@ -215,7 +215,8 @@ abstract public class IterativeLearning extends LearningRule implements
         }
 	
 	/**
-	 * Override this method to implement specific learning epoch - one learning iteration, one pass through whole training set
+	 * Override this method to implement specific learning epoch - one learning
+	 * iteration, one pass through whole training set
 	 * 
 	 * @param trainingSet
 	 *            training set

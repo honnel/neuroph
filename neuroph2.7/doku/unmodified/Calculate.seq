@@ -1,0 +1,44 @@
+#![new MultiLayerPerceptron]
+#!>>
+#! Dieses Diagram beschreibt den Ablauf bei Stimulieren eines
+#! MultilayerPerceptrons mit einem Eingabewert.
+#!<<
+
+ext:IrisSample [a]
+nn:MultiLayerPerceptron[a]
+layer:Layer
+n:Neuron
+
+
+
+ext:nn.NeuralNetwork::setInput(:double[])
+[c: for every inputneuron n]
+  +1 n
+    this.netInput = input
+  +1
+  nn:n.Neuron::setInput(:double)
+  (1)n  
+[/c]
+
+ext:nn.NeuralNetwork::calculate
+[c: for every layer]
+  nn:layer.calculate
+  [c: for every neutron]
+    *2 n
+       Das Neuron ist hier entweder
+       ein InputNeuron oder ein Neuron
+    *2
+    nn:n.calculate
+    (2)n
+  [/c]
+[/c]
+
+ext:nn.getOutput()
+[c:for every outputneuron]
+  *3 nn
+    WTF? NeuralNetwork hat ein Attribut 'ouput'. 
+   Das wird hier befüllt und zurückgegen, jedes
+   mal das gleiche! Ansonsten hat es keinen Zweck. 
+  *3
+  nn:n.getOutut
+[/c]
