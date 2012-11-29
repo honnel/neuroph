@@ -97,7 +97,7 @@ public class NeuralNetwork implements Serializable {
      */
     public NeuralNetwork() {
         this.layers = new Layer[0];
-        this.plugins = new HashMap<>();
+        this.plugins = new HashMap<Class, PluginBase>();
     }
     
     /**

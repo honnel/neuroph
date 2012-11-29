@@ -20,8 +20,8 @@ import java.io.Serializable;
 import org.neuroph.core.events.LearningEvent;
 
 /**
- * Base class for all iterative learning algorithms.
- * It provides the iterative learning procedure for all of its subclasses.
+ * Base class for all iterative learning algorithms. It provides the iterative
+ * learning procedure for all of its subclasses.
  * 
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
@@ -29,9 +29,9 @@ abstract public class IterativeLearning extends LearningRule implements
 		Serializable {
 
 	/**
-	 * The class fingerprint that is set to indicate serialization 
-	 * compatibility with a previous version of the class
-	 */		
+	 * The class fingerprint that is set to indicate serialization compatibility
+	 * with a previous version of the class
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -43,11 +43,12 @@ abstract public class IterativeLearning extends LearningRule implements
 	 * Current iteration counter
 	 */
 	protected int currentIteration = 0;
-	
+
 	/**
-	 * Max training iterations (when to stopLearning training)
-         * TODO: this field should be private, to force use of setMaxIterations from derived classes, so
-         * iterationsLimited flag is also set at the sam etime.Wil that break backward compatibility with serialized networks?
+	 * Max training iterations (when to stopLearning training) TODO: this field
+	 * should be private, to force use of setMaxIterations from derived classes,
+	 * so iterationsLimited flag is also set at the sam etime.Wil that break
+	 * backward compatibility with serialized networks?
 	 */
 	protected int maxIterations = Integer.MAX_VALUE;
 
@@ -56,10 +57,10 @@ abstract public class IterativeLearning extends LearningRule implements
 	 */
 	protected boolean iterationsLimited = false;
 
-        /**
-         * Flag for indicating if learning thread is paused
-         */
-        private transient volatile boolean pausedLearning = false;
+	/**
+	 * Flag for indicating if learning thread is paused
+	 */
+	private transient volatile boolean pausedLearning = false;
 
 	/**
 	 * Creates new instance of IterativeLearning learning algorithm
@@ -86,7 +87,7 @@ abstract public class IterativeLearning extends LearningRule implements
 	public void setLearningRate(double learningRate) {
 		this.learningRate = learningRate;
 	}
-	
+
 	/**
 	 * Sets iteration limit for this learning algorithm
 	 * 
@@ -94,11 +95,11 @@ abstract public class IterativeLearning extends LearningRule implements
 	 *            iteration limit for this learning algorithm
 	 */
 	public void setMaxIterations(int maxIterations) {
-            if (maxIterations > 0) {
-		this.maxIterations = maxIterations;
-                this.iterationsLimited = true;
-            }
-	}	
+		if (maxIterations > 0) {
+			this.maxIterations = maxIterations;
+			this.iterationsLimited = true;
+		}
+	}
 
 	/**
 	 * Returns current iteration of this learning algorithm
@@ -109,111 +110,120 @@ abstract public class IterativeLearning extends LearningRule implements
 		return new Integer(this.currentIteration);
 	}
 
-        /**
-         * Returns true if learning thread is paused, false otherwise
-         * @return true if learning thread is paused, false otherwise
-         */
-        public boolean isPausedLearning() {
-            return pausedLearning;
-        }
+	/**
+	 * Returns true if learning thread is paused, false otherwise
+	 * 
+	 * @return true if learning thread is paused, false otherwise
+	 */
+	public boolean isPausedLearning() {
+		return pausedLearning;
+	}
 
-        /**
-         * Pause the learning
-         */
-        public void pause() {
-             this.pausedLearning = true;
-        }
+	/**
+	 * Pause the learning
+	 */
+	public void pause() {
+		this.pausedLearning = true;
+	}
 
-        /**
-         * Resumes the paused learning
-         */
-        public void resume() {
-            this.pausedLearning = false;
-            synchronized(this) {
-                 this.notify();
-            }
-        }
+	/**
+	 * Resumes the paused learning
+	 */
+	public void resume() {
+		this.pausedLearning = false;
+		synchronized (this) {
+			this.notify();
+		}
+	}
 
-       
-        /**
-         * This method is executed when learning starts, before the first epoch.
-         * Used for initialisation. 
-         */
-        @Override
-        protected void onStart() {
-            super.onStart();
-            this.currentIteration = 0;
-        }
-        
-        protected void beforeEpoch() {
-            
-        }
-        
-        protected void afterEpoch() {
-            
-        }
-    
+	/**
+	 * This method is executed when learning starts, before the first epoch.
+	 * Used for initialisation.
+	 */
+	@Override
+	protected void onStart() {
+		super.onStart();
+		this.currentIteration = 0;
+	}
 
-        @Override
-        final public void learn(DataSet trainingSet) {				
-               setTrainingSet(trainingSet); // set this field here su subclasses can access it 
-               onStart();
-                
-		while(!isStopped()) {
-                        beforeEpoch();
+	protected void beforeEpoch() {
+
+	}
+
+	protected void afterEpoch() {
+
+	}
+
+	@Override
+	final public void learn(DataSet trainingSet) {
+		setTrainingSet(trainingSet); // set this field here su subclasses can
+										// access it
+		onStart();
+
+		while (!isStopped()) {
+			beforeEpoch();
 			doLearningEpoch(trainingSet);
 			this.currentIteration++;
-                        afterEpoch();                        
-                        
-                        // todo: abstract stop condition - create abstract class or interface StopCondition
+			afterEpoch();
+
+			// todo: abstract stop condition - create abstract class or
+			// interface StopCondition
 			if (iterationsLimited && (currentIteration == maxIterations)) {
 				stopLearning();
-			} else if (!iterationsLimited && (currentIteration == Integer.MAX_VALUE)){
-                           // restart iteration counter since it has reached max value and iteration numer is not limited
-                           this.currentIteration = 1; 
-                        }
+			} else if (!iterationsLimited
+					&& (currentIteration == Integer.MAX_VALUE)) {
+				// restart iteration counter since it has reached max value and
+				// iteration numer is not limited
+				this.currentIteration = 1;
+			}
 
-			//this.notifyChange(); // notify observers
-                        fireLearningEvent(new LearningEvent(this)); // notify listeners
+			// this.notifyChange(); // notify observers
+			fireLearningEvent(new LearningEvent(this)); // notify listeners
 
-                        // Thread safe pause
-                        if (this.pausedLearning)
-                            synchronized (this) {
-                                while (this.pausedLearning) {
-                                    try {
-                                        this.wait();
-                                    }
-                                    catch (Exception e) { }
-                                }
-                        }
+			// Thread safe pause
+			if (this.pausedLearning)
+				synchronized (this) {
+					while (this.pausedLearning) {
+						try {
+							this.wait();
+						} catch (Exception e) {
+						}
+					}
+				}
 
 		}
 	}
 
-        /**
-         * Trains network for the specified training set and number of iterations
-         * @param trainingSet training set to learn
-         * @param maxIterations maximum numberof iterations to learn
-         *
-         */
-        public void learn(DataSet trainingSet, int maxIterations) {
-            this.setMaxIterations(maxIterations);
-            this.learn(trainingSet);
-        }
+	/**
+	 * Trains network for the specified training set and number of iterations
+	 * 
+	 * @param trainingSet
+	 *            training set to learn
+	 * @param maxIterations
+	 *            maximum numberof iterations to learn
+	 * 
+	 */
+	public void learn(DataSet trainingSet, int maxIterations) {
+		this.setMaxIterations(maxIterations);
+		this.learn(trainingSet);
+	}
 
-        /**
-         * Runs one learning iteration for the specified training set and notfies observers.
-         * This method does the the doLearningEpoch() and in addtion notifes observrs when iteration is done.
-         * @param trainingSet training set to learn
-         */
-        public void doOneLearningIteration(DataSet trainingSet) {
-            beforeEpoch();
-            this.doLearningEpoch(trainingSet);
-//            this.notifyChange(); // notify observers
-            fireLearningEvent(new LearningEvent(this)); // notify listeners
-            afterEpoch();
-        }
-	
+	/**
+	 * Runs one learning iteration for the specified training set and notfies
+	 * observers. This method does the the doLearningEpoch() and in addtion
+	 * notifes observrs when iteration is done.
+	 * 
+	 * @param trainingSet
+	 *            training set to learn
+	 */
+	public void doOneLearningIteration(DataSet trainingSet) {
+		beforeEpoch();
+		this.doLearningEpoch(trainingSet);
+		// this.notifyChange(); // notify observers
+		fireLearningEvent(new LearningEvent(this)); // notify listeners
+		afterEpoch();
+	}
+
 	/**
 	 * Override this method to implement specific learning epoch - one learning
 	 * iteration, one pass through whole training set
