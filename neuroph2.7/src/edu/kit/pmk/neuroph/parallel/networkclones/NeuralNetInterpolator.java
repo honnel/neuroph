@@ -1,4 +1,4 @@
-package edu.kit.pmk.neuroph.parallel.IrisClassificationSample;
+package edu.kit.pmk.neuroph.parallel.networkclones;
 
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.Weight;

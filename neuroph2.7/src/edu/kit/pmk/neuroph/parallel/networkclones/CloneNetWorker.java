@@ -1,4 +1,4 @@
-package edu.kit.pmk.neuroph.parallel.IrisClassificationSample;
+package edu.kit.pmk.neuroph.parallel.networkclones;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -7,13 +7,13 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-class ShadowNetWorker implements Runnable {
+class CloneNetWorker implements Runnable {
 
 	private CyclicBarrier barrier;
 	private NeuralNetwork net;
 	private DataSet[] runs;
 
-	public ShadowNetWorker(CyclicBarrier barrier, NeuralNetwork net,
+	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net,
 			DataSet set, int syncFrequency) {
 		this.barrier = barrier;
 		this.net = net;
