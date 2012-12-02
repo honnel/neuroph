@@ -1,4 +1,4 @@
-package edu.kit.pmk.neuroph.parallel.IrisClassificationSample;
+package edu.kit.pmk.neuroph.parallel.networkclones;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
