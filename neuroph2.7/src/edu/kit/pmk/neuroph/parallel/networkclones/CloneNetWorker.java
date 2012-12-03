@@ -26,10 +26,24 @@ class CloneNetWorker implements Runnable {
 		for (int k = 0; k < runs.length; k++)
 			runs[k] = new DataSet(set.getInputSize(), set.getOutputSize());
 		int i = 0;
+		
+		// gute aufteilung
 		for (DataSetRow row : set.getRows()) {
 			runs[i % numRuns].addRow(row);
 			i++;
 		}
+		
+		// boese aufteilung
+//		int counter = 0;
+//		for (DataSetRow row : set.getRows()) {
+//			runs[i % numRuns].addRow(row);
+//			counter++;
+//			if(counter==25) {
+//				counter = 0;
+//				i++;
+//			}
+//		}
+		
 	}
 
 	public NeuralNetwork getNeuralNetwork() {
