@@ -25,9 +25,8 @@ import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.LMS;
 
-import edu.kit.pmk.neuroph.eval.generality.GeneralityScore;
 import edu.kit.pmk.neuroph.eval.generality.TestAndTrainingSet;
-import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
+import edu.kit.pmk.neuroph.parallel.networksiblings.SiblingBasedConcurrentLearner;
 
 /**
  * This sample shows how to train MultiLayerPerceptron neural network for iris
@@ -57,19 +56,26 @@ public class IrisClassificationSample {
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 300, 3);
 		((LMS) neuralNet.getLearningRule()).setMaxIterations(100);
 
-		ClonebasedConcurrentLearner learner = new ClonebasedConcurrentLearner();
+		// ClonebasedConcurrentLearner learner = new
+		// ClonebasedConcurrentLearner();
+		SiblingBasedConcurrentLearner sibLearner = new SiblingBasedConcurrentLearner(
+				neuralNet, irisDataSet, 2, 8);
 		long t0 = System.currentTimeMillis();
+		sibLearner.learn();
 		// learner.learnParallel(2, 10, neuralNet, tats.getTrainingSet());
-		IrisClassificationSample irisLearner = new IrisClassificationSample();
-		irisLearner.learnSequential(neuralNet, tats.getTrainingSet());
+		// IrisClassificationSample irisLearner = new
+		// IrisClassificationSample();
+		// irisLearner.learnSequential(neuralNet, tats.getTrainingSet());
 		long t1 = System.currentTimeMillis();
 
 		System.err.println("Done training");
 		System.err.println("Training took " + (t1 - t0) + "ms.");
 		System.out.println("Testing network...");
-		// testNeuralNetwork(neuralNet, irisDataSet);
-		double error = GeneralityScore.trainAndCalculateError(neuralNet, irisDataSet, 0.5, 100);
-		System.out.println("Error with TestSet: " + error);
+//		testNeuralNetwork(neuralNet, irisDataSet);
+		
+		// double error = GeneralityScore.trainAndCalculateError(neuralNet,
+		// irisDataSet, 0.5, 100);
+		// System.out.println("Error with TestSet: " + error);
 	}
 
 	public void learnSequential(NeuralNetwork neuralNet, DataSet dataSet) {

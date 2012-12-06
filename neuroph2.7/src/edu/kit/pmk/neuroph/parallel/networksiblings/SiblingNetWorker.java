@@ -7,15 +7,16 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-class CloneNetWorker implements Runnable {
+class SiblingNetWorker implements Runnable {
 
 	private CyclicBarrier barrier;
+	private NeuralNetwork originalNet;
 	private NeuralNetwork net;
 	private DataSet[] runs;
 
-	public CloneNetWorker(CyclicBarrier barrier, DataSet set, int syncFrequency) {
+	public SiblingNetWorker(CyclicBarrier barrier, NeuralNetwork net, DataSet set, int syncFrequency) {
 		this.barrier = barrier;
-		this.net = net;
+		this.originalNet = net;
 		splitDataSetIntoRuns(set, syncFrequency);
 	}
 
@@ -55,7 +56,7 @@ class CloneNetWorker implements Runnable {
 
 	@Override
 	public void run() {
-//		this.net = ;
+		this.net = originalNet.clone();
 		for (int i = 0; i < runs.length; i++) {
 			net.learn(runs[i]);
 			try {
