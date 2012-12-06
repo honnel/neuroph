@@ -29,6 +29,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Two layer neural network with competitive learning rule.
  * 
@@ -95,6 +97,9 @@ public class CompetitiveNetwork extends NeuralNetwork {
 		NeuralNetworkFactory.setDefaultIO(this);
 
 		this.setLearningRule(new CompetitiveLearning());
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 
 }

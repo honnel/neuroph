@@ -26,6 +26,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Hebbian neural network with supervised Hebbian learning algorithm.
  * In order to work this network needs aditional bias neuron in input layer which is allways 1 in training set!
@@ -115,5 +117,8 @@ public class SupervisedHebbianNetwork extends NeuralNetwork {
 
 		// set appropriate learning rule for this network
 		this.setLearningRule(new SupervisedHebbianLearning());
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 }

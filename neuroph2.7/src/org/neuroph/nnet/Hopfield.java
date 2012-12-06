@@ -27,6 +27,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Hopfield neural network.
  * Notes: try to use [1, -1] activation levels, sgn as transfer function, or real numbers for activation
@@ -101,6 +103,9 @@ public class Hopfield extends NeuralNetwork {
 		// set Hopfield learning rule for this network
 		//this.setLearningRule(new HopfieldLearning(this));	
 		this.setLearningRule(new BinaryHebbianLearning());			
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 
 }

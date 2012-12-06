@@ -25,8 +25,7 @@ import org.neuroph.core.events.LearningEvent;
  * 
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
-abstract public class IterativeLearning extends LearningRule implements
-		Serializable {
+abstract public class IterativeLearning extends LearningRule implements Serializable {
 
 	/**
 	 * The class fingerprint that is set to indicate serialization compatibility
@@ -155,7 +154,7 @@ abstract public class IterativeLearning extends LearningRule implements
 	}
 
 	@Override
-	final public void learn(DataSet trainingSet) {
+	public void learn(DataSet trainingSet) {
 		setTrainingSet(trainingSet); // set this field here su subclasses can
 										// access it
 		onStart();
@@ -170,8 +169,7 @@ abstract public class IterativeLearning extends LearningRule implements
 			// interface StopCondition
 			if (iterationsLimited && (currentIteration == maxIterations)) {
 				stopLearning();
-			} else if (!iterationsLimited
-					&& (currentIteration == Integer.MAX_VALUE)) {
+			} else if (!iterationsLimited && (currentIteration == Integer.MAX_VALUE)) {
 				// restart iteration counter since it has reached max value and
 				// iteration numer is not limited
 				this.currentIteration = 1;

@@ -26,6 +26,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Instar neural network with Instar learning rule.
  * @author Zoran Sevarac <sevarac@gmail.com>
@@ -81,5 +83,8 @@ public class Instar extends NeuralNetwork {
 		// set appropriate learning rule for this network
 		this.setLearningRule(new InstarLearning());
 	}	
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
+	}
 	
 }

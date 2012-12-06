@@ -21,6 +21,8 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.transfer.Tanh;
 import org.neuroph.nnet.MultiLayerPerceptron;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Matrix based implementation of Multi LAyer Perceptron
  * @author Zoran Sevarac
@@ -80,7 +82,9 @@ public class MatrixMultiLayerPerceptron extends NeuralNetwork {
              return matrixLayers.length;
          }
 
-
+     	public NeuralNetwork clone() {
+    		throw new NotImplementedException();
+    	}
 }
 
 

@@ -26,6 +26,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Outstar neural network with Outstar learning rule.
  * @author Zoran Sevarac <sevarac@gmail.com>
@@ -83,5 +85,8 @@ public class Outstar extends NeuralNetwork {
 		// set outstar learning rule for this network
 		this.setLearningRule(new OutstarLearning());
 	}		
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
+	}
 	
 }

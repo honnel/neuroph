@@ -24,6 +24,8 @@ import org.neuroph.core.transfer.Linear;
 import org.neuroph.nnet.learning.KohonenLearning;
 import org.neuroph.util.*;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Kohonen neural network.
  * 
@@ -91,6 +93,9 @@ public class Kohonen extends NeuralNetwork {
 		NeuralNetworkFactory.setDefaultIO(this);
 
 		this.setLearningRule(new KohonenLearning());
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 
 }

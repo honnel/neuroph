@@ -27,6 +27,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Max Net neural network with competitive learning rule.
  * 
@@ -88,6 +90,9 @@ public class MaxNet extends NeuralNetwork {
 
 		// set input and output cells for this network
 		NeuralNetworkFactory.setDefaultIO(this);
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 
 }

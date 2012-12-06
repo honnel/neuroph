@@ -27,6 +27,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Perceptron neural network with some LMS based learning algorithm.
  *
@@ -122,6 +124,9 @@ public class Perceptron extends NeuralNetwork {
 //		} else {
 //			this.setLearningRule(new PerceptronLearning(this));
 //		}
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 
 }

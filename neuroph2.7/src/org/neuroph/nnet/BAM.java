@@ -27,6 +27,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Bidirectional Associative Memory
  * @author Zoran Sevarac <sevarac@gmail.com>
@@ -92,4 +94,7 @@ public class BAM extends NeuralNetwork {
 		// set Hebbian learning rule for this network
 		this.setLearningRule(new BinaryHebbianLearning());			
 	}		
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
+	}
 }

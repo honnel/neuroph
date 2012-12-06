@@ -23,6 +23,8 @@ import org.neuroph.core.transfer.Gaussian;
 import org.neuroph.nnet.learning.LMS;
 import org.neuroph.util.*;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Radial basis function neural network.
  * 
@@ -97,4 +99,7 @@ public class RbfNetwork extends NeuralNetwork {
 		this.setLearningRule(new LMS());
 	}
 
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
+	}
 }

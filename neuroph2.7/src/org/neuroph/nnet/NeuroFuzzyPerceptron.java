@@ -33,6 +33,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * The NeuroFuzzyReasoner class represents Neuro Fuzzy Reasoner architecture.
  * 
@@ -323,6 +325,9 @@ public class NeuroFuzzyPerceptron extends NeuralNetwork {
 		NeuralNetworkFactory.setDefaultIO(this);
 
 		this.setLearningRule(new LMS());
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 
 }

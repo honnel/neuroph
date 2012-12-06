@@ -26,6 +26,8 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Hebbian neural network with unsupervised Hebbian learning algorithm.
  * 
@@ -115,6 +117,9 @@ public class UnsupervisedHebbianNetwork extends NeuralNetwork {
 		// set appropriate learning rule for this network
 		this.setLearningRule(new UnsupervisedHebbianLearning());
 	//this.setLearningRule(new OjaLearning(this));
+	}
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
 	}
 }
 

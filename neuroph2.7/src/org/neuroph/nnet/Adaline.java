@@ -27,19 +27,22 @@ import org.neuroph.util.NeuralNetworkType;
 import org.neuroph.util.NeuronProperties;
 import org.neuroph.util.TransferFunctionType;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
- * Adaline neural network architecture with LMS learning rule.
- * Uses bias input, bipolar inputs [-1, 1] and ramp transfer function
- * It can be also created using binary inputs and linear transfer function,
- * but that dont works for some problems.
+ * Adaline neural network architecture with LMS learning rule. Uses bias input,
+ * bipolar inputs [-1, 1] and ramp transfer function It can be also created
+ * using binary inputs and linear transfer function, but that dont works for
+ * some problems.
+ * 
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class Adaline extends NeuralNetwork {
-	
+
 	/**
-	 * The class fingerprint that is set to indicate serialization
-	 * compatibility with a previous version of the class.
-	 */	
+	 * The class fingerprint that is set to indicate serialization compatibility
+	 * with a previous version of the class.
+	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -54,25 +57,28 @@ public class Adaline extends NeuralNetwork {
 	}
 
 	/**
-	 * Creates adaline network architecture with specified number of input neurons
+	 * Creates adaline network architecture with specified number of input
+	 * neurons
 	 * 
 	 * @param inputNeuronsCount
-         *              number of neurons in input layer
+	 *            number of neurons in input layer
 	 */
 	private void createNetwork(int inputNeuronsCount) {
 		// set network type code
 		this.setNetworkType(NeuralNetworkType.ADALINE);
-                
-                // create input layer neuron settings for this network
+
+		// create input layer neuron settings for this network
 		NeuronProperties inNeuronProperties = new NeuronProperties();
 		inNeuronProperties.setProperty("transferFunction", TransferFunctionType.LINEAR);
 
 		// createLayer input layer with specified number of neurons
 		Layer inputLayer = LayerFactory.createLayer(inputNeuronsCount, inNeuronProperties);
-                inputLayer.addNeuron(new BiasNeuron()); // add bias neuron (always 1, and it will act as bias input for output neuron)
+		inputLayer.addNeuron(new BiasNeuron()); // add bias neuron (always 1,
+												// and it will act as bias input
+												// for output neuron)
 		this.addLayer(inputLayer);
-                
-               // create output layer neuron settings for this network
+
+		// create output layer neuron settings for this network
 		NeuronProperties outNeuronProperties = new NeuronProperties();
 		outNeuronProperties.setProperty("transferFunction", TransferFunctionType.RAMP);
 		outNeuronProperties.setProperty("transferFunction.slope", new Double(1));
@@ -95,4 +101,7 @@ public class Adaline extends NeuralNetwork {
 		this.setLearningRule(new LMS());
 	}
 
+	public NeuralNetwork clone() {
+		throw new NotImplementedException();
+	}
 }
