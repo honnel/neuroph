@@ -25,6 +25,8 @@ import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.LMS;
 
+import edu.kit.pmk.neuroph.eval.generality.GeneralityScore;
+import edu.kit.pmk.neuroph.eval.generality.TestAndTrainingSet;
 import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
 
 /**
@@ -48,6 +50,8 @@ public class IrisClassificationSample {
 				.getResource("data/iris_data_normalised.txt").getFile();
 		// create training set from file
 		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
+		TestAndTrainingSet tats = TestAndTrainingSet.splitSetAndPermute(
+				irisDataSet, 0.5);
 
 		// create MultiLayerPerceptron neural network
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 300, 3);
@@ -55,14 +59,17 @@ public class IrisClassificationSample {
 
 		ClonebasedConcurrentLearner learner = new ClonebasedConcurrentLearner();
 		long t0 = System.currentTimeMillis();
-		learner.learnParallel(2, 10, neuralNet, irisDataSet);
-		// irisLearner.learnSequential(neuralNet, irisDataSet);
+		// learner.learnParallel(2, 10, neuralNet, tats.getTrainingSet());
+		IrisClassificationSample irisLearner = new IrisClassificationSample();
+		irisLearner.learnSequential(neuralNet, tats.getTrainingSet());
 		long t1 = System.currentTimeMillis();
 
 		System.err.println("Done training");
 		System.err.println("Training took " + (t1 - t0) + "ms.");
 		System.out.println("Testing network...");
-		testNeuralNetwork(neuralNet, irisDataSet);
+		// testNeuralNetwork(neuralNet, irisDataSet);
+		double error = GeneralityScore.trainAndCalculateError(neuralNet, irisDataSet, 0.5, 100);
+		System.out.println("Error with TestSet: " + error);
 	}
 
 	public void learnSequential(NeuralNetwork neuralNet, DataSet dataSet) {
