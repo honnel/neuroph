@@ -1,4 +1,4 @@
-package edu.kit.pmk.neuroph.parallel.networkclones;
+package edu.kit.pmk.neuroph.parallel.networksiblings;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -13,8 +13,7 @@ class CloneNetWorker implements Runnable {
 	private NeuralNetwork net;
 	private DataSet[] runs;
 
-	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net,
-			DataSet set, int syncFrequency) {
+	public CloneNetWorker(CyclicBarrier barrier, DataSet set, int syncFrequency) {
 		this.barrier = barrier;
 		this.net = net;
 		splitDataSetIntoRuns(set, syncFrequency);

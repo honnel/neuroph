@@ -1,0 +1,5 @@
+CloneBasedConcurrentLearner:
+Error with TestSet: -0.09695274234246298
+
+Sequentiell:
+Error with TestSet: -0.042901831343395924
