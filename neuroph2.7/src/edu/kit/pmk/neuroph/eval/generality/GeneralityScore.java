@@ -7,7 +7,8 @@ import org.neuroph.core.Neuron;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-import edu.kit.pmk.neuroph.parallel.networkclones.DeepCopy;
+//import edu.kit.pmk.neuroph.parallel.networkclones.DeepCopy;
+import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 public class GeneralityScore {
 
@@ -20,7 +21,8 @@ public class GeneralityScore {
 					dataSet, trainingSetRatio);
 			NeuralNetwork netClone = null;
 			try {
-				netClone = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNet);
+				//netClone = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNet);
+				netClone = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNet);
 			} catch (ClassNotFoundException e1) {
 				e1.printStackTrace();
 			} catch (IOException e1) {

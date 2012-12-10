@@ -3,14 +3,25 @@ package edu.kit.pmk.neuroph.parallel.networkclones;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 
 public class DeepCopy {
 
 	private DeepCopy() {
 	}
 
+	/**
+	 * Quote: http://javatechniques.com/blog/faster-deep-copies-of-java-objects/ Picture 6
+	 * 
+	 * Utility for making deep copies (vs. clone()'s shallow copies) of
+	 * objects. Objects are first serialized and then deserialized. Error
+	 * checking is fairly minimal in this implementation. If an object is
+	 * encountered that cannot be serialized (or that references an object
+	 * that cannot be serialized) an error is printed to System.err and
+	 * null is returned. Depending on your specific application, it might
+	 * make more sense to have copy(...) re-throw the exception.
+	 */
 	public static Object createDeepCopy(Object original) throws IOException,
 			ClassNotFoundException {
 		Object copy;

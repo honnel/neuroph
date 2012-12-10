@@ -73,7 +73,7 @@ public class ClonebasedConcurrentLearner {
 		nets[0] = neuralNet;
 		for (int i = 1; i < nets.length; i++) {
 			try {
-				nets[i] = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNet);
+				nets[i] = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNet);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
