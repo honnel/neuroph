@@ -24,6 +24,7 @@ public class DeepCopy {
 	 */
 	public static Object createDeepCopy(Object original) throws IOException,
 			ClassNotFoundException {
+		long t0 = System.currentTimeMillis();
 		Object copy;
 
 		// Write the object out to a byte array
@@ -39,6 +40,8 @@ public class DeepCopy {
 		copy = in.readObject();
 		in.close();
 
+		long t1 = System.currentTimeMillis();
+		System.out.println("Deep Copy took " + (t1-t0) + " ms.");
 		return copy;
 	}
 }

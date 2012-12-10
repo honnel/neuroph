@@ -12,9 +12,10 @@ import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 public class GeneralityScore {
 
-	public static double trainAndCalculateError(NeuralNetwork neuralNet,
+	public static Score trainAndCalculateError(NeuralNetwork neuralNet,
 			DataSet dataSet, double trainingSetRatio, int runs) {
 		double error = 0;
+		long t0 = System.currentTimeMillis();
 
 		for (int i = 0; i < runs; i++) {
 			TestAndTrainingSet tats = TestAndTrainingSet.splitSetAndPermute(
@@ -37,7 +38,9 @@ public class GeneralityScore {
 //			}
 			error += calculateError(neuralNet, tats.getTestSet());
 		}
-		return error / runs;
+		long time = System.currentTimeMillis() - t0;
+		error =  error / runs;
+		return new Score(error, time);
 	}
 
 	private static double calculateError(NeuralNetwork neuralNet,
