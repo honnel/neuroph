@@ -1,41 +1,29 @@
 package edu.kit.pmk.neuroph.parallel.networksiblings;
 
+import java.io.IOException;
 import java.util.concurrent.CyclicBarrier;
 
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-public class SiblingBasedConcurrentLearner {
+import edu.kit.pmk.neuroph.parallel.ILearner;
+import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
+
+public class SiblingBasedConcurrentLearner implements ILearner {
 
 	private NeuralNetwork neuralNet;
-	private DataSet dataSet;
 	private int numThreads;
 	private int syncFrequency;
 	private SiblingNetWorker[] workers;
+	private NeuralNetwork originalNet;
 
 	public SiblingBasedConcurrentLearner(NeuralNetwork neuralNet,
-			DataSet dataSet, int numThreads, int syncFrequency) {
-		this.neuralNet = neuralNet;
-		this.dataSet = dataSet;
+			int numThreads, int syncFrequency) {
+		this.originalNet = neuralNet;
 		this.numThreads = numThreads;
 		this.syncFrequency = syncFrequency;
-
-		DataSet[] dataSets = splitDataSet(numThreads, dataSet);
-
-		final NeuralNetInterpolator interpolator = new NeuralNetInterpolator();
-		final CyclicBarrier barrier = new CyclicBarrier(numThreads,
-				new Runnable() {
-
-					@Override
-					public void run() {
-						interpolator.interpolateWeights();
-						// System.out.println("Interpolate. Current time is "
-						// + (System.currentTimeMillis() - t0) + "ms.");
-					}
-				});
-		workers = initializeWorkers(syncFrequency, dataSets, barrier);
-		interpolator.setWorkers(workers);
+		resetToUnlearnedState();
 	}
 
 	/**
@@ -56,9 +44,34 @@ public class SiblingBasedConcurrentLearner {
 	 * @param dataSet
 	 * @throws InterruptedException
 	 */
-	public void learn() throws InterruptedException {
+	@Override
+	public void learn(DataSet trainingSet) {
+		DataSet[] dataSets = splitDataSet(numThreads, trainingSet);
+
+		final NeuralNetInterpolator interpolator = new NeuralNetInterpolator();
+		final CyclicBarrier barrier = new CyclicBarrier(numThreads,
+				new Runnable() {
+
+					@Override
+					public void run() {
+						interpolator.interpolateWeights();
+						// System.out.println("Interpolate. Current time is "
+						// + (System.currentTimeMillis() - t0) + "ms.");
+					}
+				});
+
+		workers = initializeWorkers(syncFrequency, dataSets, barrier);
+		interpolator.setWorkers(workers);
 		Thread[] threads = startWorkers(workers);
-		waitForWorkersCompletion(threads);
+		try {
+			waitForWorkersCompletion(threads);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public SiblingNetWorker[] getCloneNetWorkers() {
+		return workers;
 	}
 
 	private DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
@@ -73,13 +86,6 @@ public class SiblingBasedConcurrentLearner {
 			rowIndex++;
 		}
 		return dataSets;
-	}
-
-	private void waitForWorkersCompletion(Thread[] workers)
-			throws InterruptedException {
-		for (int i = 0; i < workers.length; i++) {
-			workers[i].join();
-		}
 	}
 
 	private SiblingNetWorker[] initializeWorkers(int syncFrequency,
@@ -101,7 +107,26 @@ public class SiblingBasedConcurrentLearner {
 		return threads;
 	}
 
-	public SiblingNetWorker[] getCloneNetWorkers() {
-		return workers;
+	private void waitForWorkersCompletion(Thread[] workers)
+			throws InterruptedException {
+		for (int i = 0; i < workers.length; i++) {
+			workers[i].join();
+		}
+	}
+
+	@Override
+	public void resetToUnlearnedState() {
+		try {
+			this.neuralNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public NeuralNetwork getNeuralNetwork() {
+		return neuralNet;
 	}
 }

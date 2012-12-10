@@ -26,6 +26,7 @@ import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.LMS;
 
 import edu.kit.pmk.neuroph.eval.generality.TestAndTrainingSet;
+import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
 import edu.kit.pmk.neuroph.parallel.networksiblings.SiblingBasedConcurrentLearner;
 
 /**
@@ -54,25 +55,27 @@ public class IrisClassificationSample {
 
 		// create MultiLayerPerceptron neural network
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 300, 3);
-		((LMS) neuralNet.getLearningRule()).setMaxIterations(100);
+		((LMS) neuralNet.getLearningRule()).setMaxIterations(1000);
 
-		// ClonebasedConcurrentLearner learner = new
-		// ClonebasedConcurrentLearner();
-		SiblingBasedConcurrentLearner sibLearner = new SiblingBasedConcurrentLearner(
-				neuralNet, irisDataSet, 2, 8);
 		long t0 = System.currentTimeMillis();
-		sibLearner.learn();
-		// learner.learnParallel(2, 10, neuralNet, tats.getTrainingSet());
-		// IrisClassificationSample irisLearner = new
-		// IrisClassificationSample();
-		// irisLearner.learnSequential(neuralNet, tats.getTrainingSet());
+//		 ClonebasedConcurrentLearner learner = new
+//		 ClonebasedConcurrentLearner();
+//		 learner.learn(2, 8, neuralNet, tats.getTrainingSet());
+
+//		 SiblingBasedConcurrentLearner sibLearner = new
+//		 SiblingBasedConcurrentLearner(
+//		 neuralNet, irisDataSet, 2, 8);
+//		 sibLearner.learn();
+
+//		IrisClassificationSample irisLearner = new IrisClassificationSample();
+//		irisLearner.learnSequential(neuralNet, tats.getTrainingSet());
 		long t1 = System.currentTimeMillis();
 
 		System.err.println("Done training");
 		System.err.println("Training took " + (t1 - t0) + "ms.");
 		System.out.println("Testing network...");
-//		testNeuralNetwork(neuralNet, irisDataSet);
-		
+		// testNeuralNetwork(neuralNet, irisDataSet);
+
 		// double error = GeneralityScore.trainAndCalculateError(neuralNet,
 		// irisDataSet, 0.5, 100);
 		// System.out.println("Error with TestSet: " + error);

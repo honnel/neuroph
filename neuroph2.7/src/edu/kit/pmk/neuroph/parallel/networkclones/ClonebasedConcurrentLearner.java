@@ -7,7 +7,23 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-public class ClonebasedConcurrentLearner {
+import edu.kit.pmk.neuroph.parallel.ILearner;
+
+public class ClonebasedConcurrentLearner implements ILearner{
+	
+	private int numThreads;
+	private int syncFrequency;
+	private NeuralNetwork originalNet;
+	private NeuralNetwork neuralNet;
+	
+	public ClonebasedConcurrentLearner(int numTheads, int syncFrequency,
+			NeuralNetwork neuralNet) {
+		this.numThreads = numTheads;
+		this.syncFrequency = syncFrequency;
+		this.originalNet = neuralNet;
+		resetToUnlearnedState();
+	}
+
 	
 	/**
 	 * Trains the network with <tt>numThreads</tt> threads concurrently. The
@@ -27,9 +43,7 @@ public class ClonebasedConcurrentLearner {
 	 * @param dataSet
 	 * @throws InterruptedException
 	 */
-	public void learnParallel(int numThreads, int syncFrequency,
-			NeuralNetwork neuralNet, DataSet dataSet)
-			throws InterruptedException {
+	public void learn(DataSet dataSet) {
 		NeuralNetwork[] nets = createNeuralNetworkClones(numThreads, neuralNet);
 
 		DataSet[] dataSets = splitDataSet(numThreads, dataSet);
@@ -50,7 +64,11 @@ public class ClonebasedConcurrentLearner {
 
 		Thread[] workers = initializeAndStartWorkers(syncFrequency, dataSets,
 				nets, barrier);
-		waitForWorkersCompletion(workers);
+		try {
+			waitForWorkersCompletion(workers);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
@@ -73,7 +91,7 @@ public class ClonebasedConcurrentLearner {
 		nets[0] = neuralNet;
 		for (int i = 1; i < nets.length; i++) {
 			try {
-				nets[i] = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNet);
+				nets[i] = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNet);
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -102,5 +120,23 @@ public class ClonebasedConcurrentLearner {
 			workers[i].start();
 		}
 		return workers;
+	}
+
+
+	@Override
+	public void resetToUnlearnedState() {
+		try {
+			this.neuralNet =  (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public NeuralNetwork getNeuralNetwork() {
+		return neuralNet;
 	}
 }
