@@ -21,24 +21,7 @@ public class FastDeepCopy {
 	 * make more sense to have copy(...) re-throw the exception.
 	 */
 	public static Object createDeepCopy(Object original) throws IOException,
-			ClassNotFoundException {
-//		Object copy;
-//
-//		// Write the object out to a byte array
-//		ByteArrayOutputStream bos = new ByteArrayOutputStream();
-//		ObjectOutputStream out = new ObjectOutputStream(bos);
-//		out.writeObject(original);
-//		out.close();
-//
-//		// Make an input stream from the byte array and read
-//		// a copy of the object back in.
-//		ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(
-//				bos.toByteArray()));
-//		copy = in.readObject();
-//		in.close();
-//
-//		return copy;
-		
+			ClassNotFoundException {		
 		Object obj = null;
         try {
             // Write the object out to a byte array
