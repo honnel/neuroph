@@ -28,7 +28,7 @@ import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.core.learning.SupervisedLearning;
 
-import edu.kit.pmk.neuroph.parallel.networkclones.DeepCopy;
+import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 /**
  * Backpropagation learning rule with momentum.
@@ -184,7 +184,7 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		@Override
 		public void run() {
 			try {
-				this.clone = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNetwork);
+				this.clone = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNetwork);
 			} catch (ClassNotFoundException | IOException e1) {
 				e1.printStackTrace();
 				System.exit(1);
