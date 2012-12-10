@@ -58,9 +58,9 @@ public class IrisClassificationSample {
 		((LMS) neuralNet.getLearningRule()).setMaxIterations(1000);
 
 		long t0 = System.currentTimeMillis();
-		 ClonebasedConcurrentLearner learner = new
-		 ClonebasedConcurrentLearner();
-		 learner.learnParallel(2, 8, neuralNet, tats.getTrainingSet());
+//		 ClonebasedConcurrentLearner learner = new
+//		 ClonebasedConcurrentLearner();
+//		 learner.learn(2, 8, neuralNet, tats.getTrainingSet());
 
 //		 SiblingBasedConcurrentLearner sibLearner = new
 //		 SiblingBasedConcurrentLearner(
