@@ -15,6 +15,9 @@
  */
 package org.neuroph.nnet.learning;
 
+import java.io.IOException;
+import java.util.concurrent.CyclicBarrier;
+
 import org.neuroph.core.Connection;
 import org.neuroph.core.Layer;
 import org.neuroph.core.NeuralNetwork;
@@ -23,11 +26,13 @@ import org.neuroph.core.Weight;
 import org.neuroph.core.events.LearningEvent;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
+import org.neuroph.core.learning.SupervisedLearning;
+
+import edu.kit.pmk.neuroph.parallel.networkclones.DeepCopy;
 
 /**
  * Backpropagation learning rule with momentum.
  * 
- * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class BatchParallelMomentumBackpropagation extends MomentumBackpropagation {
 
@@ -59,8 +64,10 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 
 		BatchWorker[] workers = new BatchWorker[threads];
 		DataSet[] trainingParts = splitDataSet(threads, trainingSet);
+		CyclicBarrier barrier = new CyclicBarrier(threads, new WeightInterpolator(workers, neuralNetwork, trainingSet.size()));
+
 		for (int i = 0; i < threads; i++) {
-			workers[i] = new BatchWorker(i, trainingParts[i]);
+			workers[i] = new BatchWorker(i, trainingParts[i], barrier);
 			workers[i].start();
 		}
 		try {
@@ -163,22 +170,44 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		private final int threadId;
 		private NeuralNetwork clone;
 		private int currentIteration;
+		private final CyclicBarrier barrier;
 
-		public BatchWorker(int threadId, DataSet dataSet) {
+		private Weight[][][] lastWeights;
+
+		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier) {
 			this.trainingSet = dataSet;
 			this.threadId = threadId;
+			this.barrier = barrier;
 			currentIteration = 0;
 		}
 
 		@Override
 		public void run() {
-			this.clone = BatchParallelMomentumBackpropagation.this.neuralNetwork.clone();
+			try {
+				this.clone = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNetwork);
+			} catch (ClassNotFoundException | IOException e1) {
+				e1.printStackTrace();
+				System.exit(1);
+			}
+			this.clone.setLearningRule(new BatchParallelSlave());
+			((LMS) clone.getLearningRule()).setMaxIterations(1);
+			((SupervisedLearning) clone.getLearningRule()).setBatchMode(true);
 
 			while (!isStopped()) {
-				beforeEpoch();
-				doLearningEpoch(trainingSet);
+				clone.learn(trainingSet);
 				this.currentIteration++;
-				afterEpoch();
+				lastWeights = extractWeights();
+				try {
+					barrier.wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				if (!isStopped()) {
+					copyBackNeuronWeights();
+				}
+				// beforeEpoch();
+				// doLearningEpoch(trainingSet);
+				// afterEpoch();
 
 				// todo: abstract stop condition - create abstract class or
 				// interface StopCondition
@@ -192,9 +221,77 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 				}
 
 				fireLearningEvent(new LearningEvent(BatchParallelMomentumBackpropagation.this)); // notify
-																									// listeners
-
 			}
+		}
+
+		private void copyBackNeuronWeights() {
+			final Layer[] layers = clone.getLayers();
+			for (int i = 0; i < layers.length; i++) {
+				final Neuron[] neurons = layers[i].getNeurons();
+				for (int j = 0; j < neurons.length; j++) {
+					final Weight[] weights = neurons[j].getWeights();
+					for (int k = 0; k < weights.length; k++) {
+						weights[k].weightChange = 0.0;
+						weights[k].value = neuralNetwork.getLayerAt(i).getNeuronAt(j).getWeights()[k].value;
+					}
+				}
+			}
+		}
+
+		private Weight[][][] extractWeights() {
+
+			Weight[][][] neuronWeights = new Weight[clone.getLayers().length][][];
+			int idx = 0;
+			for (Layer l : clone.getLayers()) {
+				neuronWeights[idx] = new Weight[l.getNeuronsCount()][];
+				for (int i = 0; i < l.getNeuronsCount(); i++) {
+					neuronWeights[idx][i] = l.getNeuronAt(i).getWeights();
+				}
+				idx++;
+			}
+			return neuronWeights;
+		}
+
+		public Weight[][][] getWeights() {
+			return this.lastWeights;
+		}
+
+		protected double getTotalError() {
+			return ((BatchParallelSlave) clone.getLearningRule()).getTotalNetworkError();
+		}
+	}
+
+	class WeightInterpolator implements Runnable {
+
+		private final BatchWorker[] workers;
+		private final NeuralNetwork sharedNet;
+		private final int trainingSetSize;
+
+		public WeightInterpolator(BatchWorker[] worker, NeuralNetwork sharedNet, int trainingSetSize) {
+			this.workers = worker;
+			this.sharedNet = sharedNet;
+			this.trainingSetSize = trainingSetSize;
+		}
+
+		@Override
+		public void run() {
+			double totalError = 0.0;
+			for (BatchWorker w : workers) {
+				totalError += w.getTotalError();
+			}
+			totalError /= trainingSetSize;
+			if (totalError < BatchParallelMomentumBackpropagation.this.maxError) {
+				stopLearning();
+			}
+			for (int w = 0; w < workers.length; w++) {
+				Weight[][][] weights = workers[w].getWeights();
+				for (int i = 0; i < weights.length; i++)
+					for (int j = 0; j < weights[i].length; j++)
+						for (int k = 0; k < weights[i][j].length; k++) {
+							sharedNet.getLayerAt(i).getNeuronAt(j).getWeights()[k].value += weights[i][j][k].weightChange;
+						}
+			}
+
 		}
 	}
 }
