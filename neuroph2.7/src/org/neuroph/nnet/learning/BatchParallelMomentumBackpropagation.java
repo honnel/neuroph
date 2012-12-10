@@ -16,6 +16,7 @@
 package org.neuroph.nnet.learning;
 
 import java.io.IOException;
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 import org.neuroph.core.Connection;
@@ -198,10 +199,11 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 				this.currentIteration++;
 				lastWeights = extractWeights();
 				try {
-					barrier.wait();
-				} catch (InterruptedException e) {
+					barrier.await();
+				} catch (InterruptedException | BrokenBarrierException e) {
 					e.printStackTrace();
 				}
+
 				if (!isStopped()) {
 					copyBackNeuronWeights();
 				}
@@ -221,6 +223,7 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 				}
 
 				fireLearningEvent(new LearningEvent(BatchParallelMomentumBackpropagation.this)); // notify
+				System.out.println("Stopped after iterations: " + currentIteration);
 			}
 		}
 
