@@ -6,6 +6,8 @@ import java.util.concurrent.CyclicBarrier;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
+import org.neuroph.nnet.MultiLayerPerceptron;
+import org.neuroph.nnet.learning.LMS;
 
 class SiblingNetWorker implements Runnable {
 
@@ -57,6 +59,9 @@ class SiblingNetWorker implements Runnable {
 	@Override
 	public void run() {
 		this.net = originalNet.clone();
+		((LMS) net.getLearningRule()).setMaxIterations(1000);
+		// net = new MultiLayerPerceptron(4, 300, 3);
+		// ((LMS) net.getLearningRule()).setMaxIterations(1000);
 		for (int i = 0; i < runs.length; i++) {
 			net.learn(runs[i]);
 			try {

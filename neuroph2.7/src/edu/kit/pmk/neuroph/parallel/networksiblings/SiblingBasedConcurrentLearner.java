@@ -61,6 +61,10 @@ public class SiblingBasedConcurrentLearner {
 		waitForWorkersCompletion(threads);
 	}
 
+	public SiblingNetWorker[] getCloneNetWorkers() {
+		return workers;
+	}
+
 	private DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
 		DataSet[] dataSets = new DataSet[numSubsets];
 		for (int i = 0; i < dataSets.length; i++) {
@@ -73,13 +77,6 @@ public class SiblingBasedConcurrentLearner {
 			rowIndex++;
 		}
 		return dataSets;
-	}
-
-	private void waitForWorkersCompletion(Thread[] workers)
-			throws InterruptedException {
-		for (int i = 0; i < workers.length; i++) {
-			workers[i].join();
-		}
 	}
 
 	private SiblingNetWorker[] initializeWorkers(int syncFrequency,
@@ -101,7 +98,10 @@ public class SiblingBasedConcurrentLearner {
 		return threads;
 	}
 
-	public SiblingNetWorker[] getCloneNetWorkers() {
-		return workers;
+	private void waitForWorkersCompletion(Thread[] workers)
+			throws InterruptedException {
+		for (int i = 0; i < workers.length; i++) {
+			workers[i].join();
+		}
 	}
 }
