@@ -16,9 +16,9 @@ public class ClonebasedConcurrentLearner implements ILearner{
 	private NeuralNetwork originalNet;
 	private NeuralNetwork neuralNet;
 	
-	public ClonebasedConcurrentLearner(int numTheads, int syncFrequency,
+	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency,
 			NeuralNetwork neuralNet) {
-		this.numThreads = numTheads;
+		this.numThreads = numThreads;
 		this.syncFrequency = syncFrequency;
 		this.originalNet = neuralNet;
 		resetToUnlearnedState();
@@ -138,5 +138,11 @@ public class ClonebasedConcurrentLearner implements ILearner{
 	@Override
 	public NeuralNetwork getNeuralNetwork() {
 		return neuralNet;
+	}
+
+
+	@Override
+	public int getNumberOfThreads() {
+		return numThreads;
 	}
 }

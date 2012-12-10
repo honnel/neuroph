@@ -25,7 +25,7 @@ import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.LMS;
 
-import edu.kit.pmk.neuroph.eval.generality.TestAndTrainingSet;
+import edu.kit.pmk.neuroph.eval.TestAndTrainingSet;
 import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
 import edu.kit.pmk.neuroph.parallel.networksiblings.SiblingBasedConcurrentLearner;
 

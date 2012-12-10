@@ -18,11 +18,11 @@ public class SiblingBasedConcurrentLearner implements ILearner {
 	private SiblingNetWorker[] workers;
 	private NeuralNetwork originalNet;
 
-	public SiblingBasedConcurrentLearner(NeuralNetwork neuralNet,
-			int numThreads, int syncFrequency) {
-		this.originalNet = neuralNet;
+	public SiblingBasedConcurrentLearner(int numThreads, int syncFrequency,
+			NeuralNetwork neuralNet) {
 		this.numThreads = numThreads;
 		this.syncFrequency = syncFrequency;
+		this.originalNet = neuralNet;
 		resetToUnlearnedState();
 	}
 
@@ -117,7 +117,8 @@ public class SiblingBasedConcurrentLearner implements ILearner {
 	@Override
 	public void resetToUnlearnedState() {
 		try {
-			this.neuralNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+			this.neuralNet = (NeuralNetwork) FastDeepCopy
+					.createDeepCopy(originalNet);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -128,5 +129,10 @@ public class SiblingBasedConcurrentLearner implements ILearner {
 	@Override
 	public NeuralNetwork getNeuralNetwork() {
 		return neuralNet;
+	}
+
+	@Override
+	public int getNumberOfThreads() {
+		return numThreads;
 	}
 }

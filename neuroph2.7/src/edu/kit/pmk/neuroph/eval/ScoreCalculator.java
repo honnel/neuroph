@@ -1,19 +1,15 @@
-package edu.kit.pmk.neuroph.eval.generality;
-
-import java.io.IOException;
+package edu.kit.pmk.neuroph.eval;
 
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.Neuron;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-//import edu.kit.pmk.neuroph.parallel.networkclones.DeepCopy;
 import edu.kit.pmk.neuroph.parallel.ILearner;
-import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
-public class GeneralityScore {
+public class ScoreCalculator {
 
-	public static Score trainAndCalculateError(ILearner learner,
+	public static Score trainAndCalculateOnPermutedSet(ILearner learner,
 			DataSet dataSet, double trainingSetRatio, int runs) {
 		double error = 0;
 		long t0 = System.currentTimeMillis();
@@ -21,22 +17,8 @@ public class GeneralityScore {
 		for (int i = 0; i < runs; i++) {
 			TestAndTrainingSet tats = TestAndTrainingSet.splitSetAndPermute(
 					dataSet, trainingSetRatio);
-//			try {
-//				//netClone = (NeuralNetwork) DeepCopy.createDeepCopy(neuralNet);
-//				netClone = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNet);
-//			} catch (ClassNotFoundException e1) {
-//				e1.printStackTrace();
-//			} catch (IOException e1) {
-//				e1.printStackTrace();
-//			}
 			learner.resetToUnlearnedState();
 			learner.learn(tats.getTrainingSet());
-//			ClonebasedConcurrentLearner ccl = new ClonebasedConcurrentLearner();
-//			try {
-//				ccl.learnParallel(2, 8, netClone, tats.getTrainingSet());
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
 			error += calculateError(learner, tats.getTestSet());
 		}
 		long time = System.currentTimeMillis() - t0;

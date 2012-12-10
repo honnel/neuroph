@@ -1,4 +1,4 @@
-package edu.kit.pmk.neuroph.eval.generality;
+package edu.kit.pmk.neuroph.eval;
 
 import org.neuroph.core.learning.DataSet;
 

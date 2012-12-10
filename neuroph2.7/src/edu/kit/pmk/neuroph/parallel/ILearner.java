@@ -10,4 +10,6 @@ public interface ILearner {
 	public void resetToUnlearnedState();
 	
 	public NeuralNetwork getNeuralNetwork();
+	
+	public int getNumberOfThreads();
 }
