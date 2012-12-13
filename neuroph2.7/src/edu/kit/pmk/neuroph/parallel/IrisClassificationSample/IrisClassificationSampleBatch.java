@@ -40,7 +40,7 @@ public class IrisClassificationSampleBatch {
         
         // create MultiLayerPerceptron neural network
         MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 16, 3);
-        neuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(16));
+        neuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(15));
         // create training set from file
         DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
         // train the network with training set

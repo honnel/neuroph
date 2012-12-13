@@ -289,8 +289,8 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 			for (BatchWorker w : workers) {
 				totalError += w.getTotalError();
 			}
-			System.out.println("fehler: " + totalError);
 			totalError /= (double)workers.length;
+			System.out.println("fehler: " + totalError);
 			if (totalError < BatchParallelMomentumBackpropagation.this.maxError) {
 				stopLearning();
 			}

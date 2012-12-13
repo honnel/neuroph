@@ -21,8 +21,5 @@ public class BatchParallelSlave extends MomentumBackpropagation {
 		beforeEpoch();
 		doLearningEpoch(trainingSet);
 		this.currentIteration++;
-		// this.notifyChange(); // notify observers
-		fireLearningEvent(new LearningEvent(this)); // notify listeners
-
 	}
 }
