@@ -69,6 +69,7 @@ public class ClonebasedConcurrentLearner implements ILearner{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		this.neuralNet = nets[0];
 	}
 
 	private DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
