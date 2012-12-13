@@ -1,14 +1,28 @@
 package org.neuroph.nnet.learning;
 
+import org.neuroph.core.events.LearningEvent;
+import org.neuroph.core.learning.DataSet;
+
 public class BatchParallelSlave extends MomentumBackpropagation {
 
+	private boolean onStartCalled = false;
+
+
+
 	@Override
-	protected void afterEpoch() {
-		super.afterEpoch();
+	public void setTrainingSet(DataSet trainingSet) {
+		super.setTrainingSet(trainingSet);
+		super.onStart();
 	}
 
-	protected void updateWeights() {
-		
-	}
+	@Override
+	public void learn(DataSet trainingSet) {
 
+		beforeEpoch();
+		doLearningEpoch(trainingSet);
+		this.currentIteration++;
+		// this.notifyChange(); // notify observers
+		fireLearningEvent(new LearningEvent(this)); // notify listeners
+
+	}
 }
