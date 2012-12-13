@@ -33,9 +33,9 @@ public class ScoreCalculatorSuite {
 				numThreads, syncFrequency, neuralNet);
 		NeuralNetworkWrapper mlp = new NeuralNetworkWrapper(neuralNet, 1);
 
-//		System.out.println("Clonebased: "
-//				+ ScoreCalculator.trainAndCalculateOnPermutedSet(ccl, irisDataSet,
-//						trainingSetRatio, runs));
+		System.out.println("Clonebased: "
+				+ ScoreCalculator.trainAndCalculateOnPermutedSet(ccl, irisDataSet,
+						trainingSetRatio, runs));
 		System.out.println("Siblingbased: "
 				+ ScoreCalculator.trainAndCalculateOnPermutedSet(sbl, irisDataSet,
 						trainingSetRatio, runs));
