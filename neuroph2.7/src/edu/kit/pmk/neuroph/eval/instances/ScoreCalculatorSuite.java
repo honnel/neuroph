@@ -4,6 +4,7 @@ import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.LMS;
 
+import edu.kit.pmk.neuroph.eval.Score;
 import edu.kit.pmk.neuroph.eval.ScoreCalculator;
 import edu.kit.pmk.neuroph.parallel.NeuralNetworkWrapper;
 import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
@@ -32,16 +33,16 @@ public class ScoreCalculatorSuite {
 		SiblingBasedConcurrentLearner sbl = new SiblingBasedConcurrentLearner(
 				numThreads, syncFrequency, neuralNet);
 		NeuralNetworkWrapper mlp = new NeuralNetworkWrapper(neuralNet, 1);
+		
+		
+		NeuralNetworkWrapper parallelBatchRule = new NeuralNetworkWrapper(neuralNet, 2);
 
-//		System.out.println("Clonebased: "
-//				+ ScoreCalculator.trainAndCalculateOnPermutedSet(ccl, irisDataSet,
-//						trainingSetRatio, runs));
-		System.out.println("Siblingbased: "
-				+ ScoreCalculator.trainAndCalculateOnPermutedSet(sbl, irisDataSet,
-						trainingSetRatio, runs));
-		System.out.println("Sequential MLP: "
-				+ ScoreCalculator.trainAndCalculateOnPermutedSet(mlp, irisDataSet,
-						trainingSetRatio, runs));
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
+				irisDataSet, trainingSetRatio, runs, ccl, sbl, mlp);
+
+		System.out.println("Clonebased: " + scores[0]);
+		System.out.println("Siblingbased: " + scores[1]);
+		System.out.println("Sequential MLP: " + scores[2]);
 	}
 
 }

@@ -1,13 +1,17 @@
 package edu.kit.pmk.neuroph.eval;
 
+import edu.kit.pmk.neuroph.parallel.ILearner;
+
 public class Score {
 
-	public final double error;
-	public final long time;
+	public double error;
+	public long time;
+	public final ILearner learner;
 
-	public Score(double error, long time) {
+	public Score(double error, long time, ILearner learner) {
 		this.error = error;
 		this.time = time;
+		this.learner = learner;
 	}
 
 	@Override
