@@ -15,13 +15,12 @@ import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 class SiblingNetWorker implements Runnable {
 
 	private CyclicBarrier barrier;
-	private NeuralNetwork originalNet;
 	private NeuralNetwork net;
 	private DataSet[] runs;
 
 	public SiblingNetWorker(CyclicBarrier barrier, NeuralNetwork net, DataSet set, int syncFrequency) {
 		this.barrier = barrier;
-		this.originalNet = net;
+		this.net = net;
 		splitDataSetIntoRuns(set, syncFrequency);
 	}
 
@@ -62,7 +61,7 @@ class SiblingNetWorker implements Runnable {
 	@Override
 	public void run() {
 		try {
-			this.net = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+			this.net = (NeuralNetwork) FastDeepCopy.createDeepCopy(net);
 		} catch (ClassNotFoundException | IOException e1) {
 			e1.printStackTrace();
 		}
