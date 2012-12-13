@@ -68,6 +68,7 @@ public class SiblingBasedConcurrentLearner implements ILearner {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		this.neuralNet = workers[0].getNeuralNetwork();
 	}
 
 	public SiblingNetWorker[] getCloneNetWorkers() {
