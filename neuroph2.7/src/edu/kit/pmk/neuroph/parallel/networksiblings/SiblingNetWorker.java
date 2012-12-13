@@ -1,5 +1,6 @@
 package edu.kit.pmk.neuroph.parallel.networksiblings;
 
+import java.io.IOException;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -8,6 +9,8 @@ import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.LMS;
+
+import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 class SiblingNetWorker implements Runnable {
 
@@ -58,8 +61,13 @@ class SiblingNetWorker implements Runnable {
 
 	@Override
 	public void run() {
-		this.net = originalNet.clone();
-		((LMS) net.getLearningRule()).setMaxIterations(1000);
+		try {
+			this.net = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+		} catch (ClassNotFoundException | IOException e1) {
+			e1.printStackTrace();
+		}
+//		this.net = originalNet.clone();
+//		((LMS) net.getLearningRule()).setMaxIterations(1000);
 		// net = new MultiLayerPerceptron(4, 300, 3);
 		// ((LMS) net.getLearningRule()).setMaxIterations(1000);
 		for (int i = 0; i < runs.length; i++) {

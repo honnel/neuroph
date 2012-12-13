@@ -1,0 +1,8 @@
+ScoreCalculatorSuite.irisSample(...)
+
+numThreads = 2, syncFrequency = 8, runs= 30, trainingsetRatio = 0.5
+MLP mit maxiterations = 60
+
+Clonebased: Score(error=-0,002644, time=32660ms)
+Siblingbased: Score(error=0,000000, time=31820ms)
+Sequential MLP: Score(error=-0,035723, time=56174ms)

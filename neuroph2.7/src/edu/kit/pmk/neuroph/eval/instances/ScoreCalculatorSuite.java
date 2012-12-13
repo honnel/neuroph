@@ -13,7 +13,7 @@ public class ScoreCalculatorSuite {
 
 	public static void main(String[] args) {
 		ScoreCalculatorSuite scs = new ScoreCalculatorSuite();
-		scs.irisSample(2, 8, 10, 0.5);
+		scs.irisSample(2, 8, 30, 0.5);
 	}
 
 	private void irisSample(int numThreads, int syncFrequency, int runs,
@@ -25,7 +25,7 @@ public class ScoreCalculatorSuite {
 
 		// create MultiLayerPerceptron neural network
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 300, 3);
-		((LMS) neuralNet.getLearningRule()).setMaxIterations(100);
+		((LMS) neuralNet.getLearningRule()).setMaxIterations(60);
 
 		ClonebasedConcurrentLearner ccl = new ClonebasedConcurrentLearner(
 				numThreads, syncFrequency, neuralNet);

@@ -12,16 +12,17 @@ public class ScoreCalculator {
 	public static Score trainAndCalculateOnPermutedSet(ILearner learner,
 			DataSet dataSet, double trainingSetRatio, int runs) {
 		double error = 0;
-		long t0 = System.currentTimeMillis();
+		long time = 0;
 
 		for (int i = 0; i < runs; i++) {
 			TestAndTrainingSet tats = TestAndTrainingSet.splitSetAndPermute(
 					dataSet, trainingSetRatio);
 			learner.resetToUnlearnedState();
+			long t0 = System.currentTimeMillis();
 			learner.learn(tats.getTrainingSet());
+			time += System.currentTimeMillis() - t0;
 			error += calculateError(learner, tats.getTestSet());
 		}
-		long time = System.currentTimeMillis() - t0;
 		error =  error / runs;
 		return new Score(error, time);
 	}
