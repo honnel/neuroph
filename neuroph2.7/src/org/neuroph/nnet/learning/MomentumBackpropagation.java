@@ -67,7 +67,10 @@ public class MomentumBackpropagation extends BackPropagation {
 
             Weight weight = connection.getWeight();
             MomentumWeightTrainingData weightTrainingData = (MomentumWeightTrainingData) weight.getTrainingData();
-            weightTrainingData.previousValue = weight.value;
+            if (this.isInBatchMode()) {
+            	weightTrainingData.previousValue = weight.value;
+            }
+            
             
             //double currentWeightValue = weight.getValue();
             double previousWeightValue = weightTrainingData.previousValue;
@@ -75,7 +78,7 @@ public class MomentumBackpropagation extends BackPropagation {
                     + momentum * (weight.value - previousWeightValue);
             // save previous weight value
             //weight.getTrainingData().set(TrainingData.PREVIOUS_WEIGHT, currentWeightValue);
-//            weightTrainingData.previousValue = weight.value;
+            weightTrainingData.previousValue = weight.value;
 
 
             // if the learning is in batch mode apply the weight change immediately
