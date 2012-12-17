@@ -48,6 +48,7 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	protected double momentum = 0.25d;
 
 	private final int threads;
+	private transient final CyclicBarrier phase1Barrier;
 
 	/**
 	 * Creates new instance of MomentumBackpropagation learning
@@ -55,6 +56,7 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	public BatchParallelMomentumBackpropagation(int threads) {
 		super();
 		this.threads = threads;
+		phase1Barrier = new CyclicBarrier(threads);
 	}
 
 	@Override
@@ -65,10 +67,10 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 
 		BatchWorker[] workers = new BatchWorker[threads];
 		DataSet[] trainingParts = splitDataSet(threads, trainingSet);
-		CyclicBarrier barrier = new CyclicBarrier(threads, new WeightInterpolator(workers, trainingSet.size()));
+		CyclicBarrier barrier = new CyclicBarrier(threads, new WeightInterpolator(workers));
 
 		for (int i = 0; i < threads; i++) {
-			workers[i] = new BatchWorker(i, trainingParts[i], barrier);
+			workers[i] = new BatchWorker(i, trainingParts[i], barrier, workers);
 			workers[i].start();
 		}
 		try {
@@ -87,36 +89,7 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	 * @param neuron
 	 *            neuron to update weights
 	 */
-	@Override
-	protected void updateNeuronWeights(Neuron neuron) {
-		for (Connection connection : neuron.getInputConnections()) {
-			double input = connection.getInput();
-			if (input == 0) {
-				continue;
-			}
-
-			// get the error for specified neuron,
-			double neuronError = neuron.getError();
-
-			// tanh can be used to minimise the impact of big error values,
-			// which can cause network instability
-			// suggested at
-			// https://sourceforge.net/tracker/?func=detail&atid=1107579&aid=3130561&group_id=238532
-			// double neuronError = Math.tanh(neuron.getError());
-
-			Weight weight = connection.getWeight();
-			BatchParallelMomentumWeightAddOn weightTrainingData = (BatchParallelMomentumWeightAddOn) weight.getTrainingData();
-
-			// double currentWeightValue = weight.getValue();
-			double previousWeightValue = weightTrainingData.previousValue;
-			double weightChange = this.learningRate * neuronError * input + momentum * (weight.value - previousWeightValue);
-			// save previous weight value
-			// weight.getTrainingData().set(TrainingData.PREVIOUS_WEIGHT,
-			// currentWeightValue);
-
-			weight.weightChange += weightChange;
-		}
-	}
+	
 
 	@Override
 	protected void afterEpoch() {
@@ -129,19 +102,6 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 
 	public void setMomentum(double momentum) {
 		this.momentum = momentum;
-	}
-
-	@Override
-	protected void onStart() {
-		// create MomentumWeightTrainingData objects that will be used during
-		// the training to store previous weight value
-		for (Layer layer : this.neuralNetwork.getLayers()) {
-			for (Neuron neuron : layer.getNeurons()) {
-				for (Connection connection : neuron.getInputConnections()) {
-					connection.getWeight().setTrainingData(new BatchParallelMomentumWeightAddOn());
-				}
-			} // for
-		} // for
 	}
 
 	private static DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
@@ -157,13 +117,6 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		return dataSets;
 	}
 
-	public class BatchParallelMomentumWeightAddOn {
-
-		public double weightDelta;
-		public double thresholdDelta;
-
-		public double previousValue;
-	}
 
 	private class BatchWorker extends Thread {
 
@@ -171,14 +124,17 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		private final int threadId;
 		private NeuralNetwork clone;
 		private int currentIteration;
-		private final CyclicBarrier barrier;
+		private final CyclicBarrier phase2Barrier;
 
 		private Weight[][][] lastWeights;
 
-		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier) {
+		private BatchWorker[] colleagues;
+
+		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier, BatchWorker[] colleagues) {
 			this.trainingSet = dataSet;
 			this.threadId = threadId;
-			this.barrier = barrier;
+			this.phase2Barrier = barrier;
+			this.colleagues = colleagues;
 			currentIteration = 0;
 		}
 
@@ -193,28 +149,32 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 				e.printStackTrace();
 			}
 			this.clone.setLearningRule(new BatchParallelSlave());
-//			this.clone.setLearningRule(new MomentumBackpropagation());			
 			((SupervisedLearning) clone.getLearningRule()).setBatchMode(true);
 			((BatchParallelSlave) clone.getLearningRule()).setTrainingSet(trainingSet);
+			lastWeights = extractWeights();
+
 			while (!isStopped()) {
 				clone.learn(trainingSet);
-//				double weight = clone.getLayerAt(1).getNeuronAt(0).getWeights()[0].weightChange;
-//				System.out.println("weight: " + weight);
-				
+
+				// double weight =
+				// clone.getLayerAt(1).getNeuronAt(0).getWeights()[0].weightChange;
+				// System.out.println("weight: " + weight);
+
 				this.currentIteration++;
-				lastWeights = extractWeights();
 				try {
-					barrier.await();
+					phase1Barrier.await();
+					interpolateNeuronWeights();
+					phase2Barrier.await();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} catch (BrokenBarrierException e) {
 					e.printStackTrace();
 				}
-				
+
 				if (!isStopped()) {
-					copyBackNeuronWeights();
+					// copyBackNeuronWeights();
 				}
-				
+
 				// beforeEpoch();
 				// doLearningEpoch(trainingSet);
 				// afterEpoch();
@@ -234,6 +194,26 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 			}
 			System.out.println("Stopped after iterations: " + currentIteration);
 
+		}
+
+		private void interpolateNeuronWeights() {
+			for (int i = 0; i < neuralNetwork.getLayersCount(); i++) {
+				Layer layer = neuralNetwork.getLayerAt(i);
+				for (int j = threadId; j < layer.getNeuronsCount(); j += colleagues.length) {
+					Neuron neuron = layer.getNeuronAt(j);
+					for (int k = 0; k < neuron.getWeights().length; k++) {
+						double newValue = neuralNetwork.getLayerAt(i).getNeuronAt(j).getWeights()[k].value;
+						for (int w = 0; w < colleagues.length; w++) {
+							newValue += colleagues[w].getWeights()[i][j][k].weightChange;
+							colleagues[w].getWeights()[i][j][k].weightChange = 0.0;
+						}
+						neuralNetwork.getLayerAt(i).getNeuronAt(j).getWeights()[k].value = newValue;
+						for (int w = 0; w < colleagues.length; w++) {
+							colleagues[w].getWeights()[i][j][k].value = newValue;
+						}
+					}
+				}
+			}
 		}
 
 		private void copyBackNeuronWeights() {
@@ -276,11 +256,9 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	class WeightInterpolator implements Runnable {
 
 		private final BatchWorker[] workers;
-		private final int trainingSetSize;
 
-		public WeightInterpolator(BatchWorker[] worker, int trainingSetSize) {
+		public WeightInterpolator(BatchWorker[] worker) {
 			this.workers = worker;
-			this.trainingSetSize = trainingSetSize;
 		}
 
 		@Override
@@ -289,18 +267,10 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 			for (BatchWorker w : workers) {
 				totalError += w.getTotalError();
 			}
-			totalError /= (double)workers.length;
+			totalError /= (double) workers.length;
 			System.out.println("fehler: " + totalError);
 			if (totalError < BatchParallelMomentumBackpropagation.this.maxError) {
 				stopLearning();
-			}
-			for (int w = 0; w < workers.length; w++) {
-				Weight[][][] weights = workers[w].getWeights();
-				for (int i = 0; i < weights.length; i++)
-					for (int j = 0; j < weights[i].length; j++)
-						for (int k = 0; k < weights[i][j].length; k++) {
-							neuralNetwork.getLayerAt(i).getNeuronAt(j).getWeights()[k].value += weights[i][j][k].weightChange;
-						}
 			}
 
 		}
