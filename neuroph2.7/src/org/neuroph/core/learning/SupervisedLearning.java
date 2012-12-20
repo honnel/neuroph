@@ -159,7 +159,6 @@ abstract public class SupervisedLearning extends IterativeLearning implements
 
         // calculate total network error as MSE. Use MSE so network does not grow with bigger training sets
         this.totalNetworkError = this.totalSquaredErrorSum / this.trainingSetSize;
-
         // moved stopping condition to separate method hasReachedStopCondition() so it can be overriden / customized in subclasses
         if (hasReachedStopCondition()) {
             stopLearning();
