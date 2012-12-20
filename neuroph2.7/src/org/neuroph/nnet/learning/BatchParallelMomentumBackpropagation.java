@@ -48,7 +48,6 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	protected double momentum = 0.25d;
 
 	private final int threads;
-	private transient final CyclicBarrier phase1Barrier;
 
 	/**
 	 * Creates new instance of MomentumBackpropagation learning
@@ -56,7 +55,7 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	public BatchParallelMomentumBackpropagation(int threads) {
 		super();
 		this.threads = threads;
-		phase1Barrier = new CyclicBarrier(threads);
+
 	}
 
 	@Override
@@ -69,8 +68,9 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		DataSet[] trainingParts = splitDataSet(threads, trainingSet);
 		CyclicBarrier barrier = new CyclicBarrier(threads, new WeightInterpolator(workers));
 
+		CyclicBarrier phase1Barrier = new CyclicBarrier(threads);
 		for (int i = 0; i < threads; i++) {
-			workers[i] = new BatchWorker(i, trainingParts[i], barrier, workers);
+			workers[i] = new BatchWorker(i, trainingParts[i], barrier, workers, phase1Barrier);
 			workers[i].start();
 		}
 		try {
@@ -89,7 +89,6 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 	 * @param neuron
 	 *            neuron to update weights
 	 */
-	
 
 	@Override
 	protected void afterEpoch() {
@@ -117,7 +116,6 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		return dataSets;
 	}
 
-
 	private class BatchWorker extends Thread {
 
 		private final DataSet trainingSet;
@@ -125,16 +123,18 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 		private NeuralNetwork clone;
 		private int currentIteration;
 		private final CyclicBarrier phase2Barrier;
+		private final CyclicBarrier phase1Barrier;
 
 		private Weight[][][] lastWeights;
 
 		private BatchWorker[] colleagues;
 
-		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier, BatchWorker[] colleagues) {
+		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier, BatchWorker[] colleagues, CyclicBarrier phase1Barrier) {
 			this.trainingSet = dataSet;
 			this.threadId = threadId;
 			this.phase2Barrier = barrier;
 			this.colleagues = colleagues;
+			this.phase1Barrier = phase1Barrier;
 			currentIteration = 0;
 		}
 
@@ -192,7 +192,9 @@ public class BatchParallelMomentumBackpropagation extends MomentumBackpropagatio
 
 				fireLearningEvent(new LearningEvent(BatchParallelMomentumBackpropagation.this)); // notify
 			}
-			System.out.println("Stopped after iterations: " + currentIteration);
+			if (threadId == 0) {
+				System.out.println("Stopped after iterations: " + currentIteration);
+			}
 
 		}
 
