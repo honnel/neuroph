@@ -1,5 +1,6 @@
 package edu.kit.pmk.neuroph.parallel.networkclones;
 
+import java.io.IOException;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -7,14 +8,15 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
-class CloneNetWorker implements Runnable {
+import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
+
+public class CloneNetWorker implements Runnable {
 
 	private CyclicBarrier barrier;
 	private NeuralNetwork net;
 	private DataSet[] runs;
 
-	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net,
-			DataSet set, int syncFrequency) {
+	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net, DataSet set, int syncFrequency) {
 		this.barrier = barrier;
 		this.net = net;
 		splitDataSetIntoRuns(set, syncFrequency);
@@ -56,7 +58,11 @@ class CloneNetWorker implements Runnable {
 
 	@Override
 	public void run() {
-//		this.net = ;
+		try {
+			this.net = (NeuralNetwork) FastDeepCopy.createDeepCopy(net);
+		} catch (ClassNotFoundException | IOException e1) {
+			e1.printStackTrace();
+		}
 		for (int i = 0; i < runs.length; i++) {
 			net.learn(runs[i]);
 			try {

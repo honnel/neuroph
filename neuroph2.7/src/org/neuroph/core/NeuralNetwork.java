@@ -221,9 +221,11 @@ public abstract class NeuralNetwork implements Serializable {
 	 * @param inputVector
 	 *            network input as double array
 	 */
-	public void setInput(double... inputVector) throws VectorSizeMismatchException {
+	public void setInput(double... inputVector)
+			throws VectorSizeMismatchException {
 		if (inputVector.length != inputNeurons.length) {
-			throw new VectorSizeMismatchException("Input vector size does not match network input dimension!");
+			throw new VectorSizeMismatchException(
+					"Input vector size does not match network input dimension!");
 		}
 
 		int i = 0;
@@ -521,7 +523,8 @@ public abstract class NeuralNetwork implements Serializable {
 	 * @param weightVal
 	 *            connection weight value
 	 */
-	public void createConnection(Neuron fromNeuron, Neuron toNeuron, double weightVal) {
+	public void createConnection(Neuron fromNeuron, Neuron toNeuron,
+			double weightVal) {
 		// Connection connection = new Connection(fromNeuron, toNeuron,
 		// weightVal);
 		toNeuron.addInputConnection(fromNeuron, weightVal);
@@ -546,7 +549,8 @@ public abstract class NeuralNetwork implements Serializable {
 		ObjectOutputStream out = null;
 		try {
 			File file = new File(filePath);
-			out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+			out = new ObjectOutputStream(new BufferedOutputStream(
+					new FileOutputStream(file)));
 			out.writeObject(this);
 			out.flush();
 		} catch (IOException ioe) {
@@ -577,7 +581,8 @@ public abstract class NeuralNetwork implements Serializable {
 				throw new FileNotFoundException("Cannot find file: " + filePath);
 			}
 
-			oistream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filePath)));
+			oistream = new ObjectInputStream(new BufferedInputStream(
+					new FileInputStream(filePath)));
 			NeuralNetwork nnet = (NeuralNetwork) oistream.readObject();
 			return nnet;
 
@@ -608,7 +613,8 @@ public abstract class NeuralNetwork implements Serializable {
 		ObjectInputStream oistream = null;
 
 		try {
-			oistream = new ObjectInputStream(new BufferedInputStream(inputStream));
+			oistream = new ObjectInputStream(new BufferedInputStream(
+					inputStream));
 			NeuralNetwork nnet = (NeuralNetwork) oistream.readObject();
 
 			return nnet;
@@ -629,7 +635,8 @@ public abstract class NeuralNetwork implements Serializable {
 		return null;
 	}
 
-	private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
+	private void readObject(java.io.ObjectInputStream in) throws IOException,
+			ClassNotFoundException {
 		in.defaultReadObject();
 		listeners = new javax.swing.event.EventListenerList();
 	}
@@ -702,7 +709,8 @@ public abstract class NeuralNetwork implements Serializable {
 		// and the second is the listener instance
 		for (int i = 0; i < listeners.length; i += 2) {
 			if (listeners[i] == NeuralNetworkEvent.class) {
-				((NeuralNetworkEventListener) listeners[i + 1]).handleNeuralNetworkEvent(evt);
+				((NeuralNetworkEventListener) listeners[i + 1])
+						.handleNeuralNetworkEvent(evt);
 			}
 		}
 	}

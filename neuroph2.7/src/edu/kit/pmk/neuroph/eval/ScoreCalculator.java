@@ -59,11 +59,15 @@ public class ScoreCalculator {
 	private static double calculateError(ILearner learner, DataSet testSet) {
 		double error = 0;
 		NeuralNetwork neuralNet = learner.getNeuralNetwork();
+		for (Neuron n : neuralNet.getOutputNeurons()) {
+			n.setError(0.0);
+		}
 		for (DataSetRow testSetRow : testSet.getRows()) {
 			neuralNet.setInput(testSetRow.getInput());
 			neuralNet.calculate();
-			for (Neuron neuron : neuralNet.getOutputNeurons()) {
-				error += neuron.getError();
+			Neuron[] outputNeurons = neuralNet.getOutputNeurons();
+			for (int out = 0; out < outputNeurons.length; out++) {
+				error += testSetRow.getDesiredOutput()[out] - outputNeurons[out].getOutput();
 			}
 		}
 		return error / testSet.size();
