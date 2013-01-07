@@ -1,0 +1,148 @@
+%% LaTeX-Beamer template for KIT design
+%% by Erik Burger, Christian Hammer
+%% title picture by Klaus Krogmann
+%%
+%% version 2.1
+%%
+%% mostly compatible to KIT corporate design v2.0
+%% http://intranet.kit.edu/gestaltungsrichtlinien.php
+%%
+%% Problems, bugs and comments to
+%% burger@kit.edu
+
+\documentclass[18pt]{beamer}
+
+%% SLIDE FORMAT
+
+% use 'beamerthemekit' for standard 4:3 ratio
+% for widescreen slides (16:9), use 'beamerthemekitwide'
+
+\usepackage{templates/beamerthemekit}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+% \usepackage{templates/beamerthemekitwide}
+
+%% TITLE PICTURE
+
+% if a custom picture is to be used on the title page, copy it into the 'logos'
+% directory, in the line below, replace 'mypicture' with the 
+% filename (without extension) and uncomment the following line
+% (picture proportions: 63 : 20 for standard, 169 : 40 for wide
+% *.eps format if you use latex+dvips+ps2pdf, 
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%\titleimage{mypicture}
+
+%% TITLE LOGO
+
+% for a custom logo on the front page, copy your file into the 'logos'
+% directory, insert the filename in the line below and uncomment it
+
+%\titlelogo{mylogo}
+
+% (*.eps format if you use latex+dvips+ps2pdf,
+% *.jpg/*.png/*.pdf if you use pdflatex)
+
+%% TikZ INTEGRATION
+
+% use these packages for PCM symbols and UML classes
+% \usepackage{templates/tikzkit}
+% \usepackage{templates/tikzuml}
+
+% the presentation starts here
+
+\title{Zwischenpräsentation der Java-Gruppe}
+\subtitle{Neuronale Netze mit Neuroph}
+\author{Markus Braun, Daniel Hammann, Dominik Messinger, Dominic Rausch}
+
+\institute{Institut für Programmstrukturen und Datenorganisation (IPD), Lehrstuhl für Programmiersysteme}
+
+% Bibliography
+
+%\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
+%\addbibresource{templates/example.bib}
+%\bibhang1em
+
+\begin{document}
+	\maketitle
+
+	\begin{frame}[c]\frametitle{Neuronale Netze}
+		\begin{center}
+		\textit{Was machen wir überhaupt? Allgemeine (kurze) Einführung neuronale Netze}
+		\end{center}
+	\end{frame}
+
+	\begin{frame}[c]\frametitle{Überblick}
+		\begin{block}{Was bisher geschah}
+		    \begin{itemize}
+		    	\item Code Analyse
+		    	\item Profiling (u.a. eigenes Evaluierungsframework)
+		    	\item Verschiedene Parallelisierungsansätze durchprobiert
+		    	\item Datensuche
+		    \end{itemize}		    
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
+		\begin{block}{}
+			\begin{center}
+			\textit{Sequenzdiagramme, Profiling-Zeiten, evntuell Aufbau von Neuroph anhand eines Klassendiagramms?, Evaluierungsframework erklären}
+			\end{center}
+		\end{block}
+	\end {frame}
+	
+	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
+		\begin{block}{}
+			MultiLayerPerceptron klonen
+		\end{block}
+		\begin{block}{}
+			BatchParallelLearningRule
+		\end{block}
+	\end {frame}
+	
+	\begin{frame}[c]\frametitle{MultiLayerPerceptron klonen}
+		\begin{block}{Aufbau}
+			
+		\end{block}
+		\begin{block}{Probleme}
+		
+		\end{block}
+	\end {frame}
+	
+		\begin{frame}[c]\frametitle{BatchParallelLearningRule}
+		\begin{block}{Aufbau}
+			
+		\end{block}
+		\begin{block}{Probleme}
+		
+		\end{block}
+	\end {frame}
+	
+	\begin{frame}[c]\frametitle{Datensuche}
+		\begin{block}{Erste Versuche}
+		    \begin{itemize}
+		    	\item StockExchange - Börsenvorhersage
+		    	\item IrisScan Datensatz
+		    \end{itemize}
+		\end{block}
+		\begin{block}{Teilchenkollision (Cern)}
+		    \begin{itemize}
+		    	\item Viele Daten
+		    	\item Viele Neuronen :)
+		    	\item Kompliziertes Daten Format
+		    \end{itemize}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}[c]\frametitle{Whats next?}
+		\begin{block}{Fahrplan}
+		    \begin{itemize}
+		    	\item Herr werden über die Cern-Daten
+		    	\item Evaluierung der Ansätze
+		    	\item ...
+		    \end{itemize}
+		\end{block}
+	\end{frame}
+
+\end{document}
