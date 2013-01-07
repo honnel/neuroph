@@ -20,14 +20,20 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	private NeuralNetInterpolatorType interpolationType;
 	private CloneNetWorker[] workers;
 	private NeuralNetwork originalNet;
+	private final String description;
 
-	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency,
-			NeuralNetInterpolatorType interpolationType, NeuralNetwork neuralNet) {
+	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency, NeuralNetInterpolatorType interpolationType, NeuralNetwork neuralNet,
+			String description) {
 		this.numThreads = numThreads;
 		this.syncFrequency = syncFrequency;
 		this.interpolationType = interpolationType;
 		this.originalNet = neuralNet;
+		this.description = description;
 		resetToUnlearnedState();
+	}
+
+	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency, NeuralNetInterpolatorType interpolationType, NeuralNetwork neuralNet) {
+		this(numThreads, syncFrequency, interpolationType, neuralNet, "");
 	}
 
 	/**
@@ -52,18 +58,16 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	public void learn(DataSet trainingSet) {
 		DataSet[] dataSets = splitDataSet(numThreads, trainingSet);
 
-		final NeuralNetInterpolator interpolator = NeuralNetInterpolator
-				.createNeuralNetInterpolator(interpolationType);
-		final CyclicBarrier barrier = new CyclicBarrier(numThreads,
-				new Runnable() {
+		final NeuralNetInterpolator interpolator = NeuralNetInterpolator.createNeuralNetInterpolator(interpolationType);
+		final CyclicBarrier barrier = new CyclicBarrier(numThreads, new Runnable() {
 
-					@Override
-					public void run() {
-						interpolator.interpolateWeights();
-						// System.out.println("Interpolate. Current time is "
-						// + (System.currentTimeMillis() - t0) + "ms.");
-					}
-				});
+			@Override
+			public void run() {
+				interpolator.interpolateWeights();
+				// System.out.println("Interpolate. Current time is "
+				// + (System.currentTimeMillis() - t0) + "ms.");
+			}
+		});
 
 		workers = initializeWorkers(syncFrequency, dataSets, barrier);
 		interpolator.setWorkers(workers);
@@ -83,8 +87,7 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	private DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
 		DataSet[] dataSets = new DataSet[numSubsets];
 		for (int i = 0; i < dataSets.length; i++) {
-			dataSets[i] = new DataSet(dataSet.getInputSize(),
-					dataSet.getOutputSize());
+			dataSets[i] = new DataSet(dataSet.getInputSize(), dataSet.getOutputSize());
 		}
 		int rowIndex = 0;
 		for (DataSetRow row : dataSet.getRows()) {
@@ -94,12 +97,10 @@ public class ClonebasedConcurrentLearner implements ILearner {
 		return dataSets;
 	}
 
-	private CloneNetWorker[] initializeWorkers(int syncFrequency,
-			DataSet[] dataSets, final CyclicBarrier barrier) {
+	private CloneNetWorker[] initializeWorkers(int syncFrequency, DataSet[] dataSets, final CyclicBarrier barrier) {
 		CloneNetWorker[] workers = new CloneNetWorker[dataSets.length];
 		for (int i = 0; i < workers.length; i++) {
-			workers[i] = new CloneNetWorker(barrier, neuralNet, dataSets[i],
-					syncFrequency);
+			workers[i] = new CloneNetWorker(barrier, neuralNet, dataSets[i], syncFrequency);
 		}
 		return workers;
 	}
@@ -113,8 +114,7 @@ public class ClonebasedConcurrentLearner implements ILearner {
 		return threads;
 	}
 
-	private void waitForWorkersCompletion(Thread[] workers)
-			throws InterruptedException {
+	private void waitForWorkersCompletion(Thread[] workers) throws InterruptedException {
 		for (int i = 0; i < workers.length; i++) {
 			workers[i].join();
 		}
@@ -123,8 +123,7 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	@Override
 	public void resetToUnlearnedState() {
 		try {
-			this.neuralNet = (NeuralNetwork) FastDeepCopy
-					.createDeepCopy(originalNet);
+			this.neuralNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -140,5 +139,10 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	@Override
 	public int getNumberOfThreads() {
 		return numThreads;
+	}
+
+	@Override
+	public String getDescription() {
+		return description;
 	}
 }

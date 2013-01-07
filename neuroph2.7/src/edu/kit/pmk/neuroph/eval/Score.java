@@ -16,7 +16,6 @@ public class Score {
 
 	@Override
 	public String toString() {
-		return String.format("Score(error=%f, time=%dms)", error, time);
+		return String.format("%s Score(error=%f, time=%dms)", learner.getDescription(), error, time);
 	}
-
 }
