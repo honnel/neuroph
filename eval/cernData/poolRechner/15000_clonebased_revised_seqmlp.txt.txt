@@ -1,0 +1,42 @@
++-+-+-+-+ Test Configuration +-+-+-+-+
+Clonebased, Clonebased Revised, Seq MLP: 100
+Hidden Neurons: 100
+Maximum Learning Iterations: 2
+#Threads: 8
+For Unrevised: Interpolate clones after every <#> rows: 100
+Interpolation Type: ArithmeticMean
+TraingSet to TestSet ratio: 0.5
+Number of Test Runs: 1
+
+CloneNetWorkerRevised[Thread 10]: deepcopy = 4462 ms
+CloneNetWorkerRevised[Thread 14]: deepcopy = 1810 ms
+CloneNetWorkerRevised[Thread 12]: deepcopy = 4758 ms
+CloneNetWorkerRevised[Thread 15]: deepcopy = 4680 ms
+CloneNetWorkerRevised[Thread 13]: deepcopy = 5523 ms
+CloneNetWorkerRevised[Thread 9]: deepcopy = 5538 ms
+CloneNetWorkerRevised[Thread 13]: learning = 184990 ms
+CloneNetWorkerRevised[Thread 15]: learning = 185786 ms
+CloneNetWorkerRevised[Thread 12]: learning = 185755 ms
+CloneNetWorkerRevised[Thread 14]: learning = 188656 ms
+CloneNetWorkerRevised[Thread 10]: learning = 186051 ms
+CloneNetWorkerRevised[Thread 11]: deepcopy = 2060 ms
+CloneNetWorkerRevised[Thread 16]: deepcopy = 4555 ms
+CloneNetWorkerRevised[Thread 11]: learning = 188453 ms
+CloneNetWorkerRevised[Thread 10]: deepcopy + learning = 190513 ms
+CloneNetWorkerRevised[Thread 14]: deepcopy + learning = 190466 ms
+CloneNetWorkerRevised[Thread 12]: deepcopy + learning = 190513 ms
+CloneNetWorkerRevised[Thread 15]: deepcopy + learning = 190466 ms
+CloneNetWorkerRevised[Thread 13]: deepcopy + learning = 190513 ms
+CloneNetWorkerRevised[Thread 9]: learning = 184975 ms
+CloneNetWorkerRevised[Thread 9]: deepcopy + learning = 190513 ms
+CloneNetWorkerRevised[Thread 11]: deepcopy + learning = 190513 ms
+CloneNetWorkerRevised[Thread 16]: learning = 185911 ms
+CloneNetWorkerRevised[Thread 16]: deepcopy + learning = 190466 ms
+ClonebasedConcurrentLearnerRevised: init_workers = 0 ms
+ClonebasedConcurrentLearnerRevised: start_workers = 140 ms
+ClonebasedConcurrentLearnerRevised: wait_for_workers = 190466 ms
+ClonebasedConcurrentLearnerRevised: total = 190606 ms
+
++-+-+-+-+ Scores +-+-+-+-+
+Clonebased-Revised ArithmeticMean: Clonebased-Revised ArithmeticMean Score(error=0,008065, time=190606ms)
+Sequential MLP: Sequential MLP Score(error=0,079343, time=320778ms)

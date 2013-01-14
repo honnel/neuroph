@@ -1,0 +1,12 @@
++-+-+-+-+ Test Configuration +-+-+-+-+
+Hidden Neurons: 100
+Maximum Learning Iterations: 2
+#Threads: 4
+TraingSet to TestSet ratio: 0.5
+Number of Test Runs: 1
+
+Stopped after iterations: 2
+
++-+-+-+-+ Scores +-+-+-+-+
+Parallel MLP BatchBackpropagation: Parallel MLP BatchBackpropagation Score(error=-0,055447, time=31653ms)
+Sequential MLP BatchBackpropagation: Sequential MLP BatchBackpropagation Score(error=0,005625, time=33322ms)

@@ -34,13 +34,13 @@ public class ScoreCalculatorSuite {
 		DataSet cernDataSet = DataSet.createFromFile(CERN_1000,
 				CERN_1000_INPUTCOUNT, 1, ",");
 
-		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 2, 1000,
-				1, 0.5);
+//		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 8, 100,
+//				1, 0.5);
 
 		// scs.testClonebasedAndNormalMLP(cernDataSet, 100, 2, 2, 1000, 1, 0.5,
 		// NeuralNetInterpolatorType.ArithmeticMean);
 
-		// scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 2, 1, 0.5);
+		 scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 4, 1, 0.5);
 	}
 
 	private static final String CERN_FULL = "data/cern/15000rows.txt";
@@ -78,16 +78,16 @@ public class ScoreCalculatorSuite {
 		// ((LMS) neuralNet.getLearningRule()).setBatchMode(true);
 		((LMS) neuralNet.getLearningRule()).setMaxIterations(maxIterations);
 
-		ILearner[] learners = new ILearner[3];
+		ILearner[] learners = new ILearner[2];
 
 		int i = 0;
 		learners[0] = new ClonebasedConcurrentLearnerRevised(numThreads,
 				maxIterations, NeuralNetInterpolatorType.ArithmeticMean,
 				neuralNet, "Clonebased-Revised ArithmeticMean");
-		learners[1] = new ClonebasedConcurrentLearner(numThreads,
-				syncFrequency, NeuralNetInterpolatorType.ArithmeticMean,
-				neuralNet, "Clonebased ArithmeticMean");
-		learners[2] = new NeuralNetworkWrapper(neuralNet, 1, "Sequential MLP");
+//		learners[1] = new ClonebasedConcurrentLearner(numThreads,
+//				syncFrequency, NeuralNetInterpolatorType.ArithmeticMean,
+//				neuralNet, "Clonebased ArithmeticMean");
+		learners[1] = new NeuralNetworkWrapper(neuralNet, 1, "Sequential MLP");
 
 		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
 				dataSet, trainingSetRatio, runs, learners);
