@@ -76,28 +76,32 @@
 	\begin{frame}[c]\frametitle{Überblick}
 		\begin{block}{Was bisher geschah}
 		    \begin{itemize}
+			    \item Testdaten beschaffen
 		    	\item Code Analyse
+		    	\item Zwei Parallelisierungsansätze
 		    	\item Profiling (u.a. eigenes Evaluierungsframework)
-		    	\item Verschiedene Parallelisierungsansätze durchprobiert
-		    	\item Datensuche
 		    \end{itemize}		    
 		\end{block}
 	\end{frame}
 	
+	\begin{frame}[c]\frametitle{Testdaten}
+		\begin{itemize}
+				\item Teilchenkollision
+				\item Eingabe: Sensorwerte
+				\item Ausgabe: Ist interessant oder nicht?
+		\end{itemize}		
+	\end{frame}
+
+	\begin{frame}[c]\frametitle{Was wir vorgefunden haben}		
+		\includegraphics[scale=0.4]{Klassendiagramm.png}
+	\end{frame}
+
+
 	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
 		\begin{block}{}
 			\begin{center}
-			\textit{Sequenzdiagramme, Profiling-Zeiten, evntuell Aufbau von Neuroph anhand eines Klassendiagramms?, Evaluierungsframework erklären}
+			\textit{Sequenzdiagramme, Profiling-Zeiten, Evaluierungsframework erklären}
 			\end{center}
-		\end{block}
-	\end {frame}
-	
-	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
-		\begin{block}{}
-			MultiLayerPerceptron klonen
-		\end{block}
-		\begin{block}{}
-			BatchParallelLearningRule
 		\end{block}
 	\end {frame}
 	
@@ -109,14 +113,23 @@
 		
 		\end{block}
 	\end {frame}
-	
-		\begin{frame}[c]\frametitle{BatchParallelLearningRule}
-		\begin{block}{Aufbau}
-			
-		\end{block}
-		\begin{block}{Probleme}
-		
-		\end{block}
+
+	\begin{frame}[c]\frametitle{Batch Learning parallelisieren}
+
+		\begin{itemize}
+			\item Batch Learning
+			\begin{itemize}
+				\item Summieren der Deltas (pro Verbindung)
+				\item Aktualisieren erst nach einer Epoche
+			\end{itemize}
+			\item Ablauf:
+			\begin{itemize}
+				\item Aufteilen der Lerndaten
+				\item Jeder Thread summiert Deltas
+				\item Aktualisieren der Gewichte
+			\end{itemize}
+			\item Klone des NN notwendig
+		\end{itemize}
 	\end {frame}
 	
 	\begin{frame}[c]\frametitle{Datensuche}
