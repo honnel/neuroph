@@ -1,0 +1,28 @@
+scs.trainClonebasedAndNormalMLP(cernDataSet_Full, 100, 1, 2, 1000, 1, 0.5,
+				NeuralNetInterpolatorType.ArithmeticMean);
++-+-+-+-+ TestRun 0 +-+-+-+-+
+org.neuroph.core.learning.IterativeLearning[Thread 9] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 10] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 10] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 9] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 10] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 9] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 10] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 9] stopped because it exceeded MAXIMAL iterations = 1
+CloneNetWorker9: deepcopy = 4133 ms
+CloneNetWorker9: learning = 120683 ms
+CloneNetWorker9: deepcopy + learning = 124816 ms
+CloneNetWorker10: deepcopy = 4144 ms
+CloneNetWorker10: learning = 120672 ms
+CloneNetWorker10: deepcopy + learning = 124816 ms
+ClonebasedConcurrentLearner: init_workers = 5 ms
+ClonebasedConcurrentLearner: start_workers = 0 ms
+ClonebasedConcurrentLearner: wait_for_workers = 124817 ms
+ClonebasedConcurrentLearner: total = 124822 ms
+NeuralNetworkWrapper: start learning!
+org.neuroph.core.learning.IterativeLearning[Thread 1] stopped because it exceeded MAXIMAL iterations = 1
+NeuralNetworkWrapper: learning = 280032 ms
+
++-+-+-+-+ Scores +-+-+-+-+
+Clonebased-ArithmeticMean:  Score(error=0,164942, time=124831ms)
+Sequential MLP: unnamed Score(error=0,128980, time=280034ms)

@@ -1,0 +1,53 @@
+scs.trainClonebasedAndNormalMLP(cernDataSet_Example, 100, 2, 10, 3,	0.5, NeuralNetInterpolatorType.ArithmeticMean);
+
++-+-+-+-+ TestRun 0 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 10] stopped after iteration 1
+org.neuroph.core.learning.SupervisedLearning[Thread 9] stopped after iteration 1
+CloneNetWorker9: deepcopy = 1405 ms
+CloneNetWorker9: learning = 363 ms
+CloneNetWorker9: deepcopy + learning = 1768 ms
+CloneNetWorker10: deepcopy = 1411 ms
+CloneNetWorker10: learning = 357 ms
+CloneNetWorker10: deepcopy + learning = 1768 ms
+ClonebasedConcurrentLearner: init_workers = 1 ms
+ClonebasedConcurrentLearner: start_workers = 0 ms
+ClonebasedConcurrentLearner: wait_for_workers = 1769 ms
+ClonebasedConcurrentLearner: total = 1770 ms
+NeuralNetworkWrapper: start learning!
+org.neuroph.core.learning.SupervisedLearning[Thread 1] stopped after iteration 1
+NeuralNetworkWrapper: learning = 480 ms
++-+-+-+-+ TestRun 1 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 12] stopped after iteration 1
+org.neuroph.core.learning.SupervisedLearning[Thread 11] stopped after iteration 1
+CloneNetWorker11: deepcopy = 385 ms
+CloneNetWorker11: learning = 373 ms
+CloneNetWorker11: deepcopy + learning = 758 ms
+CloneNetWorker12: deepcopy = 366 ms
+CloneNetWorker12: learning = 392 ms
+CloneNetWorker12: deepcopy + learning = 758 ms
+ClonebasedConcurrentLearner: init_workers = 0 ms
+ClonebasedConcurrentLearner: start_workers = 0 ms
+ClonebasedConcurrentLearner: wait_for_workers = 758 ms
+ClonebasedConcurrentLearner: total = 758 ms
+NeuralNetworkWrapper: start learning!
+org.neuroph.core.learning.SupervisedLearning[Thread 1] stopped after iteration 3
+NeuralNetworkWrapper: learning = 914 ms
++-+-+-+-+ TestRun 2 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 14] stopped after iteration 1
+org.neuroph.core.learning.SupervisedLearning[Thread 13] stopped after iteration 1
+CloneNetWorker13: deepcopy = 486 ms
+CloneNetWorker14: deepcopy = 483 ms
+CloneNetWorker14: learning = 341 ms
+CloneNetWorker14: deepcopy + learning = 824 ms
+CloneNetWorker13: learning = 338 ms
+CloneNetWorker13: deepcopy + learning = 824 ms
+ClonebasedConcurrentLearner: init_workers = 0 ms
+ClonebasedConcurrentLearner: start_workers = 0 ms
+ClonebasedConcurrentLearner: wait_for_workers = 826 ms
+ClonebasedConcurrentLearner: total = 826 ms
+NeuralNetworkWrapper: start learning!
+org.neuroph.core.learning.SupervisedLearning[Thread 1] stopped after iteration 1
+NeuralNetworkWrapper: learning = 460 ms
+
+Clonebased-ArithmeticMean:  Score(error=0,129085, time=3360ms)
+Sequential MLP: unnamed Score(error=0,132710, time=1854ms)
