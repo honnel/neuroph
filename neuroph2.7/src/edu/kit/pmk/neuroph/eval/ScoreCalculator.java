@@ -67,7 +67,7 @@ public class ScoreCalculator {
 			neuralNet.calculate();
 			Neuron[] outputNeurons = neuralNet.getOutputNeurons();
 			for (int out = 0; out < outputNeurons.length; out++) {
-				error += testSetRow.getDesiredOutput()[out] - outputNeurons[out].getOutput();
+				error += Math.abs(testSetRow.getDesiredOutput()[out] - outputNeurons[out].getOutput());
 			}
 		}
 		return error / testSet.size();

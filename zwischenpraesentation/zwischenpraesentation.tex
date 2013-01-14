@@ -69,6 +69,7 @@
 
 	\begin{frame}[c]\frametitle{Neuronale Netze}
 		\begin{center}
+		%TODO: ja was machen wir denn?
 		\textit{Was machen wir überhaupt? Allgemeine (kurze) Einführung neuronale Netze}
 		\end{center}
 	\end{frame}
@@ -78,7 +79,7 @@
 		    \begin{itemize}
 			    \item Testdaten beschaffen
 		    	\item Code Analyse
-		    	\item Zwei Parallelisierungsansätze
+		    	\item Drei Parallelisierungsversuche
 		    	\item Profiling (u.a. eigenes Evaluierungsframework)
 		    \end{itemize}		    
 		\end{block}
@@ -89,7 +90,20 @@
 				\item Teilchenkollision
 				\item Eingabe: Sensorwerte
 				\item Ausgabe: Ist interessant oder nicht?
-		\end{itemize}		
+		\end{itemize}
+				\begin{block}{Erste Versuche}
+		    \begin{itemize}
+		    	\item StockExchange - Börsenvorhersage
+		    	\item IrisScan Datensatz
+		    \end{itemize}
+		\end{block}
+		\begin{block}{Teilchenkollision (Cern)}
+		    \begin{itemize}
+		    	\item 15k Datensätze
+		    	\item Eingabe: 2853 Sensorwerte
+				\item Ausgabe: Ist interessant oder nicht? %Schwarzes Loch oder nicht?
+		    \end{itemize}
+		\end{block}		
 	\end{frame}
 
 	\begin{frame}[c]\frametitle{Was wir vorgefunden haben}		
@@ -100,21 +114,37 @@
 	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
 		\begin{block}{}
 			\begin{center}
+			 % TODO: Sequenzdiagramm für Kapitel Codeanalyse
 			\textit{Sequenzdiagramme, Profiling-Zeiten, Evaluierungsframework erklären}
 			\end{center}
 		\end{block}
 	\end {frame}
 	
+	\begin{frame}[c]\frametitle{Parallelisierung}
+		\begin{itemize}
+			\item Layer partitionieren
+			\begin{itemize}
+				\item Mehrere Neuronen pro Thread
+				\item Langsam
+			\end{itemize}
+			\item Batch Parallel
+			\begin{itemize}
+				\item Batch lernen
+				\item Leichter zu parallelisieren
+			\end{itemize}
+			\item Clone based Ansatz
+			\begin{itemize}
+				\item Ergebnis entspricht nicht dem Orginal
+				\item Lernen bleibt unmodifiziert (wie in Neuroph) %TODO: hier schon erwähnen?
+			\end{itemize}
+		\end{itemize}	
+	\end{frame}
+
 	\begin{frame}[c]\frametitle{MultiLayerPerceptron klonen}
-		\begin{block}{Aufbau}
-			
-		\end{block}
-		\begin{block}{Probleme}
-		
-		\end{block}
+		%TODO: Daniel
 	\end {frame}
 
-	\begin{frame}[c]\frametitle{Batch Learning parallelisieren}
+	\begin{frame}[c]\frametitle{2 - Batch Learning parallelisieren}
 
 		\begin{itemize}
 			\item Batch Learning
@@ -130,29 +160,29 @@
 			\end{itemize}
 			\item Klone des NN notwendig
 		\end{itemize}
-	\end {frame}
-	
-	\begin{frame}[c]\frametitle{Datensuche}
-		\begin{block}{Erste Versuche}
-		    \begin{itemize}
-		    	\item StockExchange - Börsenvorhersage
-		    	\item IrisScan Datensatz
-		    \end{itemize}
-		\end{block}
-		\begin{block}{Teilchenkollision (Cern)}
-		    \begin{itemize}
-		    	\item Viele Daten
-		    	\item Viele Neuronen :)
-		    	\item Kompliziertes Daten Format
-		    \end{itemize}
-		\end{block}
 	\end{frame}
 	
+	\begin{frame}[t]\frametitle{2 - Batch Learning parallelisieren}
+		\begin{enumerate}
+			\item NN klonen
+			\item Daten aufteilen
+			\item \textit{parallel:} Jeder Thread lernt seine Daten
+			\item \textit{parallel:} Gewichte der Klone in das Hautp-NN mergen (und in die Klone)
+			\item \textit{Barriere}
+			\item Fehlerberechnung
+			\item Fehler < x ? Fertig : Goto 3
+		\end{enumerate}
+	\end{frame}
+
+	%  TODO: Dominik Clone worker parallelisierung...
+
+
+%TODO: Evaluierung, Zwischenstand, Erwähnen, dass Güte über Zeit und Fehler gemessen wird. Exakt gleich Ergebnis ist nicht erforderlich. Evaluierungsframework
+
 	\begin{frame}[c]\frametitle{Whats next?}
 		\begin{block}{Fahrplan}
 		    \begin{itemize}
-		    	\item Herr werden über die Cern-Daten
-		    	\item Evaluierung der Ansätze
+		    	\item Vollständige Evaluierung der Ansätze
 		    	\item ...
 		    \end{itemize}
 		\end{block}
