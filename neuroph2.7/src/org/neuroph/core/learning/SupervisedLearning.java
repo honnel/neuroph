@@ -212,7 +212,7 @@ abstract public class SupervisedLearning extends IterativeLearning implements
      *
      * @return true if stop condition is reached, false otherwise
      */
-    protected boolean hasReachedStopCondition() {
+    public boolean hasReachedStopCondition() {
         // da li ovd etreba staviti da proverava i da li se koristi ovaj uslov??? ili staviti da uslov bude automatski samo s ajaako malom vrednoscu za errorChange Doule.minvalue
     	// System.out.println(this.totalNetworkError);
         return (this.totalNetworkError < this.maxError) || this.errorChangeStalled();

@@ -1,6 +1,7 @@
 package edu.kit.pmk.neuroph.eval.instances;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
@@ -13,7 +14,7 @@ import edu.kit.pmk.neuroph.parallel.ILearner;
 import edu.kit.pmk.neuroph.parallel.NeuralNetworkWrapper;
 import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
 import edu.kit.pmk.neuroph.parallel.networkclones.interpolation.NeuralNetInterpolatorType;
-import edu.kit.pmk.neuroph.samples.CernParticleCollision.CernFormatConverter;
+import edu.kit.pmk.neuroph.parallel.networkclones.revised.ClonebasedConcurrentLearnerRevised;
 
 public class ScoreCalculatorSuite {
 
@@ -24,25 +25,50 @@ public class ScoreCalculatorSuite {
 		// create training set from file
 		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
 
-		CernFormatConverter cfc = new CernFormatConverter(
-				"data/cern/result.txt", "data/cern/eventsPassSelectionExample");
-		String outputFile = "data/cern/converted.txt";
-		cfc.writeToFile(outputFile);
-		DataSet cernDataSet = DataSet.createFromFile(outputFile,
-				cfc.getInputCount(), cfc.getOutputCount(), ",");
+		// CernFormatConverter cfc = new CernFormatConverter(
+		// "data/cern/alldata/result.txt",
+		// "data/cern/alldata/eventsPassSelection");
+		// String outputFile = "data/cern/converted.txt";
+		// cfc.writeToFile(outputFile);
 
-		// scs.trainClonebasedAndNormalMLP(irisDataSet, 300, 4, 10, 3, 0.5,
-		// NeuralNetInterpolatorType.ArithmeticMean,
-		// NeuralNetInterpolatorType.Maximum);
-		scs.trainClonebasedAndNormalMLP(cernDataSet, 1000, 4, 10, 1, 0.5,
-				NeuralNetInterpolatorType.ArithmeticMean);
-		// scs.trainOneElementSet();
-		// scs.testParallelBatchLearningRule();
+		DataSet cernDataSet = DataSet.createFromFile(CERN_1000,
+				CERN_1000_INPUTCOUNT, 1, ",");
+
+		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 2, 1000,
+				1, 0.5);
+
+		// scs.testClonebasedAndNormalMLP(cernDataSet, 100, 2, 2, 1000, 1, 0.5,
+		// NeuralNetInterpolatorType.ArithmeticMean);
+
+		// scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 2, 1, 0.5);
 	}
 
-	private void trainClonebasedAndNormalMLP(DataSet dataSet,
-			int hiddenNeuronCount, int numThreads, int syncFrequency, int runs,
-			double trainingSetRatio, NeuralNetInterpolatorType... types) {
+	private static final String CERN_FULL = "data/cern/alldata/convertedData.txt";
+	private static final String CERN_EXAMPLE = "data/cern/convertedData.txt";
+	private static final String CERN_100 = "data/cern/100rows.txt";
+	private static final String CERN_1000 = "data/cern/1000rows.txt";
+	private static int CERN_FULL_INPUTCOUNT = 2853;
+	private static int CERN_1000_INPUTCOUNT = 2853;
+	private static int CERN_100_INPUTCOUNT = 2853;
+	private static int CERN_EXAMPLE_INPUTCOUNT = 1278;
+
+	private void testClonebasedAndRevisedAndNormalMLP(DataSet dataSet,
+			int hiddenNeuronCount, int maxIterations, int numThreads,
+			int syncFrequency, int runs, double trainingSetRatio) {
+
+		System.out.println("+-+-+-+-+ Test Configuration +-+-+-+-+");
+		System.out.println("Clonebased, Clonebased Revised, Seq MLP: "
+				+ hiddenNeuronCount);
+		System.out.println("Hidden Neurons: " + hiddenNeuronCount);
+		System.out.println("Maximum Learning Iterations: " + maxIterations);
+		System.out.println("#Threads: " + numThreads);
+		System.out
+				.println("For Unrevised: Interpolate clones after every <#> rows: "
+						+ syncFrequency);
+		System.out.println("Interpolation Type: ArithmeticMean");
+		System.out.println("TraingSet to TestSet ratio: " + trainingSetRatio);
+		System.out.println("Number of Test Runs: " + runs);
+		System.out.println();
 
 		// create MultiLayerPerceptron neural network
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(
@@ -50,7 +76,52 @@ public class ScoreCalculatorSuite {
 				dataSet.getOutputSize());
 		// neuralNet.setLearningRule(new MomentumBackpropagation());
 		// ((LMS) neuralNet.getLearningRule()).setBatchMode(true);
-		((LMS) neuralNet.getLearningRule()).setMaxIterations(60);
+		((LMS) neuralNet.getLearningRule()).setMaxIterations(maxIterations);
+
+		ILearner[] learners = new ILearner[3];
+
+		int i = 0;
+		learners[0] = new ClonebasedConcurrentLearnerRevised(numThreads,
+				maxIterations, NeuralNetInterpolatorType.ArithmeticMean,
+				neuralNet, "Clonebased-Revised ArithmeticMean");
+		learners[1] = new ClonebasedConcurrentLearner(numThreads,
+				syncFrequency, NeuralNetInterpolatorType.ArithmeticMean,
+				neuralNet, "Clonebased ArithmeticMean");
+		learners[2] = new NeuralNetworkWrapper(neuralNet, 1, "Sequential MLP");
+
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
+				dataSet, trainingSetRatio, runs, learners);
+
+		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
+		i = 0;
+		for (ILearner l : learners) {
+			System.out.println(l.getDescription() + ": " + scores[i++]);
+		}
+	}
+
+	private void testClonebasedAndNormalMLP(DataSet dataSet,
+			int hiddenNeuronCount, int maxIterations, int numThreads,
+			int syncFrequency, int runs, double trainingSetRatio,
+			NeuralNetInterpolatorType... types) {
+
+		System.out.println("+-+-+-+-+ Test Configuration +-+-+-+-+");
+		System.out.println("Hidden Neurons: " + hiddenNeuronCount);
+		System.out.println("Maximum Learning Iterations: " + maxIterations);
+		System.out.println("#Threads: " + numThreads);
+		System.out.println("Interpolate clones after every <#> rows: "
+				+ syncFrequency);
+		System.out.println("Interpolation Types: " + Arrays.toString(types));
+		System.out.println("TraingSet to TestSet ratio: " + trainingSetRatio);
+		System.out.println("Number of Test Runs: " + runs);
+		System.out.println();
+
+		// create MultiLayerPerceptron neural network
+		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(
+				dataSet.getInputSize(), hiddenNeuronCount,
+				dataSet.getOutputSize());
+		// neuralNet.setLearningRule(new MomentumBackpropagation());
+		// ((LMS) neuralNet.getLearningRule()).setBatchMode(true);
+		((LMS) neuralNet.getLearningRule()).setMaxIterations(maxIterations);
 
 		ILearner[] learners = new ILearner[types.length + 1];
 
@@ -64,6 +135,7 @@ public class ScoreCalculatorSuite {
 		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
 				dataSet, trainingSetRatio, runs, learners);
 
+		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
 		i = 0;
 		for (NeuralNetInterpolatorType type : types) {
 			System.out.println("Clonebased-" + type + ": " + scores[i++]);
@@ -71,22 +143,38 @@ public class ScoreCalculatorSuite {
 		System.out.println("Sequential MLP: " + scores[i]);
 	}
 
-	private void testParallelBatchLearningRule() {
-		String inputFileName = org.neuroph.samples.IrisClassificationSample.class
-				.getResource("data/iris_data_normalised.txt").getFile();
-		// create training set from file
-		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
+	private void testParallelBatchLearningRule(DataSet dataSet,
+			int hiddenNeuronCount, int maxIterations, int numThreads, int runs,
+			double trainingSetRatio) {
+		System.out.println("+-+-+-+-+ Test Configuration +-+-+-+-+");
+		System.out.println("Hidden Neurons: " + hiddenNeuronCount);
+		System.out.println("Maximum Learning Iterations: " + maxIterations);
+		System.out.println("#Threads: " + numThreads);
+		System.out.println("TraingSet to TestSet ratio: " + trainingSetRatio);
+		System.out.println("Number of Test Runs: " + runs);
+		System.out.println();
 
-		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 300, 3);
-		int threads = 2;
-		neuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(
-				threads));
-		NeuralNetworkWrapper wrap = new NeuralNetworkWrapper(neuralNet, threads);
+		MultiLayerPerceptron parNeuralNet = new MultiLayerPerceptron(
+				dataSet.getInputSize(), hiddenNeuronCount, 1);
+		parNeuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(
+				numThreads));
+		((LMS) parNeuralNet.getLearningRule()).setMaxIterations(maxIterations);
+		NeuralNetworkWrapper parBatch = new NeuralNetworkWrapper(parNeuralNet,
+				numThreads, "Parallel MLP BatchBackpropagation");
+
+		MultiLayerPerceptron seqNeuralNet = new MultiLayerPerceptron(
+				dataSet.getInputSize(), hiddenNeuronCount, 1);
+		((LMS) seqNeuralNet.getLearningRule()).setBatchMode(true);
+		((LMS) seqNeuralNet.getLearningRule()).setMaxIterations(maxIterations);
+		NeuralNetworkWrapper seqBatch = new NeuralNetworkWrapper(seqNeuralNet,
+				1, "Sequential MLP BatchBackpropagation");
 
 		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
-				irisDataSet, 0.5, 1, wrap);
+				dataSet, trainingSetRatio, runs, parBatch, seqBatch);
 
-		System.out.println("BatchParallelMomentumBP: " + scores[0]);
+		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
+		System.out.println(parBatch.getDescription() + ": " + scores[0]);
+		System.out.println(seqBatch.getDescription() + ": " + scores[1]);
 	}
 
 	private void trainOneElementSet() {

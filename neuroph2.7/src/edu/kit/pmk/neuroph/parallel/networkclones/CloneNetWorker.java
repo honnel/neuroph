@@ -12,14 +12,22 @@ import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 public class CloneNetWorker implements Runnable {
 
+	private static final String TAG = CloneNetWorker.class.getSimpleName();
 	private CyclicBarrier barrier;
 	private NeuralNetwork net;
 	private DataSet[] runs;
 
-	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net, DataSet set, int syncFrequency) {
+	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net,
+			DataSet set, int syncFrequency) {
 		this.barrier = barrier;
 		this.net = net;
 		splitDataSetIntoRuns(set, syncFrequency);
+	}
+
+	// interpolate only at the end
+	public CloneNetWorker(CyclicBarrier barrier, NeuralNetwork net, DataSet set) {
+		this.barrier = barrier;
+		this.net = net;
 	}
 
 	private void splitDataSetIntoRuns(DataSet set, int syncFrequency) {
@@ -28,24 +36,24 @@ public class CloneNetWorker implements Runnable {
 		for (int k = 0; k < runs.length; k++)
 			runs[k] = new DataSet(set.getInputSize(), set.getOutputSize());
 		int i = 0;
-		
+
 		// gute aufteilung
 		for (DataSetRow row : set.getRows()) {
 			runs[i % numRuns].addRow(row);
 			i++;
 		}
-		
+
 		// boese aufteilung
-//		int counter = 0;
-//		for (DataSetRow row : set.getRows()) {
-//			runs[i % numRuns].addRow(row);
-//			counter++;
-//			if(counter==25) {
-//				counter = 0;
-//				i++;
-//			}
-//		}
-		
+		// int counter = 0;
+		// for (DataSetRow row : set.getRows()) {
+		// runs[i % numRuns].addRow(row);
+		// counter++;
+		// if(counter==25) {
+		// counter = 0;
+		// i++;
+		// }
+		// }
+
 	}
 
 	public NeuralNetwork getNeuralNetwork() {
@@ -58,11 +66,14 @@ public class CloneNetWorker implements Runnable {
 
 	@Override
 	public void run() {
+		String id = "[Thread " + Thread.currentThread().getId() + "]";
+		long t0 = System.currentTimeMillis();
 		try {
 			this.net = (NeuralNetwork) FastDeepCopy.createDeepCopy(net);
 		} catch (ClassNotFoundException | IOException e1) {
 			e1.printStackTrace();
 		}
+		long t1 = System.currentTimeMillis();
 		for (int i = 0; i < runs.length; i++) {
 			net.learn(runs[i]);
 			try {
@@ -73,6 +84,11 @@ public class CloneNetWorker implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		long t2 = System.currentTimeMillis();
+		System.out.println(TAG + id + ": deepcopy = " + (t1 - t0) + " ms");
+		System.out.println(TAG + id + ": learning = " + (t2 - t1) + " ms");
+		System.out.println(TAG + id + ": deepcopy + learning = " + (t2 - t0)
+				+ " ms");
 	}
 
 }

@@ -8,7 +8,6 @@ import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
 import edu.kit.pmk.neuroph.parallel.ILearner;
-import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 import edu.kit.pmk.neuroph.parallel.networkclones.interpolation.NeuralNetInterpolator;
 import edu.kit.pmk.neuroph.parallel.networkclones.interpolation.NeuralNetInterpolatorType;
 
@@ -22,8 +21,12 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	private NeuralNetwork originalNet;
 	private final String description;
 
-	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency, NeuralNetInterpolatorType interpolationType, NeuralNetwork neuralNet,
-			String description) {
+	private static final String TAG = ClonebasedConcurrentLearner.class
+			.getSimpleName();
+
+	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency,
+			NeuralNetInterpolatorType interpolationType,
+			NeuralNetwork neuralNet, String description) {
 		this.numThreads = numThreads;
 		this.syncFrequency = syncFrequency;
 		this.interpolationType = interpolationType;
@@ -32,7 +35,8 @@ public class ClonebasedConcurrentLearner implements ILearner {
 		resetToUnlearnedState();
 	}
 
-	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency, NeuralNetInterpolatorType interpolationType, NeuralNetwork neuralNet) {
+	public ClonebasedConcurrentLearner(int numThreads, int syncFrequency,
+			NeuralNetInterpolatorType interpolationType, NeuralNetwork neuralNet) {
 		this(numThreads, syncFrequency, interpolationType, neuralNet, "");
 	}
 
@@ -58,26 +62,36 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	public void learn(DataSet trainingSet) {
 		DataSet[] dataSets = splitDataSet(numThreads, trainingSet);
 
-		final NeuralNetInterpolator interpolator = NeuralNetInterpolator.createNeuralNetInterpolator(interpolationType);
-		final CyclicBarrier barrier = new CyclicBarrier(numThreads, new Runnable() {
+		final NeuralNetInterpolator interpolator = NeuralNetInterpolator
+				.createNeuralNetInterpolator(interpolationType);
+		final CyclicBarrier barrier = new CyclicBarrier(numThreads,
+				new Runnable() {
 
-			@Override
-			public void run() {
-				interpolator.interpolateWeights();
-				// System.out.println("Interpolate. Current time is "
-				// + (System.currentTimeMillis() - t0) + "ms.");
-			}
-		});
+					@Override
+					public void run() {
+						interpolator.interpolateWeights();
+						// System.out.println("Interpolate. Current time is "
+						// + (System.currentTimeMillis() - t0) + "ms.");
+					}
+				});
 
+		long t0 = System.currentTimeMillis();
 		workers = initializeWorkers(syncFrequency, dataSets, barrier);
+		long t1 = System.currentTimeMillis();
 		interpolator.setWorkers(workers);
 		Thread[] threads = startWorkers(workers);
+		long t2 = System.currentTimeMillis();
 		try {
 			waitForWorkersCompletion(threads);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		long t3 = System.currentTimeMillis();
 		this.neuralNet = workers[0].getNeuralNetwork();
+		System.out.println(TAG + ": init_workers = " + (t1 - t0) + " ms");
+		System.out.println(TAG + ": start_workers = " + (t2 - t1) + " ms");
+		System.out.println(TAG + ": wait_for_workers = " + (t3 - t2) + " ms");
+		System.out.println(TAG + ": total = " + (t3 - t0) + " ms");
 	}
 
 	public CloneNetWorker[] getCloneNetWorkers() {
@@ -87,7 +101,8 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	private DataSet[] splitDataSet(int numSubsets, DataSet dataSet) {
 		DataSet[] dataSets = new DataSet[numSubsets];
 		for (int i = 0; i < dataSets.length; i++) {
-			dataSets[i] = new DataSet(dataSet.getInputSize(), dataSet.getOutputSize());
+			dataSets[i] = new DataSet(dataSet.getInputSize(),
+					dataSet.getOutputSize());
 		}
 		int rowIndex = 0;
 		for (DataSetRow row : dataSet.getRows()) {
@@ -97,10 +112,12 @@ public class ClonebasedConcurrentLearner implements ILearner {
 		return dataSets;
 	}
 
-	private CloneNetWorker[] initializeWorkers(int syncFrequency, DataSet[] dataSets, final CyclicBarrier barrier) {
+	private CloneNetWorker[] initializeWorkers(int syncFrequency,
+			DataSet[] dataSets, final CyclicBarrier barrier) {
 		CloneNetWorker[] workers = new CloneNetWorker[dataSets.length];
 		for (int i = 0; i < workers.length; i++) {
-			workers[i] = new CloneNetWorker(barrier, neuralNet, dataSets[i], syncFrequency);
+			workers[i] = new CloneNetWorker(barrier, neuralNet, dataSets[i],
+					syncFrequency);
 		}
 		return workers;
 	}
@@ -114,7 +131,8 @@ public class ClonebasedConcurrentLearner implements ILearner {
 		return threads;
 	}
 
-	private void waitForWorkersCompletion(Thread[] workers) throws InterruptedException {
+	private void waitForWorkersCompletion(Thread[] workers)
+			throws InterruptedException {
 		for (int i = 0; i < workers.length; i++) {
 			workers[i].join();
 		}
@@ -123,7 +141,8 @@ public class ClonebasedConcurrentLearner implements ILearner {
 	@Override
 	public void resetToUnlearnedState() {
 		try {
-			this.neuralNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+			this.neuralNet = (NeuralNetwork) FastDeepCopy
+					.createDeepCopy(originalNet);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
