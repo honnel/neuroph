@@ -1,0 +1,73 @@
+scs.trainClonebasedAndNormalMLP(cernDataSet_100, 100, 2, 10, 4, 0.5, NeuralNetInterpolatorType.ArithmeticMean);
+
++-+-+-+-+ TestRun 0 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 9] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 9] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 10] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 9] stopped
+CloneNetWorker 9: deepcopy = 1160
+CloneNetWorker 9: learning = 43810
+CloneNetWorker 9: deepcopy + learning = 44970
+CloneNetWorker 10: deepcopy = 1128
+CloneNetWorker 10: learning = 43842
+CloneNetWorker 10: deepcopy + learning = 44970
+ClonebasedConcurrentLearner: init_workers = 1
+ClonebasedConcurrentLearner: start_workers = 1
+ClonebasedConcurrentLearner: wait_for_workers = 44970
+ClonebasedConcurrentLearner: total = 44972
+NeuralNetworkWrapper: start learning!
+NeuralNetworkWrapper: learning = 111184
++-+-+-+-+ TestRun 1 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 12] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 11] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 11] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 12] stopped
+CloneNetWorker 12: deepcopy = 4004
+CloneNetWorker 11: deepcopy = 1258
+CloneNetWorker 11: learning = 25521
+CloneNetWorker 11: deepcopy + learning = 26779
+CloneNetWorker 12: learning = 22775
+CloneNetWorker 12: deepcopy + learning = 26779
+ClonebasedConcurrentLearner: init_workers = 0
+ClonebasedConcurrentLearner: start_workers = 1
+ClonebasedConcurrentLearner: wait_for_workers = 26780
+ClonebasedConcurrentLearner: total = 26781
+NeuralNetworkWrapper: start learning!
+NeuralNetworkWrapper: learning = 83662
++-+-+-+-+ TestRun 2 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 13] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 14] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 14] stopped
+CloneNetWorker 13: deepcopy = 2554
+CloneNetWorker 13: learning = 39934
+CloneNetWorker 13: deepcopy + learning = 42488
+CloneNetWorker 14: deepcopy = 2555
+CloneNetWorker 14: learning = 39933
+CloneNetWorker 14: deepcopy + learning = 42488
+ClonebasedConcurrentLearner: init_workers = 0
+ClonebasedConcurrentLearner: start_workers = 0
+ClonebasedConcurrentLearner: wait_for_workers = 42488
+ClonebasedConcurrentLearner: total = 42488
+NeuralNetworkWrapper: start learning!
+NeuralNetworkWrapper: learning = 105937
++-+-+-+-+ TestRun 3 +-+-+-+-+
+org.neuroph.core.learning.SupervisedLearning[Thread 16] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 15] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 16] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 15] stopped
+org.neuroph.core.learning.SupervisedLearning[Thread 16] stopped
+CloneNetWorker 16: deepcopy = 2386
+CloneNetWorker 15: deepcopy = 2379
+CloneNetWorker 15: learning = 24013
+CloneNetWorker 15: deepcopy + learning = 26392
+CloneNetWorker 16: learning = 24006
+CloneNetWorker 16: deepcopy + learning = 26392
+ClonebasedConcurrentLearner: init_workers = 0
+ClonebasedConcurrentLearner: start_workers = 1
+ClonebasedConcurrentLearner: wait_for_workers = 26395
+ClonebasedConcurrentLearner: total = 26396
+NeuralNetworkWrapper: start learning!
+NeuralNetworkWrapper: learning = 64011
+Clonebased-ArithmeticMean: Score(error=0,218964, time=140685ms)
+Sequential MLP: Score(error=0,159059, time=364797ms)
+

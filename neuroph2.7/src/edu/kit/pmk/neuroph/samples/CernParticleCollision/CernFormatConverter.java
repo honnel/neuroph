@@ -88,7 +88,7 @@ public class CernFormatConverter {
 	private HashMap<Integer, DataRow> parseInputs(String keysInputsFilepath,
 			int[] elementsInColumn) throws IOException {
 		int rowCount = elementsInColumn[0];
-		HashMap<Integer, DataRow> inputs = new HashMap<>(rowCount);
+		HashMap<Integer, DataRow> inputs = new HashMap<Integer, DataRow>(rowCount);
 		BufferedReader fReader = new BufferedReader(new FileReader(
 				keysInputsFilepath));
 

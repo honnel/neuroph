@@ -70,7 +70,9 @@ public class CloneNetWorker implements Runnable {
 		long t0 = System.currentTimeMillis();
 		try {
 			this.net = (NeuralNetwork) FastDeepCopy.createDeepCopy(net);
-		} catch (ClassNotFoundException | IOException e1) {
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		}
 		long t1 = System.currentTimeMillis();
