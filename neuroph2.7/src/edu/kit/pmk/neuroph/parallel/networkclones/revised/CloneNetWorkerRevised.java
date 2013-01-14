@@ -19,6 +19,7 @@ public class CloneNetWorkerRevised extends CloneNetWorker implements Runnable {
 	private NeuralNetwork net;
 	private DataSet set;
 	private int maxIterations;
+	private boolean finished;
 
 	public CloneNetWorkerRevised(CyclicBarrier barrier, NeuralNetwork net,
 			DataSet set, int maxIterations) {
@@ -27,6 +28,7 @@ public class CloneNetWorkerRevised extends CloneNetWorker implements Runnable {
 		this.net = net;
 		this.set = set;
 		this.maxIterations = maxIterations;
+		this.finished = false;
 	}
 	
 	@Override
@@ -58,7 +60,9 @@ public class CloneNetWorkerRevised extends CloneNetWorker implements Runnable {
 
 		long t2 = System.currentTimeMillis();
 		for (int i = 0; i < maxIterations; i++) {
-			net.learn(set);
+			if(!finished) {
+				net.learn(set);
+			}
 			try {
 				barrier.await();
 			} catch (InterruptedException e) {
@@ -67,7 +71,7 @@ public class CloneNetWorkerRevised extends CloneNetWorker implements Runnable {
 				e.printStackTrace();
 			}
 			if(learningRule.hasReachedStopCondition())
-				break;
+				finished = true;
 		}
 		long t3 = System.currentTimeMillis();
 		System.out.println(TAG + id + ": deepcopy = " + (t1 - t0) + " ms");
