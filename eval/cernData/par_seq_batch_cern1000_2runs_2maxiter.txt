@@ -1,0 +1,19 @@
++-+-+-+-+ Test Configuration +-+-+-+-+
+Hidden Neurons: 100
+Maximum Learning Iterations: 2
+#Threads: 2
+TraingSet to TestSet ratio: 0.5
+Number of Test Runs: 1
+
+
++-+-+-+-+ TestRun 0 +-+-+-+-+
+NeuralNetworkWrapper: start learning!
+Stopped after iterations: 2
+NeuralNetworkWrapper: learning = 47640 ms
+NeuralNetworkWrapper: start learning!
+org.neuroph.core.learning.IterativeLearning[Thread 1] stopped because it exceeded MAXIMAL iterations = 2
+NeuralNetworkWrapper: learning = 28166 ms
+
++-+-+-+-+ Scores +-+-+-+-+
+Parallel MLP BatchBackpropagation: Parallel MLP BatchBackpropagation Score(error=0,193831, time=47640ms)
+Sequential MLP BatchBackpropagation: Sequential MLP BatchBackpropagation Score(error=0,153111, time=28167ms)

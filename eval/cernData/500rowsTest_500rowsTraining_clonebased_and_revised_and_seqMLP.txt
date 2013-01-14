@@ -1,0 +1,45 @@
++-+-+-+-+ Test Configuration +-+-+-+-+
+Hidden Neurons: 100
+Maximum Learning Iterations: 2
+#Threads: 2
+Interpolate clones after every <#> rows: 1000
+Interpolation Type: ArithmeticMean
+TraingSet to TestSet ratio: 0.5
+Number of Test Runs: 1
+
+
++-+-+-+-+ TestRun 0 +-+-+-+-+
+org.neuroph.core.learning.IterativeLearning[Thread 9] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 10] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 9] stopped because it exceeded MAXIMAL iterations = 1
+org.neuroph.core.learning.IterativeLearning[Thread 10] stopped because it exceeded MAXIMAL iterations = 1
+CloneNetWorkerRevised[Thread 9]: deepcopy = 2943 ms
+CloneNetWorkerRevised[Thread 9]: learning = 19707 ms
+CloneNetWorkerRevised[Thread 9]: deepcopy + learning = 22650 ms
+CloneNetWorkerRevised[Thread 10]: deepcopy = 2932 ms
+CloneNetWorkerRevised[Thread 10]: learning = 19718 ms
+CloneNetWorkerRevised[Thread 10]: deepcopy + learning = 22650 ms
+ClonebasedConcurrentLearnerRevised: init_workers = 0 ms
+ClonebasedConcurrentLearnerRevised: start_workers = 0 ms
+ClonebasedConcurrentLearnerRevised: wait_for_workers = 22653 ms
+ClonebasedConcurrentLearnerRevised: total = 22653 ms
+org.neuroph.core.learning.IterativeLearning[Thread 11] stopped because it exceeded MAXIMAL iterations = 2
+org.neuroph.core.learning.IterativeLearning[Thread 12] stopped because it exceeded MAXIMAL iterations = 2
+CloneNetWorker[Thread 12]: deepcopy = 4339 ms
+CloneNetWorker[Thread 12]: learning = 16405 ms
+CloneNetWorker[Thread 12]: deepcopy + learning = 20744 ms
+CloneNetWorker[Thread 11]: deepcopy = 4351 ms
+CloneNetWorker[Thread 11]: learning = 16393 ms
+CloneNetWorker[Thread 11]: deepcopy + learning = 20744 ms
+ClonebasedConcurrentLearner: init_workers = 0 ms
+ClonebasedConcurrentLearner: start_workers = 0 ms
+ClonebasedConcurrentLearner: wait_for_workers = 20747 ms
+ClonebasedConcurrentLearner: total = 20747 ms
+NeuralNetworkWrapper: start learning!
+org.neuroph.core.learning.IterativeLearning[Thread 1] stopped because it exceeded MAXIMAL iterations = 2
+NeuralNetworkWrapper: learning = 32135 ms
+
++-+-+-+-+ Scores +-+-+-+-+
+Clonebased-Revised ArithmeticMean: Clonebased-Revised ArithmeticMean Score(error=0,178597, time=22659ms)
+Clonebased ArithmeticMean: Clonebased ArithmeticMean Score(error=0,192622, time=20749ms)
+Sequential MLP: Sequential MLP Score(error=0,168136, time=32135ms)

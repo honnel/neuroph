@@ -1,0 +1,3 @@
+NeuralNetworkWrapper: start learning!
+NeuralNetworkWrapper: learning = 62733
+Sequential MLP: Score(error=0,175208, time=62733ms)
