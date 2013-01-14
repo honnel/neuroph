@@ -43,8 +43,8 @@ public class ScoreCalculatorSuite {
 		// scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 2, 1, 0.5);
 	}
 
-	private static final String CERN_FULL = "data/cern/alldata/convertedData.txt";
-	private static final String CERN_EXAMPLE = "data/cern/convertedData.txt";
+	private static final String CERN_FULL = "data/cern/15000rows.txt";
+	private static final String CERN_EXAMPLE = "data/cern/example.txt";
 	private static final String CERN_100 = "data/cern/100rows.txt";
 	private static final String CERN_1000 = "data/cern/1000rows.txt";
 	private static int CERN_FULL_INPUTCOUNT = 2853;

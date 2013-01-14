@@ -2,7 +2,7 @@
   associations="true" dependencies="false" nesting-relationships="true">  
   <class id="1" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.learning.SigmoidDeltaRule" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/nnet/learning/SigmoidDeltaRule.java" binary="false">    
-    <position height="-1" width="-1" x="790" y="388"/>    
+    <position height="-1" width="-1" x="554" y="391"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -10,7 +10,7 @@
   </class>  
   <class id="2" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.core.Neuron" project="neuroph2.7" 
     file="/neuroph2.7/src/org/neuroph/core/Neuron.java" binary="false">    
-    <position height="-1" width="-1" x="296" y="94"/>    
+    <position height="-1" width="-1" x="242" y="95"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -18,7 +18,7 @@
   </class>  
   <class id="3" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.comp.layer.InputLayer" project="neuroph2.7" 
     file="/neuroph2.7/src/org/neuroph/nnet/comp/layer/InputLayer.java" binary="false">    
-    <position height="-1" width="-1" x="194" y="348"/>    
+    <position height="-1" width="-1" x="232" y="292"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -26,7 +26,7 @@
   </class>  
   <class id="4" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.core.Layer" project="neuroph2.7" 
     file="/neuroph2.7/src/org/neuroph/core/Layer.java" binary="false">    
-    <position height="-1" width="-1" x="291" y="216"/>    
+    <position height="-1" width="-1" x="366" y="201"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -34,7 +34,7 @@
   </class>  
   <class id="5" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.comp.layer.CompetitiveLayer" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/nnet/comp/layer/CompetitiveLayer.java" binary="false">    
-    <position height="-1" width="-1" x="364" y="347"/>    
+    <position height="-1" width="-1" x="386" y="291"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -42,7 +42,7 @@
   </class>  
   <class id="6" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.core.NeuralNetwork" project="neuroph2.7" 
     file="/neuroph2.7/src/org/neuroph/core/NeuralNetwork.java" binary="false">    
-    <position height="-1" width="-1" x="548" y="141"/>    
+    <position height="-1" width="-1" x="558" y="103"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -58,7 +58,7 @@
   </class>  
   <class id="8" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.core.learning.IterativeLearning" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/core/learning/IterativeLearning.java" binary="false">    
-    <position height="-1" width="-1" x="796" y="182"/>    
+    <position height="-1" width="-1" x="788" y="193"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -66,7 +66,7 @@
   </class>  
   <class id="9" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.learning.MomentumBackpropagation" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/nnet/learning/MomentumBackpropagation.java" binary="false">    
-    <position height="-1" width="-1" x="792" y="583"/>    
+    <position height="-1" width="-1" x="161" y="399"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -74,7 +74,7 @@
   </class>  
   <class id="10" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.learning.BackPropagation" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/nnet/learning/BackPropagation.java" binary="false">    
-    <position height="-1" width="-1" x="795" y="472"/>    
+    <position height="-1" width="-1" x="380" y="396"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -82,7 +82,7 @@
   </class>  
   <class id="11" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.learning.LMS" project="neuroph2.7" 
     file="/neuroph2.7/src/org/neuroph/nnet/learning/LMS.java" binary="false">    
-    <position height="-1" width="-1" x="783" y="313"/>    
+    <position height="-1" width="-1" x="735" y="361"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -90,7 +90,7 @@
   </class>  
   <class id="12" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.core.learning.SupervisedLearning" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/core/learning/SupervisedLearning.java" binary="false">    
-    <position height="-1" width="-1" x="789" y="246"/>    
+    <position height="-1" width="-1" x="775" y="277"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -98,7 +98,7 @@
   </class>  
   <class id="13" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.MultiLayerPerceptron" project="neuroph2.7" 
     file="/neuroph2.7/src/org/neuroph/nnet/MultiLayerPerceptron.java" binary="false">    
-    <position height="-1" width="-1" x="559" y="298"/>    
+    <position height="-1" width="-1" x="559" y="242"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -106,7 +106,7 @@
   </class>  
   <class id="14" corner="BOTTOM_RIGHT" language="java" name="org.neuroph.nnet.comp.neuron.InputNeuron" 
     project="neuroph2.7" file="/neuroph2.7/src/org/neuroph/nnet/comp/neuron/InputNeuron.java" binary="false">    
-    <position height="-1" width="-1" x="115" y="89"/>    
+    <position height="-1" width="-1" x="136" y="184"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
       <attributes public="false" package="false" protected="false" private="false"/>      
       <operations public="false" package="false" protected="false" private="false"/>    
@@ -114,32 +114,32 @@
   </class>  
   <association id="15">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="16" name="outputNeurons"/>      
+      <attribute id="16" name="layers"/>      
       <multiplicity id="17" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="19" name="learningRule"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="22" name="inputNeurons"/>      
+      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="1"/>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="8"/>  
   </generalization>  
-  <association id="19">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="20" name="parentLayer"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="23" name="layers"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="25">    
     <end type="SOURCE" refId="4" navigable="false">      
       <attribute id="26" name="parentNetwork"/>      
@@ -148,73 +148,73 @@
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
+  <generalization id="28">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="29">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="30" name="neurons"/>      
+      <multiplicity id="31" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="34">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="35" name="parentLayer"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="38">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="29" name="neuralNetwork"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+      <attribute id="39" name="neuralNetwork"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="8"/>  
+  <generalization id="41">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="11"/>  
   </generalization>  
-  <association id="32">    
+  <association id="42">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="learningRule"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="36" name="neurons"/>      
-      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+      <attribute id="43" name="outputNeurons"/>      
+      <multiplicity id="44" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="38">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="39">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <generalization id="40">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="42">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <generalization id="43">    
+  <generalization id="45">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="2"/>  
   </generalization>  
-  <association id="44">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="45" name="inputNeurons"/>      
-      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
   <generalization id="47">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
   <generalization id="48">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="1"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     visibility="true">    
