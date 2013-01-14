@@ -68,15 +68,37 @@
 	\maketitle
 
 	\begin{frame}[c]\frametitle{Neuronale Netze}
-		\begin{center}
-		%TODO: ja was machen wir denn?
-		\textit{Was machen wir überhaupt? Allgemeine (kurze) Einführung neuronale Netze}
-		\end{center}
+		\begin{block}{Neuronen}
+		    \begin{itemize}
+			    \item Bestehen aus Neuronen (Verarbeitungseinheiten)
+		    	\item Gewichtete Eingabeverbindungen werden zusammenfasst (Propagierungsfunktion)
+		    	\item Aktivierungsfunktion mit Schwellwert
+		    	\item Aus Aktivierung folgt mittels Ausgabefunktion die Ausgabe
+		    \end{itemize}		    
+		\end{block}	
+		\vspace{.5cm}
+			\begin{minipage}[c]{0.48\textwidth}
+				\begin{center}
+				\includegraphics[width=0.5\textwidth]{images/ann.png}
+				\end{center}
+			\end{minipage}	
+			\begin{minipage}[c]{0.48\textwidth}
+				\begin{center}
+				\includegraphics[width=\textwidth]{images/Neuron.png}
+				\end{center}
+			\end{minipage}
 	\end{frame}
+	
+	\begin{frame}[c]\frametitle{Neuronale Netze}
+		\begin{center}
+		\includegraphics[scale=.7]{images/workflow.png}
+		\end{center}
+	\end{frame}		
 
 	\begin{frame}[c]\frametitle{Überblick}
 		\begin{block}{Was bisher geschah}
 		    \begin{itemize}
+		    	\item Einarbeitung in die Thematik der NN
 			    \item Testdaten beschaffen
 		    	\item Code Analyse
 		    	\item Drei Parallelisierungsversuche
@@ -86,12 +108,7 @@
 	\end{frame}
 	
 	\begin{frame}[c]\frametitle{Testdaten}
-		\begin{itemize}
-				\item Teilchenkollision
-				\item Eingabe: Sensorwerte
-				\item Ausgabe: Ist interessant oder nicht?
-		\end{itemize}
-				\begin{block}{Erste Versuche}
+		\begin{block}{Erste Versuche}
 		    \begin{itemize}
 		    	\item StockExchange - Börsenvorhersage
 		    	\item IrisScan Datensatz
@@ -101,38 +118,49 @@
 		    \begin{itemize}
 		    	\item 15k Datensätze
 		    	\item Eingabe: 2853 Sensorwerte
-				\item Ausgabe: Ist interessant oder nicht? %Schwarzes Loch oder nicht?
+				\item Ausgabe: Ist das Ereignis interessant oder nicht? 
+				%Schwarzes Loch oder nicht?
 		    \end{itemize}
 		\end{block}		
 	\end{frame}
 
-	\begin{frame}[c]\frametitle{Was wir vorgefunden haben}		
-		\includegraphics[scale=0.4]{Klassendiagramm.png}
-	\end{frame}
-
-
 	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
-		\begin{block}{}
+		\begin{block}{Was wir vorgefunden haben}
 			\begin{center}
-			 % TODO: Sequenzdiagramm für Kapitel Codeanalyse
-			\textit{Sequenzdiagramme, Profiling-Zeiten, Evaluierungsframework erklären}
+				\includegraphics[scale=0.4]{images/Klassendiagramm.png}
+			\end{center}
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
+		\begin{block}{Sequenzdiagramm}
+			\begin{center}
+			  \textit{TODO: Sequenzdiagramm} 
 			\end{center}
 		\end{block}
 	\end {frame}
 	
-	\begin{frame}[c]\frametitle{Parallelisierung}
+	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
+		\begin{block}{Profiling}
+			\begin{center}
+			  \textit{TODO: Profiling}
+			\end{center}
+		\end{block}
+	\end {frame}			
+	
+	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
 		\begin{itemize}
 			\item Layer partitionieren
 			\begin{itemize}
-				\item Mehrere Neuronen pro Thread
-				\item Langsam
+				\item Mehrere Neuronen einer Schicht pro Thread
+				\item Langsam, da zu fein granular
 			\end{itemize}
 			\item Batch Parallel
 			\begin{itemize}
 				\item Batch lernen
 				\item Leichter zu parallelisieren
 			\end{itemize}
-			\item Clone based Ansatz
+			\item Clonebased Parallelisierung
 			\begin{itemize}
 				\item Ergebnis entspricht nicht dem Orginal
 				\item Lernen bleibt unmodifiziert (wie in Neuroph) %TODO: hier schon erwähnen?
@@ -168,7 +196,7 @@
 			\item Daten aufteilen
 			\item \textit{parallel:} Jeder Thread lernt seine Daten
 			\item \textit{parallel:} Gewichte der Klone in das Hautp-NN mergen (und in die Klone)
-			\item \textit{Barriere}
+			\item \textit{Barriere}n
 			\item Fehlerberechnung
 			\item Fehler < x ? Fertig : Goto 3
 		\end{enumerate}
@@ -183,7 +211,7 @@
 		\begin{block}{Fahrplan}
 		    \begin{itemize}
 		    	\item Vollständige Evaluierung der Ansätze
-		    	\item ...
+		    	\item Experimentgestütze Parameteranpassung $\rightarrow$ Speedup
 		    \end{itemize}
 		\end{block}
 	\end{frame}
