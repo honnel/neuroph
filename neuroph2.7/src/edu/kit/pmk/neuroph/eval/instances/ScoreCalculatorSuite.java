@@ -34,13 +34,13 @@ public class ScoreCalculatorSuite {
 		DataSet cernDataSet = DataSet.createFromFile(CERN_1000,
 				CERN_1000_INPUTCOUNT, 1, ",");
 
-//		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 8, 100,
-//				1, 0.5);
+		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 2, 100,
+				1, 0.5);
 
 		// scs.testClonebasedAndNormalMLP(cernDataSet, 100, 2, 2, 1000, 1, 0.5,
 		// NeuralNetInterpolatorType.ArithmeticMean);
 
-		 scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 4, 1, 0.5);
+		 //scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 4, 1, 0.5);
 	}
 
 	private static final String CERN_FULL = "data/cern/15000rows.txt";
