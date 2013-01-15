@@ -149,31 +149,29 @@
 	\end {frame}			
 	
 	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
+		\begin{alertblock}{}
+		\textit{TODO: Hier alle Unterpunkte rausnehmen (auf nachfolgende Seiten verteilen) und nur als kurze Übersichtsfolie nutzen??}
+		\end{alertblock}
 		\begin{itemize}
-			\item Layer partitionieren
+			\item Layer Partitionierung
 			\begin{itemize}
 				\item Mehrere Neuronen einer Schicht pro Thread
 				\item Langsam, da zu fein granular
 			\end{itemize}
-			\item Batch Parallel
+			\item Batch Learning Parallelisierung
 			\begin{itemize}
-				\item Batch lernen
-				\item Leichter zu parallelisieren
+				\item Batch parallelisieren
+				\item Einfacherer zu parallelisieren
 			\end{itemize}
 			\item Clonebased Parallelisierung
 			\begin{itemize}
 				\item Ergebnis entspricht nicht dem Orginal
-				\item Lernen bleibt unmodifiziert (wie in Neuroph) %TODO: hier schon erwähnen?
+				\item Lernen bleibt unmodifiziert 
 			\end{itemize}
 		\end{itemize}	
 	\end{frame}
 
-	\begin{frame}[c]\frametitle{MultiLayerPerceptron klonen}
-		%TODO: Daniel
-	\end {frame}
-
-	\begin{frame}[c]\frametitle{2 - Batch Learning parallelisieren}
-
+	\begin{frame}[c]\frametitle{Batch Learning Parallelisierung}
 		\begin{itemize}
 			\item Batch Learning
 			\begin{itemize}
@@ -190,7 +188,7 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}[t]\frametitle{2 - Batch Learning parallelisieren}
+	\begin{frame}[t]\frametitle{Batch Learning parallelisieren}
 		\begin{enumerate}
 			\item NN klonen
 			\item Daten aufteilen
@@ -201,6 +199,28 @@
 			\item Fehler < x ? Fertig : Goto 3
 		\end{enumerate}
 	\end{frame}
+	
+	\begin{frame}[t]\frametitle{Clonebased Parallelisierung}
+		\begin{center}
+			\includegraphics[width=.65\textwidth]{images/Parallelisierungsansatz.pdf} 
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}[t]\frametitle{Clonebased Parallelisierung}
+		\begin{itemize}
+			\item ANN wird nach der Erzeugung \glqq geklont\grqq
+			\item Ein Klon pro Thread
+			\item Unterschiedliche Interpolationsfunktionen
+			\item Weitere Parameter
+			\begin{itemize}
+				\item Synchronisationsintervall
+				\item Maximale \#Iterationen
+			\end{itemize}				
+			\item Ergebnis entspricht nicht dem Original (?)
+			\item Lernen bleibt unmodifiziert (?)
+		\end{itemize}
+	\end{frame}
+
 
 	%  TODO: Dominik Clone worker parallelisierung...
 
@@ -211,7 +231,7 @@
 		\begin{block}{Fahrplan}
 		    \begin{itemize}
 		    	\item Vollständige Evaluierung der Ansätze
-		    	\item Experimentgestütze Parameteranpassung $\rightarrow$ Speedup
+		    	\item Experimentieren mit unterschiedlichen Konfigurationsparametern $\rightarrow$ Speedup
 		    \end{itemize}
 		\end{block}
 	\end{frame}
