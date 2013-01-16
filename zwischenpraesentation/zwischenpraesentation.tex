@@ -135,38 +135,55 @@
 	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
 		\begin{block}{Sequenzdiagramm}
 			\begin{center}
-			  \textit{TODO: Sequenzdiagramm} 
+			  %\textit{TODO: Sequenzdiagramm} 
+			  \includegraphics[scale=0.3]{images/Learn.pdf} 
 			\end{center}
 		\end{block}
 	\end {frame}
 	
 	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
 		\begin{block}{Profiling}
-			\begin{center}
-			  \textit{TODO: Profiling}
-			\end{center}
+			Methoden mit höchster akkumulierter Rechenzeit:
+			\begin{itemize}
+				\item $Connection.getInput()$
+				\item $Connection.getWeightedInput()$
+		    \end{itemize}
+			$\rightarrow$ Zeit korreliert mit Anzahl der $Connections$ und Anzahl der Lern-Iterationen
 		\end{block}
 	\end {frame}			
 	
 	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
-		\begin{alertblock}{}
-		\textit{TODO: Hier alle Unterpunkte rausnehmen (auf nachfolgende Seiten verteilen) und nur als kurze Übersichtsfolie nutzen??}
-		\end{alertblock}
+		%\begin{alertblock}{}
+		%\textit{TODO: Hier alle Unterpunkte rausnehmen (auf nachfolgende Seiten verteilen) und nur als kurze Übersichtsfolie nutzen??} Ja.
+		%\end{alertblock}
 		\begin{itemize}
-			\item Layer Partitionierung
-			\begin{itemize}
-				\item Mehrere Neuronen einer Schicht pro Thread
-				\item Langsam, da zu fein granular
-			\end{itemize}
+			\item Layer-Partitionierung
+			%\begin{itemize}
+				%\item Mehrere Neuronen einer Schicht pro Thread
+				%\item Langsam, da zu fein granular
+			%\end{itemize}
 			\item Batch Learning Parallelisierung
-			\begin{itemize}
-				\item Batch parallelisieren
-				\item Einfacherer zu parallelisieren
-			\end{itemize}
+			%\begin{itemize}
+				%\item Batch parallelisieren
+				%\item Einfacherer zu parallelisieren
+			%\end{itemize}
 			\item Clonebased Parallelisierung
+			%\begin{itemize}
+				%\item Ergebnis entspricht nicht dem Orginal
+				%\item Lernen bleibt unmodifiziert 
+			%\end{itemize}
+		\end{itemize}	
+	\end{frame}
+	
+	\begin{frame}[c]\frametitle{Layer-Partitionierung}
+		\begin{itemize}
+			\item Ansatz:
+			 \begin{itemize}
+				\item Parallel Auswertung innerhalb partitionierter Neuronenschichten
+			\end{itemize}
+			\item Evaluation:
 			\begin{itemize}
-				\item Ergebnis entspricht nicht dem Orginal
-				\item Lernen bleibt unmodifiziert 
+				\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
 			\end{itemize}
 		\end{itemize}	
 	\end{frame}
@@ -188,9 +205,9 @@
 		\end{itemize}
 	\end{frame}
 	
-	\begin{frame}[t]\frametitle{Batch Learning parallelisieren}
+	\begin{frame}[t]\frametitle{Batch Learning Parallelisierung}
 		\begin{enumerate}
-			\item NN klonen
+			\item NN klonen (tiefe Kopie)
 			\item Daten aufteilen
 			\item \textit{parallel:} Jeder Thread lernt seine Daten
 			\item \textit{parallel:} Gewichte der Klone in das Hautp-NN mergen (und in die Klone)
@@ -214,10 +231,10 @@
 			\item Weitere Parameter
 			\begin{itemize}
 				\item Synchronisationsintervall
-				\item Maximale \#Iterationen
+				\item Maximale Anzahl von Iterationen
 			\end{itemize}				
-			\item Ergebnis entspricht nicht dem Original (?)
-			\item Lernen bleibt unmodifiziert (?)
+			\item Andere Ergebnisgewichte als bei sequentiellem Lernen
+			\item Wrapper für ein neuronales Netz
 		\end{itemize}
 	\end{frame}
 
@@ -226,6 +243,28 @@
 
 
 %TODO: Evaluierung, Zwischenstand, Erwähnen, dass Güte über Zeit und Fehler gemessen wird. Exakt gleich Ergebnis ist nicht erforderlich. Evaluierungsframework
+
+	\begin{frame}[c]\frametitle{Evaluationsframework}
+		\begin{block}{Score}
+			wird bestimmt durch
+		    \begin{itemize}
+		    	\item Fehler (auf Testdaten)
+		    	\item Laufzeit
+		    \end{itemize}
+		\end{block}
+		\begin{block}{Vorgehen}
+		    \begin{enumerate}
+		    	\item Permutation der Daten
+		    	\item Aufteilung in Trainings- und Testdaten
+				\item $foreach$ ILearner L $do$
+				\begin{itemize}
+					\item Lerne Trainingsdaten und messe Ausführungszeiten
+					\item Berechne Fehler auf Testdaten
+				\end{itemize}
+				\item Wiederhole ab 1 bis gewünschte Anzahl an Läufen erreicht
+		    \end{enumerate}
+		\end{block}
+	\end{frame}
 
 	\begin{frame}[c]\frametitle{Whats next?}
 		\begin{block}{Fahrplan}

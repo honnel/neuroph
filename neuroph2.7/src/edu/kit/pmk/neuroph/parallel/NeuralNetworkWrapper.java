@@ -14,7 +14,11 @@ public class NeuralNetworkWrapper implements ILearner {
 	private NeuralNetwork neuralNet;
 	private int numThreads;
 
-	public NeuralNetworkWrapper(NeuralNetwork neuralNet, int numThreads, String description) {
+	private static final String TAG = NeuralNetworkWrapper.class
+			.getSimpleName();
+
+	public NeuralNetworkWrapper(NeuralNetwork neuralNet, int numThreads,
+			String description) {
 		this.originalNet = neuralNet;
 		this.numThreads = numThreads;
 		resetToUnlearnedState();
@@ -22,18 +26,23 @@ public class NeuralNetworkWrapper implements ILearner {
 	}
 
 	public NeuralNetworkWrapper(NeuralNetwork neuralNet, int numThreads) {
-		this(neuralNet, numThreads, "unnamed");		
+		this(neuralNet, numThreads, "unnamed");
 	}
 
 	@Override
 	public void learn(DataSet trainingSet) {
+		System.out.println(TAG + ": start learning!");
+		long t0 = System.currentTimeMillis();
 		neuralNet.learn(trainingSet);
+		long t1 = System.currentTimeMillis();
+		System.out.println(TAG + ": learning = " + (t1 - t0) + " ms");
 	}
 
 	@Override
 	public void resetToUnlearnedState() {
 		try {
-			this.neuralNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(originalNet);
+			this.neuralNet = (NeuralNetwork) FastDeepCopy
+					.createDeepCopy(originalNet);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

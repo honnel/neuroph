@@ -1,0 +1,4 @@
+Intel Core2Quad Q6600 2.4 GHz
+8 GB Memory
+Windows 7 Professional x64 SP 1
+JDK 1.7

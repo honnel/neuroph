@@ -31,22 +31,23 @@ public class ScoreCalculatorSuite {
 		// String outputFile = "data/cern/converted.txt";
 		// cfc.writeToFile(outputFile);
 
-		DataSet cernDataSet = DataSet.createFromFile(CERN_1000,
-				CERN_1000_INPUTCOUNT, 1, ",");
+		DataSet cernDataSet = DataSet.createFromFile(CERN_5000,
+				CERN_FULL_INPUTCOUNT, 1, ",");
 
-//		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 8, 100,
+//		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 2, 100,
 //				1, 0.5);
 
 		// scs.testClonebasedAndNormalMLP(cernDataSet, 100, 2, 2, 1000, 1, 0.5,
 		// NeuralNetInterpolatorType.ArithmeticMean);
 
-		 scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 4, 1, 0.5);
+		scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 5, 1, 0.5);
 	}
 
 	private static final String CERN_FULL = "data/cern/15000rows.txt";
 	private static final String CERN_EXAMPLE = "data/cern/example.txt";
 	private static final String CERN_100 = "data/cern/100rows.txt";
 	private static final String CERN_1000 = "data/cern/1000rows.txt";
+	private static final String CERN_5000 = "data/cern/5000rows.txt";
 	private static int CERN_FULL_INPUTCOUNT = 2853;
 	private static int CERN_1000_INPUTCOUNT = 2853;
 	private static int CERN_100_INPUTCOUNT = 2853;

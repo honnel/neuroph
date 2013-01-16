@@ -1,0 +1,24 @@
++-+-+-+-+ Test Configuration +-+-+-+-+
+Clonebased, Clonebased Revised, Seq MLP: 100
+Hidden Neurons: 100
+Maximum Learning Iterations: 2
+#Threads: 2
+For Unrevised: Interpolate clones after every <#> rows: 100
+Interpolation Type: ArithmeticMean
+TraingSet to TestSet ratio: 0.5
+Number of Test Runs: 1
+
+CloneNetWorkerRevised[Thread 9]: deepcopy = 999 ms
+CloneNetWorkerRevised[Thread 10]: deepcopy = 999 ms
+CloneNetWorkerRevised[Thread 9]: learning = 124177 ms
+CloneNetWorkerRevised[Thread 10]: learning = 124177 ms
+CloneNetWorkerRevised[Thread 9]: deepcopy + learning = 125176 ms
+CloneNetWorkerRevised[Thread 10]: deepcopy + learning = 125176 ms
+ClonebasedConcurrentLearnerRevised: init_workers = 0 ms
+ClonebasedConcurrentLearnerRevised: start_workers = 15 ms
+ClonebasedConcurrentLearnerRevised: wait_for_workers = 125176 ms
+ClonebasedConcurrentLearnerRevised: total = 125191 ms
+
++-+-+-+-+ Scores +-+-+-+-+
+Clonebased-Revised ArithmeticMean: Clonebased-Revised ArithmeticMean Score(error=0,142251, time=125191ms)
+Sequential MLP: Sequential MLP Score(error=0,144925, time=115878ms)
