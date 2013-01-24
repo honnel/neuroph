@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
-import org.neuroph.nnet.learning.BatchParallelMomentumBackpropagation;
+import org.neuroph.nnet.learning.BatchParallelBackpropagation;
 import org.neuroph.nnet.learning.LMS;
 
 import edu.kit.pmk.neuroph.eval.Score;
@@ -23,7 +23,7 @@ public class ScoreCalculatorSuite {
 		String inputFileName = org.neuroph.samples.IrisClassificationSample.class
 				.getResource("data/iris_data_normalised.txt").getFile();
 		// create training set from file
-		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
+//		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
 
 		// CernFormatConverter cfc = new CernFormatConverter(
 		// "data/cern/alldata/result.txt",
@@ -31,8 +31,8 @@ public class ScoreCalculatorSuite {
 		// String outputFile = "data/cern/converted.txt";
 		// cfc.writeToFile(outputFile);
 
-		DataSet cernDataSet = DataSet.createFromFile(CERN_5000,
-				CERN_FULL_INPUTCOUNT, 1, ",");
+//		DataSet cernDataSet = DataSet.createFromFile(CERN_5000,
+//				CERN_FULL_INPUTCOUNT, 1, ",");
 
 //		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 2, 100,
 //				1, 0.5);
@@ -40,7 +40,8 @@ public class ScoreCalculatorSuite {
 		// scs.testClonebasedAndNormalMLP(cernDataSet, 100, 2, 2, 1000, 1, 0.5,
 		// NeuralNetInterpolatorType.ArithmeticMean);
 
-		scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 5, 1, 0.5);
+//		scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 5, 1, 0.5);
+		System.out.println("Ich teste liebend gerne neuronale Netze.");
 	}
 
 	private static final String CERN_FULL = "data/cern/15000rows.txt";
@@ -157,7 +158,7 @@ public class ScoreCalculatorSuite {
 
 		MultiLayerPerceptron parNeuralNet = new MultiLayerPerceptron(
 				dataSet.getInputSize(), hiddenNeuronCount, 1);
-		parNeuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(
+		parNeuralNet.setLearningRule(new BatchParallelBackpropagation(
 				numThreads));
 		((LMS) parNeuralNet.getLearningRule()).setMaxIterations(maxIterations);
 		NeuralNetworkWrapper parBatch = new NeuralNetworkWrapper(parNeuralNet,

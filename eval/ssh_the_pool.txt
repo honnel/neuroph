@@ -1,0 +1,2 @@
+ssh mkXX@i41pc150.ipd.kit.edu
+Passwort: Start-Passwort aus der Email von Jochen Huck (Nicht das Windows Password!)

@@ -24,7 +24,7 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.BackPropagation;
-import org.neuroph.nnet.learning.BatchParallelMomentumBackpropagation;
+import org.neuroph.nnet.learning.BatchParallelBackpropagation;
 import org.neuroph.core.learning.DataSet;
 
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
@@ -89,7 +89,7 @@ public class IrisClassificationSampleBatchDebug {
 			e.printStackTrace();
 		}
         
-        neuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(8));
+        neuralNet.setLearningRule(new BatchParallelBackpropagation(8));
         // train the network with training set
         neuralNet.learn(irisDataSet);         
         

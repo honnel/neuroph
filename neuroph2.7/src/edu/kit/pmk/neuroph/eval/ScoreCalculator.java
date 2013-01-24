@@ -13,7 +13,7 @@ public class ScoreCalculator {
 			double trainingSetRatio, int runs, ILearner... learners) {
 		Score[] scores = new Score[learners.length];
 		for (int l = 0; l < learners.length; l++) {
-			scores[l] = new Score(0, 0, learners[l]);
+			scores[l] = new Score(runs, learners[l]);
 		}
 
 		for (int i = 0; i < runs; i++) {
@@ -25,13 +25,9 @@ public class ScoreCalculator {
 				learners[l].learn(tats.getTrainingSet());
 				long time = System.currentTimeMillis() - t0;
 				double error = calculateError(learners[l], tats.getTestSet());
-				scores[l].time += time;
-				scores[l].error += error;
+				scores[l].times[i] = time;
+				scores[l].errors[i] = error;
 			}
-		}
-		for (int l = 0; l < learners.length; l++) {
-			Score sc = scores[l];
-			sc.error /= runs;
 		}
 		return scores;
 	}
@@ -40,7 +36,7 @@ public class ScoreCalculator {
 			DataSet trainingSet, DataSet testSet, ILearner... learners) {
 		Score[] scores = new Score[learners.length];
 		for (int l = 0; l < learners.length; l++) {
-			scores[l] = new Score(0, 0, learners[l]);
+			scores[l] = new Score(1, learners[l]);
 		}
 
 		for (int l = 0; l < learners.length; l++) {
@@ -49,8 +45,8 @@ public class ScoreCalculator {
 			learners[l].learn(trainingSet);
 			long time = System.currentTimeMillis() - t0;
 			double error = calculateError(learners[l], testSet);
-			scores[l].time = time;
-			scores[l].error = error;
+			scores[l].times[0] = time;
+			scores[l].errors[0] = error;
 		}
 
 		return scores;
@@ -67,7 +63,8 @@ public class ScoreCalculator {
 			neuralNet.calculate();
 			Neuron[] outputNeurons = neuralNet.getOutputNeurons();
 			for (int out = 0; out < outputNeurons.length; out++) {
-				error += Math.abs(testSetRow.getDesiredOutput()[out] - outputNeurons[out].getOutput());
+				error += Math.abs(testSetRow.getDesiredOutput()[out]
+						- outputNeurons[out].getOutput());
 			}
 		}
 		return error / testSet.size();
