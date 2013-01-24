@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
-import org.neuroph.nnet.learning.BatchParallelMomentumBackpropagation;
+import org.neuroph.nnet.learning.BatchParallelBackpropagation;
 import org.neuroph.nnet.learning.LMS;
 
 import edu.kit.pmk.neuroph.eval.Score;
@@ -158,7 +158,7 @@ public class ScoreCalculatorSuite {
 
 		MultiLayerPerceptron parNeuralNet = new MultiLayerPerceptron(
 				dataSet.getInputSize(), hiddenNeuronCount, 1);
-		parNeuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(
+		parNeuralNet.setLearningRule(new BatchParallelBackpropagation(
 				numThreads));
 		((LMS) parNeuralNet.getLearningRule()).setMaxIterations(maxIterations);
 		NeuralNetworkWrapper parBatch = new NeuralNetworkWrapper(parNeuralNet,
