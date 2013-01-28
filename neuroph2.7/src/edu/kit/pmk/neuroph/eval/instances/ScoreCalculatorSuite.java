@@ -44,7 +44,7 @@ public class ScoreCalculatorSuite {
 
 		DataSet cernDataSet = DataSet.createFromFile(CERN_100,
 				CERN_FULL_INPUTCOUNT, 1, ",");
-
+		scs.compareDefaultToFinegrained(cernDataSet, HIDDEN_NEURON_COUNT, MAX_ITERATION, COUNT_THREADS, COUNT_RUNS, TRAININGSET_RATIO);
 		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet,
 				HIDDEN_NEURON_COUNT, MAX_ITERATION, COUNT_THREADS,
 				SYNC_FREQUENCY, COUNT_RUNS, TRAININGSET_RATIO, NeuralNetInterpolatorType.Genetic);
