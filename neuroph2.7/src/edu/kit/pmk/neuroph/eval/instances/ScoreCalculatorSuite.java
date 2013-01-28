@@ -22,7 +22,7 @@ public class ScoreCalculatorSuite {
 	private static final int SYNC_FREQUENCY = 100;
 	private static final int COUNT_THREADS = 2;
 	private static final int MAX_ITERATION = 2;
-	private static final int COUNT_RUNS = 10;
+	private static final int COUNT_RUNS = 30;
 	private static final int HIDDEN_NEURON_COUNT = 100;
 
 	public static void main(String[] args) throws IOException {
@@ -42,13 +42,13 @@ public class ScoreCalculatorSuite {
 		DataSet cernDataSet = DataSet.createFromFile(CERN_100,
 				CERN_FULL_INPUTCOUNT, 1, ",");
 
-		// scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet,
-		// HIDDEN_NEURON_COUNT, MAX_ITERATION, COUNT_THREADS,
-		// SYNC_FREQUENCY, COUNT_RUNS, TRAININGSET_RATIO);
+		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet,
+				HIDDEN_NEURON_COUNT, MAX_ITERATION, COUNT_THREADS,
+				SYNC_FREQUENCY, COUNT_RUNS, TRAININGSET_RATIO, NeuralNetInterpolatorType.Genetic);
 		//
 		// scs.testClonebasedAndNormalMLP(cernDataSet, HIDDEN_NEURON_COUNT,
 		// MAX_ITERATION, COUNT_THREADS, SYNC_FREQUENCY, COUNT_RUNS,
-		// TRAININGSET_RATIO, NeuralNetInterpolatorType.ArithmeticMean);
+		// TRAININGSET_RATIO, NeuralNetInterp8olatorType.ArithmeticMean);
 		//
 		// scs.testParallelBatchLearningRule(cernDataSet, HIDDEN_NEURON_COUNT,
 		// MAX_ITERATION, COUNT_THREADS, COUNT_RUNS, TRAININGSET_RATIO);
@@ -68,7 +68,8 @@ public class ScoreCalculatorSuite {
 
 	private void testClonebasedAndRevisedAndNormalMLP(DataSet dataSet,
 			int hiddenNeuronCount, int maxIterations, int numThreads,
-			int syncFrequency, int runs, double trainingSetRatio) {
+			int syncFrequency, int runs, double trainingSetRatio,
+			NeuralNetInterpolatorType interpolatorType) {
 
 		System.out.println("+-+-+-+-+ Test Configuration +-+-+-+-+");
 		System.out.println("Clonebased, Clonebased Revised, Seq MLP: "
@@ -96,8 +97,8 @@ public class ScoreCalculatorSuite {
 
 		int i = 0;
 		learners[0] = new ClonebasedConcurrentLearnerRevised(numThreads,
-				maxIterations, NeuralNetInterpolatorType.ArithmeticMean,
-				neuralNet, "Clonebased-Revised ArithmeticMean");
+				maxIterations,interpolatorType,
+				neuralNet, "Clonebased-Revised " + interpolatorType.name());
 		// learners[1] = new ClonebasedConcurrentLearner(numThreads,
 		// syncFrequency, NeuralNetInterpolatorType.ArithmeticMean,
 		// neuralNet, "Clonebased ArithmeticMean");

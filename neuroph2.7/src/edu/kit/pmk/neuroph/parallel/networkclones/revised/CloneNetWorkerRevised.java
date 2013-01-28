@@ -8,6 +8,7 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.learning.LMS;
 
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.networkclones.CloneNetWorker;
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
@@ -74,9 +75,9 @@ public class CloneNetWorkerRevised extends CloneNetWorker implements Runnable {
 				finished = true;
 		}
 		long t3 = System.currentTimeMillis();
-		System.out.println(TAG + id + ": deepcopy = " + (t1 - t0) + " ms");
-		System.out.println(TAG + id + ": learning = " + (t3 - t2) + " ms");
-		System.out.println(TAG + id + ": deepcopy + learning = " + (t3 - t0)
+		Log.debug(TAG + id, "deepcopy = " + (t1 - t0) + " ms");
+		Log.debug(TAG + id, "learning = " + (t3 - t2) + " ms");
+		Log.debug(TAG + id, "deepcopy + learning = " + (t3 - t0)
 				+ " ms");
 	}
 

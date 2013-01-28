@@ -29,6 +29,7 @@ import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.core.learning.SupervisedLearning;
 
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 /**
@@ -185,11 +186,11 @@ public class BatchParallelBackpropagation extends BackPropagation {
 				fireLearningEvent(new LearningEvent(BatchParallelBackpropagation.this)); // notify
 			}
 			if (threadId == 0) {
-				System.out.println("Stopped after iterations: " + currentIteration);
+				Log.debug(TAG, "Stopped after iterations: " + currentIteration);
 			}
 
 		}
-
+		
 		private void interpolateNeuronWeights() {
 			for (int i = 0; i < neuralNetwork.getLayersCount(); i++) {
 				Layer layer = neuralNetwork.getLayerAt(i);
@@ -247,6 +248,8 @@ public class BatchParallelBackpropagation extends BackPropagation {
 			return ((MomentumBackpropagation) clone.getLearningRule()).getTotalNetworkError();
 		}
 	}
+
+	private final static String TAG = BatchWorker.class.getSimpleName();
 
 	class WeightInterpolator implements Runnable {
 

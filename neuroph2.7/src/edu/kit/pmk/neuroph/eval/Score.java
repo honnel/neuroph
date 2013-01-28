@@ -78,7 +78,7 @@ public class Score {
 	public double getSummedUpError() {
 		double sum = 0;
 		for (double e : errors) {
-			sum += e;
+			sum += Math.abs(e);
 		}
 		return sum;
 	}
