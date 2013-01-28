@@ -45,7 +45,7 @@ public class Experiment {
 	}
 
 	private ILearner parseLearners(ExperimentConfiguration config2) {
-		String learnerNames = myconfig.getArgument(ExperimentConfigurationArgument.learners);
+		String[] learnerNames = myconfig.getArgument(ExperimentConfigurationArgument.learners).split(",");
 		return null;
 	}
 

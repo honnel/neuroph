@@ -7,7 +7,7 @@ import edu.kit.pmk.neuroph.parallel.networkclones.CloneNetWorker;
 
 public abstract class NeuralNetInterpolator {
 
-	private CloneNetWorker[] workers;
+	protected CloneNetWorker[] workers;
 
 	protected NeuralNetInterpolator() {
 	}
@@ -23,6 +23,8 @@ public abstract class NeuralNetInterpolator {
 			return new MaximumNeuralNetInterpolator();
 		case GeometricMean:
 			return new GeometricMeanNeuralNetInterpolator();
+		case Genetic:
+			return new GeneticNeuralNetInterpolator();
 		default:
 			return new ArithmeticMeanNeuralNetInterpolator();
 		}

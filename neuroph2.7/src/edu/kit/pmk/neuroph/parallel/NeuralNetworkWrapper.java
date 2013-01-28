@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 public class NeuralNetworkWrapper implements ILearner {
@@ -31,12 +32,12 @@ public class NeuralNetworkWrapper implements ILearner {
 
 	@Override
 	public void learn(DataSet trainingSet) {
-		System.out.println(TAG + ": start learning!");
+		Log.debug(TAG, "start learning!");
 		long t0 = System.currentTimeMillis();
 		neuralNet.learn(trainingSet);
 		long t1 = System.currentTimeMillis();
-		System.out.println(TAG + ": learning = " + (t1 - t0) + " ms (" + numThreads + " threads)");
-	}
+		Log.debug(TAG, "learning = " + (t1 - t0) + " ms (" + numThreads + " threads)");
+
 
 	@Override
 	public void resetToUnlearnedState() {

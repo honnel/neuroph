@@ -19,6 +19,8 @@ package org.neuroph.core.learning;
 import java.io.Serializable;
 import org.neuroph.core.events.LearningEvent;
 
+import edu.kit.pmk.neuroph.log.Log;
+
 /**
  * Base class for all iterative learning algorithms. It provides the iterative
  * learning procedure for all of its subclasses.
@@ -171,9 +173,9 @@ abstract public class IterativeLearning extends LearningRule implements
 			// todo: abstract stop condition - create abstract class or
 			// interface StopCondition
 			if (iterationsLimited && (currentIteration == maxIterations)) {
-				System.out.println(TAG + "[Thread "
+				Log.debug(TAG + "[Thread "
 						+ Thread.currentThread().getId()
-						+ "] stopped because it exceeded MAXIMAL iterations = "
+						+ "]", "stopped because it exceeded MAXIMAL iterations = "
 						+ currentIteration);
 				stopLearning();
 			} else if (!iterationsLimited

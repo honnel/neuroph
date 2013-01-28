@@ -7,6 +7,7 @@ import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.ILearner;
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 import edu.kit.pmk.neuroph.parallel.networkclones.interpolation.NeuralNetInterpolator;
@@ -90,10 +91,10 @@ public class ClonebasedConcurrentLearnerRevised implements ILearner {
 		}
 		long t3 = System.currentTimeMillis();
 		this.neuralNet = workers[0].getNeuralNetwork();
-		System.out.println(TAG + ": init_workers = " + (t1 - t0) + " ms");
-		System.out.println(TAG + ": start_workers = " + (t2 - t1) + " ms");
-		System.out.println(TAG + ": wait_for_workers = " + (t3 - t2) + " ms");
-		System.out.println(TAG + ": total = " + (t3 - t0) + " ms");
+		Log.debug(TAG, "init_workers = " + (t1 - t0) + " ms");
+		Log.debug(TAG, "start_workers = " + (t2 - t1) + " ms");
+		Log.debug(TAG, "wait_for_workers = " + (t3 - t2) + " ms");
+		Log.debug(TAG, "total = " + (t3 - t0) + " ms");
 	}
 
 	public CloneNetWorkerRevised[] getCloneNetWorkers() {
