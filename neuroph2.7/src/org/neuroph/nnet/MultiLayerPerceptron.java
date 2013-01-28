@@ -64,8 +64,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 		// init neuron settings
 		NeuronProperties neuronProperties = new NeuronProperties();
 		neuronProperties.setProperty("useBias", true);
-		neuronProperties.setProperty("transferFunction",
-				TransferFunctionType.SIGMOID);
+		neuronProperties.setProperty("transferFunction", TransferFunctionType.SIGMOID);
 
 		this.createNetwork(neuronsInLayers, neuronProperties);
 	}
@@ -74,8 +73,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 		// init neuron settings
 		NeuronProperties neuronProperties = new NeuronProperties();
 		neuronProperties.setProperty("useBias", true);
-		neuronProperties.setProperty("transferFunction",
-				TransferFunctionType.SIGMOID);
+		neuronProperties.setProperty("transferFunction", TransferFunctionType.SIGMOID);
 		neuronProperties.setProperty("inputFunction", WeightedSum.class);
 
 		Vector<Integer> neuronsInLayersVector = new Vector<Integer>();
@@ -85,8 +83,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 		this.createNetwork(neuronsInLayersVector, neuronProperties);
 	}
 
-	public MultiLayerPerceptron(TransferFunctionType transferFunctionType,
-			int... neuronsInLayers) {
+	public MultiLayerPerceptron(TransferFunctionType transferFunctionType, int... neuronsInLayers) {
 		// init neuron settings
 		NeuronProperties neuronProperties = new NeuronProperties();
 		neuronProperties.setProperty("useBias", true);
@@ -100,8 +97,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 		this.createNetwork(neuronsInLayersVector, neuronProperties);
 	}
 
-	public MultiLayerPerceptron(List<Integer> neuronsInLayers,
-			TransferFunctionType transferFunctionType) {
+	public MultiLayerPerceptron(List<Integer> neuronsInLayers, TransferFunctionType transferFunctionType) {
 		// init neuron settings
 		NeuronProperties neuronProperties = new NeuronProperties();
 		neuronProperties.setProperty("useBias", true);
@@ -119,8 +115,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 	 * @param neuronProperties
 	 *            neuron properties
 	 */
-	public MultiLayerPerceptron(List<Integer> neuronsInLayers,
-			NeuronProperties neuronProperties) {
+	public MultiLayerPerceptron(List<Integer> neuronsInLayers, NeuronProperties neuronProperties) {
 		this.createNetwork(neuronsInLayers, neuronProperties);
 	}
 
@@ -133,8 +128,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 	 * @param neuronProperties
 	 *            neuron properties
 	 */
-	private void createNetwork(List<Integer> neuronsInLayers,
-			NeuronProperties neuronProperties) {
+	protected void createNetwork(List<Integer> neuronsInLayers, NeuronProperties neuronProperties) {
 
 		// Dome: store neuronProperties, needed for exact clone()
 		this.neuronProperties = neuronProperties;
@@ -143,10 +137,8 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 		this.setNetworkType(NeuralNetworkType.MULTI_LAYER_PERCEPTRON);
 
 		// create input layer
-		NeuronProperties inputNeuronProperties = new NeuronProperties(
-				InputNeuron.class, Linear.class);
-		Layer layer = LayerFactory.createLayer(neuronsInLayers.get(0),
-				inputNeuronProperties);
+		NeuronProperties inputNeuronProperties = new NeuronProperties(InputNeuron.class, Linear.class);
+		Layer layer = LayerFactory.createLayer(neuronsInLayers.get(0), inputNeuronProperties);
 
 		boolean useBias = true; // use bias neurons by default
 		if (neuronProperties.hasProperty("useBias")) {
@@ -195,8 +187,7 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 
 	public void connectInputsToOutputs() {
 		// connect first and last layer
-		ConnectionFactory.fullConnect(getLayerAt(0),
-				getLayerAt(getLayersCount() - 1), false);
+		ConnectionFactory.fullConnect(getLayerAt(0), getLayerAt(getLayersCount() - 1), false);
 	}
 
 	/**
@@ -229,11 +220,15 @@ public class MultiLayerPerceptron extends NeuralNetwork {
 		// last layer
 		neuronsInLayers.add(layers[numLayers - 1].getNeuronsCount());
 
-		MultiLayerPerceptron mlp = new MultiLayerPerceptron(neuronsInLayers,
-				neuronProperties);
+		MultiLayerPerceptron mlp = new MultiLayerPerceptron(neuronsInLayers, neuronProperties);
 		// mlp.setLearningRule(this.getLearningRule());
 		long t1 = System.currentTimeMillis();
 		System.err.println("MLP clone() took " + (t1 - t0) + "ms.");
 		return mlp;
+	}
+
+	protected void setNeuronProperties(NeuronProperties p) {
+		this.neuronProperties = p;
+
 	}
 }

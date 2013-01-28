@@ -35,7 +35,7 @@ public class NeuralNetworkWrapper implements ILearner {
 		long t0 = System.currentTimeMillis();
 		neuralNet.learn(trainingSet);
 		long t1 = System.currentTimeMillis();
-		System.out.println(TAG + ": learning = " + (t1 - t0) + " ms");
+		System.out.println(TAG + ": learning = " + (t1 - t0) + " ms (" + numThreads + " threads)");
 	}
 
 	@Override
