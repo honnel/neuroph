@@ -18,12 +18,20 @@ import edu.kit.pmk.neuroph.parallel.networkclones.revised.ClonebasedConcurrentLe
 
 public class ScoreCalculatorSuite {
 
+	private static final double TRAININGSET_RATIO = 0.5;
+	private static final int SYNC_FREQUENCY = 100;
+	private static final int COUNT_THREADS = 2;
+	private static final int MAX_ITERATION = 2;
+	private static final int COUNT_RUNS = 10;
+	private static final int HIDDEN_NEURON_COUNT = 100;
+
 	public static void main(String[] args) throws IOException {
 		ScoreCalculatorSuite scs = new ScoreCalculatorSuite();
 		String inputFileName = org.neuroph.samples.IrisClassificationSample.class
 				.getResource("data/iris_data_normalised.txt").getFile();
 		// create training set from file
-//		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
+		// DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3,
+		// ",");
 
 		// CernFormatConverter cfc = new CernFormatConverter(
 		// "data/cern/alldata/result.txt",
@@ -31,16 +39,20 @@ public class ScoreCalculatorSuite {
 		// String outputFile = "data/cern/converted.txt";
 		// cfc.writeToFile(outputFile);
 
-//		DataSet cernDataSet = DataSet.createFromFile(CERN_5000,
-//				CERN_FULL_INPUTCOUNT, 1, ",");
+		DataSet cernDataSet = DataSet.createFromFile(CERN_100,
+				CERN_FULL_INPUTCOUNT, 1, ",");
 
-//		scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet, 100, 2, 2, 100,
-//				1, 0.5);
+		// scs.testClonebasedAndRevisedAndNormalMLP(cernDataSet,
+		// HIDDEN_NEURON_COUNT, MAX_ITERATION, COUNT_THREADS,
+		// SYNC_FREQUENCY, COUNT_RUNS, TRAININGSET_RATIO);
+		//
+		// scs.testClonebasedAndNormalMLP(cernDataSet, HIDDEN_NEURON_COUNT,
+		// MAX_ITERATION, COUNT_THREADS, SYNC_FREQUENCY, COUNT_RUNS,
+		// TRAININGSET_RATIO, NeuralNetInterpolatorType.ArithmeticMean);
+		//
+		// scs.testParallelBatchLearningRule(cernDataSet, HIDDEN_NEURON_COUNT,
+		// MAX_ITERATION, COUNT_THREADS, COUNT_RUNS, TRAININGSET_RATIO);
 
-		// scs.testClonebasedAndNormalMLP(cernDataSet, 100, 2, 2, 1000, 1, 0.5,
-		// NeuralNetInterpolatorType.ArithmeticMean);
-
-//		scs.testParallelBatchLearningRule(cernDataSet, 100, 2, 5, 1, 0.5);
 		System.out.println("Ich teste liebend gerne neuronale Netze.");
 	}
 
@@ -86,9 +98,9 @@ public class ScoreCalculatorSuite {
 		learners[0] = new ClonebasedConcurrentLearnerRevised(numThreads,
 				maxIterations, NeuralNetInterpolatorType.ArithmeticMean,
 				neuralNet, "Clonebased-Revised ArithmeticMean");
-//		learners[1] = new ClonebasedConcurrentLearner(numThreads,
-//				syncFrequency, NeuralNetInterpolatorType.ArithmeticMean,
-//				neuralNet, "Clonebased ArithmeticMean");
+		// learners[1] = new ClonebasedConcurrentLearner(numThreads,
+		// syncFrequency, NeuralNetInterpolatorType.ArithmeticMean,
+		// neuralNet, "Clonebased ArithmeticMean");
 		learners[1] = new NeuralNetworkWrapper(neuralNet, 1, "Sequential MLP");
 
 		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(

@@ -22,6 +22,51 @@ public class Score {
 		return getSummedUpError() / times.length;
 	}
 
+	/**
+	 * Calculates the alpha 95% confidence interval
+	 * 
+	 * @return array with two elements, first lo border, second hi border
+	 */
+	public long[] getConfidenceIntervalTime() {
+		long[] result = new long[2];
+		result[0] = 0;
+		result[1] = 0;
+		if (times.length > 1) {
+			long xxbar = 0;
+			long avgTime = getAverageTime();
+			for (int i = 0; i < times.length; i++) {
+				xxbar += (times[i] - avgTime) * (times[i] - avgTime);
+			}
+			long variance = xxbar / (times.length - 1);
+			long stddev = (long) Math.sqrt(variance);
+			long lo = (long) (avgTime - 1.96 * stddev);
+			long hi = (long) (avgTime + 1.96 * stddev);
+			result[0] = lo;
+			result[1] = hi;
+		}
+		return result;
+	}
+
+	public double[] getConfidenceIntervalError() {
+		double[] result = new double[2];
+		result[0] = 0.0;
+		result[1] = 0.0;
+		if (errors.length > 1) {
+			double xxbar = 0.0;
+			double avgError = getAverageError();
+			for (int i = 0; i < errors.length; i++) {
+				xxbar += (errors[i] - avgError) * (errors[i] - avgError);
+			}
+			double variance = xxbar / (errors.length - 1);
+			double stddev = Math.sqrt(variance);
+			double lo = (avgError - 1.96 * stddev);
+			double hi = (avgError + 1.96 * stddev);
+			result[0] = lo;
+			result[1] = hi;
+		}
+		return result;
+	}
+
 	public long getOverallTime() {
 		long sum = 0;
 		for (long t : times) {
@@ -41,14 +86,19 @@ public class Score {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
+		long[] confidenceIntervallTime = getConfidenceIntervalTime();
+		double[] confidenceIntervallError = getConfidenceIntervalError();
 		sb.append("SCORE [" + learner.getDescription() + "]");
-		sb.append(String.format("average error=%f, average time=%dms",
-				getAverageError(), getAverageTime()));
+		sb.append(String.format(
+				"average error=%f [%f,%f], average time=%dms [%d,%d]",
+				getAverageError(), confidenceIntervallError[0],
+				confidenceIntervallError[1], getAverageTime(),
+				confidenceIntervallTime[0], confidenceIntervallTime[1]));
 		sb.append(String.format("summed up error=%f, overall time=%dms",
 				getSummedUpError(), getOverallTime()));
 		for (int i = 0; i < times.length; i++) {
-			sb.append(String.format("Run-%i: error=%f, time=%dms", errors[i],
-					times[i]));
+			sb.append(String.format("Run-%d: error=%f, time=%dms", i,
+					errors[i], times[i]));
 		}
 		sb.append("\n");
 		return sb.toString();

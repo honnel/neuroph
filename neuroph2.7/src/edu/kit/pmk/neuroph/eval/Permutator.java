@@ -7,14 +7,14 @@ public class Permutator {
 	private Permutator() {
 	}
 
-	public static int[] getPermutation(int n) {
+	public static int[] getPermutation(int size) {
 		Random r = new Random();
-		int[] perm = new int[n];
-		boolean[] taken = new boolean[n];
-		for (int i = 0; i < n; i++) {
+		int[] perm = new int[size];
+		boolean[] taken = new boolean[size];
+		for (int i = 0; i < size; i++) {
 			int num;
 			do {
-				num = r.nextInt(n);
+				num = r.nextInt(size);
 			} while (taken[num]);
 			taken[num] = true;
 			perm[i] = num;
