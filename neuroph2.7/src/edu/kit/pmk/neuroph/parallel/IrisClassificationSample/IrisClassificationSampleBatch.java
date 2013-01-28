@@ -20,7 +20,7 @@ import java.util.Arrays;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
-import org.neuroph.nnet.learning.BatchParallelMomentumBackpropagation;
+import org.neuroph.nnet.learning.BatchParallelBackpropagation;
 import org.neuroph.core.learning.DataSet;
 
 /**
@@ -40,7 +40,7 @@ public class IrisClassificationSampleBatch {
         
         // create MultiLayerPerceptron neural network
         MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 16, 3);
-        neuralNet.setLearningRule(new BatchParallelMomentumBackpropagation(15));
+        neuralNet.setLearningRule(new BatchParallelBackpropagation(15));
         // create training set from file
         DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
         // train the network with training set

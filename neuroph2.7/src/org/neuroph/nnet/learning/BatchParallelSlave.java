@@ -3,9 +3,7 @@ package org.neuroph.nnet.learning;
 import org.neuroph.core.events.LearningEvent;
 import org.neuroph.core.learning.DataSet;
 
-public class BatchParallelSlave extends MomentumBackpropagation {
-
-	private boolean onStartCalled = false;
+public class BatchParallelSlave extends BackPropagation {
 
 
 
