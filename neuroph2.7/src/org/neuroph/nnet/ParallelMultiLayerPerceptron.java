@@ -19,12 +19,13 @@ package org.neuroph.nnet;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Future;
 
 import org.neuroph.core.Layer;
-import org.neuroph.core.Neuron;
 import org.neuroph.core.transfer.Linear;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 import org.neuroph.nnet.comp.neuron.InputNeuron;
@@ -44,6 +45,9 @@ import org.neuroph.util.random.NguyenWidrowRandomizer;
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
+	
+	private static final int THREADS = 2;
+	
 	public ParallelMultiLayerPerceptron(int... neuronsInLayers) {
 		super(neuronsInLayers);
 	}
@@ -132,12 +136,12 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 
 		public ParallelLayer(int neuronCount, NeuronProperties prop) {
 			super(neuronCount, prop);
-			int neuronsPerJob = neuronCount / 8;
-			if (neuronsPerJob * 8 < neuronCount) {
+			int neuronsPerJob = neuronCount / THREADS;
+			if (neuronsPerJob * THREADS < neuronCount) {
 				neuronsPerJob++;
 			}
 
-			for (int i = 0; i < 8; i++) {
+			for (int i = 0; i < THREADS; i++) {
 				final int from = i * neuronsPerJob;
 				final int to = Math.min(from + neuronsPerJob, neuronCount);
 				jobs.add(new NeuronJob(from, to));
@@ -148,14 +152,20 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 		@Override
 		public void calculate() {
 			ExecutorService service = getExecutor();
+			Stack<Future<?>> futures = new Stack<>();
+
 			for (NeuronJob j : jobs) {
-				service.execute(j);
+				futures.push(service.submit(j));
 			}
 			try {
-				service.awaitTermination(Integer.MAX_VALUE, TimeUnit.DAYS);
-			} catch (InterruptedException e) {
+				while (!futures.isEmpty()) {
+					futures.pop().get();
+				}
+			} catch (InterruptedException | ExecutionException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		}
 
 		private class NeuronJob implements Runnable, Serializable {
