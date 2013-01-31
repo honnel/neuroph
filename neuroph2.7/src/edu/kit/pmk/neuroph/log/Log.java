@@ -12,16 +12,25 @@ import java.util.List;
 public class Log {
 
 	private final static char DELIM = '~';
-	private final static char DEBUG = '§';
+	private final static String DEBUG = "[DEBUG]";
 	private static List<String> log = new ArrayList<String>();
-	private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");;
+	private static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	private static boolean verbose = false;
 
 	public static void debug(String tag, String msg) {
-		log.add(DEBUG + generateLogString(tag, msg));
+		String logString = DEBUG + generateLogString(tag, msg);
+		log.add(logString);
+		if (verbose) {
+			System.out.println(logString);
+		}
 	}
 
 	public static void info(String tag, String msg) {
-		log.add(generateLogString(tag, msg));
+		String logString = generateLogString(tag, msg);
+		log.add(logString);
+		if (verbose) {
+			System.out.println(logString);
+		}
 	}
 	
 	private static String generateLogString(String tag, String msg) {
@@ -44,9 +53,9 @@ public class Log {
 			writer = new BufferedWriter(new FileWriter(filepath));
 			writer.write(title.toUpperCase() + "\n");
 			for (String logstring : log) {
-				if (debug) {
-					writer.write(logstring);
-				} else if (logstring.charAt(0) != DEBUG) {
+				if (debug) { //debug + info
+					writer.write(logstring); 
+				} else if (!logstring.startsWith(DEBUG)) { //only info level
 					writer.write(logstring);
 				}
 			}
@@ -55,8 +64,13 @@ public class Log {
 		}
 	}
 	
+	public static void setVerbose(boolean state) {
+		verbose = state;
+	}
+	
 	public static void resetLoggingInstance() {
-		log = new ArrayList<String>(); 
+		log = new ArrayList<String>();
+		verbose = false;
 	}
 
 }

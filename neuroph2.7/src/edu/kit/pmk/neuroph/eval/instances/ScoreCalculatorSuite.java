@@ -13,6 +13,7 @@ import org.neuroph.nnet.learning.LMS;
 
 import edu.kit.pmk.neuroph.eval.Score;
 import edu.kit.pmk.neuroph.eval.ScoreCalculator;
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.ILearner;
 import edu.kit.pmk.neuroph.parallel.NeuralNetworkWrapper;
 import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
@@ -29,6 +30,7 @@ public class ScoreCalculatorSuite {
 	private static final int HIDDEN_NEURON_COUNT = 100;
 
 	public static void main(String[] args) throws IOException {
+		Log.setVerbose(true);
 		ScoreCalculatorSuite scs = new ScoreCalculatorSuite();
 		String inputFileName = org.neuroph.samples.IrisClassificationSample.class
 				.getResource("data/iris_data_normalised.txt").getFile();

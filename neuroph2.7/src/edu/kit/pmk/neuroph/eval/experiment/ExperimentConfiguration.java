@@ -1,4 +1,4 @@
-package edu.kit.pmk.neuroph.eval;
+package edu.kit.pmk.neuroph.eval.experiment;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
