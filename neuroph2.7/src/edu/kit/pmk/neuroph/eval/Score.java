@@ -90,16 +90,30 @@ public class Score {
 		double[] confidenceIntervallError = getConfidenceIntervalError();
 		sb.append("SCORE [" + learner.getDescription() + "]");
 		sb.append(String.format(
-				"average error=%f [%f,%f], average time=%dms [%d,%d]",
+				" average error=%f [%f;%f], average time=%dms [%d;%d]",
 				getAverageError(), confidenceIntervallError[0],
 				confidenceIntervallError[1], getAverageTime(),
 				confidenceIntervallTime[0], confidenceIntervallTime[1]));
-		sb.append(String.format("summed up error=%f, overall time=%dms",
+		sb.append(String.format(", summed up error=%f, overall time=%dms",
 				getSummedUpError(), getOverallTime()));
 		for (int i = 0; i < times.length; i++) {
-			sb.append(String.format("Run-%d: error=%f, time=%dms", i,
+			sb.append(String.format(", Run-%d: error=%f, time=%dms", i,
 					errors[i], times[i]));
 		}
+		sb.append("\n");
+		return sb.toString();
+	}
+
+	public String toCsv() {
+		StringBuilder sb = new StringBuilder();
+		long[] confidenceIntervallTime = getConfidenceIntervalTime();
+		double[] confidenceIntervallError = getConfidenceIntervalError();
+		sb.append(String.format("%f;%f;%f;%d;%d;%d;", getAverageError(),
+				confidenceIntervallError[0], confidenceIntervallError[1],
+				getAverageTime(), confidenceIntervallTime[0],
+				confidenceIntervallTime[1]));
+		sb.append(String
+				.format("%f;%d", getSummedUpError(), getOverallTime()));
 		sb.append("\n");
 		return sb.toString();
 	}

@@ -14,7 +14,7 @@ public class Experiment {
 	private int hidden_neurons;
 	private DataSet dataset;
 	private double training_to_test_ratio;
-	private ILearner learners;
+	private ILearner[] learners;
 
 	public Experiment(String identifier, String experimentConfigurationFile) {
 		this.myconfig = new ExperimentConfiguration(identifier,
@@ -40,13 +40,18 @@ public class Experiment {
 						.getArgument(ExperimentConfigurationArgument.training_to_test_ratio));
 		dataset = DataSet.createFromFile(datasetFile, input_neurons,
 				output_neurons, DATASET_VALUE_DELIMITER);
-		learners = parseLearners(config);
+		learners = parseLearners(config
+				.getArgument(ExperimentConfigurationArgument.learners));
 
 	}
 
-	private ILearner parseLearners(ExperimentConfiguration config2) {
-		String[] learnerNames = myconfig.getArgument(ExperimentConfigurationArgument.learners).split(",");
+	private ILearner[] parseLearners(String learners) {
+		String[] learnerNames = learners.split(",");
 		return null;
+	}
+
+	public void doExperiment() {
+
 	}
 
 }

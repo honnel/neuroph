@@ -1,5 +1,13 @@
 package edu.kit.pmk.neuroph.eval.experiment;
 
 public enum ExperimentConfigurationArgument {
-	runs, max_iteration, hidden_neurons, dataset, input_neurons, output_neurons, training_to_test_ratio, learners
+	count_threads,
+	dataset,
+	training_to_test_ratio, 
+	input_neurons, 
+	hidden_neurons, 
+	output_neurons, 	
+	runs, 
+	max_iteration,
+	learners
 }
