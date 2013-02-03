@@ -58,14 +58,21 @@ public class ExperimentConfiguration {
 		return args.get(arg);
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	private final static String EOL = System.lineSeparator();
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("+-+ TestConfiguration '" + this.name + "' +-+\n");
+		sb.append("+-+ TestConfiguration '" + this.name + "' +-+" + EOL);
 		for (Entry<String, String> e : args.entrySet()) {
-			sb.append(e.getKey() + ": " + e.getValue() + "\n");
+			sb.append(e.getKey() + ": " + e.getValue() + EOL);
 		}
-		return super.toString();
+		sb.append(EOL);
+		return sb.toString();
 	}
 
 }

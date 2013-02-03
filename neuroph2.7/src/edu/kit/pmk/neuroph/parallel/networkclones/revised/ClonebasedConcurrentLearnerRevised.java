@@ -38,9 +38,9 @@ public class ClonebasedConcurrentLearnerRevised implements ILearner {
 	}
 
 	public ClonebasedConcurrentLearnerRevised(int numThreads,
-			int syncFrequency, NeuralNetInterpolatorType interpolationType,
+			int maxIterations, NeuralNetInterpolatorType interpolationType,
 			NeuralNetwork neuralNet) {
-		this(numThreads, syncFrequency, interpolationType, neuralNet, "");
+		this(numThreads, maxIterations, interpolationType, neuralNet, "");
 	}
 
 	/**

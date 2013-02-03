@@ -31,6 +31,7 @@ public class Log {
 	private static DateFormat dateFormat = new SimpleDateFormat(
 			"yyyy-MM-dd hh:mm:ss");
 	private static boolean verbose = false;
+	private final static String EOL = System.lineSeparator();
 
 	/**
 	 * Generic logging on debug level.
@@ -111,14 +112,14 @@ public class Log {
 		BufferedWriter writer = null;
 		try {
 			writer = new BufferedWriter(new FileWriter(filepath));
-			writer.write(title.toUpperCase() + "\n");
+			writer.write(title.toUpperCase() + EOL);
 			for (String logstring : list) {
 				if (debug) { // debug + info
 					writer.write(logstring);
-					writer.write("\n");
+					writer.write(EOL);
 				} else if (!logstring.contains(DEBUG)) { // only info level
 					writer.write(logstring);
-					writer.write("\n");
+					writer.write(EOL);
 				}
 			}
 		} finally {

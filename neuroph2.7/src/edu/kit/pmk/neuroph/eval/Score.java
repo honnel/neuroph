@@ -100,7 +100,6 @@ public class Score {
 			sb.append(String.format(", Run-%d: error=%f, time=%dms", i,
 					errors[i], times[i]));
 		}
-		sb.append("\n");
 		return sb.toString();
 	}
 
@@ -112,9 +111,8 @@ public class Score {
 				confidenceIntervallError[0], confidenceIntervallError[1],
 				getAverageTime(), confidenceIntervallTime[0],
 				confidenceIntervallTime[1]));
-		sb.append(String
-				.format("%f;%d", getSummedUpError(), getOverallTime()));
-		sb.append("\n");
+		sb.append(String.format("%f;%d", getSummedUpError(), getOverallTime()));
+		sb.append(System.lineSeparator());
 		return sb.toString();
 	}
 }
