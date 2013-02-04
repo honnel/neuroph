@@ -5,15 +5,26 @@
 \usetikzlibrary{positioning} 
 \usetikzlibrary{automata} 
 
-  \def\wOne{{0.1,0.2,0.3,0.4}}
+  \def\wOne{{1.0,2.0,3.0,4.0}}
+  \def\inputValues{{0.3,0.2,0.5,0.6}}
+  \def\results{{0.3,0.4,1.5,2.4}}
 
-\begin{animateinline}[autoplay]{2}
-\multiframe{10}{
-rOpac=0.0+0.1
+\begin{animateinline}[autoplay]{10}
+\multiframe{50}{
+rOpac=0.0+0.1,
+iStep=1+1,
+iStepTwo=-9+1,
+iStepThree=-19+1,
+iStepFour=-29+1,
+iStepFive=-39+1
 }{
 
   \begin{tikzpicture}[->,shorten >=1pt,auto, node distance=1cm,
     thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+    % =======
+    % empty invisible node to avoid resize
+    % =======
+      \node at (-2,0) {};
     % =======
     % nodes   
     % =======
@@ -21,31 +32,68 @@ rOpac=0.0+0.1
       \node[main node] (\x) at (0,5.8-1.2*\x) {};
     }
     \foreach \x in {0, ..., 5} {
-      \node[main node] (1\x) at (3,7-1.2*\x) {};
+      \node[main node] (1\x) at (4,7-1.2*\x) {};
     }
 
     \foreach \x in {0, ..., 2} {
-      \node[main node] (2\x) at (6,5.2-1.2*\x) {};
+      \node[main node] (2\x) at (8,5.2-1.2*\x) {};
     }
+    % =======
+    % input value   
+    % =======
+    \ifthenelse{\iStep<11}{
+      \foreach \x in {0, ..., 3} {
+        \node at (-1+\iStep*0.1,5.8-1.2*\x) {\pgfmathparse{\inputValues[\x}\pgfmathresult};
+      }
+    } 
+    
+    \ifthenelse{\iStepTwo>0 \and \iStepTwo<11}{
+      \foreach \x in {0, ..., 3} {
+        \node at (0.1*\iStepTwo,5.8-1.2*\x+\iStepTwo*\x*0.06) {\pgfmathparse{\inputValues[\x}\pgfmathresult};
+      }
+    } 
 
+    \ifthenelse{\iStepThree>0 \and \iStepThree<11}{
+      \foreach \x in {0, ..., 3} {
+        \node [opacity=1.0-0.1*\iStepThree] at (1.0+0.08*\iStepThree,5.8-0.6*\x) {\pgfmathparse{\inputValues[\x}\pgfmathresult};
+      }
+    } 
+
+    \ifthenelse{\iStepFour>0 \and \iStepFour<11}{
+      \foreach \x in {0, ..., 3} {
+        \node [opacity=0.1*\iStepFour] at (1.8,5.8-0.6*\x) {\pgfmathparse{\results[\x}\pgfmathresult};
+      }
+    } 
+
+    \ifthenelse{\iStepFive>0 \and \iStepFive<11}{
+      \foreach \x in {0, ..., 3} {
+        \node at (1.8+0.2*\iStepFive,5.8-0.6*\x+0.06*\iStepFive*\x) {\pgfmathparse{\results[\x}\pgfmathresult};
+      }
+    } 
+    
     % =======
     % edges   
     % ======= 
       \foreach \x in {0, ..., 3} 
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
-            \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.7] node [left] {\pgfmathparse{\wOne[\x}\pgfmathresult} (1\y);
+            \ifthenelse{\iStepThree<1}{
+              \path[every node/.style={font=\sffamily\small}]
+                (\x) edge [opacity=1.0] node [left] {\pgfmathparse{\wOne[\x}\pgfmathresult} (1\y);
+            }{
+              \path[every node/.style={font=\sffamily\small}]
+                (\x) edge [opacity=1.0] node [left, opacity = 1.0-0.1*\iStepThree] {\pgfmathparse{\wOne[\x}\pgfmathresult} (1\y);
+            }
           }{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=1.0-\rOpac] node [left] {} (1\y);
+              (\x) edge [opacity=0.2] node [left] {} (1\y);
           }
         }
       
       \foreach \x in {0, ..., 5} 
         \foreach \y in {0, ..., 2} {
         \path[every node/.style={font=\sffamily\small}]
-          (1\x) edge [opacity=0.1] node [left] {} (2\y);
+          (1\x) edge [opacity=0.2] node [left] {} (2\y);
         }
    \end{tikzpicture}
   } 
