@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.ParseException;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
@@ -238,7 +239,13 @@ public class Experiment {
 	}
 
 	public static void main(String[] args) {
-		CommandLine line = CommandLineInterface.getCommandLine(args);
+		CommandLine line;
+		try {
+			line = CommandLineInterface.getCommandLine(args);
+		} catch (ParseException e) {
+			System.err.println(e.getMessage());
+			return;
+		}
 		String configFile = line.getOptionValue("cf");
 		String outputDirectory = line.getOptionValue("o");
 
@@ -247,7 +254,8 @@ public class Experiment {
 			id = line.getOptionValue("id");
 		} else {
 			File cf = new File(configFile);
-			id = cf.getName().split(".")[0];
+			String cfname = cf.getName();
+			id = cfname.contains(".") ? cfname.split("\\.")[0] : cfname;
 		}
 
 		Experiment exp = new Experiment(id, configFile, outputDirectory);
