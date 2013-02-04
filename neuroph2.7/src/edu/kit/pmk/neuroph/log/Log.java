@@ -30,7 +30,7 @@ public class Log {
 	private static List<String> log = new ArrayList<String>();
 	private static List<String> results = new ArrayList<String>();
 	private static DateFormat dateFormat = new SimpleDateFormat(
-			"yyyy-MM-dd hh:mm:ss");
+			"yyyy-MM-dd HH:mm:ss");
 	private static boolean verbose = false;
 	private final static String EOL = System.lineSeparator();
 
@@ -89,7 +89,7 @@ public class Log {
 	public static void writeAsInfLog(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + (new Date()).hashCode() + "_" + filename;
+		String filepath = dir.getPath() + File.separator + filename + (new Date()).hashCode() + ".txt";
 		writeToFile(log, filepath, "Info Log File", false);
 	}
 	
@@ -101,7 +101,7 @@ public class Log {
 	public static void writeAsDebugLog(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + (new Date()).hashCode() + "_" + filename;
+		String filepath = dir.getPath() + File.separator + filename + (new Date()).hashCode() + ".txt";
 		writeToFile(log, filepath, "Debug Log File", true);
 	}
 	
@@ -113,7 +113,7 @@ public class Log {
 	public static void writeAsCsvResult(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + (new Date()).hashCode() + "_" + filename;
+		String filepath = dir.getPath() + File.separator + filename + (new Date()).hashCode() + ".csv";
 		writeToFile(results, filepath, CSV_HEADER, false);
 	};
 
@@ -186,9 +186,9 @@ public class Log {
 			}
 		}));
 		try {
-			writeAsInfLog(".","info.txt");
-			writeAsDebugLog(".", "debug.txt");
-			writeAsCsvResult(".", "result.csv");
+			writeAsInfLog(".","info");
+			writeAsDebugLog(".", "debug");
+			writeAsCsvResult(".", "result");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
