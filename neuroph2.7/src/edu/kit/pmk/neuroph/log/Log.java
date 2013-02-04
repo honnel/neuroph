@@ -1,6 +1,7 @@
 package edu.kit.pmk.neuroph.log;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -85,7 +86,10 @@ public class Log {
 	 * @param filepath
 	 * @throws IOException
 	 */
-	public static void writeAsInfLog(String filepath) throws IOException {
+	public static void writeAsInfLog(String directory, String filename) throws IOException {
+		File dir = new File(directory);
+		dir.mkdir();
+		String filepath = dir.getPath() + File.separator + (new Date()).hashCode() + "_" + filename;
 		writeToFile(log, filepath, "Info Log File", false);
 	}
 	
@@ -94,7 +98,10 @@ public class Log {
 	 * @param filepath
 	 * @throws IOException
 	 */
-	public static void writeAsDebugLog(String filepath) throws IOException {
+	public static void writeAsDebugLog(String directory, String filename) throws IOException {
+		File dir = new File(directory);
+		dir.mkdir();
+		String filepath = dir.getPath() + File.separator + (new Date()).hashCode() + "_" + filename;
 		writeToFile(log, filepath, "Debug Log File", true);
 	}
 	
@@ -103,7 +110,10 @@ public class Log {
 	 * @param filepath of csv file
 	 * @throws IOException
 	 */
-	public static void writeAsCsvResult(String filepath) throws IOException {
+	public static void writeAsCsvResult(String directory, String filename) throws IOException {
+		File dir = new File(directory);
+		dir.mkdir();
+		String filepath = dir.getPath() + File.separator + (new Date()).hashCode() + "_" + filename;
 		writeToFile(results, filepath, CSV_HEADER, false);
 	};
 
@@ -176,9 +186,9 @@ public class Log {
 			}
 		}));
 		try {
-			writeAsInfLog("info.txt");
-			writeAsDebugLog("debug.txt");
-			writeAsCsvResult("result.csv");
+			writeAsInfLog(".","info.txt");
+			writeAsDebugLog(".", "debug.txt");
+			writeAsCsvResult(".", "result.csv");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

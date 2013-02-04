@@ -1,14 +1,16 @@
 package edu.kit.pmk.neuroph.eval.experiment;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
+import org.apache.commons.cli.CommandLine;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
 import org.neuroph.nnet.learning.BatchParallelBackpropagation;
 import org.neuroph.nnet.learning.LMS;
 
+import edu.kit.pmk.neuroph.eval.CommandLineInterface;
 import edu.kit.pmk.neuroph.eval.Score;
 import edu.kit.pmk.neuroph.eval.ScoreCalculator;
 import edu.kit.pmk.neuroph.log.Log;
@@ -33,11 +35,51 @@ public class Experiment {
 	private double training_to_test_ratio;
 	private ILearner[] learners;
 
-	public Experiment(String identifier, String experimentConfigurationFile) {
+	private boolean infoFlag;
+	private boolean debugFlag;
+	private boolean verboseFlag;
+	private boolean csvFlag;
+	private String outputDirectory;
+
+	public Experiment(String identifier, String experimentConfigurationFile,
+			String outputDirectory) {
+		this.outputDirectory = outputDirectory;
 		this.myconfig = new ExperimentConfiguration(identifier,
 				experimentConfigurationFile);
 		prepareExperiment(myconfig);
 		return;
+	}
+
+	public boolean hasInfoFlag() {
+		return infoFlag;
+	}
+
+	public void setInfoFlag(boolean infoFlag) {
+		this.infoFlag = infoFlag;
+	}
+
+	public boolean hasDebugFlag() {
+		return debugFlag;
+	}
+
+	public void setDebugFlag(boolean debugFlag) {
+		this.debugFlag = debugFlag;
+	}
+
+	public boolean hasVerboseFlag() {
+		return verboseFlag;
+	}
+
+	public void setVerboseFlag(boolean verboseFlag) {
+		this.verboseFlag = verboseFlag;
+	}
+
+	public boolean hasCsvFlag() {
+		return csvFlag;
+	}
+
+	public void setCsvFlag(boolean csvFlag) {
+		this.csvFlag = csvFlag;
 	}
 
 	private void prepareExperiment(ExperimentConfiguration config) {
@@ -174,7 +216,7 @@ public class Experiment {
 
 	public void doExperiment() {
 		Log.resetLoggingInstance();
-		Log.setVerbose(true);
+		Log.setVerbose(verboseFlag);
 		Log.info("ExperimentConfiguration", myconfig.toString());
 		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
 				dataset, training_to_test_ratio, runs, learners);
@@ -182,8 +224,12 @@ public class Experiment {
 			Log.logScore(learners[i].getDescription(), scores[i]);
 		}
 		try {
-			Log.writeAsDebugLog(myconfig.getName() + "_results_["
-					+ (new Date()).hashCode() + "]");
+			if (infoFlag)
+				Log.writeAsInfLog(outputDirectory, myconfig.getName());
+			if (debugFlag)
+				Log.writeAsDebugLog(outputDirectory, myconfig.getName());
+			if (csvFlag)
+				Log.writeAsCsvResult(outputDirectory, myconfig.getName());
 		} catch (IOException e) {
 			System.err.println("Failed to write Log!");
 			e.printStackTrace();
@@ -192,8 +238,32 @@ public class Experiment {
 	}
 
 	public static void main(String[] args) {
-		Experiment exp = new Experiment("testconfig",
-				"../eval/cernData/experiment_configs/testconfig.txt");
+		CommandLine line = CommandLineInterface.getCommandLine(args);
+		String configFile = line.getOptionValue("cf");
+		String outputDirectory = line.getOptionValue("o");
+
+		String id;
+		if (line.hasOption("id")) {
+			id = line.getOptionValue("id");
+		} else {
+			File cf = new File(configFile);
+			id = cf.getName().split(".")[0];
+		}
+
+		Experiment exp = new Experiment(id, configFile, outputDirectory);
+
+		if (line.hasOption("i")) {
+			exp.setInfoFlag(true);
+		}
+		if (line.hasOption("d")) {
+			exp.setDebugFlag(true);
+		}
+		if (line.hasOption("v")) {
+			exp.setVerboseFlag(true);
+		}
+		if (line.hasOption("csv")) {
+			exp.setCsvFlag(true);
+		}
 		exp.doExperiment();
 	}
 
