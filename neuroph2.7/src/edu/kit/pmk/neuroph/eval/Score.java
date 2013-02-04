@@ -107,12 +107,11 @@ public class Score {
 		StringBuilder sb = new StringBuilder();
 		long[] confidenceIntervallTime = getConfidenceIntervalTime();
 		double[] confidenceIntervallError = getConfidenceIntervalError();
-		sb.append(String.format("%f;%f;%f;%d;%d;%d;", getAverageError(),
+		sb.append(String.format("%s;%d;%d;%f;%f;%f;%d;%d;%d;", learner.getClass().getSimpleName(), learner.getNumberOfThreads(),errors.length,getAverageError(),
 				confidenceIntervallError[0], confidenceIntervallError[1],
 				getAverageTime(), confidenceIntervallTime[0],
 				confidenceIntervallTime[1]));
 		sb.append(String.format("%f;%d", getSummedUpError(), getOverallTime()));
-		sb.append(System.lineSeparator());
 		return sb.toString();
 	}
 }

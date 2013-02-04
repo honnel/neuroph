@@ -22,7 +22,7 @@ import edu.kit.pmk.neuroph.parallel.ILearner;
  */
 public class Log {
 
-	private final static String CSV_HEADER = "avgEr;confErLo;confErHi;avgTime;confTimeLo;confTimeHi;sumEr;sumTime";
+	private final static String CSV_HEADER = "name;numThreads;runs;avgEr;confErLo;confErHi;avgTime;confTimeLo;confTimeHi;sumEr;sumTime";
 	private final static char DELIM = '~';
 	private final static String DEBUG = "[DEBUG]";
 	private final static String INFO = "[INFO] ";
@@ -89,7 +89,7 @@ public class Log {
 	public static void writeAsInfLog(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + filename + (new Date()).hashCode() + ".txt";
+		String filepath = dir.getPath() + File.separator + "info-" + filename + (new Date()).hashCode() + ".txt";
 		writeToFile(log, filepath, "Info Log File", false);
 	}
 	
@@ -101,7 +101,7 @@ public class Log {
 	public static void writeAsDebugLog(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + filename + (new Date()).hashCode() + ".txt";
+		String filepath = dir.getPath() + File.separator + "debug-" + filename + (new Date()).hashCode() + ".txt";
 		writeToFile(log, filepath, "Debug Log File", true);
 	}
 	
@@ -113,7 +113,7 @@ public class Log {
 	public static void writeAsCsvResult(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + filename + (new Date()).hashCode() + ".csv";
+		String filepath = dir.getPath() + File.separator + "score-" +filename + (new Date()).hashCode() + ".csv";
 		writeToFile(results, filepath, CSV_HEADER, false);
 	};
 
