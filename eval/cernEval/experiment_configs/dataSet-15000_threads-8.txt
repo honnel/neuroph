@@ -1,0 +1,10 @@
+threads: 8
+dataset: data/preparedData/15000rows.txt
+training_to_test_ratio: 0.5
+input_neurons: 2853
+hidden_neurons: 100
+output_neurons: 1
+runs: 10
+max_iteration: 2
+sync_frequency:0.25
+learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, mlp
