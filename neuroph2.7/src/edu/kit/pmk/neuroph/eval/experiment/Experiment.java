@@ -1,7 +1,6 @@
 package edu.kit.pmk.neuroph.eval.experiment;
 
 import java.io.IOException;
-import java.util.Date;
 
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
@@ -182,8 +181,8 @@ public class Experiment {
 			Log.logScore(learners[i].getDescription(), scores[i]);
 		}
 		try {
-			Log.writeAsDebugLog(myconfig.getName() + "_results_["
-					+ (new Date()).hashCode() + "]");
+			Log.writeAsDebugLog(".", myconfig.getName());
+			Log.writeAsCsvResult(".", myconfig.getName());
 		} catch (IOException e) {
 			System.err.println("Failed to write Log!");
 			e.printStackTrace();
