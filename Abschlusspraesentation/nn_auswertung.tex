@@ -5,47 +5,90 @@
 \usetikzlibrary{positioning} 
 \usetikzlibrary{automata} 
 
+  \def\wOne{{0.1,0.2,0.3,0.4}}
+
+\begin{animateinline}[autoplay]{2}
+\multiframe{10}{
+rOpac=0.0+0.1
+}{
+
   \begin{tikzpicture}[->,shorten >=1pt,auto, node distance=1cm,
     thick,main node/.style={circle,fill=blue!20,draw,font=\sffamily\Large\bfseries}]
+    % =======
+    % nodes   
+    % =======
+    \foreach \x in {0, ..., 3} {
+      \node[main node] (\x) at (0,5.8-1.2*\x) {};
+    }
+    \foreach \x in {0, ..., 5} {
+      \node[main node] (1\x) at (3,7-1.2*\x) {};
+    }
 
-    \node[main node] (0) {5};
-    \node[main node] (1) [below of=0] {\only<2>{test}};
-    \node[main node] (2) [below of=1] {3};
-    \node[main node] (3) [below of=2] {4};
+    \foreach \x in {0, ..., 2} {
+      \node[main node] (2\x) at (6,5.2-1.2*\x) {};
+    }
 
-    \node[main node] (11) [right of=0] {2};
-    \node[main node] (10) [above of=11] {2};
-    \node[main node] (12) [right of=1] {2};
-    \node[main node] (13) [right of=2] {2};
-    \node[main node] (14) [right of=3] {2};
-    \node[main node] (15) [below of=14] {2};
+    % =======
+    % edges   
+    % ======= 
+      \foreach \x in {0, ..., 3} 
+        \foreach \y in {0, ..., 5} {
+          \ifthenelse{\y=1}{
+            \path[every node/.style={font=\sffamily\small}]
+              (\x) edge [opacity=0.7] node [left] {\pgfmathparse{\wOne[\x}\pgfmathresult} (1\y);
+          }{
+            \path[every node/.style={font=\sffamily\small}]
+              (\x) edge [opacity=1.0-\rOpac] node [left] {} (1\y);
+          }
+        }
+      
+      \foreach \x in {0, ..., 5} 
+        \foreach \y in {0, ..., 2} {
+        \path[every node/.style={font=\sffamily\small}]
+          (1\x) edge [opacity=0.1] node [left] {} (2\y);
+        }
+   \end{tikzpicture}
+  } 
+\end{animateinline}
 
-    \node[main node] (20) [below right  of=10] {2};
-    \node[main node] (21) [below right  of=12] {2};
-    \node[main node] (22) [below right  of=14] {2};
+    % \node[main node] (0) {5};
+    % \node[main node] (1) [below of=0] {\only<2>{test}};
+    % \node[main node] (2) [below of=1] {3};
+    % \node[main node] (3) [below of=2] {4};
 
-    \path[every node/.style={font=\sffamily\small}]
-      (0) edge node [left] {0.6} (10)
-          edge node[left] {0.3} (11)
-          edge node {0.1} (12)
-      (1) edge node [right] {0.4} (10)
-          edge node {0.3} (11)
-          edge node {0.4} (12)
-          edge node {0.1} (13)
-      (2) edge node [right] {0.8} (13)
-          edge node [right] {0.2} (14)
-          edge node [right] {0.2} (15)
-      (3) edge node [left] {0.2} (15)
+    % \node[main node] (11) [right of=0] {2};
+    % \node[main node] (10) [above of=11] {2};
+    % \node[main node] (12) [right of=1] {2};
+    % \node[main node] (13) [right of=2] {2};
+    % \node[main node] (14) [right of=3] {2};
+    % \node[main node] (15) [below of=14] {2};
 
-      (10)edge node [left] {0.6} (20)
-      (11)edge node [right] {0.4} (20)
-          edge node {0.3} (21)
-          edge node {0.4} (22)
-      (12)edge node [right] {0.8} (21)
-          edge node [right] {0.2} (20)
-      (13)edge node [left] {0.2} (20)
-      (14)edge node [right] {0.8} (21)
-          edge node [right] {0.2} (22)
-      ;
-  \end{tikzpicture}    
+    % \node[main node] (20) [below right  of=10] {2};
+    % \node[main node] (21) [below right  of=12] {2};
+    % \node[main node] (22) [below right  of=14] {2};
+
+    % \path[every node/.style={font=\sffamily\small}]
+    %   (0) edge node [left] {0.6} (10)
+    %       edge node[left] {0.3} (11)
+    %       edge node {0.1} (12)
+    %   (1) edge node [right] {0.4} (10)
+    %       edge node {0.3} (11)
+    %       edge node {0.4} (12)
+    %       edge node {0.1} (13)
+    %   (2) edge node [right] {0.8} (13)
+    %       edge node [right] {0.2} (14)
+    %       edge node [right] {0.2} (15)
+    %   (3) edge node [left] {0.2} (15)
+
+    %   (10)edge node [left] {0.6} (20)
+    %   (11)edge node [right] {0.4} (20)
+    %       edge node {0.3} (21)
+    %       edge node {0.4} (22)
+    %   (12)edge node [right] {0.8} (21)
+    %       edge node [right] {0.2} (20)
+    %   (13)edge node [left] {0.2} (20)
+    %   (14)edge node [right] {0.8} (21)
+    %       edge node [right] {0.2} (22)
+    %   ;
+    
 \end{frame}
