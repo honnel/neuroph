@@ -1,0 +1,107 @@
+DEBUG LOG FILE
+2013-02-04 17:17:52 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'testconfig' +-+
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, mlp
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/100rows.txt
+threads: 2
+max_iteration: 2
+runs: 3
+output_neurons: 1
+hidden_neurons: 100
+
+
+2013-02-04 17:17:56 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 8] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:17:56 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 9] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:17:57 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 9] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:17:57 [DEBUG] CloneNetWorker[Thread 9] ~ deepcopy = 2644 ms
+2013-02-04 17:17:57 [DEBUG] CloneNetWorker[Thread 8] ~ deepcopy = 2636 ms
+2013-02-04 17:17:57 [DEBUG] CloneNetWorker[Thread 9] ~ learning = 1948 ms
+2013-02-04 17:17:57 [DEBUG] CloneNetWorker[Thread 8] ~ learning = 1956 ms
+2013-02-04 17:17:57 [DEBUG] CloneNetWorker[Thread 9] ~ deepcopy + learning = 4592 ms
+2013-02-04 17:17:57 [DEBUG] CloneNetWorker[Thread 8] ~ deepcopy + learning = 4592 ms
+2013-02-04 17:17:57 [DEBUG] ClonebasedConcurrentLearner ~ init_workers = 0 ms
+2013-02-04 17:17:57 [DEBUG] ClonebasedConcurrentLearner ~ start_workers = 0 ms
+2013-02-04 17:17:57 [DEBUG] ClonebasedConcurrentLearner ~ wait_for_workers = 4597 ms
+2013-02-04 17:17:57 [DEBUG] ClonebasedConcurrentLearner ~ total = 4597 ms
+2013-02-04 17:18:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 11] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 10] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:03 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 11] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:03 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 10] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:03 [DEBUG] CloneNetWorkerRevised[Thread 11] ~ deepcopy = 1170 ms
+2013-02-04 17:18:03 [DEBUG] CloneNetWorkerRevised[Thread 10] ~ deepcopy = 1167 ms
+2013-02-04 17:18:03 [DEBUG] CloneNetWorkerRevised[Thread 11] ~ learning = 2990 ms
+2013-02-04 17:18:03 [DEBUG] CloneNetWorkerRevised[Thread 10] ~ learning = 2993 ms
+2013-02-04 17:18:03 [DEBUG] CloneNetWorkerRevised[Thread 11] ~ deepcopy + learning = 4160 ms
+2013-02-04 17:18:03 [DEBUG] CloneNetWorkerRevised[Thread 10] ~ deepcopy + learning = 4160 ms
+2013-02-04 17:18:03 [DEBUG] ClonebasedConcurrentLearnerRevised ~ init_workers = 0 ms
+2013-02-04 17:18:03 [DEBUG] ClonebasedConcurrentLearnerRevised ~ start_workers = 0 ms
+2013-02-04 17:18:03 [DEBUG] ClonebasedConcurrentLearnerRevised ~ wait_for_workers = 4170 ms
+2013-02-04 17:18:03 [DEBUG] ClonebasedConcurrentLearnerRevised ~ total = 4170 ms
+2013-02-04 17:18:04 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-04 17:18:07 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:07 [DEBUG] NeuralNetworkWrapper ~ learning = 3466 ms (2 threads)
+2013-02-04 17:18:11 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 13] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:11 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 12] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 12] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:12 [DEBUG] CloneNetWorker[Thread 12] ~ deepcopy = 1272 ms
+2013-02-04 17:18:12 [DEBUG] CloneNetWorker[Thread 13] ~ deepcopy = 1269 ms
+2013-02-04 17:18:12 [DEBUG] CloneNetWorker[Thread 12] ~ learning = 2290 ms
+2013-02-04 17:18:12 [DEBUG] CloneNetWorker[Thread 13] ~ learning = 2293 ms
+2013-02-04 17:18:12 [DEBUG] CloneNetWorker[Thread 12] ~ deepcopy + learning = 3562 ms
+2013-02-04 17:18:12 [DEBUG] CloneNetWorker[Thread 13] ~ deepcopy + learning = 3562 ms
+2013-02-04 17:18:12 [DEBUG] ClonebasedConcurrentLearner ~ init_workers = 0 ms
+2013-02-04 17:18:12 [DEBUG] ClonebasedConcurrentLearner ~ start_workers = 0 ms
+2013-02-04 17:18:12 [DEBUG] ClonebasedConcurrentLearner ~ wait_for_workers = 3562 ms
+2013-02-04 17:18:12 [DEBUG] ClonebasedConcurrentLearner ~ total = 3562 ms
+2013-02-04 17:18:16 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 14] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:16 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 15] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:17 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 15] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:17 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 14] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:17 [DEBUG] CloneNetWorkerRevised[Thread 15] ~ deepcopy = 1339 ms
+2013-02-04 17:18:17 [DEBUG] CloneNetWorkerRevised[Thread 14] ~ deepcopy = 1335 ms
+2013-02-04 17:18:17 [DEBUG] CloneNetWorkerRevised[Thread 15] ~ learning = 2442 ms
+2013-02-04 17:18:17 [DEBUG] CloneNetWorkerRevised[Thread 14] ~ learning = 2446 ms
+2013-02-04 17:18:17 [DEBUG] CloneNetWorkerRevised[Thread 15] ~ deepcopy + learning = 3781 ms
+2013-02-04 17:18:17 [DEBUG] CloneNetWorkerRevised[Thread 14] ~ deepcopy + learning = 3781 ms
+2013-02-04 17:18:17 [DEBUG] ClonebasedConcurrentLearnerRevised ~ init_workers = 0 ms
+2013-02-04 17:18:17 [DEBUG] ClonebasedConcurrentLearnerRevised ~ start_workers = 0 ms
+2013-02-04 17:18:17 [DEBUG] ClonebasedConcurrentLearnerRevised ~ wait_for_workers = 3796 ms
+2013-02-04 17:18:17 [DEBUG] ClonebasedConcurrentLearnerRevised ~ total = 3796 ms
+2013-02-04 17:18:19 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-04 17:18:22 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:22 [DEBUG] NeuralNetworkWrapper ~ learning = 3137 ms (2 threads)
+2013-02-04 17:18:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 16] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 17] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:27 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 16] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:27 [DEBUG] CloneNetWorker[Thread 16] ~ deepcopy = 1471 ms
+2013-02-04 17:18:27 [DEBUG] CloneNetWorker[Thread 17] ~ deepcopy = 1471 ms
+2013-02-04 17:18:27 [DEBUG] CloneNetWorker[Thread 16] ~ learning = 2263 ms
+2013-02-04 17:18:27 [DEBUG] CloneNetWorker[Thread 17] ~ learning = 2263 ms
+2013-02-04 17:18:27 [DEBUG] CloneNetWorker[Thread 16] ~ deepcopy + learning = 3734 ms
+2013-02-04 17:18:27 [DEBUG] CloneNetWorker[Thread 17] ~ deepcopy + learning = 3734 ms
+2013-02-04 17:18:27 [DEBUG] ClonebasedConcurrentLearner ~ init_workers = 0 ms
+2013-02-04 17:18:27 [DEBUG] ClonebasedConcurrentLearner ~ start_workers = 0 ms
+2013-02-04 17:18:27 [DEBUG] ClonebasedConcurrentLearner ~ wait_for_workers = 3735 ms
+2013-02-04 17:18:27 [DEBUG] ClonebasedConcurrentLearner ~ total = 3735 ms
+2013-02-04 17:18:31 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 19] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:31 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 18] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:32 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 19] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:32 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 18] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:18:32 [DEBUG] CloneNetWorkerRevised[Thread 19] ~ deepcopy = 1454 ms
+2013-02-04 17:18:32 [DEBUG] CloneNetWorkerRevised[Thread 18] ~ deepcopy = 1454 ms
+2013-02-04 17:18:32 [DEBUG] CloneNetWorkerRevised[Thread 19] ~ learning = 1830 ms
+2013-02-04 17:18:32 [DEBUG] CloneNetWorkerRevised[Thread 18] ~ learning = 1830 ms
+2013-02-04 17:18:32 [DEBUG] CloneNetWorkerRevised[Thread 19] ~ deepcopy + learning = 3284 ms
+2013-02-04 17:18:32 [DEBUG] CloneNetWorkerRevised[Thread 18] ~ deepcopy + learning = 3284 ms
+2013-02-04 17:18:32 [DEBUG] ClonebasedConcurrentLearnerRevised ~ init_workers = 0 ms
+2013-02-04 17:18:32 [DEBUG] ClonebasedConcurrentLearnerRevised ~ start_workers = 0 ms
+2013-02-04 17:18:32 [DEBUG] ClonebasedConcurrentLearnerRevised ~ wait_for_workers = 3293 ms
+2013-02-04 17:18:32 [DEBUG] ClonebasedConcurrentLearnerRevised ~ total = 3293 ms
+2013-02-04 17:18:35 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-04 17:18:38 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:18:38 [DEBUG] NeuralNetworkWrapper ~ learning = 2829 ms (2 threads)
+2013-02-04 17:18:38 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] average error=0,125367 [0,066998;0,183736], average time=3966ms [2876;5055], summed up error=0,376101, overall time=11899ms, Run-0: error=0,145737, time=4601ms, Run-1: error=0,091189, time=3563ms, Run-2: error=0,139175, time=3735ms
+2013-02-04 17:18:38 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] average error=0,142061 [0,052655;0,231467], average time=3753ms [2890;4615], summed up error=0,426183, overall time=11261ms, Run-0: error=0,145826, time=4171ms, Run-1: error=0,094680, time=3796ms, Run-2: error=0,185677, time=3294ms
+2013-02-04 17:18:38 [SCORE] mlp ~ SCORE [mlp] average error=0,133447 [0,058473;0,208420], average time=3144ms [2520;3767], summed up error=0,400340, overall time=9432ms, Run-0: error=0,159003, time=3466ms, Run-1: error=0,089470, time=3137ms, Run-2: error=0,151867, time=2829ms

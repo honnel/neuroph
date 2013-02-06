@@ -1,0 +1,17 @@
+INFO LOG FILE
+2013-02-04 22:11:59 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-15000_threads-4' +-+
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, mlp
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/15000rows.txt
+threads: 4
+max_iteration: 2
+runs: 10
+output_neurons: 1
+hidden_neurons: 100
+
+
+2013-02-05 01:36:00 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] average error=0,179106 [0,089431;0,268781], average time=211762ms [134939;288584], summed up error=1,791057, overall time=2117624ms, Run-0: error=0,157997, time=312582ms, Run-1: error=0,178013, time=202870ms, Run-2: error=0,166646, time=210964ms, Run-3: error=0,162667, time=195233ms, Run-4: error=0,279257, time=204449ms, Run-5: error=0,245557, time=211322ms, Run-6: error=0,157864, time=222123ms, Run-7: error=0,153496, time=213678ms, Run-8: error=0,150155, time=169538ms, Run-9: error=0,139406, time=174865ms
+2013-02-05 01:36:00 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] average error=0,158935 [0,105018;0,212852], average time=223762ms [187061;260463], summed up error=1,589349, overall time=2237627ms, Run-0: error=0,145547, time=252199ms, Run-1: error=0,151119, time=236774ms, Run-2: error=0,162364, time=206195ms, Run-3: error=0,151030, time=227514ms, Run-4: error=0,212258, time=211386ms, Run-5: error=0,205598, time=245609ms, Run-6: error=0,148211, time=239416ms, Run-7: error=0,136579, time=211440ms, Run-8: error=0,140615, time=205838ms, Run-9: error=0,136028, time=201256ms
+2013-02-05 01:36:00 [SCORE] mlp ~ SCORE [mlp] average error=0,163642 [0,064823;0,262460], average time=528646ms [502374;554917], summed up error=1,636419, overall time=5286460ms, Run-0: error=0,137952, time=532666ms, Run-1: error=0,135072, time=532151ms, Run-2: error=0,170128, time=490940ms, Run-3: error=0,163797, time=531229ms, Run-4: error=0,225977, time=537221ms, Run-5: error=0,278662, time=530390ms, Run-6: error=0,128702, time=533222ms, Run-7: error=0,130016, time=533359ms, Run-8: error=0,136323, time=534722ms, Run-9: error=0,129789, time=530560ms

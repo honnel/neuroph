@@ -1,0 +1,14 @@
+INFO LOG FILE
+2013-02-04 20:51:00 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'testGenetic' +-+
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased-genetic, clonebased_revised-arithmeticmean, clonebased_revised-genetic
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/1000rows.txt
+threads: 4
+max_iteration: 2
+runs: 20
+output_neurons: 1
+hidden_neurons: 100
+
+
