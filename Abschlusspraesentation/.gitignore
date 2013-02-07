@@ -26,3 +26,4 @@
 *.snm
 *.fdb_latexmk
 *.synctex.gz
+*.vrb
