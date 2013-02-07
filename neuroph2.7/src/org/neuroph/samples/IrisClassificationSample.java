@@ -20,51 +20,64 @@ import java.util.Arrays;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.nnet.MultiLayerPerceptron;
+import org.neuroph.nnet.ParallelMultiLayerPerceptron;
 import org.neuroph.core.learning.DataSet;
 
 /**
- * This sample shows how to train MultiLayerPerceptron neural network for iris classification problem using Neuroph
- * For more details about training process, error, iterations use NeurophStudio which provides rich environment  for
+ * This sample shows how to train MultiLayerPerceptron neural network for iris
+ * classification problem using Neuroph For more details about training process,
+ * error, iterations use NeurophStudio which provides rich environment for
  * training and inspecting neural networks
+ * 
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
-public class IrisClassificationSample {  
-    
-    /**
-     *  Runs this sample
-     */
-    public static void main(String[] args) {    
-        // get the path to file with data
-        String inputFileName = IrisClassificationSample.class.getResource("data/iris_data_normalised.txt").getFile();
-        
-        // create MultiLayerPerceptron neural network
-        MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(4, 16, 3);
-        // create training set from file
-        DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
-        // train the network with training set
-        neuralNet.learn(irisDataSet);         
-        
-        System.out.println("Done training.");
-        System.out.println("Testing network...");
-        
-        testNeuralNetwork(neuralNet, irisDataSet);
-    }
-    
-    /**
-     * Prints network output for the each element from the specified training set.
-     * @param neuralNet neural network
-     * @param testSet test data set
-     */
-    public static void testNeuralNetwork(NeuralNetwork neuralNet, DataSet testSet) {
+public class IrisClassificationSample {
 
-        for(DataSetRow testSetRow : testSet.getRows()) {
-            neuralNet.setInput(testSetRow.getInput());
-            neuralNet.calculate();
-            double[] networkOutput = neuralNet.getOutput();
+	/**
+	 * Runs this sample
+	 */
+	public static void main(String[] args) {
+		// get the path to file with data
+		String inputFileName = IrisClassificationSample.class.getResource("data/iris_data_normalised.txt").getFile();
 
-            System.out.print("Input: " + Arrays.toString( testSetRow.getInput() ) );
-            System.out.println(" Output: " + Arrays.toString( networkOutput) );
-        }
-    }
-    
+		long time = System.currentTimeMillis();
+		// create MultiLayerPerceptron neural network
+		MultiLayerPerceptron neuralNet = new ParallelMultiLayerPerceptron(4, 16, 3);
+		System.out.println(System.currentTimeMillis() - time);
+
+		// create training set from file
+		DataSet irisDataSet = DataSet.createFromFile(inputFileName, 4, 3, ",");
+		// train the network with training set
+		System.out.println("Created data");
+		neuralNet.learn(irisDataSet);
+		System.out.println("learned");
+
+		System.out.println("Done training.");
+		System.out.println("Testing network...");
+
+		testNeuralNetwork(neuralNet, irisDataSet);
+		System.out.println("tested");
+	}
+
+	/**
+	 * Prints network output for the each element from the specified training
+	 * set.
+	 * 
+	 * @param neuralNet
+	 *            neural network
+	 * @param testSet
+	 *            test data set
+	 */
+	public static void testNeuralNetwork(NeuralNetwork neuralNet, DataSet testSet) {
+
+		for (DataSetRow testSetRow : testSet.getRows()) {
+			neuralNet.setInput(testSetRow.getInput());
+			neuralNet.calculate();
+			double[] networkOutput = neuralNet.getOutput();
+
+			System.out.print("Input: " + Arrays.toString(testSetRow.getInput()));
+			System.out.println(" Output: " + Arrays.toString(networkOutput));
+		}
+	}
+
 }

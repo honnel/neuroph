@@ -22,7 +22,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{tikz}
-
+\usepackage{listings}
+\usepackage{color}
 % \usepackage{templates/beamerthemekitwide}
 
 %% TITLE PICTURE
@@ -60,8 +61,25 @@
 
 \institute{Institut für Programmstrukturen und Datenorganisation (IPD), Lehrstuhl für Programmiersysteme}
 
-% Bibliography
-
+% Hier kommt der ganze Quatsch für Listings
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments 
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+ 
+\lstset{language=Java,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\tiny\color{black},
+stepnumber=1,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
 %\usepackage[citestyle=authoryear,bibstyle=numeric,hyperref,backend=biber]{biblatex}
 %\addbibresource{templates/example.bib}
 %\bibhang1em
@@ -152,6 +170,7 @@
 		\begin{block}{Profiling}
 			Methoden mit höchster akkumulierter Rechenzeit:
 			\begin{itemize}
+			% TODO: Wer auch immer da hier verbrochen hat. Lies hier http://www.logophile.org/blog/2006/09/05/latex-math-mode-and-italics/
 				\item $Connection.getInput()$
 				\item $Connection.getWeightedInput()$
 		    \end{itemize}
@@ -182,17 +201,38 @@
 		\end{itemize}	
 	\end{frame}
 	
-	\begin{frame}[c]\frametitle{Layer-Partitionierung}
+	\begin{frame}[c, fragile, allowframebreaks]\frametitle{Layer-Partitionierung}
+	    \includegraphics[scale=0.7]{Grafiken/Feingranular.pdf}
+	
+	\framebreak
+
+		\begin{lstlisting}[caption={Layer::calculate()}]
+		for (Neuron n : this.neurons) 
+		    n.calculate();
+ 		\end{lstlisting}
+
+ 		\begin{lstlisting}[caption={ParallelLayer::calculate()}]
+		ExecutorService service = getExecutor();
+		Queue<Future<?>> futures = new LinkedList<>();
+
+		for (NeuronJob j : jobs)
+		    futures.add(service.submit(j));
+		
+		waitForAll(futures);
+ 		\end{lstlisting}
+
+ 		\framebreak
+	
 		\begin{itemize}
-			\item Ansatz:
-			 \begin{itemize}
-				\item Parallel Auswertung innerhalb partitionierter Neuronenschichten
-			\end{itemize}
-			\item Evaluation:
-			\begin{itemize}
-				\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
-			\end{itemize}
+			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
+			\item Neuer Netzwerktyp: Paralleles neurales Netzwerk
+			\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
+			% TODO Zahlen hier einfügen
+			
 		\end{itemize}	
+		\begin{center}
+			\includegraphics[scale=0.25]{Grafiken/Feingranular.pdf}
+		\end{center}
 	\end{frame}
 
 	\begin{frame}[c]\frametitle{Batch Learning Parallelisierung}
