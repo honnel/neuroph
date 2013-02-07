@@ -22,9 +22,8 @@ public class CommandLineInterface {
 		Option o = new Option("o", "outputdir", true, "Output file directory");
 		o.setRequired(true);
 		options.addOption(o);
-		options.addOption("id", true,
-				"Test identifier");
-		
+		options.addOption("id", true, "Test identifier");
+
 		options.addOption("v", "verbose", false,
 				"Print everything to command line");
 		options.addOption("d", "debug", false, "Write info and debug output");
@@ -32,14 +31,9 @@ public class CommandLineInterface {
 		options.addOption("csv", false, "Write csv output");
 	}
 
-	public static CommandLine getCommandLine(String[] args) {
-		try {
-			return parser.parse(options, args);
-		} catch (ParseException e) {
-			System.err.println(e.getMessage());
-			e.printStackTrace();
-			throw new IllegalArgumentException("Argument parsing failed!");
-		}
+	public static CommandLine getCommandLine(String[] args)
+			throws ParseException {
+		return parser.parse(options, args);
 	}
 
 }
