@@ -18,7 +18,9 @@ package org.neuroph.nnet;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -45,9 +47,9 @@ import org.neuroph.util.random.NguyenWidrowRandomizer;
  * @author Zoran Sevarac <sevarac@gmail.com>
  */
 public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
-	
+
 	private static final int THREADS = 2;
-	
+
 	public ParallelMultiLayerPerceptron(int... neuronsInLayers) {
 		super(neuronsInLayers);
 	}
@@ -152,20 +154,22 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 		@Override
 		public void calculate() {
 			ExecutorService service = getExecutor();
-			Stack<Future<?>> futures = new Stack<>();
+			Queue<Future<?>> futures = new LinkedList<>();
 
 			for (NeuronJob j : jobs) {
-				futures.push(service.submit(j));
+				futures.add(service.submit(j));
 			}
+			waitForAll(futures);
+		}
+
+		private void waitForAll(Queue<Future<?>> futures) {
 			try {
 				while (!futures.isEmpty()) {
-					futures.pop().get();
+					futures.poll().get();
 				}
 			} catch (InterruptedException | ExecutionException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
 
 		private class NeuronJob implements Runnable, Serializable {

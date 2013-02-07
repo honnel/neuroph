@@ -22,7 +22,7 @@
 *.out
 *.fls
 *.nav
-*.pdf
+abschlusspraesentation.pdf
 *.snm
 *.fdb_latexmk
 *.synctex.gz
