@@ -5,6 +5,7 @@ import org.neuroph.core.Neuron;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.core.learning.DataSetRow;
 
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.ILearner;
 
 public class ScoreCalculator {
@@ -19,12 +20,15 @@ public class ScoreCalculator {
 		for (int i = 0; i < runs; i++) {
 			TestAndTrainingSet tats = TestAndTrainingSet.splitSetAndPermute(
 					dataSet, trainingSetRatio);
+			
 			for (int l = 0; l < learners.length; l++) {
-				learners[l].resetToUnlearnedState();
+				ILearner currentLearner = learners[l];
+				Log.info(currentLearner.getClass().getSimpleName(), String.format("%d Threads", currentLearner.getNumberOfThreads()));
+				currentLearner.resetToUnlearnedState();
 				long t0 = System.currentTimeMillis();
-				learners[l].learn(tats.getTrainingSet());
+				currentLearner.learn(tats.getTrainingSet());
 				long time = System.currentTimeMillis() - t0;
-				double error = calculateError(learners[l], tats.getTestSet());
+				double error = calculateError(currentLearner, tats.getTestSet());
 				scores[l].times[i] = time;
 				scores[l].errors[i] = error;
 			}

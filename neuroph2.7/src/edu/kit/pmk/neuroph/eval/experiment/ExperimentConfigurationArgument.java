@@ -1,7 +1,8 @@
 package edu.kit.pmk.neuroph.eval.experiment;
 
 public enum ExperimentConfigurationArgument {
-	threads,
+	min_threads,
+	max_threads,
 	dataset,
 	training_to_test_ratio, 
 	input_neurons, 
@@ -9,5 +10,6 @@ public enum ExperimentConfigurationArgument {
 	output_neurons, 	
 	runs, 
 	max_iteration,
-	learners, sync_frequency,
+	learners, 
+	sync_frequency,
 }

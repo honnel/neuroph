@@ -89,6 +89,7 @@ public class Score {
 		long[] confidenceIntervallTime = getConfidenceIntervalTime();
 		double[] confidenceIntervallError = getConfidenceIntervalError();
 		sb.append("SCORE [" + learner.getDescription() + "]");
+		sb.append(" ThreadCount=" + learner.getNumberOfThreads());
 		sb.append(String.format(
 				" average error=%f [%f;%f], average time=%dms [%d;%d]",
 				getAverageError(), confidenceIntervallError[0],

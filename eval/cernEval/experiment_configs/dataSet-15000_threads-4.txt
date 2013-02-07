@@ -1,4 +1,5 @@
-threads: 4
+min_threads: 1
+max_threads: 16
 dataset: data/preparedData/15000rows.txt
 training_to_test_ratio: 0.5
 input_neurons: 2853
