@@ -1,0 +1,24 @@
+dc:DeepCopy[a]
+/rule1:BatchParallelSlave[a]
+worker1:BatchWorker[t]
+b:Barrier
+worker2:BatchWorker[t]
+/rule2:BatchParallelSlave[a]
+
+
+worker1:dc.createDeepCopy()
+worker2:dc.createDeepCopy()
+worker1:rule1.new
+worker2:rule2.new
+worker2:_
+
+[c loop]
+worker1:rule1.learn()
+worker2:rule2.learn()
+worker1:b.await()
+worker2:b.await()
+worker2:worker2.interpolateNeuronWeights()
+worker1:worker1.interpolateNeuronWeights()
+worker1[1]:b.await()
+worker2[1]:b.await()
+[/c]

@@ -138,23 +138,6 @@ showstringspaces=false}
 		    \end{itemize}		    
 		\end{block}
 	\end{frame}
-	
-	\begin{frame}[c]\frametitle{Testdaten}
-		\begin{block}{Erste Versuche}
-		    \begin{itemize}
-		    	\item StockExchange - Börsenvorhersage
-		    	\item IrisScan Datensatz
-		    \end{itemize}
-		\end{block}
-		\begin{block}{Teilchenkollision (Cern)}
-		    \begin{itemize}
-		    	\item 15k Datensätze
-		    	\item Eingabe: 2853 Sensorwerte
-				\item Ausgabe: Ist das Ereignis interessant oder nicht? 
-				%Schwarzes Loch oder nicht?
-		    \end{itemize}
-		\end{block}		
-	\end{frame}
 
 	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
 		\begin{block}{Was wir vorgefunden haben}
@@ -168,40 +151,13 @@ showstringspaces=false}
 			\begin{center}
 			  \includegraphics[scale=0.4]{images/Learn.pdf} 
 			\end{center}
-	\end {frame}
-	
-	\begin{frame}[c]\frametitle{Code Analyse \& Profiling}
-		\begin{block}{Profiling}
-			Methoden mit höchster akkumulierter Rechenzeit:
-			\begin{itemize}
-			% TODO: Wer auch immer da hier verbrochen hat. Lies hier http://www.logophile.org/blog/2006/09/05/latex-math-mode-and-italics/
-				\item $Connection.getInput()$
-				\item $Connection.getWeightedInput()$
-		    \end{itemize}
-			$\rightarrow$ Zeit korreliert mit Anzahl der $Connections$ und Anzahl der Lern-Iterationen
-		\end{block}
 	\end {frame}			
 	
 	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
-		%\begin{alertblock}{}
-		%\textit{TODO: Hier alle Unterpunkte rausnehmen (auf nachfolgende Seiten verteilen) und nur als kurze Übersichtsfolie nutzen??} Ja.
-		%\end{alertblock}
 		\begin{itemize}
 			\item Layer-Partitionierung
-			%\begin{itemize}
-				%\item Mehrere Neuronen einer Schicht pro Thread
-				%\item Langsam, da zu fein granular
-			%\end{itemize}
 			\item Batch Learning Parallelisierung
-			%\begin{itemize}
-				%\item Batch parallelisieren
-				%\item Einfacherer zu parallelisieren
-			%\end{itemize}
 			\item Clonebased Parallelisierung
-			%\begin{itemize}
-				%\item Ergebnis entspricht nicht dem Orginal
-				%\item Lernen bleibt unmodifiziert 
-			%\end{itemize}
 		\end{itemize}	
 	\end{frame}
 	
@@ -210,20 +166,24 @@ showstringspaces=false}
 	
 	\framebreak
 
-		\begin{lstlisting}[caption={Layer::calculate()}]
-		for (Neuron n : this.neurons) 
-		    n.calculate();
- 		\end{lstlisting}
+		\begin{block}{Layer::calculate()}
+			\begin{lstlisting}
+			for (Neuron n : this.neurons) 
+			    n.calculate();
+	 		\end{lstlisting}
+ 		\end{block}
 
- 		\begin{lstlisting}[caption={ParallelLayer::calculate()}]
-		ExecutorService service = getExecutor();
-		Queue<Future<?>> futures = new LinkedList<>();
+		\begin{block}{ParallelLayer::calculate()}
+	 		\begin{lstlisting}
+			ExecutorService service = getExecutor();
+			Queue<Future<?>> futures = new LinkedList<>();
 
-		for (NeuronJob j : jobs)
-		    futures.add(service.submit(j));
-		
-		waitForAll(futures);
- 		\end{lstlisting}
+			for (NeuronJob j : jobs)
+			    futures.add(service.submit(j));
+			
+			waitForAll(futures);
+	 		\end{lstlisting}
+	 	\end{block}
 
  		\framebreak
 	
@@ -253,26 +213,40 @@ showstringspaces=false}
 	\framebreak
 
 		\begin{itemize}
-			\item Ablauf:
+			\item Paralleler Lernvorgang (Netzwerk sequentiell)
+			\item Vorteil:
 			\begin{itemize}
-				\item Aufteilen der Lerndaten
-				\item Jeder Thread summiert Deltas
-				\item Aktualisieren der Gewichte
+				\item Saubere, konsistente Schnittstelle
+				\item Zugriff auf \textit{protected} Funktionalität
 			\end{itemize}
-			\item Klone des NN notwendig
+			\item Nachteil: 
+			\begin{itemize}
+				\item Lernalgorithmus fest 
+				\begin{itemize}
+					\item Backpropagation
+				\end{itemize}
+				\item Softwaretechnisch schwierig
+				\begin{itemize}
+					\item Beispiel: Override mit leerem Body
+				\end{itemize}
+			\end{itemize}
 		\end{itemize}
 
 	\framebreak
+		\begin{center}
+			\includegraphics[scale=0.33]{Grafiken/Batch_seq.pdf}
+		\end{center}
 
-		\begin{enumerate}
-			\item NN klonen (tiefe Kopie)
-			\item Daten aufteilen
-			\item \textit{parallel:} Jeder Thread lernt seine Daten
-			\item \textit{parallel:} Gewichte der Klone in das Hautp-NN mergen (und in die Klone)
-			\item \textit{Barriere}n
-			\item Fehlerberechnung
-			\item Fehler < x ? Fertig : Goto 3
-		\end{enumerate}
+	\framebreak
+
+		\begin{itemize}
+			\item Trainingsdaten auf Worker verteilt
+			\item Gewichte interpolieren
+			\begin{itemize}
+				\item Jeder Thread interpoliert Subset
+				\item Dadurch keine Abhängigkeiten
+			\end{itemize}
+		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}\frametitle{Clonebased Parallelisierung}
@@ -305,14 +279,31 @@ showstringspaces=false}
 		Kategorie &Layerpartitionierung & Batch & Clonebased \\
 		\hline
 		Was ist parallel? & Netzwerk & Lernen & Lernen\\
-		%TODO: Buzzword für folgende Katergorie finden
-		Selbes Ergebnis wie seriell? & ja & ja (batch) & nein \\
+		Selbes Ergebnis? & ja & ja (batch) & nein \\
+
 		%TODO fortsetzen
 		\end{tabular}
 	
 	\end{frame}
 
 %TODO: Evaluierung, Zwischenstand, Erwähnen, dass Güte über Zeit und Fehler gemessen wird. Exakt gleich Ergebnis ist nicht erforderlich. Evaluierungsframework
+
+	\begin{frame}[c]\frametitle{Testdaten}
+		\begin{block}{Erste Versuche}
+		    \begin{itemize}
+		    	\item StockExchange - Börsenvorhersage
+		    	\item IrisScan Datensatz
+		    \end{itemize}
+		\end{block}
+		\begin{block}{Teilchenkollision (Cern)}
+		    \begin{itemize}
+		    	\item 15k Datensätze
+		    	\item Eingabe: 2853 Sensorwerte
+				\item Ausgabe: Ist das Ereignis interessant oder nicht? 
+				%Schwarzes Loch oder nicht?
+		    \end{itemize}
+		\end{block}		
+	\end{frame}
 
 	\begin{frame}\frametitle{Evaluationsframework}
 		\begin{block}{Score}
@@ -346,15 +337,6 @@ showstringspaces=false}
 		\end{block}
 		\includegraphics[width=0.51\textwidth]{images/eval_speedup.png}
 		\includegraphics[width=0.49\textwidth]{images/eval_error.png}
-	\end{frame}
-
-	\begin{frame}\frametitle{Whats next?}
-		\begin{block}{Fahrplan}
-		    \begin{itemize}
-		    	\item Vollständige Evaluierung der Ansätze
-		    	\item Experimentieren mit unterschiedlichen Konfigurationsparametern $\rightarrow$ Auswirkungen auf Speedup und Error
-		    \end{itemize}
-		\end{block}
 	\end{frame}
 
 \end{document}
