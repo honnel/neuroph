@@ -21,13 +21,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.neuroph.core.Layer;
+import org.neuroph.core.NeuralNetwork;
+import org.neuroph.core.Neuron;
+import org.neuroph.core.Weight;
 import org.neuroph.core.transfer.Linear;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 import org.neuroph.nnet.comp.neuron.InputNeuron;
@@ -48,10 +50,43 @@ import org.neuroph.util.random.NguyenWidrowRandomizer;
  */
 public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 
-	private static final int THREADS = 2;
-
-	public ParallelMultiLayerPerceptron(int... neuronsInLayers) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int threads;
+	
+	/**
+	 * Constructor for evaluation with a reference neural network (learning on network with same weigths)
+	 * @param threads
+	 * @param referenceNeuralNetwork 
+	 * @param neuronsInLayers
+	 */
+	public ParallelMultiLayerPerceptron(int threads, NeuralNetwork referenceNeuralNetwork, int... neuronsInLayers) {
 		super(neuronsInLayers);
+		setReferenceWeights(referenceNeuralNetwork);
+		this.threads = threads;
+	}
+
+	public ParallelMultiLayerPerceptron(int threads, int... neuronsInLayers) {
+		super(neuronsInLayers);
+		this.threads = threads;
+	}
+
+	private void setReferenceWeights(NeuralNetwork nn) {
+		final Layer[] layers = this.getLayers();
+		for (int i = 1; i < layers.length; i++) {
+			final Neuron[] neurons = layers[i].getNeurons();
+			for (int j = 0; j < neurons.length; j++) {
+				final Weight[] weights = neurons[j].getWeights();
+				for (int k = 0; k < weights.length; k++) {
+					weights[k].weightChange = 0.0;
+					weights[k].value = nn.getLayerAt(i)
+							.getNeuronAt(j).getWeights()[k].value;
+				}
+			}
+		}
+
 	}
 
 	/**
@@ -63,7 +98,8 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 	 * @param neuronProperties
 	 *            neuron properties
 	 */
-	protected void createNetwork(List<Integer> neuronsInLayers, NeuronProperties neuronProperties) {
+	protected void createNetwork(List<Integer> neuronsInLayers,
+			NeuronProperties neuronProperties) {
 
 		// Dome: store neuronProperties, needed for exact clone()
 		setNeuronProperties(neuronProperties);
@@ -72,8 +108,10 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 		this.setNetworkType(NeuralNetworkType.MULTI_LAYER_PERCEPTRON);
 
 		// create input layer
-		NeuronProperties inputNeuronProperties = new NeuronProperties(InputNeuron.class, Linear.class);
-		Layer layer = new ParallelLayer(neuronsInLayers.get(0), neuronProperties);
+		NeuronProperties inputNeuronProperties = new NeuronProperties(
+				InputNeuron.class, Linear.class);
+		Layer layer = new ParallelLayer(this.threads, neuronsInLayers.get(0),
+				neuronProperties);
 
 		boolean useBias = true; // use bias neurons by default
 		if (neuronProperties.hasProperty("useBias")) {
@@ -93,7 +131,8 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 		for (int layerIdx = 1; layerIdx < neuronsInLayers.size(); layerIdx++) {
 			Integer neuronsNum = neuronsInLayers.get(layerIdx);
 			// createLayer layer
-			layer = new ParallelLayer(neuronsNum, neuronProperties);
+			layer = new ParallelLayer(this.threads, neuronsNum,
+					neuronProperties);
 
 			if (useBias && (layerIdx < (neuronsInLayers.size() - 1))) {
 				layer.addNeuron(new BiasNeuron());
@@ -136,14 +175,14 @@ public class ParallelMultiLayerPerceptron extends MultiLayerPerceptron {
 
 		private final List<NeuronJob> jobs = new ArrayList<NeuronJob>();
 
-		public ParallelLayer(int neuronCount, NeuronProperties prop) {
+		public ParallelLayer(int threads, int neuronCount, NeuronProperties prop) {
 			super(neuronCount, prop);
-			int neuronsPerJob = neuronCount / THREADS;
-			if (neuronsPerJob * THREADS < neuronCount) {
+			int neuronsPerJob = neuronCount / threads;
+			if (neuronsPerJob * threads < neuronCount) {
 				neuronsPerJob++;
 			}
 
-			for (int i = 0; i < THREADS; i++) {
+			for (int i = 0; i < threads; i++) {
 				final int from = i * neuronsPerJob;
 				final int to = Math.min(from + neuronsPerJob, neuronCount);
 				jobs.add(new NeuronJob(from, to));

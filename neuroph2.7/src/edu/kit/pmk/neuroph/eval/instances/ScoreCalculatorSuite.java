@@ -220,7 +220,7 @@ public class ScoreCalculatorSuite {
 		System.out.println("Number of Test Runs: " + runs);
 		System.out.println();
 
-		MultiLayerPerceptron parallelNet = new ParallelMultiLayerPerceptron(dataSet.getInputSize(), hiddenNeuronCount, dataSet.getOutputSize());
+		MultiLayerPerceptron parallelNet = new ParallelMultiLayerPerceptron(numThreads, dataSet.getInputSize(), hiddenNeuronCount, dataSet.getOutputSize());
 
 		// create MultiLayerPerceptron neural network
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(dataSet.getInputSize(), hiddenNeuronCount, dataSet.getOutputSize());

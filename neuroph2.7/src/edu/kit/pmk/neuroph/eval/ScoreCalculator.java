@@ -23,7 +23,7 @@ public class ScoreCalculator {
 			
 			for (int l = 0; l < learners.length; l++) {
 				ILearner currentLearner = learners[l];
-				Log.info(currentLearner.getClass().getSimpleName(), String.format("%d Threads", currentLearner.getNumberOfThreads()));
+				Log.info(currentLearner.getDescription(), String.format("%d Threads", currentLearner.getNumberOfThreads()));
 				currentLearner.resetToUnlearnedState();
 				long t0 = System.currentTimeMillis();
 				currentLearner.learn(tats.getTrainingSet());

@@ -8,6 +8,7 @@ import org.apache.commons.cli.ParseException;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.learning.DataSet;
 import org.neuroph.nnet.MultiLayerPerceptron;
+import org.neuroph.nnet.ParallelMultiLayerPerceptron;
 import org.neuroph.nnet.learning.BatchParallelBackpropagation;
 import org.neuroph.nnet.learning.LMS;
 
@@ -116,6 +117,8 @@ public class Experiment {
 	}
 
 	// possible learner identifiers (keyword or class name)
+	private final String[] PMLP = { "pmlp",
+			ParallelMultiLayerPerceptron.class.getSimpleName().toLowerCase() };
 	private final String[] MLP = { "mlp",
 			MultiLayerPerceptron.class.getSimpleName().toLowerCase() };
 	private final String[] BATCH = { "batch", "batch" };
@@ -131,16 +134,21 @@ public class Experiment {
 	private ILearner[] parseLearners(String learnerIDs) {
 		String[] learnerNames = learnerIDs.split(",");
 		int countOfDifferentThreadConfigurations = maxThreads - minThreads + 1;
-		this.learners = new ILearner[learnerNames.length * countOfDifferentThreadConfigurations];
+		this.learners = new ILearner[learnerNames.length
+				* countOfDifferentThreadConfigurations];
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(
 				dataset.getInputSize(), hidden_neurons, dataset.getOutputSize());
 		((LMS) neuralNet.getLearningRule()).setMaxIterations(max_iteration);
 		for (int nameIndex = 0; nameIndex < learnerNames.length; nameIndex++) {
 			for (int threadIteration = minThreads; threadIteration <= maxThreads; threadIteration++) {
-				int indexLearnersArray = nameIndex * countOfDifferentThreadConfigurations
+				int indexLearnersArray = nameIndex
+						* countOfDifferentThreadConfigurations
 						+ (threadIteration - minThreads);
 				String name = learnerNames[nameIndex].trim().toLowerCase();
-				if (name.equals(MLP[0]) || name.equals(MLP[1])) {
+				if (name.equals(PMLP[0]) || name.equals(PMLP[1])) {
+					setupParallelMLP(neuralNet, indexLearnersArray,
+							threadIteration);
+				} else if (name.equals(MLP[0]) || name.equals(MLP[1])) {
 					setupMLP(neuralNet, indexLearnersArray, threadIteration);
 				} else if (name.equals(BATCH[0]) || name.equals(BATCH[1])) {
 					setupBatch(neuralNet, indexLearnersArray, threadIteration);
@@ -223,6 +231,11 @@ public class Experiment {
 
 	private void setupMLP(MultiLayerPerceptron neuralNet, int pos, int threads) {
 		learners[pos] = new NeuralNetworkWrapper(neuralNet, threads, MLP[0]);
+	}
+
+	private void setupParallelMLP(MultiLayerPerceptron neuralNet,
+			int pos, int threads) {
+		learners[pos] = new NeuralNetworkWrapper(neuralNet, threads, PMLP[0]);
 	}
 
 	public void doExperiment() {
