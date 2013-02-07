@@ -28,7 +28,8 @@ public class Experiment {
 
 	ExperimentConfiguration myconfig;
 	private int runs;
-	private int threads;
+	private int minThreads;
+	private int maxThreads;
 	private int max_iteration;
 	private double sync_frequency = 0.25;
 	private int hidden_neurons;
@@ -86,8 +87,10 @@ public class Experiment {
 	private void prepareExperiment(ExperimentConfiguration config) {
 		runs = Integer.parseInt(config
 				.getArgument(ExperimentConfigurationArgument.runs));
-		threads = Integer.parseInt(config
-				.getArgument(ExperimentConfigurationArgument.threads));
+		minThreads = Integer.parseInt(config
+				.getArgument(ExperimentConfigurationArgument.min_threads));
+		maxThreads = Integer.parseInt(config
+				.getArgument(ExperimentConfigurationArgument.max_threads));
 		max_iteration = Integer.parseInt(config
 				.getArgument(ExperimentConfigurationArgument.max_iteration));
 		String syncf = config
@@ -127,35 +130,41 @@ public class Experiment {
 
 	private ILearner[] parseLearners(String learnerIDs) {
 		String[] learnerNames = learnerIDs.split(",");
-		this.learners = new ILearner[learnerNames.length];
-
+		int countOfDifferentThreadConfigurations = maxThreads - minThreads + 1;
+		this.learners = new ILearner[learnerNames.length * countOfDifferentThreadConfigurations];
 		MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(
 				dataset.getInputSize(), hidden_neurons, dataset.getOutputSize());
 		((LMS) neuralNet.getLearningRule()).setMaxIterations(max_iteration);
-		for (int i = 0; i < learnerNames.length; i++) {
-			String name = learnerNames[i].trim().toLowerCase();
-			if (name.equals(MLP[0]) || name.equals(MLP[1])) {
-				setupMLP(neuralNet, i);
-			} else if (name.equals(BATCH[0]) || name.equals(BATCH[1])) {
-				setupBatch(neuralNet, i);
-			} else if (name.equals(BATCH_PARALLEL[0])
-					|| name.equals(BATCH_PARALLEL[1])) {
-				setupBatchParallel(neuralNet, i);
-			} else {
-				String[] clonebased_interpolatortype = name.split("-");
-				if (clonebased_interpolatortype[0].equals(CLONEBASED[0])
-						|| clonebased_interpolatortype[0].equals(CLONEBASED[1])) {
-					setupClonebased(neuralNet, i,
-							clonebased_interpolatortype[1]);
-				} else if (clonebased_interpolatortype[0]
-						.equals(CLONEBASED_REVISED[0])
-						|| clonebased_interpolatortype[0]
-								.equals(CLONEBASED_REVISED[1])) {
-					setupClonebasedRevised(neuralNet, i,
-							clonebased_interpolatortype[1]);
+		for (int nameIndex = 0; nameIndex < learnerNames.length; nameIndex++) {
+			for (int threadIteration = minThreads; threadIteration <= maxThreads; threadIteration++) {
+				int indexLearnersArray = nameIndex * countOfDifferentThreadConfigurations
+						+ (threadIteration - minThreads);
+				String name = learnerNames[nameIndex].trim().toLowerCase();
+				if (name.equals(MLP[0]) || name.equals(MLP[1])) {
+					setupMLP(neuralNet, indexLearnersArray, threadIteration);
+				} else if (name.equals(BATCH[0]) || name.equals(BATCH[1])) {
+					setupBatch(neuralNet, indexLearnersArray, threadIteration);
+				} else if (name.equals(BATCH_PARALLEL[0])
+						|| name.equals(BATCH_PARALLEL[1])) {
+					setupBatchParallel(neuralNet, indexLearnersArray,
+							threadIteration);
 				} else {
-					throw new IllegalArgumentException("Unkown Learner '"
-							+ name + "'!");
+					String[] clonebased_interpolatortype = name.split("-");
+					if (clonebased_interpolatortype[0].equals(CLONEBASED[0])
+							|| clonebased_interpolatortype[0]
+									.equals(CLONEBASED[1])) {
+						setupClonebased(neuralNet, indexLearnersArray,
+								threadIteration, clonebased_interpolatortype[1]);
+					} else if (clonebased_interpolatortype[0]
+							.equals(CLONEBASED_REVISED[0])
+							|| clonebased_interpolatortype[0]
+									.equals(CLONEBASED_REVISED[1])) {
+						setupClonebasedRevised(neuralNet, indexLearnersArray,
+								threadIteration, clonebased_interpolatortype[1]);
+					} else {
+						throw new IllegalArgumentException("Unkown Learner '"
+								+ name + "'!");
+					}
 				}
 			}
 		}
@@ -163,7 +172,7 @@ public class Experiment {
 	}
 
 	private void setupClonebased(MultiLayerPerceptron neuralNet, int pos,
-			String interpolatorType) {
+			int threads, String interpolatorType) {
 		NeuralNetInterpolatorType type = getInterpolatorType(interpolatorType);
 		learners[pos] = new ClonebasedConcurrentLearner(threads,
 				(int) (sync_frequency * dataset.size()), type, neuralNet,
@@ -171,7 +180,7 @@ public class Experiment {
 	}
 
 	private void setupClonebasedRevised(MultiLayerPerceptron neuralNet,
-			int pos, String interpolatorType) {
+			int pos, int threads, String interpolatorType) {
 		NeuralNetInterpolatorType type = getInterpolatorType(interpolatorType);
 		learners[pos] = new ClonebasedConcurrentLearnerRevised(threads,
 				max_iteration, type, neuralNet, CLONEBASED_REVISED[0] + "-"
@@ -188,7 +197,8 @@ public class Experiment {
 				"Unknown NeuralNetInterpolatorType '" + typestring + "'!");
 	}
 
-	private void setupBatchParallel(MultiLayerPerceptron neuralNet, int pos) {
+	private void setupBatchParallel(MultiLayerPerceptron neuralNet, int pos,
+			int threads) {
 		NeuralNetwork batchNet = null;
 		try {
 			batchNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNet);
@@ -200,7 +210,7 @@ public class Experiment {
 				BATCH_PARALLEL[0]);
 	}
 
-	private void setupBatch(MultiLayerPerceptron neuralNet, int pos) {
+	private void setupBatch(MultiLayerPerceptron neuralNet, int pos, int threads) {
 		NeuralNetwork batchNet = null;
 		try {
 			batchNet = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNet);
@@ -211,7 +221,7 @@ public class Experiment {
 		learners[pos] = new NeuralNetworkWrapper(batchNet, threads, BATCH[0]);
 	}
 
-	private void setupMLP(MultiLayerPerceptron neuralNet, int pos) {
+	private void setupMLP(MultiLayerPerceptron neuralNet, int pos, int threads) {
 		learners[pos] = new NeuralNetworkWrapper(neuralNet, threads, MLP[0]);
 	}
 

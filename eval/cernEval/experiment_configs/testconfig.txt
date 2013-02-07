@@ -1,5 +1,6 @@
-threads: 2
-dataset: data/preparedData/100rows.txt
+min_threads: 1
+max_threads: 3
+dataset: /home/honnel/pmp/repo-team/eval/cernEval/data/preparedData/100rows.txt
 training_to_test_ratio: 0.5
 input_neurons: 2853
 hidden_neurons: 100
@@ -7,4 +8,4 @@ output_neurons: 1
 runs: 3
 max_iteration: 2
 sync_frequency:0.25
-learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, mlp
+learners: clonebased-arithmeticmean
