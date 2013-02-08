@@ -245,7 +245,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 		}
 
 		protected double getTotalError() {
-			return ((MomentumBackpropagation) clone.getLearningRule()).getTotalNetworkError();
+			return ((SupervisedLearning) clone.getLearningRule()).getTotalNetworkError();
 		}
 	}
 
