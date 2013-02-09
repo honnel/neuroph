@@ -30,6 +30,7 @@ import org.neuroph.core.learning.DataSetRow;
 import org.neuroph.core.learning.SupervisedLearning;
 
 import edu.kit.pmk.neuroph.log.Log;
+import edu.kit.pmk.neuroph.parallel.networkclones.DeepCopy;
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 
 /**
@@ -49,6 +50,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 	protected double momentum = 0.25d;
 
 	private Weight[][][] weightsOfNN;
+	private NeuralNetwork[] clones;
 
 	private final int threads;
 
@@ -73,6 +75,15 @@ public class BatchParallelBackpropagation extends BackPropagation {
 			}
 			idx++;
 		}
+
+		clones = new NeuralNetwork[threads];
+		for (int i = 0; i < threads; i++) {
+			try {
+				clones[i] = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNetwork);
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
@@ -87,7 +98,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 
 		CyclicBarrier phase1Barrier = new CyclicBarrier(threads);
 		for (int i = 0; i < threads; i++) {
-			workers[i] = new BatchWorker(i, trainingParts[i], barrier, workers, phase1Barrier);
+			workers[i] = new BatchWorker(i, trainingParts[i], barrier, workers, phase1Barrier, clones[i]);
 			workers[i].start();
 		}
 		try {
@@ -137,7 +148,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 
 		private final DataSet trainingSet;
 		private final int threadId;
-		private NeuralNetwork clone;
+		private final NeuralNetwork clone;
 		private int currentIteration;
 		private final CyclicBarrier phase2Barrier;
 		private final CyclicBarrier phase1Barrier;
@@ -146,25 +157,18 @@ public class BatchParallelBackpropagation extends BackPropagation {
 
 		private final BatchWorker[] colleagues;
 
-		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier, BatchWorker[] colleagues, CyclicBarrier phase1Barrier) {
+		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier, BatchWorker[] colleagues, CyclicBarrier phase1Barrier, NeuralNetwork myClone) {
 			this.trainingSet = dataSet;
 			this.threadId = threadId;
 			this.phase2Barrier = barrier;
 			this.colleagues = colleagues;
 			this.phase1Barrier = phase1Barrier;
+			this.clone = myClone;
 			currentIteration = 0;
 		}
 
 		@Override
 		public void run() {
-			try {
-				this.clone = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNetwork);
-			} catch (ClassNotFoundException e1) {
-				e1.printStackTrace();
-				System.exit(1);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 			this.clone.setLearningRule(new BatchParallelSlave());
 			((SupervisedLearning) clone.getLearningRule()).setBatchMode(true);
 			((BatchParallelSlave) clone.getLearningRule()).setTrainingSet(trainingSet);
@@ -282,7 +286,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 				totalError += w.getTotalError();
 			}
 			totalError /= (double) workers.length;
-//			System.out.println("fehler: " + totalError);
+			System.out.println("fehler: " + totalError);
 			if (totalError < BatchParallelBackpropagation.this.maxError) {
 				stopLearning();
 			}
