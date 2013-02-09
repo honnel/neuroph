@@ -108,7 +108,7 @@ public class Score {
 		StringBuilder sb = new StringBuilder();
 		long[] confidenceIntervallTime = getConfidenceIntervalTime();
 		double[] confidenceIntervallError = getConfidenceIntervalError();
-		sb.append(String.format("%s;%d;%d;%f;%f;%f;%d;%d;%d;", learner.getClass().getSimpleName(), learner.getNumberOfThreads(),errors.length,getAverageError(),
+		sb.append(String.format("%s;%s;%d;%d;%f;%f;%f;%d;%d;%d;", learner.getClass().getSimpleName(), learner.getDescription(), learner.getNumberOfThreads(),errors.length,getAverageError(),
 				confidenceIntervallError[0], confidenceIntervallError[1],
 				getAverageTime(), confidenceIntervallTime[0],
 				confidenceIntervallTime[1]));

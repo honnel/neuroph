@@ -22,15 +22,17 @@ import edu.kit.pmk.neuroph.parallel.ILearner;
  */
 public class Log {
 
-	private final static String CSV_HEADER = "name;numThreads;runs;avgEr;confErLo;confErHi;avgTime;confTimeLo;confTimeHi;sumEr;sumTime";
+	private final static String CSV_HEADER = "name;desc;numThreads;runs;avgEr;confErLo;confErHi;avgTime;confTimeLo;confTimeHi;sumEr;sumTime";
 	private final static char DELIM = '~';
 	private final static String DEBUG = "[DEBUG]";
 	private final static String INFO = "[INFO] ";
 	private final static String SCORE = "[SCORE]";
 	private static List<String> log = new ArrayList<String>();
 	private static List<String> results = new ArrayList<String>();
-	private static DateFormat dateFormat = new SimpleDateFormat(
+	private static DateFormat dateFormatLog = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss");
+	private static DateFormat dateFormatFile = new SimpleDateFormat(
+			"yyyy-MM-dd_HH-mm-ss");
 	private static boolean verbose = false;
 	private final static String EOL = System.lineSeparator();
 
@@ -65,7 +67,7 @@ public class Log {
 	private static void log(String level, String tag, String msg) {
 		StringBuilder logSb = new StringBuilder();
 		Date date = new Date();
-		logSb.append(dateFormat.format(date));
+		logSb.append(dateFormatLog.format(date));
 		logSb.append(" ");
 		logSb.append(level);
 		logSb.append(" ");
@@ -89,7 +91,7 @@ public class Log {
 	public static void writeAsInfLog(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + "info-" + filename + (new Date()).hashCode() + ".txt";
+		String filepath = dir.getPath() + File.separator + "info-" + dateFormatFile.format(new Date()) + filename  + ".txt";
 		writeToFile(log, filepath, "Info Log File", false);
 	}
 	
@@ -101,7 +103,7 @@ public class Log {
 	public static void writeAsDebugLog(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + "debug-" + filename + (new Date()).hashCode() + ".txt";
+		String filepath = dir.getPath() + File.separator + "debug-" + dateFormatFile.format(new Date()) + filename  + ".txt";
 		writeToFile(log, filepath, "Debug Log File", true);
 	}
 	
@@ -113,7 +115,7 @@ public class Log {
 	public static void writeAsCsvResult(String directory, String filename) throws IOException {
 		File dir = new File(directory);
 		dir.mkdir();
-		String filepath = dir.getPath() + File.separator + "score-" +filename + (new Date()).hashCode() + ".csv";
+		String filepath = dir.getPath() + File.separator + "score-" + dateFormatFile.format(new Date()) + filename  + ".csv";
 		writeToFile(results, filepath, CSV_HEADER, false);
 	};
 
