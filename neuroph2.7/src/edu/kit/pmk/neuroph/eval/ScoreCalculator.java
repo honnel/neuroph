@@ -24,17 +24,18 @@ public class ScoreCalculator {
 			for (int l = 0; l < learners.length; l++) {
 				ILearner currentLearner = learners[l];
 				Log.info(currentLearner.getDescription(), String.format("Run [%d/%d] with %d Threads...", i+1, runs, currentLearner.getNumberOfThreads()));
-				currentLearner.resetToUnlearnedState();
-				long t0 = System.currentTimeMillis();
 				try {
+					currentLearner.resetToUnlearnedState();
+					long t0 = System.currentTimeMillis();
 					currentLearner.learn(tats.getTrainingSet());
+					long time = System.currentTimeMillis() - t0;
+					double error = calculateError(currentLearner, tats.getTestSet());
+					scores[l].times[i] = time;
+					scores[l].errors[i] = error;
+					Log.info(currentLearner.getDescription(), scores[l].toString());
 				} catch (Exception e) {
 					Log.debug("Exception", e.getMessage());
-				}				
-				long time = System.currentTimeMillis() - t0;
-				double error = calculateError(currentLearner, tats.getTestSet());
-				scores[l].times[i] = time;
-				scores[l].errors[i] = error;
+				}								
 			}
 		}
 		return scores;
