@@ -1,0 +1,191 @@
+INFO LOG FILE
+2013-02-07 22:15:36 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-1000' +-+
+min_threads: 1
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/1000rows.txt
+max_iteration: 2
+runs: 10
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 16
+
+
+2013-02-07 22:15:36 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 22:16:19 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 22:16:51 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 22:17:22 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 22:17:52 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 22:18:22 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 22:18:53 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 22:19:15 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 22:19:43 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 22:20:12 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 22:20:37 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 22:21:02 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 22:21:28 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 22:22:12 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 22:22:34 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 22:23:13 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 22:23:48 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 22:24:30 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 22:25:03 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 22:25:37 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 22:25:56 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 22:26:19 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 22:26:47 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 22:27:10 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 22:27:45 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 22:28:09 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 22:28:44 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 22:29:18 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 22:29:56 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 22:30:34 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 22:31:09 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 22:31:47 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 22:32:39 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 22:33:22 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 22:34:03 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 22:34:32 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 22:35:03 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 22:35:21 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 22:35:50 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 22:36:19 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 22:36:59 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 22:37:23 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 22:37:55 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 22:38:24 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 22:38:58 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 22:39:38 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 22:40:18 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 22:41:06 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 22:41:40 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 22:42:22 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 22:42:54 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 22:43:25 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 22:43:55 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 22:44:21 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 22:44:40 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 22:45:22 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 22:45:42 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 22:46:06 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 22:46:39 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 22:47:10 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 22:47:41 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 22:48:15 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 22:48:49 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 22:49:40 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 22:50:13 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 22:50:56 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 22:51:28 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 22:51:59 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 22:52:30 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 22:53:06 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 22:53:36 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 22:54:17 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 22:54:46 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 22:55:11 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 22:55:45 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 22:56:18 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 22:56:48 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 22:57:28 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 22:58:09 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 22:58:40 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 22:59:14 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 23:00:02 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 23:00:33 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 23:01:04 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 23:01:22 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 23:01:46 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 23:02:17 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 23:02:36 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 23:03:09 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 23:03:36 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 23:04:12 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 23:04:44 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 23:05:19 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 23:05:54 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 23:06:31 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 23:07:09 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 23:07:42 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 23:08:25 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 23:08:57 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 23:09:15 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 23:09:38 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 23:10:08 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 23:10:45 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 23:11:07 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 23:11:34 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 23:12:04 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 23:12:41 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 23:13:16 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 23:13:51 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 23:14:19 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 23:15:03 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 23:15:37 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 23:16:17 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 23:17:01 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 23:17:27 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 23:17:57 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 23:18:17 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 23:18:56 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 23:19:18 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 23:19:49 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 23:20:20 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 23:20:59 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 23:21:22 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 23:21:54 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 23:22:32 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 23:23:10 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 23:23:45 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 23:24:18 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 23:24:51 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 23:25:31 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 23:26:03 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 23:26:34 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 23:27:01 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 23:27:37 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 23:27:58 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 23:28:19 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 23:28:52 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 23:29:18 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 23:29:56 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 23:30:29 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 23:31:06 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 23:31:37 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 23:32:14 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 23:32:48 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 23:33:27 [INFO]  clonebased-ArithmeticMean ~ 1 Threads
+2013-02-07 23:34:19 [INFO]  clonebased-ArithmeticMean ~ 2 Threads
+2013-02-07 23:34:38 [INFO]  clonebased-ArithmeticMean ~ 3 Threads
+2013-02-07 23:34:55 [INFO]  clonebased-ArithmeticMean ~ 4 Threads
+2013-02-07 23:35:17 [INFO]  clonebased-ArithmeticMean ~ 5 Threads
+2013-02-07 23:35:47 [INFO]  clonebased-ArithmeticMean ~ 6 Threads
+2013-02-07 23:36:23 [INFO]  clonebased-ArithmeticMean ~ 7 Threads
+2013-02-07 23:36:46 [INFO]  clonebased-ArithmeticMean ~ 8 Threads
+2013-02-07 23:37:24 [INFO]  clonebased-ArithmeticMean ~ 9 Threads
+2013-02-07 23:37:54 [INFO]  clonebased-ArithmeticMean ~ 10 Threads
+2013-02-07 23:38:22 [INFO]  clonebased-ArithmeticMean ~ 11 Threads
+2013-02-07 23:38:57 [INFO]  clonebased-ArithmeticMean ~ 12 Threads
+2013-02-07 23:39:23 [INFO]  clonebased-ArithmeticMean ~ 13 Threads
+2013-02-07 23:39:57 [INFO]  clonebased-ArithmeticMean ~ 14 Threads
+2013-02-07 23:40:35 [INFO]  clonebased-ArithmeticMean ~ 15 Threads
+2013-02-07 23:41:14 [INFO]  clonebased-ArithmeticMean ~ 16 Threads
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=1 average error=0,170131 [0,091189;0,249072], average time=35909ms [31732;40085], summed up error=1,701306, overall time=359092ms, Run-0: error=0,138824, time=35142ms, Run-1: error=0,123731, time=34793ms, Run-2: error=0,225196, time=35088ms, Run-3: error=0,148397, time=38006ms, Run-4: error=0,187106, time=34731ms, Run-5: error=0,155487, time=41265ms, Run-6: error=0,245841, time=34864ms, Run-7: error=0,142175, time=35545ms, Run-8: error=0,188833, time=34407ms, Run-9: error=0,145717, time=35251ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=2 average error=0,177998 [0,094369;0,261626], average time=24069ms [14594;33543], summed up error=1,779976, overall time=240695ms, Run-0: error=0,171672, time=24320ms, Run-1: error=0,138518, time=24126ms, Run-2: error=0,191574, time=33995ms, Run-3: error=0,140447, time=24032ms, Run-4: error=0,191028, time=23970ms, Run-5: error=0,279987, time=23871ms, Run-6: error=0,178286, time=26952ms, Run-7: error=0,149664, time=20868ms, Run-8: error=0,198292, time=24141ms, Run-9: error=0,140509, time=14420ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=3 average error=0,163668 [0,130368;0,196967], average time=21652ms [12302;31001], summed up error=1,636675, overall time=216527ms, Run-0: error=0,158582, time=23779ms, Run-1: error=0,153940, time=28408ms, Run-2: error=0,148603, time=21576ms, Run-3: error=0,144990, time=23150ms, Run-4: error=0,182806, time=23849ms, Run-5: error=0,174292, time=22829ms, Run-6: error=0,178280, time=13505ms, Run-7: error=0,159465, time=23275ms, Run-8: error=0,191901, time=23161ms, Run-9: error=0,143818, time=12995ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=4 average error=0,165692 [0,132052;0,199332], average time=18582ms [10430;26733], summed up error=1,656920, overall time=185829ms, Run-0: error=0,173222, time=22047ms, Run-1: error=0,137381, time=13976ms, Run-2: error=0,165864, time=22573ms, Run-3: error=0,144572, time=22317ms, Run-4: error=0,176255, time=22897ms, Run-5: error=0,176148, time=12828ms, Run-6: error=0,183609, time=16791ms, Run-7: error=0,155917, time=14242ms, Run-8: error=0,189731, time=22108ms, Run-9: error=0,154221, time=16050ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=5 average error=0,162512 [0,140393;0,184631], average time=22808ms [10871;34744], summed up error=1,625123, overall time=228083ms, Run-0: error=0,160750, time=22776ms, Run-1: error=0,142077, time=16913ms, Run-2: error=0,158720, time=13480ms, Run-3: error=0,148204, time=18070ms, Run-4: error=0,174101, time=30123ms, Run-5: error=0,166991, time=20023ms, Run-6: error=0,175717, time=22648ms, Run-7: error=0,163316, time=32465ms, Run-8: error=0,175522, time=28727ms, Run-9: error=0,159725, time=22858ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=6 average error=0,159075 [0,137633;0,180516], average time=21829ms [11123;32534], summed up error=1,590746, overall time=218290ms, Run-0: error=0,156218, time=23131ms, Run-1: error=0,138000, time=20313ms, Run-2: error=0,154288, time=21545ms, Run-3: error=0,153349, time=14293ms, Run-4: error=0,169570, time=22850ms, Run-5: error=0,169022, time=27023ms, Run-6: error=0,161424, time=30172ms, Run-7: error=0,162069, time=16129ms, Run-8: error=0,175812, time=15201ms, Run-9: error=0,150993, time=27633ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=7 average error=0,160170 [0,137873;0,182468], average time=21476ms [7454;35497], summed up error=1,601705, overall time=214765ms, Run-0: error=0,171345, time=16894ms, Run-1: error=0,147489, time=17895ms, Run-2: error=0,152315, time=20378ms, Run-3: error=0,148754, time=34705ms, Run-4: error=0,182440, time=32381ms, Run-5: error=0,163336, time=14585ms, Run-6: error=0,159111, time=17734ms, Run-7: error=0,159564, time=26468ms, Run-8: error=0,168032, time=15684ms, Run-9: error=0,149318, time=18041ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=8 average error=0,158728 [0,136089;0,181366], average time=25884ms [14682;37085], summed up error=1,587276, overall time=258847ms, Run-0: error=0,150005, time=21425ms, Run-1: error=0,149040, time=30567ms, Run-2: error=0,156640, time=33648ms, Run-3: error=0,142022, time=15402ms, Run-4: error=0,175969, time=24081ms, Run-5: error=0,169706, time=28409ms, Run-6: error=0,164045, time=19452ms, Run-7: error=0,153069, time=27005ms, Run-8: error=0,174015, time=27898ms, Run-9: error=0,152765, time=30960ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=9 average error=0,160073 [0,136756;0,183391], average time=22060ms [13933;30186], summed up error=1,600732, overall time=220602ms, Run-0: error=0,153912, time=22062ms, Run-1: error=0,152878, time=20734ms, Run-2: error=0,148227, time=16973ms, Run-3: error=0,149793, time=19430ms, Run-4: error=0,174344, time=18592ms, Run-5: error=0,166180, time=19648ms, Run-6: error=0,167670, time=25695ms, Run-7: error=0,150486, time=30528ms, Run-8: error=0,182788, time=20876ms, Run-9: error=0,154455, time=26064ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=10 average error=0,157482 [0,134060;0,180904], average time=25940ms [15420;36459], summed up error=1,574820, overall time=259407ms, Run-0: error=0,159406, time=16360ms, Run-1: error=0,138493, time=28913ms, Run-2: error=0,153576, time=27796ms, Run-3: error=0,142797, time=28305ms, Run-4: error=0,171049, time=28460ms, Run-5: error=0,164149, time=28843ms, Run-6: error=0,175564, time=30552ms, Run-7: error=0,155102, time=18706ms, Run-8: error=0,165369, time=31265ms, Run-9: error=0,149314, time=20207ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=11 average error=0,157217 [0,134880;0,179554], average time=26835ms [19347;34322], summed up error=1,572169, overall time=268352ms, Run-0: error=0,152466, time=18441ms, Run-1: error=0,151632, time=29482ms, Run-2: error=0,147652, time=21902ms, Run-3: error=0,146300, time=26906ms, Run-4: error=0,178377, time=27939ms, Run-5: error=0,149585, time=26603ms, Run-6: error=0,163341, time=29470ms, Run-7: error=0,158672, time=28009ms, Run-8: error=0,174557, time=28703ms, Run-9: error=0,149587, time=30897ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=12 average error=0,158801 [0,139643;0,177960], average time=27982ms [20420;35543], summed up error=1,588014, overall time=279822ms, Run-0: error=0,157073, time=21709ms, Run-1: error=0,143651, time=30725ms, Run-2: error=0,152884, time=28610ms, Run-3: error=0,147778, time=26384ms, Run-4: error=0,173226, time=26855ms, Run-5: error=0,169618, time=31479ms, Run-6: error=0,162798, time=30773ms, Run-7: error=0,159308, time=31273ms, Run-8: error=0,168626, time=30712ms, Run-9: error=0,153053, time=21302ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=13 average error=0,157889 [0,134401;0,181378], average time=30241ms [21138;39343], summed up error=1,578891, overall time=302417ms, Run-0: error=0,161922, time=38816ms, Run-1: error=0,141222, time=29098ms, Run-2: error=0,143924, time=32303ms, Run-3: error=0,150410, time=29695ms, Run-4: error=0,180095, time=32511ms, Run-5: error=0,164581, time=30074ms, Run-6: error=0,165147, time=21370ms, Run-7: error=0,148483, time=33446ms, Run-8: error=0,166113, time=25798ms, Run-9: error=0,156994, time=29306ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=14 average error=0,158957 [0,140934;0,176980], average time=29420ms [21003;37836], summed up error=1,589569, overall time=294208ms, Run-0: error=0,162605, time=18477ms, Run-1: error=0,146518, time=29824ms, Run-2: error=0,155754, time=31916ms, Run-3: error=0,143116, time=27716ms, Run-4: error=0,175658, time=28354ms, Run-5: error=0,160209, time=32115ms, Run-6: error=0,162946, time=28767ms, Run-7: error=0,162340, time=31213ms, Run-8: error=0,163434, time=32425ms, Run-9: error=0,156988, time=33401ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=15 average error=0,160615 [0,139586;0,181644], average time=33687ms [21309;46064], summed up error=1,606151, overall time=336872ms, Run-0: error=0,169197, time=33956ms, Run-1: error=0,145713, time=31098ms, Run-2: error=0,148317, time=44434ms, Run-3: error=0,146432, time=45370ms, Run-4: error=0,175337, time=27239ms, Run-5: error=0,172026, time=33333ms, Run-6: error=0,165004, time=30119ms, Run-7: error=0,157804, time=28219ms, Run-8: error=0,163809, time=29714ms, Run-9: error=0,162512, time=33390ms
+2013-02-07 23:41:54 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=16 average error=0,160558 [0,143798;0,177318], average time=31514ms [25085;37942], summed up error=1,605579, overall time=315140ms, Run-0: error=0,164176, time=30603ms, Run-1: error=0,159628, time=38304ms, Run-2: error=0,155642, time=29035ms, Run-3: error=0,145429, time=29085ms, Run-4: error=0,173306, time=29767ms, Run-5: error=0,165780, time=28660ms, Run-6: error=0,162590, time=35254ms, Run-7: error=0,155826, time=29141ms, Run-8: error=0,170891, time=34143ms, Run-9: error=0,152310, time=31148ms

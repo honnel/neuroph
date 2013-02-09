@@ -1,0 +1,671 @@
+DEBUG LOG FILE
+2013-02-08 16:14:31 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-1000-mlp' +-+
+min_threads: 1
+sync_frequency: 0.25
+learners: mlp
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/1000rows.txt
+max_iteration: 2
+runs: 10
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 16
+
+
+2013-02-08 16:14:31 [INFO]  mlp ~ Run [0/10] with 1 Threads...
+2013-02-08 16:14:32 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:15:06 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:15:06 [DEBUG] NeuralNetworkWrapper ~ learning = 34106 ms (1 threads)
+2013-02-08 16:15:13 [INFO]  mlp ~ Run [0/10] with 2 Threads...
+2013-02-08 16:15:14 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:15:48 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:15:48 [DEBUG] NeuralNetworkWrapper ~ learning = 34063 ms (2 threads)
+2013-02-08 16:15:55 [INFO]  mlp ~ Run [0/10] with 3 Threads...
+2013-02-08 16:15:55 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:16:30 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:16:30 [DEBUG] NeuralNetworkWrapper ~ learning = 34383 ms (3 threads)
+2013-02-08 16:16:37 [INFO]  mlp ~ Run [0/10] with 4 Threads...
+2013-02-08 16:16:37 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:17:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:17:12 [DEBUG] NeuralNetworkWrapper ~ learning = 34239 ms (4 threads)
+2013-02-08 16:17:19 [INFO]  mlp ~ Run [0/10] with 5 Threads...
+2013-02-08 16:17:19 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:17:53 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:17:53 [DEBUG] NeuralNetworkWrapper ~ learning = 33989 ms (5 threads)
+2013-02-08 16:18:00 [INFO]  mlp ~ Run [0/10] with 6 Threads...
+2013-02-08 16:18:01 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:18:35 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:18:35 [DEBUG] NeuralNetworkWrapper ~ learning = 34133 ms (6 threads)
+2013-02-08 16:18:42 [INFO]  mlp ~ Run [0/10] with 7 Threads...
+2013-02-08 16:18:44 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:19:03 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:19:03 [DEBUG] NeuralNetworkWrapper ~ learning = 19026 ms (7 threads)
+2013-02-08 16:19:06 [INFO]  mlp ~ Run [0/10] with 8 Threads...
+2013-02-08 16:19:07 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:19:42 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:19:42 [DEBUG] NeuralNetworkWrapper ~ learning = 34646 ms (8 threads)
+2013-02-08 16:19:49 [INFO]  mlp ~ Run [0/10] with 9 Threads...
+2013-02-08 16:19:49 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:20:23 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:20:23 [DEBUG] NeuralNetworkWrapper ~ learning = 34029 ms (9 threads)
+2013-02-08 16:20:30 [INFO]  mlp ~ Run [0/10] with 10 Threads...
+2013-02-08 16:20:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:21:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:21:05 [DEBUG] NeuralNetworkWrapper ~ learning = 34296 ms (10 threads)
+2013-02-08 16:21:12 [INFO]  mlp ~ Run [0/10] with 11 Threads...
+2013-02-08 16:21:13 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:21:47 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:21:47 [DEBUG] NeuralNetworkWrapper ~ learning = 33992 ms (11 threads)
+2013-02-08 16:21:54 [INFO]  mlp ~ Run [0/10] with 12 Threads...
+2013-02-08 16:21:55 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:22:28 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:22:28 [DEBUG] NeuralNetworkWrapper ~ learning = 33829 ms (12 threads)
+2013-02-08 16:22:35 [INFO]  mlp ~ Run [0/10] with 13 Threads...
+2013-02-08 16:22:36 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:23:10 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:23:10 [DEBUG] NeuralNetworkWrapper ~ learning = 33955 ms (13 threads)
+2013-02-08 16:23:17 [INFO]  mlp ~ Run [0/10] with 14 Threads...
+2013-02-08 16:23:18 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:23:52 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:23:52 [DEBUG] NeuralNetworkWrapper ~ learning = 34163 ms (14 threads)
+2013-02-08 16:23:59 [INFO]  mlp ~ Run [0/10] with 15 Threads...
+2013-02-08 16:24:00 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:24:33 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:24:33 [DEBUG] NeuralNetworkWrapper ~ learning = 33864 ms (15 threads)
+2013-02-08 16:24:40 [INFO]  mlp ~ Run [0/10] with 16 Threads...
+2013-02-08 16:24:41 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:25:15 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:25:15 [DEBUG] NeuralNetworkWrapper ~ learning = 34289 ms (16 threads)
+2013-02-08 16:25:22 [INFO]  mlp ~ Run [1/10] with 1 Threads...
+2013-02-08 16:25:23 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:25:57 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:25:57 [DEBUG] NeuralNetworkWrapper ~ learning = 33648 ms (1 threads)
+2013-02-08 16:26:03 [INFO]  mlp ~ Run [1/10] with 2 Threads...
+2013-02-08 16:26:05 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:26:37 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:26:37 [DEBUG] NeuralNetworkWrapper ~ learning = 31924 ms (2 threads)
+2013-02-08 16:26:44 [INFO]  mlp ~ Run [1/10] with 3 Threads...
+2013-02-08 16:26:44 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:27:19 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:27:19 [DEBUG] NeuralNetworkWrapper ~ learning = 34266 ms (3 threads)
+2013-02-08 16:27:26 [INFO]  mlp ~ Run [1/10] with 4 Threads...
+2013-02-08 16:27:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:28:00 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:28:00 [DEBUG] NeuralNetworkWrapper ~ learning = 33894 ms (4 threads)
+2013-02-08 16:28:07 [INFO]  mlp ~ Run [1/10] with 5 Threads...
+2013-02-08 16:28:08 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:28:41 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:28:41 [DEBUG] NeuralNetworkWrapper ~ learning = 33669 ms (5 threads)
+2013-02-08 16:28:48 [INFO]  mlp ~ Run [1/10] with 6 Threads...
+2013-02-08 16:28:49 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:29:23 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:29:23 [DEBUG] NeuralNetworkWrapper ~ learning = 33920 ms (6 threads)
+2013-02-08 16:29:30 [INFO]  mlp ~ Run [1/10] with 7 Threads...
+2013-02-08 16:29:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:30:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:30:05 [DEBUG] NeuralNetworkWrapper ~ learning = 33944 ms (7 threads)
+2013-02-08 16:30:11 [INFO]  mlp ~ Run [1/10] with 8 Threads...
+2013-02-08 16:30:13 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:30:44 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:30:44 [DEBUG] NeuralNetworkWrapper ~ learning = 31523 ms (8 threads)
+2013-02-08 16:30:51 [INFO]  mlp ~ Run [1/10] with 9 Threads...
+2013-02-08 16:30:52 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:31:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:31:26 [DEBUG] NeuralNetworkWrapper ~ learning = 34062 ms (9 threads)
+2013-02-08 16:31:33 [INFO]  mlp ~ Run [1/10] with 10 Threads...
+2013-02-08 16:31:33 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:32:07 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:32:07 [DEBUG] NeuralNetworkWrapper ~ learning = 33965 ms (10 threads)
+2013-02-08 16:32:14 [INFO]  mlp ~ Run [1/10] with 11 Threads...
+2013-02-08 16:32:15 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:32:49 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:32:49 [DEBUG] NeuralNetworkWrapper ~ learning = 34080 ms (11 threads)
+2013-02-08 16:32:56 [INFO]  mlp ~ Run [1/10] with 12 Threads...
+2013-02-08 16:32:57 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:33:30 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:33:30 [DEBUG] NeuralNetworkWrapper ~ learning = 33799 ms (12 threads)
+2013-02-08 16:33:37 [INFO]  mlp ~ Run [1/10] with 13 Threads...
+2013-02-08 16:33:38 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:34:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:34:12 [DEBUG] NeuralNetworkWrapper ~ learning = 33970 ms (13 threads)
+2013-02-08 16:34:19 [INFO]  mlp ~ Run [1/10] with 14 Threads...
+2013-02-08 16:34:20 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:34:51 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:34:51 [DEBUG] NeuralNetworkWrapper ~ learning = 30743 ms (14 threads)
+2013-02-08 16:34:58 [INFO]  mlp ~ Run [1/10] with 15 Threads...
+2013-02-08 16:34:58 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:35:33 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:35:33 [DEBUG] NeuralNetworkWrapper ~ learning = 34626 ms (15 threads)
+2013-02-08 16:35:40 [INFO]  mlp ~ Run [1/10] with 16 Threads...
+2013-02-08 16:35:41 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:36:15 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:36:15 [DEBUG] NeuralNetworkWrapper ~ learning = 33995 ms (16 threads)
+2013-02-08 16:36:22 [INFO]  mlp ~ Run [2/10] with 1 Threads...
+2013-02-08 16:36:22 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:36:56 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:36:56 [DEBUG] NeuralNetworkWrapper ~ learning = 34000 ms (1 threads)
+2013-02-08 16:37:03 [INFO]  mlp ~ Run [2/10] with 2 Threads...
+2013-02-08 16:37:04 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:37:38 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:37:38 [DEBUG] NeuralNetworkWrapper ~ learning = 33821 ms (2 threads)
+2013-02-08 16:37:45 [INFO]  mlp ~ Run [2/10] with 3 Threads...
+2013-02-08 16:37:46 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:38:07 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:38:07 [DEBUG] NeuralNetworkWrapper ~ learning = 21233 ms (3 threads)
+2013-02-08 16:38:12 [INFO]  mlp ~ Run [2/10] with 4 Threads...
+2013-02-08 16:38:12 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:38:47 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:38:47 [DEBUG] NeuralNetworkWrapper ~ learning = 34477 ms (4 threads)
+2013-02-08 16:38:54 [INFO]  mlp ~ Run [2/10] with 5 Threads...
+2013-02-08 16:38:55 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:39:29 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:39:29 [DEBUG] NeuralNetworkWrapper ~ learning = 33875 ms (5 threads)
+2013-02-08 16:39:36 [INFO]  mlp ~ Run [2/10] with 6 Threads...
+2013-02-08 16:39:36 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:40:10 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:40:10 [DEBUG] NeuralNetworkWrapper ~ learning = 33724 ms (6 threads)
+2013-02-08 16:40:17 [INFO]  mlp ~ Run [2/10] with 7 Threads...
+2013-02-08 16:40:17 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:40:51 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:40:51 [DEBUG] NeuralNetworkWrapper ~ learning = 33806 ms (7 threads)
+2013-02-08 16:40:58 [INFO]  mlp ~ Run [2/10] with 8 Threads...
+2013-02-08 16:40:59 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:41:33 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:41:33 [DEBUG] NeuralNetworkWrapper ~ learning = 33996 ms (8 threads)
+2013-02-08 16:41:40 [INFO]  mlp ~ Run [2/10] with 9 Threads...
+2013-02-08 16:41:41 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:42:16 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:42:16 [DEBUG] NeuralNetworkWrapper ~ learning = 34652 ms (9 threads)
+2013-02-08 16:42:23 [INFO]  mlp ~ Run [2/10] with 10 Threads...
+2013-02-08 16:42:24 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:42:58 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:42:58 [DEBUG] NeuralNetworkWrapper ~ learning = 33995 ms (10 threads)
+2013-02-08 16:43:05 [INFO]  mlp ~ Run [2/10] with 11 Threads...
+2013-02-08 16:43:05 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:43:40 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:43:40 [DEBUG] NeuralNetworkWrapper ~ learning = 34323 ms (11 threads)
+2013-02-08 16:43:47 [INFO]  mlp ~ Run [2/10] with 12 Threads...
+2013-02-08 16:43:47 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:44:21 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:44:21 [DEBUG] NeuralNetworkWrapper ~ learning = 33921 ms (12 threads)
+2013-02-08 16:44:28 [INFO]  mlp ~ Run [2/10] with 13 Threads...
+2013-02-08 16:44:29 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:45:03 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:45:03 [DEBUG] NeuralNetworkWrapper ~ learning = 33815 ms (13 threads)
+2013-02-08 16:45:10 [INFO]  mlp ~ Run [2/10] with 14 Threads...
+2013-02-08 16:45:11 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:45:46 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:45:46 [DEBUG] NeuralNetworkWrapper ~ learning = 34489 ms (14 threads)
+2013-02-08 16:45:53 [INFO]  mlp ~ Run [2/10] with 15 Threads...
+2013-02-08 16:45:53 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:46:27 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:46:27 [DEBUG] NeuralNetworkWrapper ~ learning = 33800 ms (15 threads)
+2013-02-08 16:46:34 [INFO]  mlp ~ Run [2/10] with 16 Threads...
+2013-02-08 16:46:35 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:47:09 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:47:09 [DEBUG] NeuralNetworkWrapper ~ learning = 33914 ms (16 threads)
+2013-02-08 16:47:16 [INFO]  mlp ~ Run [3/10] with 1 Threads...
+2013-02-08 16:47:16 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:47:50 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:47:50 [DEBUG] NeuralNetworkWrapper ~ learning = 33723 ms (1 threads)
+2013-02-08 16:47:57 [INFO]  mlp ~ Run [3/10] with 2 Threads...
+2013-02-08 16:47:58 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:48:22 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:48:22 [DEBUG] NeuralNetworkWrapper ~ learning = 24075 ms (2 threads)
+2013-02-08 16:48:27 [INFO]  mlp ~ Run [3/10] with 3 Threads...
+2013-02-08 16:48:28 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:49:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:49:02 [DEBUG] NeuralNetworkWrapper ~ learning = 34214 ms (3 threads)
+2013-02-08 16:49:09 [INFO]  mlp ~ Run [3/10] with 4 Threads...
+2013-02-08 16:49:10 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:49:44 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:49:44 [DEBUG] NeuralNetworkWrapper ~ learning = 34030 ms (4 threads)
+2013-02-08 16:49:51 [INFO]  mlp ~ Run [3/10] with 5 Threads...
+2013-02-08 16:49:51 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:50:25 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:50:25 [DEBUG] NeuralNetworkWrapper ~ learning = 33985 ms (5 threads)
+2013-02-08 16:50:32 [INFO]  mlp ~ Run [3/10] with 6 Threads...
+2013-02-08 16:50:33 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:51:07 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:51:07 [DEBUG] NeuralNetworkWrapper ~ learning = 33781 ms (6 threads)
+2013-02-08 16:51:14 [INFO]  mlp ~ Run [3/10] with 7 Threads...
+2013-02-08 16:51:15 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:51:50 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:51:50 [DEBUG] NeuralNetworkWrapper ~ learning = 34836 ms (7 threads)
+2013-02-08 16:51:57 [INFO]  mlp ~ Run [3/10] with 8 Threads...
+2013-02-08 16:51:58 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:52:32 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:52:32 [DEBUG] NeuralNetworkWrapper ~ learning = 34196 ms (8 threads)
+2013-02-08 16:52:39 [INFO]  mlp ~ Run [3/10] with 9 Threads...
+2013-02-08 16:52:39 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:53:13 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:53:13 [DEBUG] NeuralNetworkWrapper ~ learning = 33922 ms (9 threads)
+2013-02-08 16:53:20 [INFO]  mlp ~ Run [3/10] with 10 Threads...
+2013-02-08 16:53:21 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:53:55 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:53:55 [DEBUG] NeuralNetworkWrapper ~ learning = 33691 ms (10 threads)
+2013-02-08 16:54:02 [INFO]  mlp ~ Run [3/10] with 11 Threads...
+2013-02-08 16:54:03 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:54:22 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:54:22 [DEBUG] NeuralNetworkWrapper ~ learning = 18924 ms (11 threads)
+2013-02-08 16:54:25 [INFO]  mlp ~ Run [3/10] with 12 Threads...
+2013-02-08 16:54:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:55:00 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:55:00 [DEBUG] NeuralNetworkWrapper ~ learning = 34529 ms (12 threads)
+2013-02-08 16:55:08 [INFO]  mlp ~ Run [3/10] with 13 Threads...
+2013-02-08 16:55:08 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:55:42 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:55:42 [DEBUG] NeuralNetworkWrapper ~ learning = 34090 ms (13 threads)
+2013-02-08 16:55:49 [INFO]  mlp ~ Run [3/10] with 14 Threads...
+2013-02-08 16:55:50 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:56:24 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:56:24 [DEBUG] NeuralNetworkWrapper ~ learning = 34118 ms (14 threads)
+2013-02-08 16:56:31 [INFO]  mlp ~ Run [3/10] with 15 Threads...
+2013-02-08 16:56:32 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:57:06 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:57:06 [DEBUG] NeuralNetworkWrapper ~ learning = 33857 ms (15 threads)
+2013-02-08 16:57:13 [INFO]  mlp ~ Run [3/10] with 16 Threads...
+2013-02-08 16:57:14 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:57:48 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:57:48 [DEBUG] NeuralNetworkWrapper ~ learning = 34817 ms (16 threads)
+2013-02-08 16:57:56 [INFO]  mlp ~ Run [4/10] with 1 Threads...
+2013-02-08 16:57:56 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:58:30 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:58:30 [DEBUG] NeuralNetworkWrapper ~ learning = 34080 ms (1 threads)
+2013-02-08 16:58:37 [INFO]  mlp ~ Run [4/10] with 2 Threads...
+2013-02-08 16:58:38 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:59:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:59:12 [DEBUG] NeuralNetworkWrapper ~ learning = 33834 ms (2 threads)
+2013-02-08 16:59:19 [INFO]  mlp ~ Run [4/10] with 3 Threads...
+2013-02-08 16:59:20 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 16:59:53 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 16:59:53 [DEBUG] NeuralNetworkWrapper ~ learning = 33739 ms (3 threads)
+2013-02-08 17:00:00 [INFO]  mlp ~ Run [4/10] with 4 Threads...
+2013-02-08 17:00:01 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:00:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:00:26 [DEBUG] NeuralNetworkWrapper ~ learning = 24985 ms (4 threads)
+2013-02-08 17:00:31 [INFO]  mlp ~ Run [4/10] with 5 Threads...
+2013-02-08 17:00:32 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:01:06 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:01:06 [DEBUG] NeuralNetworkWrapper ~ learning = 34275 ms (5 threads)
+2013-02-08 17:01:14 [INFO]  mlp ~ Run [4/10] with 6 Threads...
+2013-02-08 17:01:14 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:01:48 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:01:48 [DEBUG] NeuralNetworkWrapper ~ learning = 34104 ms (6 threads)
+2013-02-08 17:01:55 [INFO]  mlp ~ Run [4/10] with 7 Threads...
+2013-02-08 17:01:56 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:02:30 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:02:30 [DEBUG] NeuralNetworkWrapper ~ learning = 33777 ms (7 threads)
+2013-02-08 17:02:37 [INFO]  mlp ~ Run [4/10] with 8 Threads...
+2013-02-08 17:02:37 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:03:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:03:02 [DEBUG] NeuralNetworkWrapper ~ learning = 24255 ms (8 threads)
+2013-02-08 17:03:06 [INFO]  mlp ~ Run [4/10] with 9 Threads...
+2013-02-08 17:03:06 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:03:41 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:03:41 [DEBUG] NeuralNetworkWrapper ~ learning = 34283 ms (9 threads)
+2013-02-08 17:03:48 [INFO]  mlp ~ Run [4/10] with 10 Threads...
+2013-02-08 17:03:49 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:04:22 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:04:22 [DEBUG] NeuralNetworkWrapper ~ learning = 33892 ms (10 threads)
+2013-02-08 17:04:29 [INFO]  mlp ~ Run [4/10] with 11 Threads...
+2013-02-08 17:04:30 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:05:04 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:05:04 [DEBUG] NeuralNetworkWrapper ~ learning = 33834 ms (11 threads)
+2013-02-08 17:05:11 [INFO]  mlp ~ Run [4/10] with 12 Threads...
+2013-02-08 17:05:11 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:05:45 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:05:45 [DEBUG] NeuralNetworkWrapper ~ learning = 33829 ms (12 threads)
+2013-02-08 17:05:52 [INFO]  mlp ~ Run [4/10] with 13 Threads...
+2013-02-08 17:05:53 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:06:28 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:06:28 [DEBUG] NeuralNetworkWrapper ~ learning = 34466 ms (13 threads)
+2013-02-08 17:06:35 [INFO]  mlp ~ Run [4/10] with 14 Threads...
+2013-02-08 17:06:36 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:07:10 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:07:10 [DEBUG] NeuralNetworkWrapper ~ learning = 33953 ms (14 threads)
+2013-02-08 17:07:17 [INFO]  mlp ~ Run [4/10] with 15 Threads...
+2013-02-08 17:07:17 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:07:51 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:07:51 [DEBUG] NeuralNetworkWrapper ~ learning = 33849 ms (15 threads)
+2013-02-08 17:07:58 [INFO]  mlp ~ Run [4/10] with 16 Threads...
+2013-02-08 17:07:59 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:08:33 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:08:33 [DEBUG] NeuralNetworkWrapper ~ learning = 33912 ms (16 threads)
+2013-02-08 17:08:40 [INFO]  mlp ~ Run [5/10] with 1 Threads...
+2013-02-08 17:08:41 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:09:15 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:09:15 [DEBUG] NeuralNetworkWrapper ~ learning = 34838 ms (1 threads)
+2013-02-08 17:09:23 [INFO]  mlp ~ Run [5/10] with 2 Threads...
+2013-02-08 17:09:23 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:09:58 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:09:58 [DEBUG] NeuralNetworkWrapper ~ learning = 34279 ms (2 threads)
+2013-02-08 17:10:05 [INFO]  mlp ~ Run [5/10] with 3 Threads...
+2013-02-08 17:10:05 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:10:40 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:10:40 [DEBUG] NeuralNetworkWrapper ~ learning = 34482 ms (3 threads)
+2013-02-08 17:10:47 [INFO]  mlp ~ Run [5/10] with 4 Threads...
+2013-02-08 17:10:47 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:11:22 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:11:22 [DEBUG] NeuralNetworkWrapper ~ learning = 34622 ms (4 threads)
+2013-02-08 17:11:29 [INFO]  mlp ~ Run [5/10] with 5 Threads...
+2013-02-08 17:11:30 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:12:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:12:05 [DEBUG] NeuralNetworkWrapper ~ learning = 34827 ms (5 threads)
+2013-02-08 17:12:12 [INFO]  mlp ~ Run [5/10] with 6 Threads...
+2013-02-08 17:12:13 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:12:47 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:12:47 [DEBUG] NeuralNetworkWrapper ~ learning = 34335 ms (6 threads)
+2013-02-08 17:12:54 [INFO]  mlp ~ Run [5/10] with 7 Threads...
+2013-02-08 17:12:55 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:13:29 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:13:29 [DEBUG] NeuralNetworkWrapper ~ learning = 34580 ms (7 threads)
+2013-02-08 17:13:36 [INFO]  mlp ~ Run [5/10] with 8 Threads...
+2013-02-08 17:13:37 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:14:11 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:14:11 [DEBUG] NeuralNetworkWrapper ~ learning = 34149 ms (8 threads)
+2013-02-08 17:14:18 [INFO]  mlp ~ Run [5/10] with 9 Threads...
+2013-02-08 17:14:19 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:14:54 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:14:54 [DEBUG] NeuralNetworkWrapper ~ learning = 34894 ms (9 threads)
+2013-02-08 17:15:01 [INFO]  mlp ~ Run [5/10] with 10 Threads...
+2013-02-08 17:15:02 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:15:36 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:15:36 [DEBUG] NeuralNetworkWrapper ~ learning = 34247 ms (10 threads)
+2013-02-08 17:15:43 [INFO]  mlp ~ Run [5/10] with 11 Threads...
+2013-02-08 17:15:44 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:16:18 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:16:18 [DEBUG] NeuralNetworkWrapper ~ learning = 34205 ms (11 threads)
+2013-02-08 17:16:25 [INFO]  mlp ~ Run [5/10] with 12 Threads...
+2013-02-08 17:16:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:17:00 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:17:00 [DEBUG] NeuralNetworkWrapper ~ learning = 34197 ms (12 threads)
+2013-02-08 17:17:07 [INFO]  mlp ~ Run [5/10] with 13 Threads...
+2013-02-08 17:17:08 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:17:42 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:17:42 [DEBUG] NeuralNetworkWrapper ~ learning = 34661 ms (13 threads)
+2013-02-08 17:17:50 [INFO]  mlp ~ Run [5/10] with 14 Threads...
+2013-02-08 17:17:50 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:18:24 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:18:24 [DEBUG] NeuralNetworkWrapper ~ learning = 34051 ms (14 threads)
+2013-02-08 17:18:31 [INFO]  mlp ~ Run [5/10] with 15 Threads...
+2013-02-08 17:18:32 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:19:06 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:19:06 [DEBUG] NeuralNetworkWrapper ~ learning = 34111 ms (15 threads)
+2013-02-08 17:19:13 [INFO]  mlp ~ Run [5/10] with 16 Threads...
+2013-02-08 17:19:14 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:19:37 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:19:37 [DEBUG] NeuralNetworkWrapper ~ learning = 22805 ms (16 threads)
+2013-02-08 17:19:42 [INFO]  mlp ~ Run [6/10] with 1 Threads...
+2013-02-08 17:19:42 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:20:16 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:20:16 [DEBUG] NeuralNetworkWrapper ~ learning = 34304 ms (1 threads)
+2013-02-08 17:20:24 [INFO]  mlp ~ Run [6/10] with 2 Threads...
+2013-02-08 17:20:24 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:20:58 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:20:58 [DEBUG] NeuralNetworkWrapper ~ learning = 33935 ms (2 threads)
+2013-02-08 17:21:05 [INFO]  mlp ~ Run [6/10] with 3 Threads...
+2013-02-08 17:21:06 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:21:40 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:21:40 [DEBUG] NeuralNetworkWrapper ~ learning = 34045 ms (3 threads)
+2013-02-08 17:21:47 [INFO]  mlp ~ Run [6/10] with 4 Threads...
+2013-02-08 17:21:48 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:22:19 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:22:19 [DEBUG] NeuralNetworkWrapper ~ learning = 31185 ms (4 threads)
+2013-02-08 17:22:26 [INFO]  mlp ~ Run [6/10] with 5 Threads...
+2013-02-08 17:22:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:23:00 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:23:00 [DEBUG] NeuralNetworkWrapper ~ learning = 34164 ms (5 threads)
+2013-02-08 17:23:08 [INFO]  mlp ~ Run [6/10] with 6 Threads...
+2013-02-08 17:23:08 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:23:42 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:23:42 [DEBUG] NeuralNetworkWrapper ~ learning = 34004 ms (6 threads)
+2013-02-08 17:23:49 [INFO]  mlp ~ Run [6/10] with 7 Threads...
+2013-02-08 17:23:50 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:24:24 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:24:24 [DEBUG] NeuralNetworkWrapper ~ learning = 33878 ms (7 threads)
+2013-02-08 17:24:31 [INFO]  mlp ~ Run [6/10] with 8 Threads...
+2013-02-08 17:24:36 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:25:10 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:25:10 [DEBUG] NeuralNetworkWrapper ~ learning = 34645 ms (8 threads)
+2013-02-08 17:25:18 [INFO]  mlp ~ Run [6/10] with 9 Threads...
+2013-02-08 17:25:18 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:25:52 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:25:52 [DEBUG] NeuralNetworkWrapper ~ learning = 34073 ms (9 threads)
+2013-02-08 17:25:59 [INFO]  mlp ~ Run [6/10] with 10 Threads...
+2013-02-08 17:26:00 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:26:34 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:26:34 [DEBUG] NeuralNetworkWrapper ~ learning = 34295 ms (10 threads)
+2013-02-08 17:26:41 [INFO]  mlp ~ Run [6/10] with 11 Threads...
+2013-02-08 17:26:42 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:27:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:27:05 [DEBUG] NeuralNetworkWrapper ~ learning = 22367 ms (11 threads)
+2013-02-08 17:27:09 [INFO]  mlp ~ Run [6/10] with 12 Threads...
+2013-02-08 17:27:10 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:27:44 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:27:44 [DEBUG] NeuralNetworkWrapper ~ learning = 34210 ms (12 threads)
+2013-02-08 17:27:51 [INFO]  mlp ~ Run [6/10] with 13 Threads...
+2013-02-08 17:27:52 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:28:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:28:26 [DEBUG] NeuralNetworkWrapper ~ learning = 34120 ms (13 threads)
+2013-02-08 17:28:33 [INFO]  mlp ~ Run [6/10] with 14 Threads...
+2013-02-08 17:28:34 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:29:08 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:29:08 [DEBUG] NeuralNetworkWrapper ~ learning = 33992 ms (14 threads)
+2013-02-08 17:29:15 [INFO]  mlp ~ Run [6/10] with 15 Threads...
+2013-02-08 17:29:16 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:29:43 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:29:43 [DEBUG] NeuralNetworkWrapper ~ learning = 27023 ms (15 threads)
+2013-02-08 17:29:48 [INFO]  mlp ~ Run [6/10] with 16 Threads...
+2013-02-08 17:29:49 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:30:23 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:30:23 [DEBUG] NeuralNetworkWrapper ~ learning = 34241 ms (16 threads)
+2013-02-08 17:30:30 [INFO]  mlp ~ Run [7/10] with 1 Threads...
+2013-02-08 17:30:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:31:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:31:05 [DEBUG] NeuralNetworkWrapper ~ learning = 34061 ms (1 threads)
+2013-02-08 17:31:12 [INFO]  mlp ~ Run [7/10] with 2 Threads...
+2013-02-08 17:31:12 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:31:46 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:31:46 [DEBUG] NeuralNetworkWrapper ~ learning = 33787 ms (2 threads)
+2013-02-08 17:31:53 [INFO]  mlp ~ Run [7/10] with 3 Threads...
+2013-02-08 17:31:54 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:32:24 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:32:24 [DEBUG] NeuralNetworkWrapper ~ learning = 30089 ms (3 threads)
+2013-02-08 17:32:31 [INFO]  mlp ~ Run [7/10] with 4 Threads...
+2013-02-08 17:32:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:33:06 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:33:06 [DEBUG] NeuralNetworkWrapper ~ learning = 34333 ms (4 threads)
+2013-02-08 17:33:13 [INFO]  mlp ~ Run [7/10] with 5 Threads...
+2013-02-08 17:33:13 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:33:47 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:33:47 [DEBUG] NeuralNetworkWrapper ~ learning = 34077 ms (5 threads)
+2013-02-08 17:33:54 [INFO]  mlp ~ Run [7/10] with 6 Threads...
+2013-02-08 17:33:55 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:34:29 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:34:29 [DEBUG] NeuralNetworkWrapper ~ learning = 33971 ms (6 threads)
+2013-02-08 17:34:36 [INFO]  mlp ~ Run [7/10] with 7 Threads...
+2013-02-08 17:34:37 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:34:58 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:34:58 [DEBUG] NeuralNetworkWrapper ~ learning = 20720 ms (7 threads)
+2013-02-08 17:35:02 [INFO]  mlp ~ Run [7/10] with 8 Threads...
+2013-02-08 17:35:03 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:35:37 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:35:37 [DEBUG] NeuralNetworkWrapper ~ learning = 34454 ms (8 threads)
+2013-02-08 17:35:44 [INFO]  mlp ~ Run [7/10] with 9 Threads...
+2013-02-08 17:35:45 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:36:19 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:36:19 [DEBUG] NeuralNetworkWrapper ~ learning = 33880 ms (9 threads)
+2013-02-08 17:36:26 [INFO]  mlp ~ Run [7/10] with 10 Threads...
+2013-02-08 17:36:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:37:00 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:37:00 [DEBUG] NeuralNetworkWrapper ~ learning = 33782 ms (10 threads)
+2013-02-08 17:37:07 [INFO]  mlp ~ Run [7/10] with 11 Threads...
+2013-02-08 17:37:08 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:37:42 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:37:42 [DEBUG] NeuralNetworkWrapper ~ learning = 33909 ms (11 threads)
+2013-02-08 17:37:49 [INFO]  mlp ~ Run [7/10] with 12 Threads...
+2013-02-08 17:37:50 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:38:24 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:38:24 [DEBUG] NeuralNetworkWrapper ~ learning = 34568 ms (12 threads)
+2013-02-08 17:38:31 [INFO]  mlp ~ Run [7/10] with 13 Threads...
+2013-02-08 17:38:32 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:39:06 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:39:06 [DEBUG] NeuralNetworkWrapper ~ learning = 33753 ms (13 threads)
+2013-02-08 17:39:13 [INFO]  mlp ~ Run [7/10] with 14 Threads...
+2013-02-08 17:39:14 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:39:47 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:39:47 [DEBUG] NeuralNetworkWrapper ~ learning = 33933 ms (14 threads)
+2013-02-08 17:39:54 [INFO]  mlp ~ Run [7/10] with 15 Threads...
+2013-02-08 17:39:55 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:40:29 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:40:29 [DEBUG] NeuralNetworkWrapper ~ learning = 33591 ms (15 threads)
+2013-02-08 17:40:36 [INFO]  mlp ~ Run [7/10] with 16 Threads...
+2013-02-08 17:40:37 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:40:59 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:40:59 [DEBUG] NeuralNetworkWrapper ~ learning = 22461 ms (16 threads)
+2013-02-08 17:41:04 [INFO]  mlp ~ Run [8/10] with 1 Threads...
+2013-02-08 17:41:04 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:41:39 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:41:39 [DEBUG] NeuralNetworkWrapper ~ learning = 34425 ms (1 threads)
+2013-02-08 17:41:46 [INFO]  mlp ~ Run [8/10] with 2 Threads...
+2013-02-08 17:41:47 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:42:21 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:42:21 [DEBUG] NeuralNetworkWrapper ~ learning = 34232 ms (2 threads)
+2013-02-08 17:42:28 [INFO]  mlp ~ Run [8/10] with 3 Threads...
+2013-02-08 17:42:29 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:43:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:43:02 [DEBUG] NeuralNetworkWrapper ~ learning = 33689 ms (3 threads)
+2013-02-08 17:43:09 [INFO]  mlp ~ Run [8/10] with 4 Threads...
+2013-02-08 17:43:10 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:43:44 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:43:44 [DEBUG] NeuralNetworkWrapper ~ learning = 33904 ms (4 threads)
+2013-02-08 17:43:51 [INFO]  mlp ~ Run [8/10] with 5 Threads...
+2013-02-08 17:43:52 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:44:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:44:26 [DEBUG] NeuralNetworkWrapper ~ learning = 33775 ms (5 threads)
+2013-02-08 17:44:33 [INFO]  mlp ~ Run [8/10] with 6 Threads...
+2013-02-08 17:44:33 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:45:08 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:45:08 [DEBUG] NeuralNetworkWrapper ~ learning = 34249 ms (6 threads)
+2013-02-08 17:45:15 [INFO]  mlp ~ Run [8/10] with 7 Threads...
+2013-02-08 17:45:15 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:45:49 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:45:49 [DEBUG] NeuralNetworkWrapper ~ learning = 33900 ms (7 threads)
+2013-02-08 17:45:56 [INFO]  mlp ~ Run [8/10] with 8 Threads...
+2013-02-08 17:45:57 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:46:30 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:46:30 [DEBUG] NeuralNetworkWrapper ~ learning = 33680 ms (8 threads)
+2013-02-08 17:46:37 [INFO]  mlp ~ Run [8/10] with 9 Threads...
+2013-02-08 17:46:38 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:47:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:47:12 [DEBUG] NeuralNetworkWrapper ~ learning = 33727 ms (9 threads)
+2013-02-08 17:47:19 [INFO]  mlp ~ Run [8/10] with 10 Threads...
+2013-02-08 17:47:20 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:47:55 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:47:55 [DEBUG] NeuralNetworkWrapper ~ learning = 34641 ms (10 threads)
+2013-02-08 17:48:02 [INFO]  mlp ~ Run [8/10] with 11 Threads...
+2013-02-08 17:48:02 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:48:36 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:48:36 [DEBUG] NeuralNetworkWrapper ~ learning = 33978 ms (11 threads)
+2013-02-08 17:48:43 [INFO]  mlp ~ Run [8/10] with 12 Threads...
+2013-02-08 17:48:44 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:49:18 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:49:18 [DEBUG] NeuralNetworkWrapper ~ learning = 34084 ms (12 threads)
+2013-02-08 17:49:25 [INFO]  mlp ~ Run [8/10] with 13 Threads...
+2013-02-08 17:49:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:50:00 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:50:00 [DEBUG] NeuralNetworkWrapper ~ learning = 33793 ms (13 threads)
+2013-02-08 17:50:07 [INFO]  mlp ~ Run [8/10] with 14 Threads...
+2013-02-08 17:50:07 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:50:41 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:50:41 [DEBUG] NeuralNetworkWrapper ~ learning = 33610 ms (14 threads)
+2013-02-08 17:50:48 [INFO]  mlp ~ Run [8/10] with 15 Threads...
+2013-02-08 17:50:49 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:51:23 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:51:23 [DEBUG] NeuralNetworkWrapper ~ learning = 34614 ms (15 threads)
+2013-02-08 17:51:31 [INFO]  mlp ~ Run [8/10] with 16 Threads...
+2013-02-08 17:51:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:52:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:52:05 [DEBUG] NeuralNetworkWrapper ~ learning = 33916 ms (16 threads)
+2013-02-08 17:52:12 [INFO]  mlp ~ Run [9/10] with 1 Threads...
+2013-02-08 17:52:13 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:52:47 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:52:47 [DEBUG] NeuralNetworkWrapper ~ learning = 33833 ms (1 threads)
+2013-02-08 17:52:54 [INFO]  mlp ~ Run [9/10] with 2 Threads...
+2013-02-08 17:52:54 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:53:28 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:53:28 [DEBUG] NeuralNetworkWrapper ~ learning = 33693 ms (2 threads)
+2013-02-08 17:53:35 [INFO]  mlp ~ Run [9/10] with 3 Threads...
+2013-02-08 17:53:36 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:54:10 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:54:10 [DEBUG] NeuralNetworkWrapper ~ learning = 33852 ms (3 threads)
+2013-02-08 17:54:16 [INFO]  mlp ~ Run [9/10] with 4 Threads...
+2013-02-08 17:54:18 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:54:52 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:54:52 [DEBUG] NeuralNetworkWrapper ~ learning = 34339 ms (4 threads)
+2013-02-08 17:54:59 [INFO]  mlp ~ Run [9/10] with 5 Threads...
+2013-02-08 17:55:00 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:55:34 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:55:34 [DEBUG] NeuralNetworkWrapper ~ learning = 33985 ms (5 threads)
+2013-02-08 17:55:41 [INFO]  mlp ~ Run [9/10] with 6 Threads...
+2013-02-08 17:55:42 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:56:16 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:56:16 [DEBUG] NeuralNetworkWrapper ~ learning = 34038 ms (6 threads)
+2013-02-08 17:56:23 [INFO]  mlp ~ Run [9/10] with 7 Threads...
+2013-02-08 17:56:23 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:56:57 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:56:57 [DEBUG] NeuralNetworkWrapper ~ learning = 33527 ms (7 threads)
+2013-02-08 17:57:04 [INFO]  mlp ~ Run [9/10] with 8 Threads...
+2013-02-08 17:57:04 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:57:38 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:57:38 [DEBUG] NeuralNetworkWrapper ~ learning = 33843 ms (8 threads)
+2013-02-08 17:57:45 [INFO]  mlp ~ Run [9/10] with 9 Threads...
+2013-02-08 17:57:46 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:58:14 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:58:14 [DEBUG] NeuralNetworkWrapper ~ learning = 28153 ms (9 threads)
+2013-02-08 17:58:20 [INFO]  mlp ~ Run [9/10] with 10 Threads...
+2013-02-08 17:58:21 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:58:55 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:58:55 [DEBUG] NeuralNetworkWrapper ~ learning = 33998 ms (10 threads)
+2013-02-08 17:59:02 [INFO]  mlp ~ Run [9/10] with 11 Threads...
+2013-02-08 17:59:03 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 17:59:36 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 17:59:36 [DEBUG] NeuralNetworkWrapper ~ learning = 33870 ms (11 threads)
+2013-02-08 17:59:43 [INFO]  mlp ~ Run [9/10] with 12 Threads...
+2013-02-08 17:59:44 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 18:00:18 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 18:00:18 [DEBUG] NeuralNetworkWrapper ~ learning = 33766 ms (12 threads)
+2013-02-08 18:00:25 [INFO]  mlp ~ Run [9/10] with 13 Threads...
+2013-02-08 18:00:25 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 18:00:59 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 18:00:59 [DEBUG] NeuralNetworkWrapper ~ learning = 33722 ms (13 threads)
+2013-02-08 18:01:06 [INFO]  mlp ~ Run [9/10] with 14 Threads...
+2013-02-08 18:01:07 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 18:01:41 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 18:01:41 [DEBUG] NeuralNetworkWrapper ~ learning = 33930 ms (14 threads)
+2013-02-08 18:01:48 [INFO]  mlp ~ Run [9/10] with 15 Threads...
+2013-02-08 18:01:49 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 18:02:23 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 18:02:23 [DEBUG] NeuralNetworkWrapper ~ learning = 34397 ms (15 threads)
+2013-02-08 18:02:30 [INFO]  mlp ~ Run [9/10] with 16 Threads...
+2013-02-08 18:02:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-08 18:03:05 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-08 18:03:05 [DEBUG] NeuralNetworkWrapper ~ learning = 34073 ms (16 threads)
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=1 average error=0,155603 [0,111797;0,199410], average time=34101ms [33409;34792], summed up error=1,556035, overall time=341019ms, Run-0: error=0,155748, time=34106ms, Run-1: error=0,135756, time=33648ms, Run-2: error=0,124714, time=34000ms, Run-3: error=0,196513, time=33723ms, Run-4: error=0,173099, time=34080ms, Run-5: error=0,163265, time=34839ms, Run-6: error=0,171126, time=34304ms, Run-7: error=0,159507, time=34061ms, Run-8: error=0,127106, time=34425ms, Run-9: error=0,149199, time=33833ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=2 average error=0,155603 [0,111797;0,199410], average time=32764ms [26640;38887], summed up error=1,556035, overall time=327645ms, Run-0: error=0,155748, time=34063ms, Run-1: error=0,135756, time=31924ms, Run-2: error=0,124714, time=33821ms, Run-3: error=0,196513, time=24076ms, Run-4: error=0,173099, time=33834ms, Run-5: error=0,163265, time=34279ms, Run-6: error=0,171126, time=33935ms, Run-7: error=0,159507, time=33788ms, Run-8: error=0,127106, time=34232ms, Run-9: error=0,149199, time=33693ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=3 average error=0,155603 [0,111797;0,199410], average time=32399ms [24310;40487], summed up error=1,556035, overall time=323994ms, Run-0: error=0,155748, time=34384ms, Run-1: error=0,135756, time=34267ms, Run-2: error=0,124714, time=21233ms, Run-3: error=0,196513, time=34214ms, Run-4: error=0,173099, time=33739ms, Run-5: error=0,163265, time=34482ms, Run-6: error=0,171126, time=34045ms, Run-7: error=0,159507, time=30089ms, Run-8: error=0,127106, time=33689ms, Run-9: error=0,149199, time=33852ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=4 average error=0,155603 [0,111797;0,199410], average time=33001ms [27154;38847], summed up error=1,556035, overall time=330012ms, Run-0: error=0,155748, time=34239ms, Run-1: error=0,135756, time=33894ms, Run-2: error=0,124714, time=34478ms, Run-3: error=0,196513, time=34031ms, Run-4: error=0,173099, time=24985ms, Run-5: error=0,163265, time=34622ms, Run-6: error=0,171126, time=31186ms, Run-7: error=0,159507, time=34333ms, Run-8: error=0,127106, time=33904ms, Run-9: error=0,149199, time=34340ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=5 average error=0,155603 [0,111797;0,199410], average time=34062ms [33432;34691], summed up error=1,556035, overall time=340624ms, Run-0: error=0,155748, time=33989ms, Run-1: error=0,135756, time=33670ms, Run-2: error=0,124714, time=33876ms, Run-3: error=0,196513, time=33985ms, Run-4: error=0,173099, time=34275ms, Run-5: error=0,163265, time=34827ms, Run-6: error=0,171126, time=34164ms, Run-7: error=0,159507, time=34077ms, Run-8: error=0,127106, time=33776ms, Run-9: error=0,149199, time=33985ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=6 average error=0,155603 [0,111797;0,199410], average time=34026ms [33651;34400], summed up error=1,556035, overall time=340261ms, Run-0: error=0,155748, time=34134ms, Run-1: error=0,135756, time=33920ms, Run-2: error=0,124714, time=33724ms, Run-3: error=0,196513, time=33781ms, Run-4: error=0,173099, time=34104ms, Run-5: error=0,163265, time=34335ms, Run-6: error=0,171126, time=34004ms, Run-7: error=0,159507, time=33971ms, Run-8: error=0,127106, time=34250ms, Run-9: error=0,149199, time=34038ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=7 average error=0,155603 [0,111797;0,199410], average time=31199ms [19448;42949], summed up error=1,556035, overall time=311995ms, Run-0: error=0,155748, time=19026ms, Run-1: error=0,135756, time=33944ms, Run-2: error=0,124714, time=33806ms, Run-3: error=0,196513, time=34837ms, Run-4: error=0,173099, time=33777ms, Run-5: error=0,163265, time=34580ms, Run-6: error=0,171126, time=33878ms, Run-7: error=0,159507, time=20720ms, Run-8: error=0,127106, time=33900ms, Run-9: error=0,149199, time=33527ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=8 average error=0,155603 [0,111797;0,199410], average time=32939ms [26706;39171], summed up error=1,556035, overall time=329391ms, Run-0: error=0,155748, time=34646ms, Run-1: error=0,135756, time=31524ms, Run-2: error=0,124714, time=33997ms, Run-3: error=0,196513, time=34196ms, Run-4: error=0,173099, time=24256ms, Run-5: error=0,163265, time=34149ms, Run-6: error=0,171126, time=34646ms, Run-7: error=0,159507, time=34454ms, Run-8: error=0,127106, time=33680ms, Run-9: error=0,149199, time=33843ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=9 average error=0,155603 [0,111797;0,199410], average time=33567ms [29774;37359], summed up error=1,556035, overall time=335676ms, Run-0: error=0,155748, time=34029ms, Run-1: error=0,135756, time=34063ms, Run-2: error=0,124714, time=34652ms, Run-3: error=0,196513, time=33922ms, Run-4: error=0,173099, time=34283ms, Run-5: error=0,163265, time=34894ms, Run-6: error=0,171126, time=34073ms, Run-7: error=0,159507, time=33880ms, Run-8: error=0,127106, time=33727ms, Run-9: error=0,149199, time=28153ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=10 average error=0,155603 [0,111797;0,199410], average time=34080ms [33519;34640], summed up error=1,556035, overall time=340806ms, Run-0: error=0,155748, time=34297ms, Run-1: error=0,135756, time=33966ms, Run-2: error=0,124714, time=33995ms, Run-3: error=0,196513, time=33691ms, Run-4: error=0,173099, time=33893ms, Run-5: error=0,163265, time=34247ms, Run-6: error=0,171126, time=34295ms, Run-7: error=0,159507, time=33782ms, Run-8: error=0,127106, time=34642ms, Run-9: error=0,149199, time=33998ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=11 average error=0,155603 [0,111797;0,199410], average time=31348ms [20176;42520], summed up error=1,556035, overall time=313485ms, Run-0: error=0,155748, time=33992ms, Run-1: error=0,135756, time=34080ms, Run-2: error=0,124714, time=34323ms, Run-3: error=0,196513, time=18925ms, Run-4: error=0,173099, time=33835ms, Run-5: error=0,163265, time=34205ms, Run-6: error=0,171126, time=22367ms, Run-7: error=0,159507, time=33909ms, Run-8: error=0,127106, time=33979ms, Run-9: error=0,149199, time=33870ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=12 average error=0,155603 [0,111797;0,199410], average time=34073ms [33490;34655], summed up error=1,556035, overall time=340736ms, Run-0: error=0,155748, time=33830ms, Run-1: error=0,135756, time=33799ms, Run-2: error=0,124714, time=33921ms, Run-3: error=0,196513, time=34529ms, Run-4: error=0,173099, time=33830ms, Run-5: error=0,163265, time=34198ms, Run-6: error=0,171126, time=34211ms, Run-7: error=0,159507, time=34568ms, Run-8: error=0,127106, time=34084ms, Run-9: error=0,149199, time=33766ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=13 average error=0,155603 [0,111797;0,199410], average time=34034ms [33420;34647], summed up error=1,556035, overall time=340347ms, Run-0: error=0,155748, time=33955ms, Run-1: error=0,135756, time=33971ms, Run-2: error=0,124714, time=33815ms, Run-3: error=0,196513, time=34090ms, Run-4: error=0,173099, time=34466ms, Run-5: error=0,163265, time=34661ms, Run-6: error=0,171126, time=34120ms, Run-7: error=0,159507, time=33753ms, Run-8: error=0,127106, time=33793ms, Run-9: error=0,149199, time=33723ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=14 average error=0,155603 [0,111797;0,199410], average time=33698ms [31618;35777], summed up error=1,556035, overall time=336985ms, Run-0: error=0,155748, time=34163ms, Run-1: error=0,135756, time=30743ms, Run-2: error=0,124714, time=34489ms, Run-3: error=0,196513, time=34119ms, Run-4: error=0,173099, time=33953ms, Run-5: error=0,163265, time=34052ms, Run-6: error=0,171126, time=33992ms, Run-7: error=0,159507, time=33934ms, Run-8: error=0,127106, time=33610ms, Run-9: error=0,149199, time=33930ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=15 average error=0,155603 [0,111797;0,199410], average time=33373ms [28945;37800], summed up error=1,556035, overall time=333734ms, Run-0: error=0,155748, time=33864ms, Run-1: error=0,135756, time=34627ms, Run-2: error=0,124714, time=33800ms, Run-3: error=0,196513, time=33857ms, Run-4: error=0,173099, time=33850ms, Run-5: error=0,163265, time=34111ms, Run-6: error=0,171126, time=27023ms, Run-7: error=0,159507, time=33591ms, Run-8: error=0,127106, time=34614ms, Run-9: error=0,149199, time=34397ms
+2013-02-08 18:03:12 [SCORE] mlp ~ SCORE [mlp] ThreadCount=16 average error=0,155603 [0,111797;0,199410], average time=31842ms [22314;41369], summed up error=1,556035, overall time=318426ms, Run-0: error=0,155748, time=34290ms, Run-1: error=0,135756, time=33995ms, Run-2: error=0,124714, time=33914ms, Run-3: error=0,196513, time=34818ms, Run-4: error=0,173099, time=33912ms, Run-5: error=0,163265, time=22806ms, Run-6: error=0,171126, time=34241ms, Run-7: error=0,159507, time=22461ms, Run-8: error=0,127106, time=33916ms, Run-9: error=0,149199, time=34073ms
