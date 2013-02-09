@@ -374,7 +374,7 @@ showstringspaces=false}
 	\framebreak
 		\begin{block}{Vorgehen}
 		    \begin{enumerate}
-				\item Parse Testkonfigurationsdatei
+				\item Parse Experiment-Konfigurationsdatei
 				\item Bereite Testläufe vor
 				\item $repeat$
 				\begin{enumerate}
@@ -389,6 +389,23 @@ showstringspaces=false}
 				\item $until$ alle Durchgänge absolviert
 		    \end{enumerate}
 		\end{block}
+		
+	\framebreak
+		
+		\texttt{{\footnotesize java -jar runexperiment.jar -cf testconfig.txt -o results/ -v -d -csv}}
+		\begin{center}
+			\textbf{{\tiny Experiment-Konfiguration}}
+			\newline
+			\includegraphics[scale=0.5]{Grafiken/testconfig}
+		\end{center}
+		\begin{center}	
+			{\huge $\Downarrow$} {\small Evaluation}
+		\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{Grafiken/csv}
+			\newline
+			\textbf{{\tiny Ergebnis als CSV}}
+		\end{center}
 	\end{frame}
 	
 	\subsection{Messwerte}
