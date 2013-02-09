@@ -48,6 +48,8 @@ public class BatchParallelBackpropagation extends BackPropagation {
 	 */
 	protected double momentum = 0.25d;
 
+	private Weight[][][] weightsOfNN;
+
 	private final int threads;
 
 	/**
@@ -57,6 +59,20 @@ public class BatchParallelBackpropagation extends BackPropagation {
 		super();
 		this.threads = threads;
 
+	}
+
+	@Override
+	public void setNeuralNetwork(NeuralNetwork neuralNetwork) {
+		super.setNeuralNetwork(neuralNetwork);
+		weightsOfNN = new Weight[neuralNetwork.getLayers().length][][];
+		int idx = 0;
+		for (Layer l : neuralNetwork.getLayers()) {
+			weightsOfNN[idx] = new Weight[l.getNeuronsCount()][];
+			for (int i = 0; i < l.getNeuronsCount(); i++) {
+				weightsOfNN[idx][i] = l.getNeuronAt(i).getWeights();
+			}
+			idx++;
+		}
 	}
 
 	@Override
@@ -128,7 +144,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 
 		private Weight[][][] lastWeights;
 
-		private BatchWorker[] colleagues;
+		private final BatchWorker[] colleagues;
 
 		public BatchWorker(int threadId, DataSet dataSet, CyclicBarrier barrier, BatchWorker[] colleagues, CyclicBarrier phase1Barrier) {
 			this.trainingSet = dataSet;
@@ -190,19 +206,19 @@ public class BatchParallelBackpropagation extends BackPropagation {
 			}
 
 		}
-		
+
 		private void interpolateNeuronWeights() {
-			for (int i = 0; i < neuralNetwork.getLayersCount(); i++) {
-				Layer layer = neuralNetwork.getLayerAt(i);
-				for (int j = threadId; j < layer.getNeuronsCount(); j += colleagues.length) {
-					Neuron neuron = layer.getNeuronAt(j);
-					for (int k = 0; k < neuron.getWeights().length; k++) {
-						double newValue = neuralNetwork.getLayerAt(i).getNeuronAt(j).getWeights()[k].value;
+			for (int i = 0; i < weightsOfNN.length; i++) {
+				Weight[][] layerWeights = weightsOfNN[i];
+				for (int j = threadId; j < layerWeights.length; j += colleagues.length) {
+					Weight[] neuronWeights = layerWeights[j];
+					for (int k = 0; k < neuronWeights.length; k++) {
+						double newValue = neuronWeights[k].value;
 						for (int w = 0; w < colleagues.length; w++) {
 							newValue += colleagues[w].getWeights()[i][j][k].weightChange;
 							colleagues[w].getWeights()[i][j][k].weightChange = 0.0;
 						}
-						neuralNetwork.getLayerAt(i).getNeuronAt(j).getWeights()[k].value = newValue;
+						neuronWeights[k].value = newValue;
 						for (int w = 0; w < colleagues.length; w++) {
 							colleagues[w].getWeights()[i][j][k].value = newValue;
 						}
