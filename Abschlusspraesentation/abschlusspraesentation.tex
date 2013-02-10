@@ -27,6 +27,7 @@
 \usepackage{ifthen}
 \usepackage{animate}
 \usepackage{templates/gantt}
+\usepackage{hyperref}
 
 % \usepackage{templates/beamerthemekitwide}
 
@@ -131,7 +132,15 @@ showstringspaces=false}
 	
 	\subsection{Simulationsumgebung Neuroph}
 	\begin{frame}[c]\frametitle{Neuroph}
-		\textit{Neuroph, Quelle, Lizenz, LOC, Architektur (grob)}
+		\begin{itemize}
+		\item Simulationsumgebung für Neuronale Netze
+		\item 42751 LOC
+		\item Apache 2.0 Lizenz
+		\item \url{http://neuroph.sourceforge.net/}
+		\end{itemize}
+		\begin{center}
+		\includegraphics[width=.75\textwidth]{Grafiken/NeurophFrameworkDiagram.jpg} 
+		\end{center}
 	\end{frame}	
 	
 	\subsection{Überblick}
@@ -180,17 +189,7 @@ showstringspaces=false}
 			\begin{center}
 			  \includegraphics[scale=0.4]{images/Learn.pdf} 
 			\end{center}
-	\end {frame}	
-	
-	\begin{frame}[c]\frametitle{Überblick}
-		\begin{itemize}
-		   \item Einleitung \checkmark
-		   \item Neuroph auf Code-Ebene \checkmark
-		   \item Drei Parallelisierungsansätze
-		   \item Evaluierung
-		   \item Fazit
-		\end{itemize}
-	\end{frame}
+	\end {frame}			
 	
 	\section{Parallelisierungsansätze}
 	\begin{frame}[c]\frametitle{Parallelisierungsansätze}
@@ -230,19 +229,9 @@ showstringspaces=false}
 	
 		\begin{itemize}
 			\item Neuer Netzwerktyp: Paralleles neurales Netzwerk
-			\begin{itemize}
-				\item Profitiert von großen Netzwerken
-				\item Nicht von großen Datenmengen
-			\end{itemize}
-			\item Fast alle gemessenen Speedups $<1$ 
-			\begin{block}{Erster naiver Ansatz ineffektiv}
-				\begin{itemize}
-					\item Auswertung des NN sehr schnell
-					\item Hotspot ist ein Getter!
-				\end{itemize}
-			\end{block}
-
-	
+			\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
+			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
+			% TODO Zahlen hier einfügen			
 		\end{itemize}	
 		\begin{center}
 			\includegraphics[scale=0.25]{Grafiken/Feingranular.pdf}
@@ -352,48 +341,18 @@ showstringspaces=false}
 	\end{frame}
 
 	\begin{frame}[c]\frametitle{Technischer Vergleich der Strategien}	
-
-		\begin{block}{Klonbasiertes Lernen}
-			\begin{itemize}
-				\item Kapselt vorhandene Funktionialität
-				\begin{itemize}
-					\item Verwendung mit verschiedenen Lernstrategien und Netzen möglich
-				\end{itemize}
-			\end{itemize}	
-		\end{block}
-
-		\begin{block}{Paralleles Batchlernen}
-			\begin{itemize}
-				\item Neue LearningRule in Vererbungshierarchie
-				\begin{itemize}
-					\item saubere Schnittstelle, einfache Verwendung
-				\end{itemize}
-			\end{itemize}
-		\end{block}
-		\pause
-		\vspace{0.8cm}
 		\begin{tabular}{l|c|c|c|}
 
 		Kategorie & Layerpartitionierung & Batch & Clonebased \\
 		\hline
 		Was ist parallel? & Netzwerk & Lernen & Lernen\\
 		Selbes Ergebnis? & ja & ja (batch) & nein \\
-		Integration & Modifikation & Erweiterung & Kapselung \\
 
 		%TODO fortsetzen
 		\end{tabular}
 	
 	\end{frame}
-	
-	\begin{frame}[c]\frametitle{Überblick}
-		\begin{itemize}
-		   \item Einleitung \checkmark
-		   \item Neuroph auf Code-Ebene \checkmark
-		   \item Drei Parallelisierungsansätze \checkmark
-		   \item Evaluierung
-		   \item Fazit
-		\end{itemize}
-	\end{frame}
+
 
 %TODO: Evaluierung, Zwischenstand, Erwähnen, dass Güte über Zeit und Fehler gemessen wird. Exakt gleich Ergebnis ist nicht erforderlich. Evaluierungsframework
 	\section{Evaluierung}
@@ -430,7 +389,7 @@ showstringspaces=false}
 				\item Bereite Testläufe vor
 				\item $repeat$
 				\begin{enumerate}
-					\item Permutation der Daten
+					\item Permutation der Daten				
 					\item Aufteilung in Trainings- und Testdaten
 					\item $foreach$ ILearner L $do$
 					\begin{enumerate}
@@ -476,16 +435,6 @@ showstringspaces=false}
 	\subsection{Fazit}
 	\begin{frame}\frametitle{Aktuelle Evaluationswerte}
 		\textit{Klonen kann sich lohnen! (TODO)}
-	\end{frame}
-	
-	\begin{frame}[c]\frametitle{Überblick}
-		\begin{itemize}
-		   \item Einleitung \checkmark
-		   \item Neuroph auf Code-Ebene \checkmark
-		   \item Drei Parallelisierungsansätze \checkmark
-		   \item Evaluierung \checkmark
-		   \item Fazit
-		\end{itemize}
 	\end{frame}
 
 \end{document}
