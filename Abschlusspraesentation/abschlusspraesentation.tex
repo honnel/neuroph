@@ -342,12 +342,28 @@ showstringspaces=false}
 	\end{frame}
 
 	\begin{frame}[c]\frametitle{Technischer Vergleich der Strategien}	
+
+		\begin{block}{Clonebased}
+			
+		\end{block}
+
+		\begin{block}{ParallelBatch}
+			\begin{itemize}
+				\item Neue LearningRule in Vererbungshierarchie
+				\begin{itemize}
+					\item fester Algorithmus (erbt von Backpropagation)
+					\item saubere Schnittstelle, einfache Verwendung
+				\end{itemize}
+			\end{itemize}
+		\end{block}
+
 		\begin{tabular}{l|c|c|c|}
 
 		Kategorie & Layerpartitionierung & Batch & Clonebased \\
 		\hline
 		Was ist parallel? & Netzwerk & Lernen & Lernen\\
 		Selbes Ergebnis? & ja & ja (batch) & nein \\
+		Integration & Modifikation & Erweiterung &  \\
 
 		%TODO fortsetzen
 		\end{tabular}
