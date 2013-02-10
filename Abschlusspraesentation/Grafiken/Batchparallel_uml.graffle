@@ -66,10 +66,10 @@
 			<key>OrthogonalBarPoint</key>
 			<string>{0, 0}</string>
 			<key>OrthogonalBarPosition</key>
-			<real>-1</real>
+			<real>15</real>
 			<key>Points</key>
 			<array>
-				<string>{371, 261.20214939697183}</string>
+				<string>{371, 266.05524632019348}</string>
 				<string>{415, 260.8833248094237}</string>
 			</array>
 			<key>Style</key>
@@ -94,7 +94,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{238, 251.17714977844162}, {133, 40.099998474121094}}</string>
+			<string>{{238, 251.17714977844162}, {133, 29.756183624267578}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -658,7 +658,7 @@ Neuroph}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{193.0414053201676, 233.77204833923014}, {17, 24}}</string>
+			<string>{{193.0414053201676, 233.18090754583486}, {17, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -736,7 +736,7 @@ Neuroph}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{217.47252781823448, 259.29457855804361}, {17, 24}}</string>
+			<string>{{217.97838043791518, 256.70862484558029}, {17, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -833,7 +833,7 @@ Neuroph}</string>
 			<key>Points</key>
 			<array>
 				<string>{206.00000393390661, 231.71666754484113}</string>
-				<string>{238, 261.20214939697183}</string>
+				<string>{238, 258.61619568450851}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1212,7 +1212,7 @@ Neuroph}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-02-07 16:59:29 +0000</string>
+	<string>2013-02-10 16:07:13 +0000</string>
 	<key>Modifier</key>
 	<string>Dominic Rausch</string>
 	<key>NotesVisible</key>
@@ -1293,7 +1293,7 @@ Neuroph}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{348, 57}, {848, 821}}</string>
+		<string>{{428, 57}, {848, 821}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -1307,15 +1307,15 @@ Neuroph}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{190.49586176294179, 0}, {288.84296610042583, 275.61982602143638}}</string>
+		<string>{{14.393938821975656, 0}, {529.54543350320967, 505.3030102240927}}</string>
 		<key>Zoom</key>
-		<real>2.4200000762939453</real>
+		<real>1.3200000524520874</real>
 		<key>ZoomValues</key>
 		<array>
 			<array>
 				<string>Canvas 1</string>
-				<real>2.4200000762939453</real>
-				<real>1.3799999952316284</real>
+				<real>1.3200000524520874</real>
+				<real>1.2899999618530273</real>
 			</array>
 		</array>
 	</dict>
