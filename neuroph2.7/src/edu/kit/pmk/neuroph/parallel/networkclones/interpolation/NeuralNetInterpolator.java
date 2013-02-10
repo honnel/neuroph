@@ -3,11 +3,14 @@ package edu.kit.pmk.neuroph.parallel.networkclones.interpolation;
 import org.neuroph.core.NeuralNetwork;
 import org.neuroph.core.Weight;
 
+import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.networkclones.CloneNetWorker;
 
 public abstract class NeuralNetInterpolator {
 
 	protected CloneNetWorker[] workers;
+	
+	private static final String TAG = NeuralNetInterpolator.class.getSimpleName();
 
 	protected NeuralNetInterpolator() {
 	}
@@ -35,6 +38,8 @@ public abstract class NeuralNetInterpolator {
 	}
 
 	public void interpolateWeights() {
+		long t0 = System.currentTimeMillis();
+		
 		NeuralNetwork net = workers[0].getNeuralNetwork();
 		for (int layer = 0; layer < net.getLayersCount(); layer++) {
 			for (int neuron = 0; neuron < net.getLayerAt(layer)
@@ -42,6 +47,9 @@ public abstract class NeuralNetInterpolator {
 				interpolateWeightAndWeightChangeForNeuron(layer, neuron);
 			}
 		}
+		
+		long t1 = System.currentTimeMillis();
+		Log.debug(TAG, "interpolation = " + (t1 - t0) + " ms");
 	}
 
 	private void interpolateWeightAndWeightChangeForNeuron(int layerIndex,
