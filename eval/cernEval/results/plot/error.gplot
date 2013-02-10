@@ -1,0 +1,19 @@
+# define the output as pdf file
+set terminal pdf enhanced 
+set out 'error-eval.pdf'
+
+# plot the first graph
+set size 1, 1
+
+set ylabel "Error"
+set xrange [0:8]
+set yrange [0:0.35]
+
+set grid
+unset key
+set xtics ("clonebased (ArithmeticMean)" 1, "clonebased revised (ArithmeticMean)" 2, "clonebased (Genetic)" 3, "clonebased revised (Genetic)" 4, "mlp" 5, "pmlp" 6, "batch" 7) 
+set xtics nomirror rotate by -20
+plot "error.dat" using 2:3:4 with yerrorbars pointtype 2
+
+# remove all customization
+reset
