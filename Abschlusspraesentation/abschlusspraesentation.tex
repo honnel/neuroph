@@ -220,10 +220,19 @@ showstringspaces=false}
 	
 		\begin{itemize}
 			\item Neuer Netzwerktyp: Paralleles neurales Netzwerk
-			\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
-			\item Alle gemessenen Speedups $<1$ 
-			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
-			% TODO Zahlen hier einfügen			
+			\begin{itemize}
+				\item Profitiert von großen Netzwerken
+				\item Nicht von großen Datenmengen
+			\end{itemize}
+			\item Fast alle gemessenen Speedups $<1$ 
+			\begin{block}{Erster naiver Ansatz $\rightarrow$ gescheitert!}
+				\begin{itemize}
+					\item Auswertung des NN sehr schnell
+					\item Hotspot ist ein Getter!
+				\end{itemize}
+			\end{block}
+
+	
 		\end{itemize}	
 		\begin{center}
 			\includegraphics[scale=0.25]{Grafiken/Feingranular.pdf}
