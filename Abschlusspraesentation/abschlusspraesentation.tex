@@ -219,11 +219,10 @@ showstringspaces=false}
  		\framebreak
 	
 		\begin{itemize}
-			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
 			\item Neuer Netzwerktyp: Paralleles neurales Netzwerk
 			\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
-			% TODO Zahlen hier einfügen
-			
+			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
+			% TODO Zahlen hier einfügen			
 		\end{itemize}	
 		\begin{center}
 			\includegraphics[scale=0.25]{Grafiken/Feingranular.pdf}
@@ -257,10 +256,23 @@ showstringspaces=false}
 				\begin{itemize}
 					\item Backpropagation
 				\end{itemize}
-				\item Softwaretechnisch schwierig
+				\item Softwaretechnisch fragwürdig
 				\begin{itemize}
 					\item Beispiel: Override mit leerem Body
 				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+
+
+	\framebreak
+
+		\begin{itemize}
+			\item Trainingsdaten auf Worker verteilt
+			\item Worker lernen unabhängig
+			\item Gewichtänderungen aufaddieren
+			\begin{itemize}
+				\item Jeder Thread bearbeitet Subset
+				\item Dadurch keine Abhängigkeiten
 			\end{itemize}
 		\end{itemize}
 
@@ -269,51 +281,60 @@ showstringspaces=false}
 			\includegraphics[scale=0.33]{Grafiken/Batch_seq.pdf}
 		\end{center}
 
-	\framebreak
-
-		\begin{itemize}
-			\item Trainingsdaten auf Worker verteilt
-			\item Gewichte interpolieren
-			\begin{itemize}
-				\item Jeder Thread interpoliert Subset
-				\item Dadurch keine Abhängigkeiten
-			\end{itemize}
-		\end{itemize}
 	\end{frame}
 	
 	\subsection{Clonebased Parallelisierung}
-	\begin{frame}\frametitle{Clonebased Parallelisierung}
+	\begin{frame}[allowframebreaks]{Clonebased Parallelisierung}
+		\begin{block}{Charakteristika}
+			\begin{itemize}
+				\item Container für ein neuronales Netz mit überwachter Lernmethodik
+				\item Unterteilt Trainingssatz und erlernt diese Teile parallel
+				\item Abweichende Ergebnisgewichte verglichen mit sequentiellem Lernen
+			\end{itemize}
+		\end{block}
+	
+	\framebreak
+		\begin{block}{Vorgehen}
+			\begin{enumerate}
+				\item Aufteilung des Trainingssatzes auf Worker-Threads
+				\item Jeder Worker klont sich das Original-Netz
+				\item Jeder Worker lernt eine Iteration
+				\item Gewichts-Interpolation unter allen Worker-Klonnetzen
+				\item $goto\ (3)$ bis maximale Iteration erreicht oder Fehler klein genug
+			\end{enumerate}
+		\end{block}
+	
+	\framebreak
 		\begin{center}
 			\includegraphics[width=.65\textwidth]{images/Parallelisierungsansatz.pdf} 
 		\end{center}
-	\end{frame}
 	
-	\begin{frame}\frametitle{Clonebased Parallelisierung}
-		\begin{itemize}
-			\item ANN wird nach der Erzeugung \glqq geklont\grqq
-			\item Ein Klon pro Thread
-			\item Unterschiedliche Interpolationsfunktionen
-			\item Weitere Parameter
+	\framebreak
+		\begin{block}{Interpolationstypen}
+			$w = f(w_1,w_2,w_3,...,w_n)$
+			\newline
+			Gesucht: gute Interpolationsfunktion $f$
+			\newline
+			\newline
+			\emph{Kandidaten:}
 			\begin{itemize}
-				\item Synchronisationsintervall
-				\item Maximale Anzahl von Iterationen
-			\end{itemize}				
-			\item Andere Ergebnisgewichte als bei sequentiellem Lernen
-			\item Wrapper für ein neuronales Netz
-		\end{itemize}
+				\item Arithmetisches Mittel
+				\item Minimum, Maximum
+				\item Bestes bisheriges Gewicht \emph{("Genetischer Ansatz")}
+			\end{itemize}
+		\end{block}
+		
+	\framebreak
+		\includegraphics[height=0.8\textheight]{Grafiken/Clonebased_classdiagram}
+		
+	\framebreak
+		\includegraphics[height=0.8\textheight]{Grafiken/Clonebased_sequencediagram}
 	\end{frame}
-	
-	\begin{frame}\frametitle{Clonebased Parallelisierung}
-		\textit{Arithmetisches Mittel und genetischer Ansatz}
-	\end{frame}
-
-
-	%  TODO: Dominik Clone worker parallelisierung...
 
 	\begin{frame}[c]\frametitle{Technischer Vergleich der Strategien}	
 		\begin{tabular}{l|c|c|c|}
 
-		Kategorie &Layerpartitionierung & Batch & Clonebased \\
+		Kategorie & Layerpartitionierung & Batch & Clonebased \\
 		\hline
 		Was ist parallel? & Netzwerk & Lernen & Lernen\\
 		Selbes Ergebnis? & ja & ja (batch) & nein \\
@@ -344,7 +365,7 @@ showstringspaces=false}
 		\end{block}		
 	\end{frame}
 
-	\begin{frame}\frametitle{Evaluationsframework}
+	\begin{frame}[allowframebreaks]\frametitle{Evaluationsframework}
 		\begin{block}{Score}
 			wird bestimmt durch
 		    \begin{itemize}
@@ -352,19 +373,43 @@ showstringspaces=false}
 		    	\item Laufzeit
 		    \end{itemize}
 		\end{block}
+	\framebreak
 		\begin{block}{Vorgehen}
 		    \begin{enumerate}
-		    	\item Permutation der Daten
-		    	\item Aufteilung in Trainings- und Testdaten
-				\item $foreach$ ILearner L $do$
-				\begin{itemize}
-					\item Lerne Trainingsdaten und messe Ausführungszeiten
-					\item Berechne Fehler auf Testdaten
-				\end{itemize}
-				\item Wiederhole ab 1 bis gewünschte Anzahl an Läufen erreicht
+				\item Parse Experiment-Konfigurationsdatei
+				\item Bereite Testläufe vor
+				\item $repeat$
+				\begin{enumerate}
+					\item Permutation der Daten				
+					\item Aufteilung in Trainings- und Testdaten
+					\item $foreach$ ILearner L $do$
+					\begin{enumerate}
+						\item Lerne Trainingsdaten und messe Ausführungszeiten
+						\item Berechne Fehler auf Testdaten
+					\end{enumerate}
+				\end{enumerate}
+				\item $until$ alle Durchgänge absolviert
 		    \end{enumerate}
 		\end{block}
+		
+	\framebreak
+		
+		\texttt{{\footnotesize java -jar runexperiment.jar -cf testconfig.txt -o results/ -v -d -csv}}
+		\begin{center}
+			\textbf{{\tiny Experiment-Konfiguration}}
+			\newline
+			\includegraphics[scale=0.5]{Grafiken/testconfig}
+		\end{center}
+		\begin{center}	
+			{\huge $\Downarrow$} {\small Evaluation}
+		\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{Grafiken/csv}
+			\newline
+			\textbf{{\tiny Ergebnis als CSV}}
+		\end{center}
 	\end{frame}
+	
 	\subsection{Messwerte}
 	\begin{frame}\frametitle{Aktuelle Evaluationswerte}
 		\begin{block}{Experiment-Konfiguration}
