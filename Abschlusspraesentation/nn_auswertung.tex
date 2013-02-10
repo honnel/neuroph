@@ -39,7 +39,7 @@
     }
     \only<2->{
       \foreach \x in {0, ..., 3} {
-        \node[main node] (\x) at (0,5.8-1.2*\x) {$\pgfmathparse{\inputValues[\x}\pgfmathresult$};
+        \node[main node] (\x) at (0,5.8-1.2*\x) {$x_\x$};
       }
     }
 
@@ -56,21 +56,22 @@
       \foreach \x in {0,2,3,4,5} {
         \node[main node] (1\x) at (4,7-1.2*\x) {};
       }
-      \node[main node] (11) at (4,7-1.2) {$\pgfmathparse{\allresults[1}\pgfmathresult$};
+      \node[main node] (11) at (4,7-1.2) {$\sum\limits_{i=0}^3$};
     }
     \only<5> {
-      \foreach \x in {0,...,5} {
-        \node[main node] (1\x) at (4,7-1.2*\x) {$\pgfmathparse{\allresults[\x}\pgfmathresult$};
+     \foreach \x in {0,2,3,4,5} {
+        \node[main node] (1\x) at (4,7-1.2*\x) {};
       }
+      \node[main node] (11) at (4,7-1.2) {$f\left(\sum\limits_{i=0}^3\right)$};
     }
      \only<6-13> {
       \foreach \x in {0,...,5} {
-        \node[main node] (1\x) at (4,7-1.2*\x) {$\pgfmathparse{\allresultstransfered[\x}\pgfmathresult$};
+        \node[main node] (1\x) at (4,7-1.2*\x) {$y_\x$};
       }
     }
     \only<14-> {
       \foreach \x in {0,...,5} {
-        \node[main node] (1\x) at (4,7-1.2*\x) {$\pgfmathparse{\deltashidden[\x}\pgfmathresult$};
+        \node[main node] (1\x) at (4,7-1.2*\x) {$\delta_{h\x}$};
       }
     }
 
@@ -87,29 +88,32 @@
       \foreach \x in {0, 2} {
         \node[main node] (2\x) at (8,5.2-1.2*\x) {};
       }
-       \node[main node] (21) at (8,5.2-1.2) {$\pgfmathparse{\allrightresults[1}\pgfmathresult$};
+       \node[main node] (21) at (8,5.2-1.2) {$\sum\limits_{i=0}^5$};
     }
+
+
      \only<9> {
-      \foreach \x in {0,..., 2} {
-        \node[main node] (2\x) at (8,5.2-1.2*\x) {$\pgfmathparse{\allrightresults[\x}\pgfmathresult$};
+      \foreach \x in {0, 2} {
+        \node[main node] (2\x) at (8,5.2-1.2*\x) {};
       }
+       \node[main node] (21) at (8,5.2-1.2) {$f\left(\sum\limits_{i=0}^5\right)$};
        
     }
      \only<10> {
       \foreach \x in {0,..., 2} {
-        \node[main node] (2\x) at (8,5.2-1.2*\x) {$\pgfmathparse{\allrightresultstransfered[\x}\pgfmathresult$};
+        \node[main node] (2\x) at (8,5.2-1.2*\x) {$z_\x$};
       }
        
     }
 
     \only<11> {
       \foreach \x in {0,..., 2} {
-          \node[main node] (2\x) at (8,5.2-1.2*\x) {$\pgfmathparse{\error[\x}\pgfmathresult$};
+          \node[main node] (2\x) at (8,5.2-1.2*\x) {$e_\x$};
       }
     }
     \only<12-> {
       \foreach \x in {0,..., 2} {
-          \node[main node] (2\x) at (8,5.2-1.2*\x) {$\pgfmathparse{\deltasoutput[\x}\pgfmathresult$};
+          \node[main node] (2\x) at (8,5.2-1.2*\x) {$\delta_\x$};
       }
     }
 
@@ -174,7 +178,7 @@
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wOne[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$v_{\x}$} (1\y);
           }
         }
       
@@ -182,7 +186,7 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wTwo[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w_{\x}$} (2\y);
           }
         }
     }
@@ -192,7 +196,7 @@
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\inputValues[\x}\pgfmathresult\cdot\pgfmathparse{\wOne[\x}\pgfmathresult=\pgfmathparse{\results[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v_{\x}\cdot x_\x$} (1\y);
           }
         }
       
@@ -200,7 +204,7 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wTwo[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w_{\x}$} (2\y);
           }
         }
     }
@@ -210,7 +214,7 @@
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\wOne[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v_{\x}$} (1\y);
           }
         }
       
@@ -218,7 +222,7 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wTwo[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w_{\x}$} (2\y);
           }
         }
     }
@@ -227,7 +231,7 @@
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\wOne[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v_{\x}$} (1\y);
           }
         }
       
@@ -235,7 +239,7 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\allresultstransfered[\x}\pgfmathresult\cdot\pgfmathparse{\wTwo[\x}\pgfmathresult=\pgfmathparse{\rightresults[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$w_{\x}\cdot y_\x$} (2\y);
           }
         }
     }
@@ -244,7 +248,7 @@
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\wOne[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v_{\x}$} (1\y);
           }
         }
       
@@ -252,16 +256,16 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wTwo[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w_{\x}$} (2\y);
           }
         }
     }
-    \only<13-14> {
+    \only<13> {
       \foreach \x in {0, ..., 3} 
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\wOne[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v_{\x}$} (1\y);
           }
         }
       
@@ -269,7 +273,24 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wTwoAdjusted[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w^*_{\x}$} (2\y);
+          }
+        }
+    }
+     \only<14> {
+      \foreach \x in {0, ..., 3} 
+        \foreach \y in {0, ..., 5} {
+          \ifthenelse{\y=1}{
+            \path[every node/.style={font=\sffamily\small}]
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v_{\x}$} (1\y);
+          }
+        }
+      
+      \foreach \x in {0, ..., 5} 
+        \foreach \y in {0, ..., 2} {
+          \ifthenelse{\y=1}{
+            \path[every node/.style={font=\sffamily\small}]
+            (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w^*_\x$} (2\y);
           }
         }
     }
@@ -278,7 +299,7 @@
         \foreach \y in {0, ..., 5} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$\pgfmathparse{\wOneAdjusted[\x}\pgfmathresult$} (1\y);
+              (\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0, pos=0.4] {$v^*_{\x}$} (1\y);
           }
         }
       
@@ -286,7 +307,7 @@
         \foreach \y in {0, ..., 2} {
           \ifthenelse{\y=1}{
             \path[every node/.style={font=\sffamily\small}]
-              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$\pgfmathparse{\wTwoAdjusted[\x}\pgfmathresult$} (2\y);
+              (1\x) edge [opacity=0.5] node [left, sloped, above, opacity=1.0] {$w^*_{\x}$} (2\y);
           }
         }
     }
@@ -302,13 +323,13 @@
       \item Gewichtung der Trainingseingabe mit Kantengewicht
     }
     \only<4> {
-      \item Summe der Produkte ergibt Netzeingabe in der Hidden-Schicht
+      \item Summe der Produkte ergibt Netzeingabe in der Hiddenschicht
     }
     \only<5> {
-      \item Netzeingabe der restlichen Neuronen der Hidden-Schicht
+      \item Netzeingabe der restlichen Neuronen der Hiddenschicht
     }
     \only<6> {
-      \item Umrechnung der Netzeingabe mit der Übertragungsfunktion (sigmoiddelta)
+      \item Umrechnung der Netzeingabe mit der Übertragungsfunktion
     }
     \only<7> {
       \item Gewichtung der Ausgabewerte mit Kantengewicht
@@ -320,7 +341,7 @@
       \item Netzeingabe der restlichen Neuronen der Ausgabeschicht
     }
     \only<10> {
-      \item Umrechnung der Netzeingabe mit der Übertragungsfunktion (sigmoiddelta)
+      \item Umrechnung der Netzeingabe mit der Übertragungsfunktion
     }
     \only<11> {
       \item Berechnung des Ausgabefehlers anhand Ausgabewert und gewünschtem Ausgabewert
@@ -332,7 +353,7 @@
       \item Anpassung der Kantengewichte
     }
     \only<14> {
-      \item Berechnung von delta-Werten in Hidden-Schicht (benötigt u.a. ausgehende Kantengewichte und delta-Werte der Ausgabeschicht)
+      \item Berechnung von delta-Werten in Hiddenschicht (benötigt u.a. ausgehende Kantengewichte und delta-Werte der Ausgabeschicht)
     }
     \only<15> {
       \item Anpassung der Kantengewichte
@@ -342,8 +363,8 @@
 % \item<1> Multilayerperceptron-Netz
 %       \item<2> Trainingseingabe und Kantengewichte
 %       \item<3> Gewichtung der Trainingseingabe mit Kantengewicht
-%       \item<4> Summe der Produkte ergibt Netzeingabe in der Hidden-Schicht
-%       \item<5> Netzeingabe der restlichen Neuronen der Hidden-Schicht
+%       \item<4> Summe der Produkte ergibt Netzeingabe in der Hiddenschicht
+%       \item<5> Netzeingabe der restlichen Neuronen der Hiddenschicht
 %       \item<6> Umrechnung der Netzeingabe mit der Übertragungsfunktion (sigmoiddelta)
 %       \item<7> Gewichtung der Ausgabewerte mit Kantengewicht
 %       \item<8> Summe der Produkte ergibt Netzeingabe in der Output-Schicht
