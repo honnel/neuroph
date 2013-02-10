@@ -219,11 +219,10 @@ showstringspaces=false}
  		\framebreak
 	
 		\begin{itemize}
-			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
 			\item Neuer Netzwerktyp: Paralleles neurales Netzwerk
 			\item Zu feingranular, Concurrency-Overhead überwiegt erhoffte Zeitersparnis
-			% TODO Zahlen hier einfügen
-			
+			\item Erster naiver Ansatz $\rightarrow$ gescheitert!		
+			% TODO Zahlen hier einfügen			
 		\end{itemize}	
 		\begin{center}
 			\includegraphics[scale=0.25]{Grafiken/Feingranular.pdf}
@@ -257,10 +256,23 @@ showstringspaces=false}
 				\begin{itemize}
 					\item Backpropagation
 				\end{itemize}
-				\item Softwaretechnisch schwierig
+				\item Softwaretechnisch fragwürdig
 				\begin{itemize}
 					\item Beispiel: Override mit leerem Body
 				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+
+
+	\framebreak
+
+		\begin{itemize}
+			\item Trainingsdaten auf Worker verteilt
+			\item Worker lernen unabhängig
+			\item Gewichtänderungen aufaddieren
+			\begin{itemize}
+				\item Jeder Thread bearbeitet Subset
+				\item Dadurch keine Abhängigkeiten
 			\end{itemize}
 		\end{itemize}
 
@@ -269,16 +281,6 @@ showstringspaces=false}
 			\includegraphics[scale=0.33]{Grafiken/Batch_seq.pdf}
 		\end{center}
 
-	\framebreak
-
-		\begin{itemize}
-			\item Trainingsdaten auf Worker verteilt
-			\item Gewichte interpolieren
-			\begin{itemize}
-				\item Jeder Thread interpoliert Subset
-				\item Dadurch keine Abhängigkeiten
-			\end{itemize}
-		\end{itemize}
 	\end{frame}
 	
 	\subsection{Clonebased Parallelisierung}

@@ -52,15 +52,36 @@ public class BatchParallelBackpropagation extends BackPropagation {
 	private Weight[][][] weightsOfNN;
 	private NeuralNetwork[] clones;
 
+	private final boolean measureCloning;
+
 	private final int threads;
 
 	/**
-	 * Creates new instance of MomentumBackpropagation learning
+	 * Creates new instance of Parallel Batch MomentumBackpropagation learning.
+	 * The cloning procudures will be included in the learning time measurement
+	 * 
+	 * @param threads
+	 *            Sets how many workers will created to learn parallel
+	 * @param measureCloning
+	 *            If false, the NN clones will be created when calling
+	 *            <code>setNeuralNetwork()</code>. Otherwise, the clones are
+	 *            created when calling <code>learn</code>
 	 */
-	public BatchParallelBackpropagation(int threads) {
+	public BatchParallelBackpropagation(int threads, boolean measureCloning) {
 		super();
 		this.threads = threads;
+		this.measureCloning = measureCloning;
+	}
 
+	/**
+	 * Creates new instance of Parallel Batch MomentumBackpropagation learning.
+	 * The cloning procudures will be included in the learning time measurement
+	 * 
+	 * @param threads
+	 *            Sets how many workers will created to learn parallel
+	 */
+	public BatchParallelBackpropagation(int threads) {
+		this(threads, true);
 	}
 
 	@Override
@@ -77,11 +98,13 @@ public class BatchParallelBackpropagation extends BackPropagation {
 		}
 
 		clones = new NeuralNetwork[threads];
-		for (int i = 0; i < threads; i++) {
-			try {
-				clones[i] = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNetwork);
-			} catch (ClassNotFoundException | IOException e) {
-				e.printStackTrace();
+		if (!measureCloning) {
+			for (int i = 0; i < threads; i++) {
+				try {
+					clones[i] = (NeuralNetwork) FastDeepCopy.createDeepCopy(neuralNetwork);
+				} catch (ClassNotFoundException | IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -148,7 +171,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 
 		private final DataSet trainingSet;
 		private final int threadId;
-		private final NeuralNetwork clone;
+		private NeuralNetwork clone;
 		private int currentIteration;
 		private final CyclicBarrier phase2Barrier;
 		private final CyclicBarrier phase1Barrier;
@@ -169,6 +192,14 @@ public class BatchParallelBackpropagation extends BackPropagation {
 
 		@Override
 		public void run() {
+			if (clone == null) {
+				try {
+					this.clone = (NeuralNetwork) FastDeepCopy.createDeepCopy(BatchParallelBackpropagation.this.neuralNetwork);
+				} catch (ClassNotFoundException | IOException e) {
+					e.printStackTrace();
+				}
+			}
+
 			this.clone.setLearningRule(new BatchParallelSlave());
 			((SupervisedLearning) clone.getLearningRule()).setBatchMode(true);
 			((BatchParallelSlave) clone.getLearningRule()).setTrainingSet(trainingSet);
@@ -286,7 +317,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 				totalError += w.getTotalError();
 			}
 			totalError /= (double) workers.length;
-//			System.out.println("fehler: " + totalError);
+			// System.out.println("fehler: " + totalError);
 			if (totalError < BatchParallelBackpropagation.this.maxError) {
 				stopLearning();
 			}
