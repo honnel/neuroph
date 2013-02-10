@@ -286,7 +286,7 @@ public class BatchParallelBackpropagation extends BackPropagation {
 				totalError += w.getTotalError();
 			}
 			totalError /= (double) workers.length;
-			System.out.println("fehler: " + totalError);
+//			System.out.println("fehler: " + totalError);
 			if (totalError < BatchParallelBackpropagation.this.maxError) {
 				stopLearning();
 			}
