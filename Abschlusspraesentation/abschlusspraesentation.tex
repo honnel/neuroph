@@ -235,7 +235,7 @@ showstringspaces=false}
 				\item Nicht von großen Datenmengen
 			\end{itemize}
 			\item Fast alle gemessenen Speedups $<1$ 
-			\begin{block}{Erster naiver Ansatz $\rightarrow$ gescheitert!}
+			\begin{block}{Erster naiver Ansatz ineffektiv}
 				\begin{itemize}
 					\item Auswertung des NN sehr schnell
 					\item Hotspot ist ein Getter!
@@ -353,27 +353,32 @@ showstringspaces=false}
 
 	\begin{frame}[c]\frametitle{Technischer Vergleich der Strategien}	
 
-		\begin{block}{Clonebased}
-			
+		\begin{block}{Klonbasiertes Lernen}
+			\begin{itemize}
+				\item Kapselt vorhandene Funktionialität
+				\begin{itemize}
+					\item Verwendung mit verschiedenen Lernstrategien und Netzen möglich
+				\end{itemize}
+			\end{itemize}	
 		\end{block}
 
-		\begin{block}{ParallelBatch}
+		\begin{block}{Paralleles Batchlernen}
 			\begin{itemize}
 				\item Neue LearningRule in Vererbungshierarchie
 				\begin{itemize}
-					\item fester Algorithmus (erbt von Backpropagation)
 					\item saubere Schnittstelle, einfache Verwendung
 				\end{itemize}
 			\end{itemize}
 		\end{block}
-
+		\pause
+		\vspace{0.8cm}
 		\begin{tabular}{l|c|c|c|}
 
 		Kategorie & Layerpartitionierung & Batch & Clonebased \\
 		\hline
 		Was ist parallel? & Netzwerk & Lernen & Lernen\\
 		Selbes Ergebnis? & ja & ja (batch) & nein \\
-		Integration & Modifikation & Erweiterung &  \\
+		Integration & Modifikation & Erweiterung & Kapselung \\
 
 		%TODO fortsetzen
 		\end{tabular}
