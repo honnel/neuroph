@@ -18,6 +18,7 @@ import edu.kit.pmk.neuroph.eval.ScoreCalculator;
 import edu.kit.pmk.neuroph.log.Log;
 import edu.kit.pmk.neuroph.parallel.ILearner;
 import edu.kit.pmk.neuroph.parallel.NeuralNetworkWrapper;
+import edu.kit.pmk.neuroph.parallel.hammer.TheHammer;
 import edu.kit.pmk.neuroph.parallel.networkclones.ClonebasedConcurrentLearner;
 import edu.kit.pmk.neuroph.parallel.networkclones.FastDeepCopy;
 import edu.kit.pmk.neuroph.parallel.networkclones.interpolation.NeuralNetInterpolatorType;
@@ -102,6 +103,7 @@ public class Experiment {
 	}
 
 	// possible learner identifiers (keyword or class name)
+	private final String[] HAMMER = { "hammer", edu.kit.pmk.neuroph.parallel.hammer.TheHammer.class.getSimpleName().toLowerCase() };
 	private final String[] PMLP = { "pmlp", ParallelMultiLayerPerceptron.class.getSimpleName().toLowerCase() };
 	private final String[] MLP = { "mlp", MultiLayerPerceptron.class.getSimpleName().toLowerCase() };
 	private final String[] BATCH = { "batch", "batch" };
@@ -127,6 +129,8 @@ public class Experiment {
 					setupBatch(neuralNet, indexLearnersArray, threadIteration);
 				} else if (name.equals(BATCH_PARALLEL[0]) || name.equals(BATCH_PARALLEL[1])) {
 					setupBatchParallel(neuralNet, indexLearnersArray, threadIteration, max_iteration);
+				} else if (name.equals(HAMMER[0]) || name.equals(HAMMER[1])) {
+					setupHammer(neuralNet, indexLearnersArray, threadIteration);
 				} else {
 					String[] clonebased_interpolatortype = name.split("-");
 					if (clonebased_interpolatortype[0].equals(CLONEBASED[0]) || clonebased_interpolatortype[0].equals(CLONEBASED[1])) {
@@ -190,6 +194,10 @@ public class Experiment {
 
 	private void setupParallelMLP(MultiLayerPerceptron neuralNet, int pos, int threads) {
 		learners[pos] = new NeuralNetworkWrapper(neuralNet, threads, PMLP[0]);
+	}
+	
+	private void setupHammer(MultiLayerPerceptron neuralNet, int pos, int threads) {
+		learners[pos] = new TheHammer(threads, neuralNet, HAMMER[0]);
 	}
 
 	public void doExperiment() {
