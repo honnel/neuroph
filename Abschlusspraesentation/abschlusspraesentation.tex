@@ -478,7 +478,8 @@ showstringspaces=false}
 	\begin{frame}\frametitle{Testaufbau}
 		\begin{block}{Poolrechner}
 			\begin{itemize}
-				\item Intel Core2Quad Q6600, 4 Kerne à 2,4GHz, 8GB RAM
+				\item Intel Core2Quad Q6600, 4 Kerne à 2,4 GHz, 8MB L2 Cache
+				\item 8GB RAM
 				\item JDK 7 (\texttt{-Xms4096m -Xmx8000m})
 			\end{itemize}
 		\end{block}
@@ -496,7 +497,19 @@ showstringspaces=false}
 		\end{center}
 	\end{frame}
 	
-		\begin{frame}\frametitle{Messwerte: Error}
+		\begin{frame}\frametitle{Messwerte: Speedup}
+		\begin{block}{}
+			\begin{itemize}
+				\item Ausführung des sequentiellen MLPs und der klonbasierten Ansätze
+				\item 5000 Datenreihen aus CERN-Testdaten, 1:1 Trainings-/Testdaten, 3 Wiederholungen
+			\end{itemize}
+		\end{block}
+		\begin{center}
+			\includegraphics[scale=0.5]{Grafiken/clonebased-speedup.pdf}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}\frametitle{Messwerte: Error}
 		\begin{block}{}
 			\begin{itemize}
 				\item 1000 Datenreihen aus CERN-Satz, 1:1 Trainings-/Testdaten, 10 Wiederholungen
