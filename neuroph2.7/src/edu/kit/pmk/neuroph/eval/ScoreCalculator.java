@@ -10,7 +10,7 @@ import edu.kit.pmk.neuroph.parallel.ILearner;
 
 public class ScoreCalculator {
 
-	public static Score[] trainAndCalculateOnPermutedSet(DataSet dataSet,
+	public static Score[] trainAndCalculateOnPermutedSet(String outputDirectory, String outputFile, DataSet dataSet,
 			double trainingSetRatio, int runs, ILearner... learners) {
 		Score[] scores = new Score[learners.length];
 		for (int l = 0; l < learners.length; l++) {
@@ -33,6 +33,9 @@ public class ScoreCalculator {
 					scores[l].times[i] = time;
 					scores[l].errors[i] = error;
 					Log.info(currentLearner.getDescription(), scores[l].toString());
+					if (!outputDirectory.isEmpty() && !outputFile.isEmpty()) {
+						Log.writeAsCsvResult(outputDirectory, outputFile);
+					}
 				} catch (Exception e) {
 					Log.debug("Exception", e.getMessage());
 				}								

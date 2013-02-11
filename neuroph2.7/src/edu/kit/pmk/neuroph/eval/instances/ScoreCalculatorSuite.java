@@ -109,7 +109,7 @@ public class ScoreCalculatorSuite {
 		// neuralNet, "Clonebased ArithmeticMean");
 		learners[1] = new NeuralNetworkWrapper(neuralNet, 1, "Sequential MLP");
 
-		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet("","",
 				dataSet, trainingSetRatio, runs, learners);
 
 		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
@@ -152,7 +152,7 @@ public class ScoreCalculatorSuite {
 		}
 		learners[i] = new NeuralNetworkWrapper(neuralNet, 1);
 
-		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet("","",
 				dataSet, trainingSetRatio, runs, learners);
 
 		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
@@ -189,7 +189,7 @@ public class ScoreCalculatorSuite {
 		NeuralNetworkWrapper seqBatch = new NeuralNetworkWrapper(seqNeuralNet,
 				1, "Sequential MLP BatchBackpropagation");
 
-		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet("","",
 				dataSet, trainingSetRatio, runs, parBatch, seqBatch);
 
 		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
@@ -247,7 +247,7 @@ public class ScoreCalculatorSuite {
 		// neuralNet, "Clonebased ArithmeticMean");
 		learners[1] = new NeuralNetworkWrapper(neuralNet, 1, "Sequential MLP");
 
-		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(dataSet, trainingSetRatio, runs, learners);
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet("","",dataSet, trainingSetRatio, runs, learners);
 
 		System.out.println("\n+-+-+-+-+ Scores +-+-+-+-+");
 		int i = 0;

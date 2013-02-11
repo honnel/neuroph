@@ -204,7 +204,7 @@ public class Experiment {
 		Log.resetLoggingInstance();
 		Log.setVerbose(verboseFlag);
 		Log.info("ExperimentConfiguration", myconfig.toString());
-		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(dataset, training_to_test_ratio, runs, learners);
+		Score[] scores = ScoreCalculator.trainAndCalculateOnPermutedSet(outputDirectory, myconfig.getName(), dataset, training_to_test_ratio, runs, learners);
 		for (int i = 0; i < scores.length; i++) {
 			Log.logScore(learners[i].getDescription(), scores[i]);
 		}
