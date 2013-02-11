@@ -102,11 +102,12 @@ showstringspaces=false}
 		    	\item Aus Aktivierung folgt mittels Ausgabefunktion die Ausgabe
 		    \end{itemize}		    
 		\end{block}	
-		\vspace{.5cm}
+		\vspace{.2cm}
 		\begin{center}
-		\begin{minipage}[c]{0.48\textwidth}
+		\begin{minipage}[c]{0.7\textwidth}
 			\includegraphics[width=\textwidth]{images/Neuron}
 		\end{minipage}
+		\vspace{.5cm}
 		\break
 		\tiny{[Quelle: Lehr- und Übungsbuch künstliche Intelligenz; Lämmel, Cleve; 2012]}
 		\end{center}	
@@ -125,6 +126,7 @@ showstringspaces=false}
 	
 	\subsection{Simulationsumgebung Neuroph}
 	\begin{frame}[c]\frametitle{Neuroph}
+		\only<1>{
 		\begin{itemize}
 		\item Simulationsumgebung für Neuronale Netze
 		\item 42751 LOC
@@ -133,6 +135,10 @@ showstringspaces=false}
 		\end{itemize}
 		\begin{center}
 		\includegraphics[width=.75\textwidth]{Grafiken/NeurophFrameworkDiagram.jpg} 
+		\end{center}
+		}
+		\begin{center}
+		\includegraphics<2>[width=.9\textwidth]{Grafiken/screenshot-big.jpg} 
 		\end{center}
 	\end{frame}		
 	
@@ -147,7 +153,7 @@ showstringspaces=false}
       			\titleelement{Feb. '13}{1}
     		\end{ganttitle}
     		\ganttbar{Themenfindung}{0}{1.2}
-    		\ganttbar{Einarbeitung Neuronale Netze}{1}{2}
+    		\ganttbar{Einarbeitung Neuronale Netze}{1}{1.3}
     		\ganttmilestone[color=cyan]{Themenvorstellung}{1.2}
     		\ganttbar{Code Analyse \& Profiling}{1}{1.5}
     		\ganttbar{Drei Parallelisierungsansätze}{1.6}{2}
@@ -170,19 +176,18 @@ showstringspaces=false}
 	
 	\section{Neuroph auf Code-Ebene}
 	\subsection{Neuroph auf Code-Ebene}
-	\begin{frame}[c]\frametitle{Code Analyse}
+	\begin{frame}[allowframebreaks]\frametitle{Code Analyse}
 		\begin{block}{Was wir vorgefunden haben}
 			\begin{center}
 				\includegraphics[scale=0.4]{images/Klassendiagramm.png}
 			\end{center}
 		\end{block}
-	\end{frame}
 	
-	\begin{frame}[c]\frametitle{Code Analyse: Sequenzdiagramm}
+	\framebreak
 			\begin{center}
 			  \includegraphics[scale=0.4]{images/Learn.pdf} 
 			\end{center}
-	\end {frame}	
+	\end{frame}
 	
 	\begin{frame}[c]\frametitle{Überblick}
 		\begin{itemize}
@@ -237,12 +242,12 @@ showstringspaces=false}
 				\item Nicht von großen Datenmengen
 			\end{itemize}
 			\item Fast alle gemessenen Speedups $<1$ 
-			\begin{block}{Erster naiver Ansatz ineffektiv}
+			\begin{alertblock}{Erster naiver Ansatz ineffektiv}
 				\begin{itemize}
 					\item Auswertung des NN sehr schnell
-					\item Hotspot ist ein Getter!
+					\item Hotspot ist eine \texttt{get}-Methode!
 				\end{itemize}
-			\end{block}
+			\end{alertblock}
 
 	
 		\end{itemize}	
@@ -347,10 +352,16 @@ showstringspaces=false}
 		\end{block}
 		
 	\framebreak
-		\includegraphics[height=0.8\textheight]{Grafiken/Clonebased_classdiagram}
-		
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{Grafiken/Clonebased_classdiagram}	
+	\end{center}
 	\framebreak
-		\includegraphics[height=0.8\textheight]{Grafiken/Clonebased_sequencediagram}
+	\begin{center}
+		\includegraphics[height=0.7\textheight]{Grafiken/Clonebased_sequencediagram}
+	\end{center}
+		\begin{center}
+		\textit{\tiny{Siehe Handout}}
+		\end{center}
 	\end{frame}
 
 	\begin{frame}[c]\frametitle{Technischer Vergleich der Strategien}	
@@ -464,18 +475,17 @@ showstringspaces=false}
 	
 	\subsection{Messwerte}
 
-	\begin{frame}\frametitle{Aktuelle Evaluationswerte}
-		\begin{block}{Experiment-Konfiguration}
+	\begin{frame}\frametitle{Messwerte: Speedup}
+		\begin{block}{}
 			\begin{itemize}
-				\item Ausführung des sequentiellen und des parallelen Batchlernens
-				\item 1000 Datenreihen aus CERN-Satz, 1:1 Trainings-/Testdaten
+				\item Ausführung des sequentiellen und des parallelen Batch-Learners
+				\item 1000 Datenreihen aus CERN-Satz, 1:1 Trainings-/Testdaten, 10 Wiederholungen
 				\item Intel Core2Quad Q6600, 4 Kerne à 2,4GHz, 8GB RAM
 			\end{itemize}
 		\end{block}
 		\begin{center}
 			\includegraphics[scale=0.33]{Grafiken/batch_speedup.pdf}
 		\end{center}
-
 	\end{frame}
 	
 	\section{Fazit}
@@ -498,10 +508,13 @@ showstringspaces=false}
 	\begin{frame}[c]\frametitle{Fazit}
 		\begin{itemize}
 		   \item Neuronale Netze geeignet für Parallelisierung
-		   \item Triviale Lösung nicht möglich
-		   \item Neuroph nicht vorbereitet
+		   \item Trivialer Lösungsansatz nicht möglich
+		   \item Codebasis (Neuroph) nicht vorbereitet
 		   \item Fremden Code bearbeiten sehr aufwändig
 		\end{itemize}
+		\begin{center}
+		 \includegraphics[width=.4\textwidth]{Grafiken/training.png}
+		 \end{center} 
 	\end{frame}
 
 \end{document}
