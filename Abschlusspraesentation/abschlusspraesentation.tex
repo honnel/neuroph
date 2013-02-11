@@ -474,17 +474,36 @@ showstringspaces=false}
 	\end{frame}
 	
 	\subsection{Messwerte}
+	
+	\begin{frame}\frametitle{Testaufbau}
+		\begin{block}{Poolrechner}
+			\begin{itemize}
+				\item Intel Core2Quad Q6600, 4 Kerne à 2,4GHz, 8GB RAM
+				\item JDK 7 (\texttt{-Xms4096m -Xmx8000m})
+			\end{itemize}
+		\end{block}
+	\end{frame}
 
 	\begin{frame}\frametitle{Messwerte: Speedup}
 		\begin{block}{}
 			\begin{itemize}
 				\item Ausführung des sequentiellen und des parallelen Batch-Learners
-				\item 1000 Datenreihen aus CERN-Satz, 1:1 Trainings-/Testdaten, 10 Wiederholungen
-				\item Intel Core2Quad Q6600, 4 Kerne à 2,4GHz, 8GB RAM
+				\item 1000 Datenreihen aus CERN-Testdaten, 1:1 Trainings-/Testdaten, 10 Wiederholungen
 			\end{itemize}
 		\end{block}
 		\begin{center}
 			\includegraphics[scale=0.33]{Grafiken/batch_speedup.pdf}
+		\end{center}
+	\end{frame}
+	
+		\begin{frame}\frametitle{Messwerte: Error}
+		\begin{block}{}
+			\begin{itemize}
+				\item 1000 Datenreihen aus CERN-Satz, 1:1 Trainings-/Testdaten, 10 Wiederholungen
+			\end{itemize}
+		\end{block}
+		\begin{center}
+			\includegraphics[width=.8\textwidth]{Grafiken/error-eval.pdf}
 		\end{center}
 	\end{frame}
 	
