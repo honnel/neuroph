@@ -1,11 +1,11 @@
 min_threads: 1
 max_threads: 8
-dataset: data/preparedData/1000rows.txt
+dataset: data/preparedData/5000rows.txt
 training_to_test_ratio: 0.5
 input_neurons: 2853
 hidden_neurons: 100
 output_neurons: 1
-runs: 10
+runs: 1
 max_iteration: 3
 sync_frequency:0.25
-learners: batch, batch_parallel
+learners: pmlp, batch, batch_parallel

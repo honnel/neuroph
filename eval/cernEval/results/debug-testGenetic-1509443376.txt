@@ -1,0 +1,69 @@
+DEBUG LOG FILE
+2013-02-04 17:25:57 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'testGenetic' +-+
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased-genetic, clonebased_revised-arithmeticmean, clonebased_revised-genetic
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/100rows.txt
+threads: 2
+max_iteration: 2
+runs: 1
+output_neurons: 1
+hidden_neurons: 100
+
+
+2013-02-04 17:26:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 9] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:26:02 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 8] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:26:03 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 8] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:26:03 [DEBUG] CloneNetWorker[Thread 8] ~ deepcopy = 1591 ms
+2013-02-04 17:26:03 [DEBUG] CloneNetWorker[Thread 9] ~ learning = 3936 ms
+2013-02-04 17:26:03 [DEBUG] CloneNetWorker[Thread 8] ~ learning = 4143 ms
+2013-02-04 17:26:03 [DEBUG] CloneNetWorker[Thread 9] ~ deepcopy + learning = 5727 ms
+2013-02-04 17:26:03 [DEBUG] CloneNetWorker[Thread 8] ~ deepcopy + learning = 5734 ms
+2013-02-04 17:26:03 [DEBUG] ClonebasedConcurrentLearner ~ init_workers = 0 ms
+2013-02-04 17:26:03 [DEBUG] ClonebasedConcurrentLearner ~ start_workers = 8 ms
+2013-02-04 17:26:03 [DEBUG] ClonebasedConcurrentLearner ~ wait_for_workers = 5729 ms
+2013-02-04 17:26:03 [DEBUG] ClonebasedConcurrentLearner ~ total = 5737 ms
+2013-02-04 17:26:11 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 11] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:26:11 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 10] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:26:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 10] ~ stopped because it exceeded MAXIMAL iterations = 2
+2013-02-04 17:26:12 [DEBUG] CloneNetWorker[Thread 11] ~ deepcopy = 5118 ms
+2013-02-04 17:26:12 [DEBUG] CloneNetWorker[Thread 10] ~ deepcopy = 5253 ms
+2013-02-04 17:26:12 [DEBUG] CloneNetWorker[Thread 10] ~ learning = 2247 ms
+2013-02-04 17:26:12 [DEBUG] CloneNetWorker[Thread 10] ~ deepcopy + learning = 7500 ms
+2013-02-04 17:26:12 [DEBUG] CloneNetWorker[Thread 11] ~ learning = 2382 ms
+2013-02-04 17:26:12 [DEBUG] CloneNetWorker[Thread 11] ~ deepcopy + learning = 7500 ms
+2013-02-04 17:26:12 [DEBUG] ClonebasedConcurrentLearner ~ init_workers = 0 ms
+2013-02-04 17:26:12 [DEBUG] ClonebasedConcurrentLearner ~ start_workers = 1 ms
+2013-02-04 17:26:12 [DEBUG] ClonebasedConcurrentLearner ~ wait_for_workers = 7501 ms
+2013-02-04 17:26:12 [DEBUG] ClonebasedConcurrentLearner ~ total = 7502 ms
+2013-02-04 17:26:20 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 12] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:26:20 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 13] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:26:21 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 12] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:26:21 [DEBUG] CloneNetWorkerRevised[Thread 12] ~ deepcopy = 4520 ms
+2013-02-04 17:26:21 [DEBUG] CloneNetWorkerRevised[Thread 13] ~ deepcopy = 1775 ms
+2013-02-04 17:26:21 [DEBUG] CloneNetWorkerRevised[Thread 13] ~ learning = 4654 ms
+2013-02-04 17:26:21 [DEBUG] CloneNetWorkerRevised[Thread 13] ~ deepcopy + learning = 6429 ms
+2013-02-04 17:26:21 [DEBUG] CloneNetWorkerRevised[Thread 12] ~ learning = 1909 ms
+2013-02-04 17:26:21 [DEBUG] CloneNetWorkerRevised[Thread 12] ~ deepcopy + learning = 6429 ms
+2013-02-04 17:26:21 [DEBUG] ClonebasedConcurrentLearnerRevised ~ init_workers = 0 ms
+2013-02-04 17:26:21 [DEBUG] ClonebasedConcurrentLearnerRevised ~ start_workers = 0 ms
+2013-02-04 17:26:21 [DEBUG] ClonebasedConcurrentLearnerRevised ~ wait_for_workers = 6431 ms
+2013-02-04 17:26:21 [DEBUG] ClonebasedConcurrentLearnerRevised ~ total = 6431 ms
+2013-02-04 17:26:28 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 14] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:26:28 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 15] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:26:29 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 14] ~ stopped because it exceeded MAXIMAL iterations = 1
+2013-02-04 17:26:29 [DEBUG] CloneNetWorkerRevised[Thread 14] ~ deepcopy = 1898 ms
+2013-02-04 17:26:29 [DEBUG] CloneNetWorkerRevised[Thread 15] ~ deepcopy = 1773 ms
+2013-02-04 17:26:29 [DEBUG] CloneNetWorkerRevised[Thread 14] ~ learning = 4619 ms
+2013-02-04 17:26:29 [DEBUG] CloneNetWorkerRevised[Thread 14] ~ deepcopy + learning = 6517 ms
+2013-02-04 17:26:29 [DEBUG] CloneNetWorkerRevised[Thread 15] ~ learning = 4744 ms
+2013-02-04 17:26:29 [DEBUG] CloneNetWorkerRevised[Thread 15] ~ deepcopy + learning = 6517 ms
+2013-02-04 17:26:29 [DEBUG] ClonebasedConcurrentLearnerRevised ~ init_workers = 0 ms
+2013-02-04 17:26:29 [DEBUG] ClonebasedConcurrentLearnerRevised ~ start_workers = 1 ms
+2013-02-04 17:26:29 [DEBUG] ClonebasedConcurrentLearnerRevised ~ wait_for_workers = 6519 ms
+2013-02-04 17:26:29 [DEBUG] ClonebasedConcurrentLearnerRevised ~ total = 6520 ms
+2013-02-04 17:26:29 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] average error=0,130677 [0,000000;0,000000], average time=5743ms [0;0], summed up error=0,130677, overall time=5743ms, Run-0: error=0,130677, time=5743ms
+2013-02-04 17:26:29 [SCORE] clonebased-Genetic ~ SCORE [clonebased-Genetic] average error=0,121816 [0,000000;0,000000], average time=7502ms [0;0], summed up error=0,121816, overall time=7502ms, Run-0: error=0,121816, time=7502ms
+2013-02-04 17:26:29 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] average error=0,283612 [0,000000;0,000000], average time=6432ms [0;0], summed up error=0,283612, overall time=6432ms, Run-0: error=0,283612, time=6432ms
+2013-02-04 17:26:29 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] average error=0,128415 [0,000000;0,000000], average time=6520ms [0;0], summed up error=0,128415, overall time=6520ms, Run-0: error=0,128415, time=6520ms

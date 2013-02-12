@@ -1,0 +1,17 @@
+INFO LOG FILE
+2013-02-04 17:12:33 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'testconfig' +-+
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, mlp
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/100rows.txt
+threads: 2
+max_iteration: 2
+runs: 3
+output_neurons: 1
+hidden_neurons: 100
+
+
+2013-02-04 17:13:38 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] average error=0,179567 [0,088286;0,270849], average time=6295ms [4968;7621], summed up error=0,538702, overall time=18886ms, Run-0: error=0,133751, time=5528ms, Run-1: error=0,226860, time=6811ms, Run-2: error=0,178091, time=6547ms
+2013-02-04 17:13:38 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] average error=0,122288 [0,070234;0,174343], average time=6246ms [3533;8958], summed up error=0,366865, overall time=18740ms, Run-0: error=0,151304, time=7440ms, Run-1: error=0,099184, time=6571ms, Run-2: error=0,116376, time=4729ms
+2013-02-04 17:13:38 [SCORE] mlp ~ SCORE [mlp] average error=0,229496 [0,004698;0,454295], average time=2767ms [2035;3498], summed up error=0,688489, overall time=8301ms, Run-0: error=0,361930, time=2575ms, Run-1: error=0,164000, time=2529ms, Run-2: error=0,162558, time=3197ms

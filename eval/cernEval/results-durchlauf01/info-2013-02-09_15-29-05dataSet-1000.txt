@@ -1,0 +1,29 @@
+INFO LOG FILE
+2013-02-09 15:25:12 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-1000' +-+
+min_threads: 4
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, clonebased-genetic, clonebased_revised-genetic, mlp, pmlp, batch
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/1000rows.txt
+max_iteration: 2
+runs: 1
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 4
+
+
+2013-02-09 15:25:12 [INFO]  clonebased-ArithmeticMean ~ Run [1/1] with 4 Threads...
+2013-02-09 15:25:34 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 4 Threads...
+2013-02-09 15:26:04 [INFO]  clonebased-Genetic ~ Run [1/1] with 4 Threads...
+2013-02-09 15:26:28 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 4 Threads...
+2013-02-09 15:26:58 [INFO]  mlp ~ Run [1/1] with 4 Threads...
+2013-02-09 15:27:40 [INFO]  pmlp ~ Run [1/1] with 4 Threads...
+2013-02-09 15:28:23 [INFO]  batch ~ Run [1/1] with 4 Threads...
+2013-02-09 15:29:04 [SCORE] clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=4 average error=0,173003 [0,000000;0,000000], average time=16534ms [0;0], summed up error=0,173003, overall time=16534ms, Run-0: error=0,173003, time=16534ms
+2013-02-09 15:29:04 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=4 average error=0,173418 [0,000000;0,000000], average time=22125ms [0;0], summed up error=0,173418, overall time=22125ms, Run-0: error=0,173418, time=22125ms
+2013-02-09 15:29:04 [SCORE] clonebased-Genetic ~ SCORE [clonebased-Genetic] ThreadCount=4 average error=0,198008 [0,000000;0,000000], average time=18074ms [0;0], summed up error=0,198008, overall time=18074ms, Run-0: error=0,198008, time=18074ms
+2013-02-09 15:29:05 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=4 average error=0,196054 [0,000000;0,000000], average time=22097ms [0;0], summed up error=0,196054, overall time=22097ms, Run-0: error=0,196054, time=22097ms
+2013-02-09 15:29:05 [SCORE] mlp ~ SCORE [mlp] ThreadCount=4 average error=0,167686 [0,000000;0,000000], average time=34240ms [0;0], summed up error=0,167686, overall time=34240ms, Run-0: error=0,167686, time=34240ms
+2013-02-09 15:29:05 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=4 average error=0,167686 [0,000000;0,000000], average time=35298ms [0;0], summed up error=0,167686, overall time=35298ms, Run-0: error=0,167686, time=35298ms
+2013-02-09 15:29:05 [SCORE] batch ~ SCORE [batch] ThreadCount=4 average error=0,138663 [0,000000;0,000000], average time=33135ms [0;0], summed up error=0,138663, overall time=33135ms, Run-0: error=0,138663, time=33135ms

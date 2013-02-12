@@ -1,0 +1,20 @@
+INFO LOG FILE
+2013-02-09 18:16:32 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-1000' +-+
+min_threads: 1
+sync_frequency: 0.25
+learners: clonebased-arithmeticmean, clonebased_revised-arithmeticmean, clonebased-genetic, clonebased_revised-genetic, mlp, pmlp, batch
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/1000rows.txt
+max_iteration: 2
+runs: 10
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 8
+
+
+2013-02-09 18:16:32 [INFO]  clonebased-ArithmeticMean ~ Run [1/10] with 1 Threads...
+2013-02-09 18:17:16 [INFO]  clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=1 average error=0,024219 [-0,125890;0,174327], average time=3546ms [-18435;25527], summed up error=0,242186, overall time=35466ms, Run-0: error=0,242186, time=35466ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-09 18:17:16 [INFO]  clonebased-ArithmeticMean ~ Run [1/10] with 2 Threads...
+2013-02-09 18:17:48 [INFO]  clonebased-ArithmeticMean ~ SCORE [clonebased-ArithmeticMean] ThreadCount=2 average error=0,013967 [-0,072603;0,100537], average time=2380ms [-12374;17134], summed up error=0,139673, overall time=23808ms, Run-0: error=0,139673, time=23808ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-09 18:17:48 [INFO]  clonebased-ArithmeticMean ~ Run [1/10] with 3 Threads...

@@ -1,4 +1,4 @@
-java -Xms4096m -Xmx8000m -jar ../runexperiment.jar -csv -i -d -v -cf experiment_configs/dataSet-5000.txt -o results/
+java -Xms4096m -Xmx7144m -jar ../runexperiment.jar -csv -i -d -v -cf experiment_configs/dataSet-1000.txt -o results-durchlauf01/
 #java -Xms4096m -Xmx6144m -jar ../runexperiment.jar -csv -i -d -v -cf experiment_configs/dataSet-1000-batch_parallel.txt -o results/
 #java -Xms4096m -Xmx6144m -jar ../runexperiment.jar -csv -i -d -v -cf experiment_configs/dataSet-1000-batch.txt -o results/
 #java -Xms4096m -Xmx6144m -jar ../runexperiment.jar -csv -i -d -v -cf experiment_configs/dataSet-1000-clonebased-arithmeticmean.txt -o results/

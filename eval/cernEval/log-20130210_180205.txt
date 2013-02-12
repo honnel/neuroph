@@ -1,0 +1,56 @@
+2013-02-10 18:03:49 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-1000' +-+
+min_threads: 1
+sync_frequency: 0.25
+learners: batch, batch_parallel
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/1000rows.txt
+max_iteration: 3
+runs: 10
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 8
+
+
+2013-02-10 18:03:49 [INFO]  batch ~ Run [1/10] with 1 Threads...
+2013-02-10 18:03:50 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:04:38 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:04:38 [DEBUG] NeuralNetworkWrapper ~ learning = 48633 ms (1 threads)
+2013-02-10 18:04:45 [INFO]  batch ~ SCORE [batch] ThreadCount=1 average error=0,013918 [-0,072346;0,100182], average time=4863ms [-25279;35005], summed up error=0,139178, overall time=48633ms, Run-0: error=0,139178, time=48633ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:04:45 [INFO]  batch ~ Run [1/10] with 2 Threads...
+2013-02-10 18:04:46 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:05:34 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:05:34 [DEBUG] NeuralNetworkWrapper ~ learning = 47990 ms (2 threads)
+2013-02-10 18:05:41 [INFO]  batch ~ SCORE [batch] ThreadCount=2 average error=0,013918 [-0,072346;0,100182], average time=4799ms [-24944;34542], summed up error=0,139178, overall time=47990ms, Run-0: error=0,139178, time=47990ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:05:41 [INFO]  batch ~ Run [1/10] with 3 Threads...
+2013-02-10 18:05:42 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:06:30 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:06:30 [DEBUG] NeuralNetworkWrapper ~ learning = 48601 ms (3 threads)
+2013-02-10 18:06:37 [INFO]  batch ~ SCORE [batch] ThreadCount=3 average error=0,013918 [-0,072346;0,100182], average time=4860ms [-25261;34981], summed up error=0,139178, overall time=48601ms, Run-0: error=0,139178, time=48601ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:06:37 [INFO]  batch ~ Run [1/10] with 4 Threads...
+2013-02-10 18:06:38 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:07:26 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:07:26 [DEBUG] NeuralNetworkWrapper ~ learning = 48292 ms (4 threads)
+2013-02-10 18:07:33 [INFO]  batch ~ SCORE [batch] ThreadCount=4 average error=0,013918 [-0,072346;0,100182], average time=4829ms [-25102;34760], summed up error=0,139178, overall time=48293ms, Run-0: error=0,139178, time=48293ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:07:33 [INFO]  batch ~ Run [1/10] with 5 Threads...
+2013-02-10 18:07:34 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:08:22 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:08:22 [DEBUG] NeuralNetworkWrapper ~ learning = 48264 ms (5 threads)
+2013-02-10 18:08:29 [INFO]  batch ~ SCORE [batch] ThreadCount=5 average error=0,013918 [-0,072346;0,100182], average time=4826ms [-25087;34739], summed up error=0,139178, overall time=48264ms, Run-0: error=0,139178, time=48264ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:08:29 [INFO]  batch ~ Run [1/10] with 6 Threads...
+2013-02-10 18:08:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:09:20 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:09:20 [DEBUG] NeuralNetworkWrapper ~ learning = 49409 ms (6 threads)
+2013-02-10 18:09:28 [INFO]  batch ~ SCORE [batch] ThreadCount=6 average error=0,013918 [-0,072346;0,100182], average time=4940ms [-25683;35563], summed up error=0,139178, overall time=49409ms, Run-0: error=0,139178, time=49409ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:09:28 [INFO]  batch ~ Run [1/10] with 7 Threads...
+2013-02-10 18:09:28 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:10:17 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:10:17 [DEBUG] NeuralNetworkWrapper ~ learning = 48261 ms (7 threads)
+2013-02-10 18:10:24 [INFO]  batch ~ SCORE [batch] ThreadCount=7 average error=0,013918 [-0,072346;0,100182], average time=4826ms [-25085;34737], summed up error=0,139178, overall time=48261ms, Run-0: error=0,139178, time=48261ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:10:24 [INFO]  batch ~ Run [1/10] with 8 Threads...
+2013-02-10 18:10:24 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-10 18:11:13 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-10 18:11:13 [DEBUG] NeuralNetworkWrapper ~ learning = 48716 ms (8 threads)
+2013-02-10 18:11:20 [INFO]  batch ~ SCORE [batch] ThreadCount=8 average error=0,013918 [-0,072346;0,100182], average time=4871ms [-25322;35064], summed up error=0,139178, overall time=48716ms, Run-0: error=0,139178, time=48716ms, Run-1: error=0,000000, time=0ms, Run-2: error=0,000000, time=0ms, Run-3: error=0,000000, time=0ms, Run-4: error=0,000000, time=0ms, Run-5: error=0,000000, time=0ms, Run-6: error=0,000000, time=0ms, Run-7: error=0,000000, time=0ms, Run-8: error=0,000000, time=0ms, Run-9: error=0,000000, time=0ms
+2013-02-10 18:11:20 [INFO]  batch_parallel ~ Run [1/10] with 1 Threads...
+2013-02-10 18:11:21 [DEBUG] NeuralNetworkWrapper ~ start learning!

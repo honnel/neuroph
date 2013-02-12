@@ -1,0 +1,8 @@
+NAME;DESC;NUMTHREADS;RUNS;AVGER;CONFERLO;CONFERHI;AVGTIME;CONFTIMELO;CONFTIMEHI;SUMER;SUMTIME
+ClonebasedConcurrentLearner;clonebased-ArithmeticMean;4;1;0,173003;0,000000;0,000000;16534;0;0;0,173003;16534
+ClonebasedConcurrentLearnerRevised;clonebased_revised-ArithmeticMean;4;1;0,173418;0,000000;0,000000;22125;0;0;0,173418;22125
+ClonebasedConcurrentLearner;clonebased-Genetic;4;1;0,198008;0,000000;0,000000;18074;0;0;0,198008;18074
+ClonebasedConcurrentLearnerRevised;clonebased_revised-Genetic;4;1;0,196054;0,000000;0,000000;22097;0;0;0,196054;22097
+NeuralNetworkWrapper;mlp;4;1;0,167686;0,000000;0,000000;34240;0;0;0,167686;34240
+NeuralNetworkWrapper;pmlp;4;1;0,167686;0,000000;0,000000;35298;0;0;0,167686;35298
+NeuralNetworkWrapper;batch;4;1;0,138663;0,000000;0,000000;33135;0;0;0,138663;33135
