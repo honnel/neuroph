@@ -1,0 +1,159 @@
+INFO LOG FILE
+2013-02-11 09:02:03 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-5000' +-+
+min_threads: 1
+sync_frequency: 0.25
+learners: clonebased_revised-genetic, clonebased_revised-arithmeticmean, mlp, pmlp, batch, batch_parallel
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/5000rows.txt
+max_iteration: 3
+runs: 1
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 8
+
+
+2013-02-11 09:02:03 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 1 Threads...
+2013-02-11 09:07:09 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=1 average error=0,184308 [0,000000;0,000000], average time=269528ms [0;0], summed up error=0,184308, overall time=269528ms, Run-0: error=0,184308, time=269528ms
+2013-02-11 09:07:09 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 2 Threads...
+2013-02-11 09:10:09 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=2 average error=0,185626 [0,000000;0,000000], average time=159689ms [0;0], summed up error=0,185626, overall time=159689ms, Run-0: error=0,185626, time=159689ms
+2013-02-11 09:10:09 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 3 Threads...
+2013-02-11 09:13:40 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=3 average error=0,326358 [0,000000;0,000000], average time=174967ms [0;0], summed up error=0,326358, overall time=174967ms, Run-0: error=0,326358, time=174967ms
+2013-02-11 09:13:40 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 4 Threads...
+2013-02-11 09:15:58 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=4 average error=0,402440 [0,000000;0,000000], average time=112806ms [0;0], summed up error=0,402440, overall time=112806ms, Run-0: error=0,402440, time=112806ms
+2013-02-11 09:15:58 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 5 Threads...
+2013-02-11 09:17:57 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=5 average error=0,292574 [0,000000;0,000000], average time=97983ms [0;0], summed up error=0,292574, overall time=97983ms, Run-0: error=0,292574, time=97983ms
+2013-02-11 09:17:57 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 6 Threads...
+2013-02-11 09:19:51 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=6 average error=0,204035 [0,000000;0,000000], average time=97036ms [0;0], summed up error=0,204035, overall time=97036ms, Run-0: error=0,204035, time=97036ms
+2013-02-11 09:19:51 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 7 Threads...
+2013-02-11 09:21:58 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=7 average error=0,238606 [0,000000;0,000000], average time=106499ms [0;0], summed up error=0,238606, overall time=106499ms, Run-0: error=0,238606, time=106499ms
+2013-02-11 09:21:58 [INFO]  clonebased_revised-Genetic ~ Run [1/1] with 8 Threads...
+2013-02-11 09:24:55 [INFO]  clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=8 average error=0,416876 [0,000000;0,000000], average time=146251ms [0;0], summed up error=0,416876, overall time=146251ms, Run-0: error=0,416876, time=146251ms
+2013-02-11 09:24:55 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 1 Threads...
+2013-02-11 09:30:01 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=1 average error=0,184308 [0,000000;0,000000], average time=269813ms [0;0], summed up error=0,184308, overall time=269813ms, Run-0: error=0,184308, time=269813ms
+2013-02-11 09:30:01 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 2 Threads...
+2013-02-11 09:33:42 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=2 average error=0,157691 [0,000000;0,000000], average time=183900ms [0;0], summed up error=0,157691, overall time=183900ms, Run-0: error=0,157691, time=183900ms
+2013-02-11 09:33:42 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 3 Threads...
+2013-02-11 09:37:12 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=3 average error=0,203453 [0,000000;0,000000], average time=174241ms [0;0], summed up error=0,203453, overall time=174241ms, Run-0: error=0,203453, time=174241ms
+2013-02-11 09:37:12 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 4 Threads...
+2013-02-11 09:40:57 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=4 average error=0,185735 [0,000000;0,000000], average time=189468ms [0;0], summed up error=0,185735, overall time=189468ms, Run-0: error=0,185735, time=189468ms
+2013-02-11 09:40:57 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 5 Threads...
+2013-02-11 09:43:50 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=5 average error=0,178131 [0,000000;0,000000], average time=139033ms [0;0], summed up error=0,178131, overall time=139033ms, Run-0: error=0,178131, time=139033ms
+2013-02-11 09:43:50 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 6 Threads...
+2013-02-11 09:46:15 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=6 average error=0,164112 [0,000000;0,000000], average time=121081ms [0;0], summed up error=0,164112, overall time=121081ms, Run-0: error=0,164112, time=121081ms
+2013-02-11 09:46:15 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 7 Threads...
+2013-02-11 09:48:53 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=7 average error=0,195796 [0,000000;0,000000], average time=126047ms [0;0], summed up error=0,195796, overall time=126047ms, Run-0: error=0,195796, time=126047ms
+2013-02-11 09:48:53 [INFO]  clonebased_revised-ArithmeticMean ~ Run [1/1] with 8 Threads...
+2013-02-11 09:51:57 [INFO]  clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=8 average error=0,176356 [0,000000;0,000000], average time=153094ms [0;0], summed up error=0,176356, overall time=153094ms, Run-0: error=0,176356, time=153094ms
+2013-02-11 09:51:57 [INFO]  mlp ~ Run [1/1] with 1 Threads...
+2013-02-11 09:56:59 [INFO]  mlp ~ SCORE [mlp] ThreadCount=1 average error=0,184709 [0,000000;0,000000], average time=266046ms [0;0], summed up error=0,184709, overall time=266046ms, Run-0: error=0,184709, time=266046ms
+2013-02-11 09:56:59 [INFO]  mlp ~ Run [1/1] with 2 Threads...
+2013-02-11 10:00:10 [INFO]  mlp ~ SCORE [mlp] ThreadCount=2 average error=0,184709 [0,000000;0,000000], average time=167068ms [0;0], summed up error=0,184709, overall time=167068ms, Run-0: error=0,184709, time=167068ms
+2013-02-11 10:00:10 [INFO]  mlp ~ Run [1/1] with 3 Threads...
+2013-02-11 10:05:16 [INFO]  mlp ~ SCORE [mlp] ThreadCount=3 average error=0,184709 [0,000000;0,000000], average time=269310ms [0;0], summed up error=0,184709, overall time=269310ms, Run-0: error=0,184709, time=269310ms
+2013-02-11 10:05:16 [INFO]  mlp ~ Run [1/1] with 4 Threads...
+2013-02-11 10:10:20 [INFO]  mlp ~ SCORE [mlp] ThreadCount=4 average error=0,184709 [0,000000;0,000000], average time=267724ms [0;0], summed up error=0,184709, overall time=267724ms, Run-0: error=0,184709, time=267724ms
+2013-02-11 10:10:20 [INFO]  mlp ~ Run [1/1] with 5 Threads...
+2013-02-11 10:15:25 [INFO]  mlp ~ SCORE [mlp] ThreadCount=5 average error=0,184709 [0,000000;0,000000], average time=268726ms [0;0], summed up error=0,184709, overall time=268726ms, Run-0: error=0,184709, time=268726ms
+2013-02-11 10:15:25 [INFO]  mlp ~ Run [1/1] with 6 Threads...
+2013-02-11 10:20:28 [INFO]  mlp ~ SCORE [mlp] ThreadCount=6 average error=0,184709 [0,000000;0,000000], average time=267328ms [0;0], summed up error=0,184709, overall time=267328ms, Run-0: error=0,184709, time=267328ms
+2013-02-11 10:20:28 [INFO]  mlp ~ Run [1/1] with 7 Threads...
+2013-02-11 10:25:31 [INFO]  mlp ~ SCORE [mlp] ThreadCount=7 average error=0,184709 [0,000000;0,000000], average time=267277ms [0;0], summed up error=0,184709, overall time=267277ms, Run-0: error=0,184709, time=267277ms
+2013-02-11 10:25:31 [INFO]  mlp ~ Run [1/1] with 8 Threads...
+2013-02-11 10:30:36 [INFO]  mlp ~ SCORE [mlp] ThreadCount=8 average error=0,184709 [0,000000;0,000000], average time=269183ms [0;0], summed up error=0,184709, overall time=269183ms, Run-0: error=0,184709, time=269183ms
+2013-02-11 10:30:36 [INFO]  pmlp ~ Run [1/1] with 1 Threads...
+2013-02-11 10:35:21 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=1 average error=0,184709 [0,000000;0,000000], average time=248803ms [0;0], summed up error=0,184709, overall time=248803ms, Run-0: error=0,184709, time=248803ms
+2013-02-11 10:35:21 [INFO]  pmlp ~ Run [1/1] with 2 Threads...
+2013-02-11 10:40:26 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=2 average error=0,184709 [0,000000;0,000000], average time=269136ms [0;0], summed up error=0,184709, overall time=269136ms, Run-0: error=0,184709, time=269136ms
+2013-02-11 10:40:26 [INFO]  pmlp ~ Run [1/1] with 3 Threads...
+2013-02-11 10:45:29 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=3 average error=0,184709 [0,000000;0,000000], average time=266393ms [0;0], summed up error=0,184709, overall time=266393ms, Run-0: error=0,184709, time=266393ms
+2013-02-11 10:45:29 [INFO]  pmlp ~ Run [1/1] with 4 Threads...
+2013-02-11 10:50:31 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=4 average error=0,184709 [0,000000;0,000000], average time=266755ms [0;0], summed up error=0,184709, overall time=266755ms, Run-0: error=0,184709, time=266755ms
+2013-02-11 10:50:31 [INFO]  pmlp ~ Run [1/1] with 5 Threads...
+2013-02-11 10:55:33 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=5 average error=0,184709 [0,000000;0,000000], average time=265834ms [0;0], summed up error=0,184709, overall time=265834ms, Run-0: error=0,184709, time=265834ms
+2013-02-11 10:55:33 [INFO]  pmlp ~ Run [1/1] with 6 Threads...
+2013-02-11 11:00:38 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=6 average error=0,184709 [0,000000;0,000000], average time=268650ms [0;0], summed up error=0,184709, overall time=268650ms, Run-0: error=0,184709, time=268650ms
+2013-02-11 11:00:38 [INFO]  pmlp ~ Run [1/1] with 7 Threads...
+2013-02-11 11:05:42 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=7 average error=0,184709 [0,000000;0,000000], average time=267883ms [0;0], summed up error=0,184709, overall time=267883ms, Run-0: error=0,184709, time=267883ms
+2013-02-11 11:05:42 [INFO]  pmlp ~ Run [1/1] with 8 Threads...
+2013-02-11 11:10:57 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=8 average error=0,184709 [0,000000;0,000000], average time=276413ms [0;0], summed up error=0,184709, overall time=276413ms, Run-0: error=0,184709, time=276413ms
+2013-02-11 11:10:57 [INFO]  batch ~ Run [1/1] with 1 Threads...
+2013-02-11 11:15:39 [INFO]  batch ~ SCORE [batch] ThreadCount=1 average error=0,121200 [0,000000;0,000000], average time=245873ms [0;0], summed up error=0,121200, overall time=245873ms, Run-0: error=0,121200, time=245873ms
+2013-02-11 11:15:39 [INFO]  batch ~ Run [1/1] with 2 Threads...
+2013-02-11 11:20:26 [INFO]  batch ~ SCORE [batch] ThreadCount=2 average error=0,121200 [0,000000;0,000000], average time=250547ms [0;0], summed up error=0,121200, overall time=250547ms, Run-0: error=0,121200, time=250547ms
+2013-02-11 11:20:26 [INFO]  batch ~ Run [1/1] with 3 Threads...
+2013-02-11 11:25:10 [INFO]  batch ~ SCORE [batch] ThreadCount=3 average error=0,121200 [0,000000;0,000000], average time=248685ms [0;0], summed up error=0,121200, overall time=248685ms, Run-0: error=0,121200, time=248685ms
+2013-02-11 11:25:10 [INFO]  batch ~ Run [1/1] with 4 Threads...
+2013-02-11 11:29:55 [INFO]  batch ~ SCORE [batch] ThreadCount=4 average error=0,121200 [0,000000;0,000000], average time=248573ms [0;0], summed up error=0,121200, overall time=248573ms, Run-0: error=0,121200, time=248573ms
+2013-02-11 11:29:55 [INFO]  batch ~ Run [1/1] with 5 Threads...
+2013-02-11 11:34:37 [INFO]  batch ~ SCORE [batch] ThreadCount=5 average error=0,121200 [0,000000;0,000000], average time=246705ms [0;0], summed up error=0,121200, overall time=246705ms, Run-0: error=0,121200, time=246705ms
+2013-02-11 11:34:37 [INFO]  batch ~ Run [1/1] with 6 Threads...
+2013-02-11 11:39:25 [INFO]  batch ~ SCORE [batch] ThreadCount=6 average error=0,121200 [0,000000;0,000000], average time=251230ms [0;0], summed up error=0,121200, overall time=251230ms, Run-0: error=0,121200, time=251230ms
+2013-02-11 11:39:25 [INFO]  batch ~ Run [1/1] with 7 Threads...
+2013-02-11 11:44:17 [INFO]  batch ~ SCORE [batch] ThreadCount=7 average error=0,121200 [0,000000;0,000000], average time=252885ms [0;0], summed up error=0,121200, overall time=252885ms, Run-0: error=0,121200, time=252885ms
+2013-02-11 11:44:17 [INFO]  batch ~ Run [1/1] with 8 Threads...
+2013-02-11 11:49:01 [INFO]  batch ~ SCORE [batch] ThreadCount=8 average error=0,121200 [0,000000;0,000000], average time=247566ms [0;0], summed up error=0,121200, overall time=247566ms, Run-0: error=0,121200, time=247566ms
+2013-02-11 11:49:01 [INFO]  batch_parallel ~ Run [1/1] with 1 Threads...
+2013-02-11 11:57:02 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=1 average error=0,121200 [0,000000;0,000000], average time=445256ms [0;0], summed up error=0,121200, overall time=445256ms, Run-0: error=0,121200, time=445256ms
+2013-02-11 11:57:02 [INFO]  batch_parallel ~ Run [1/1] with 2 Threads...
+2013-02-11 12:01:52 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=2 average error=0,121200 [0,000000;0,000000], average time=274457ms [0;0], summed up error=0,121200, overall time=274457ms, Run-0: error=0,121200, time=274457ms
+2013-02-11 12:01:52 [INFO]  batch_parallel ~ Run [1/1] with 3 Threads...
+2013-02-11 12:05:18 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=3 average error=0,121200 [0,000000;0,000000], average time=188723ms [0;0], summed up error=0,121200, overall time=188723ms, Run-0: error=0,121200, time=188723ms
+2013-02-11 12:05:18 [INFO]  batch_parallel ~ Run [1/1] with 4 Threads...
+2013-02-11 12:08:33 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=4 average error=0,121200 [0,000000;0,000000], average time=177248ms [0;0], summed up error=0,121200, overall time=177248ms, Run-0: error=0,121200, time=177248ms
+2013-02-11 12:08:33 [INFO]  batch_parallel ~ Run [1/1] with 5 Threads...
+2013-02-11 12:12:09 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=5 average error=0,121200 [0,000000;0,000000], average time=199961ms [0;0], summed up error=0,121200, overall time=199961ms, Run-0: error=0,121200, time=199961ms
+2013-02-11 12:12:09 [INFO]  batch_parallel ~ Run [1/1] with 6 Threads...
+2013-02-11 12:16:23 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=6 average error=0,121200 [0,000000;0,000000], average time=238146ms [0;0], summed up error=0,121200, overall time=238146ms, Run-0: error=0,121200, time=238146ms
+2013-02-11 12:16:23 [INFO]  batch_parallel ~ Run [1/1] with 7 Threads...
+2013-02-11 12:19:56 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=7 average error=0,121200 [0,000000;0,000000], average time=195689ms [0;0], summed up error=0,121200, overall time=195689ms, Run-0: error=0,121200, time=195689ms
+2013-02-11 12:19:56 [INFO]  batch_parallel ~ Run [1/1] with 8 Threads...
+2013-02-11 12:22:55 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=8 average error=0,121200 [0,000000;0,000000], average time=161611ms [0;0], summed up error=0,121200, overall time=161611ms, Run-0: error=0,121200, time=161611ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=1 average error=0,184308 [0,000000;0,000000], average time=269528ms [0;0], summed up error=0,184308, overall time=269528ms, Run-0: error=0,184308, time=269528ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=2 average error=0,185626 [0,000000;0,000000], average time=159689ms [0;0], summed up error=0,185626, overall time=159689ms, Run-0: error=0,185626, time=159689ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=3 average error=0,326358 [0,000000;0,000000], average time=174967ms [0;0], summed up error=0,326358, overall time=174967ms, Run-0: error=0,326358, time=174967ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=4 average error=0,402440 [0,000000;0,000000], average time=112806ms [0;0], summed up error=0,402440, overall time=112806ms, Run-0: error=0,402440, time=112806ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=5 average error=0,292574 [0,000000;0,000000], average time=97983ms [0;0], summed up error=0,292574, overall time=97983ms, Run-0: error=0,292574, time=97983ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=6 average error=0,204035 [0,000000;0,000000], average time=97036ms [0;0], summed up error=0,204035, overall time=97036ms, Run-0: error=0,204035, time=97036ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=7 average error=0,238606 [0,000000;0,000000], average time=106499ms [0;0], summed up error=0,238606, overall time=106499ms, Run-0: error=0,238606, time=106499ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-Genetic ~ SCORE [clonebased_revised-Genetic] ThreadCount=8 average error=0,416876 [0,000000;0,000000], average time=146251ms [0;0], summed up error=0,416876, overall time=146251ms, Run-0: error=0,416876, time=146251ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=1 average error=0,184308 [0,000000;0,000000], average time=269813ms [0;0], summed up error=0,184308, overall time=269813ms, Run-0: error=0,184308, time=269813ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=2 average error=0,157691 [0,000000;0,000000], average time=183900ms [0;0], summed up error=0,157691, overall time=183900ms, Run-0: error=0,157691, time=183900ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=3 average error=0,203453 [0,000000;0,000000], average time=174241ms [0;0], summed up error=0,203453, overall time=174241ms, Run-0: error=0,203453, time=174241ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=4 average error=0,185735 [0,000000;0,000000], average time=189468ms [0;0], summed up error=0,185735, overall time=189468ms, Run-0: error=0,185735, time=189468ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=5 average error=0,178131 [0,000000;0,000000], average time=139033ms [0;0], summed up error=0,178131, overall time=139033ms, Run-0: error=0,178131, time=139033ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=6 average error=0,164112 [0,000000;0,000000], average time=121081ms [0;0], summed up error=0,164112, overall time=121081ms, Run-0: error=0,164112, time=121081ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=7 average error=0,195796 [0,000000;0,000000], average time=126047ms [0;0], summed up error=0,195796, overall time=126047ms, Run-0: error=0,195796, time=126047ms
+2013-02-11 12:22:55 [SCORE] clonebased_revised-ArithmeticMean ~ SCORE [clonebased_revised-ArithmeticMean] ThreadCount=8 average error=0,176356 [0,000000;0,000000], average time=153094ms [0;0], summed up error=0,176356, overall time=153094ms, Run-0: error=0,176356, time=153094ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=1 average error=0,184709 [0,000000;0,000000], average time=266046ms [0;0], summed up error=0,184709, overall time=266046ms, Run-0: error=0,184709, time=266046ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=2 average error=0,184709 [0,000000;0,000000], average time=167068ms [0;0], summed up error=0,184709, overall time=167068ms, Run-0: error=0,184709, time=167068ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=3 average error=0,184709 [0,000000;0,000000], average time=269310ms [0;0], summed up error=0,184709, overall time=269310ms, Run-0: error=0,184709, time=269310ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=4 average error=0,184709 [0,000000;0,000000], average time=267724ms [0;0], summed up error=0,184709, overall time=267724ms, Run-0: error=0,184709, time=267724ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=5 average error=0,184709 [0,000000;0,000000], average time=268726ms [0;0], summed up error=0,184709, overall time=268726ms, Run-0: error=0,184709, time=268726ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=6 average error=0,184709 [0,000000;0,000000], average time=267328ms [0;0], summed up error=0,184709, overall time=267328ms, Run-0: error=0,184709, time=267328ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=7 average error=0,184709 [0,000000;0,000000], average time=267277ms [0;0], summed up error=0,184709, overall time=267277ms, Run-0: error=0,184709, time=267277ms
+2013-02-11 12:22:55 [SCORE] mlp ~ SCORE [mlp] ThreadCount=8 average error=0,184709 [0,000000;0,000000], average time=269183ms [0;0], summed up error=0,184709, overall time=269183ms, Run-0: error=0,184709, time=269183ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=1 average error=0,184709 [0,000000;0,000000], average time=248803ms [0;0], summed up error=0,184709, overall time=248803ms, Run-0: error=0,184709, time=248803ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=2 average error=0,184709 [0,000000;0,000000], average time=269136ms [0;0], summed up error=0,184709, overall time=269136ms, Run-0: error=0,184709, time=269136ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=3 average error=0,184709 [0,000000;0,000000], average time=266393ms [0;0], summed up error=0,184709, overall time=266393ms, Run-0: error=0,184709, time=266393ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=4 average error=0,184709 [0,000000;0,000000], average time=266755ms [0;0], summed up error=0,184709, overall time=266755ms, Run-0: error=0,184709, time=266755ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=5 average error=0,184709 [0,000000;0,000000], average time=265834ms [0;0], summed up error=0,184709, overall time=265834ms, Run-0: error=0,184709, time=265834ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=6 average error=0,184709 [0,000000;0,000000], average time=268650ms [0;0], summed up error=0,184709, overall time=268650ms, Run-0: error=0,184709, time=268650ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=7 average error=0,184709 [0,000000;0,000000], average time=267883ms [0;0], summed up error=0,184709, overall time=267883ms, Run-0: error=0,184709, time=267883ms
+2013-02-11 12:22:55 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=8 average error=0,184709 [0,000000;0,000000], average time=276413ms [0;0], summed up error=0,184709, overall time=276413ms, Run-0: error=0,184709, time=276413ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=1 average error=0,121200 [0,000000;0,000000], average time=245873ms [0;0], summed up error=0,121200, overall time=245873ms, Run-0: error=0,121200, time=245873ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=2 average error=0,121200 [0,000000;0,000000], average time=250547ms [0;0], summed up error=0,121200, overall time=250547ms, Run-0: error=0,121200, time=250547ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=3 average error=0,121200 [0,000000;0,000000], average time=248685ms [0;0], summed up error=0,121200, overall time=248685ms, Run-0: error=0,121200, time=248685ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=4 average error=0,121200 [0,000000;0,000000], average time=248573ms [0;0], summed up error=0,121200, overall time=248573ms, Run-0: error=0,121200, time=248573ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=5 average error=0,121200 [0,000000;0,000000], average time=246705ms [0;0], summed up error=0,121200, overall time=246705ms, Run-0: error=0,121200, time=246705ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=6 average error=0,121200 [0,000000;0,000000], average time=251230ms [0;0], summed up error=0,121200, overall time=251230ms, Run-0: error=0,121200, time=251230ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=7 average error=0,121200 [0,000000;0,000000], average time=252885ms [0;0], summed up error=0,121200, overall time=252885ms, Run-0: error=0,121200, time=252885ms
+2013-02-11 12:22:55 [SCORE] batch ~ SCORE [batch] ThreadCount=8 average error=0,121200 [0,000000;0,000000], average time=247566ms [0;0], summed up error=0,121200, overall time=247566ms, Run-0: error=0,121200, time=247566ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=1 average error=0,121200 [0,000000;0,000000], average time=445256ms [0;0], summed up error=0,121200, overall time=445256ms, Run-0: error=0,121200, time=445256ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=2 average error=0,121200 [0,000000;0,000000], average time=274457ms [0;0], summed up error=0,121200, overall time=274457ms, Run-0: error=0,121200, time=274457ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=3 average error=0,121200 [0,000000;0,000000], average time=188723ms [0;0], summed up error=0,121200, overall time=188723ms, Run-0: error=0,121200, time=188723ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=4 average error=0,121200 [0,000000;0,000000], average time=177248ms [0;0], summed up error=0,121200, overall time=177248ms, Run-0: error=0,121200, time=177248ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=5 average error=0,121200 [0,000000;0,000000], average time=199961ms [0;0], summed up error=0,121200, overall time=199961ms, Run-0: error=0,121200, time=199961ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=6 average error=0,121200 [0,000000;0,000000], average time=238146ms [0;0], summed up error=0,121200, overall time=238146ms, Run-0: error=0,121200, time=238146ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=7 average error=0,121200 [0,000000;0,000000], average time=195689ms [0;0], summed up error=0,121200, overall time=195689ms, Run-0: error=0,121200, time=195689ms
+2013-02-11 12:22:55 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=8 average error=0,121200 [0,000000;0,000000], average time=161611ms [0;0], summed up error=0,121200, overall time=161611ms, Run-0: error=0,121200, time=161611ms
