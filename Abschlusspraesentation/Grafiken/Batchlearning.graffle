@@ -53,7 +53,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{134.84271518331801, 119.16811120269801}, {31, 24}}</string>
+			<string>{{134.84147413759251, 119.16750536568674}, {31, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -279,7 +279,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{234.31319456557929, 282.90238353802459}, {64, 27}}</string>
+			<string>{{234.31319456799355, 282.902383525397}, {64, 27}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -355,8 +355,8 @@
 			<integer>22</integer>
 			<key>Points</key>
 			<array>
-				<string>{220.20802302585807, 275.73501403279136}</string>
-				<string>{346.71532726038868, 275.73050175460509}</string>
+				<string>{220.20802302585807, 275.73501402554911}</string>
+				<string>{346.71532726038868, 275.73050173258616}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -388,8 +388,8 @@
 			<integer>21</integer>
 			<key>Points</key>
 			<array>
-				<string>{128.24858353168446, 23.240875942895435}</string>
-				<string>{161.29679353590123, 79.13171164796735}</string>
+				<string>{128.24908212956387, 23.240875942895443}</string>
+				<string>{161.3012478896994, 79.131668947945826}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -560,8 +560,8 @@
 			<integer>17</integer>
 			<key>Points</key>
 			<array>
-				<string>{169.35261068561607, 118.73266442622418}</string>
-				<string>{162.67869673566892, 155.09217550891844}</string>
+				<string>{169.35185025436749, 118.73266107265138}</string>
+				<string>{162.67654170919212, 155.09216809195661}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -593,8 +593,8 @@
 			<integer>16</integer>
 			<key>Points</key>
 			<array>
-				<string>{158.09459583407306, 205.95985577561049}</string>
-				<string>{158.23837292270986, 247.86496300904926}</string>
+				<string>{158.06518717593647, 205.95985744263365}</string>
+				<string>{158.16051802291122, 247.86496324702179}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -677,14 +677,14 @@ gewicht += globales_delta}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>4</integer>
+				<integer>7</integer>
 			</dict>
 			<key>ID</key>
 			<integer>13</integer>
 			<key>Points</key>
 			<array>
-				<string>{330.36110763987494, 157.55840257741889}</string>
-				<string>{330.38340433350265, 126.09855380898789}</string>
+				<string>{283.37748508759688, 157.8884922997257}</string>
+				<string>{209.65503580636192, 118.47637738846709}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -716,8 +716,8 @@ gewicht += globales_delta}</string>
 			<integer>12</integer>
 			<key>Points</key>
 			<array>
-				<string>{415.12047564552239, 183.22572439077138}</string>
-				<string>{385.27373347627167, 183.14500485310603}</string>
+				<string>{415.12047564552239, 183.22570488761929}</string>
+				<string>{385.27373347627207, 183.14497373919912}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -749,8 +749,8 @@ gewicht += globales_delta}</string>
 			<integer>11</integer>
 			<key>Points</key>
 			<array>
-				<string>{465.25551847658954, 126.09855457031335}</string>
-				<string>{465.25551847658954, 157.92335708285179}</string>
+				<string>{465.25551847658954, 126.09855457031864}</string>
+				<string>{465.25551847658954, 157.92335708319217}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -783,7 +783,7 @@ gewicht += globales_delta}</string>
 			<key>Points</key>
 			<array>
 				<string>{385.2737206562382, 100.66057897591651}</string>
-				<string>{410.32485051183068, 100.66057897591651}</string>
+				<string>{410.32485051183085, 100.66057897591651}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -815,8 +815,8 @@ gewicht += globales_delta}</string>
 			<integer>9</integer>
 			<key>Points</key>
 			<array>
-				<string>{223.12769668112753, 99.472363707945163}</string>
-				<string>{275.41243691231682, 100.06774519845835}</string>
+				<string>{223.12769756328245, 99.464567944156698}</string>
+				<string>{275.4124384999792, 100.05181939370966}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1085,7 +1085,7 @@ gewicht += globales_delta}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-02-10 16:12:15 +0000</string>
+	<string>2013-02-11 11:08:58 +0000</string>
 	<key>Modifier</key>
 	<string>Dominic Rausch</string>
 	<key>NotesVisible</key>
