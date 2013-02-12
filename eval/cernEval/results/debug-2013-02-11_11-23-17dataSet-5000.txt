@@ -1,0 +1,159 @@
+DEBUG LOG FILE
+2013-02-11 09:29:17 [INFO]  ExperimentConfiguration ~ +-+ TestConfiguration 'dataSet-5000' +-+
+min_threads: 1
+sync_frequency: 0.25
+learners: pmlp, batch, batch_parallel
+input_neurons: 2853
+training_to_test_ratio: 0.5
+dataset: data/preparedData/5000rows.txt
+max_iteration: 3
+runs: 1
+output_neurons: 1
+hidden_neurons: 100
+max_threads: 8
+
+
+2013-02-11 09:29:17 [INFO]  pmlp ~ Run [1/1] with 1 Threads...
+2013-02-11 09:29:17 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 09:33:45 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 09:33:45 [DEBUG] NeuralNetworkWrapper ~ learning = 267427 ms (1 threads)
+2013-02-11 09:34:20 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=1 average error=0,149107 [0,000000;0,000000], average time=267427ms [0;0], summed up error=0,149107, overall time=267427ms, Run-0: error=0,149107, time=267427ms
+2013-02-11 09:34:20 [INFO]  pmlp ~ Run [1/1] with 2 Threads...
+2013-02-11 09:34:22 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 09:38:49 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 09:38:49 [DEBUG] NeuralNetworkWrapper ~ learning = 267736 ms (2 threads)
+2013-02-11 09:39:25 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=2 average error=0,149107 [0,000000;0,000000], average time=267736ms [0;0], summed up error=0,149107, overall time=267736ms, Run-0: error=0,149107, time=267736ms
+2013-02-11 09:39:25 [INFO]  pmlp ~ Run [1/1] with 3 Threads...
+2013-02-11 09:39:25 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 09:43:51 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 09:43:51 [DEBUG] NeuralNetworkWrapper ~ learning = 265214 ms (3 threads)
+2013-02-11 09:44:25 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=3 average error=0,149107 [0,000000;0,000000], average time=265214ms [0;0], summed up error=0,149107, overall time=265214ms, Run-0: error=0,149107, time=265214ms
+2013-02-11 09:44:26 [INFO]  pmlp ~ Run [1/1] with 4 Threads...
+2013-02-11 09:44:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 09:48:51 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 09:48:51 [DEBUG] NeuralNetworkWrapper ~ learning = 264476 ms (4 threads)
+2013-02-11 09:49:25 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=4 average error=0,149107 [0,000000;0,000000], average time=264476ms [0;0], summed up error=0,149107, overall time=264476ms, Run-0: error=0,149107, time=264476ms
+2013-02-11 09:49:25 [INFO]  pmlp ~ Run [1/1] with 5 Threads...
+2013-02-11 09:49:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 09:53:51 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 09:53:51 [DEBUG] NeuralNetworkWrapper ~ learning = 265018 ms (5 threads)
+2013-02-11 09:54:26 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=5 average error=0,149107 [0,000000;0,000000], average time=265019ms [0;0], summed up error=0,149107, overall time=265019ms, Run-0: error=0,149107, time=265019ms
+2013-02-11 09:54:26 [INFO]  pmlp ~ Run [1/1] with 6 Threads...
+2013-02-11 09:54:26 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 09:58:50 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 09:58:50 [DEBUG] NeuralNetworkWrapper ~ learning = 263708 ms (6 threads)
+2013-02-11 09:59:24 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=6 average error=0,149107 [0,000000;0,000000], average time=263708ms [0;0], summed up error=0,149107, overall time=263708ms, Run-0: error=0,149107, time=263708ms
+2013-02-11 09:59:24 [INFO]  pmlp ~ Run [1/1] with 7 Threads...
+2013-02-11 09:59:25 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:03:49 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:03:49 [DEBUG] NeuralNetworkWrapper ~ learning = 264516 ms (7 threads)
+2013-02-11 10:04:24 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=7 average error=0,149107 [0,000000;0,000000], average time=264516ms [0;0], summed up error=0,149107, overall time=264516ms, Run-0: error=0,149107, time=264516ms
+2013-02-11 10:04:24 [INFO]  pmlp ~ Run [1/1] with 8 Threads...
+2013-02-11 10:04:25 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:08:53 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:08:53 [DEBUG] NeuralNetworkWrapper ~ learning = 267847 ms (8 threads)
+2013-02-11 10:09:28 [INFO]  pmlp ~ SCORE [pmlp] ThreadCount=8 average error=0,149107 [0,000000;0,000000], average time=267848ms [0;0], summed up error=0,149107, overall time=267848ms, Run-0: error=0,149107, time=267848ms
+2013-02-11 10:09:28 [INFO]  batch ~ Run [1/1] with 1 Threads...
+2013-02-11 10:09:28 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:13:34 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:13:34 [DEBUG] NeuralNetworkWrapper ~ learning = 245668 ms (1 threads)
+2013-02-11 10:14:09 [INFO]  batch ~ SCORE [batch] ThreadCount=1 average error=0,850325 [0,000000;0,000000], average time=245668ms [0;0], summed up error=0,850325, overall time=245668ms, Run-0: error=0,850325, time=245668ms
+2013-02-11 10:14:09 [INFO]  batch ~ Run [1/1] with 2 Threads...
+2013-02-11 10:14:09 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:18:15 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:18:15 [DEBUG] NeuralNetworkWrapper ~ learning = 245590 ms (2 threads)
+2013-02-11 10:18:49 [INFO]  batch ~ SCORE [batch] ThreadCount=2 average error=0,850325 [0,000000;0,000000], average time=245590ms [0;0], summed up error=0,850325, overall time=245590ms, Run-0: error=0,850325, time=245590ms
+2013-02-11 10:18:49 [INFO]  batch ~ Run [1/1] with 3 Threads...
+2013-02-11 10:18:51 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:22:35 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:22:35 [DEBUG] NeuralNetworkWrapper ~ learning = 224610 ms (3 threads)
+2013-02-11 10:23:08 [INFO]  batch ~ SCORE [batch] ThreadCount=3 average error=0,850325 [0,000000;0,000000], average time=224610ms [0;0], summed up error=0,850325, overall time=224610ms, Run-0: error=0,850325, time=224610ms
+2013-02-11 10:23:08 [INFO]  batch ~ Run [1/1] with 4 Threads...
+2013-02-11 10:23:08 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:27:16 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:27:16 [DEBUG] NeuralNetworkWrapper ~ learning = 247277 ms (4 threads)
+2013-02-11 10:27:51 [INFO]  batch ~ SCORE [batch] ThreadCount=4 average error=0,850325 [0,000000;0,000000], average time=247277ms [0;0], summed up error=0,850325, overall time=247277ms, Run-0: error=0,850325, time=247277ms
+2013-02-11 10:27:51 [INFO]  batch ~ Run [1/1] with 5 Threads...
+2013-02-11 10:27:51 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:31:55 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:31:55 [DEBUG] NeuralNetworkWrapper ~ learning = 243940 ms (5 threads)
+2013-02-11 10:32:30 [INFO]  batch ~ SCORE [batch] ThreadCount=5 average error=0,850325 [0,000000;0,000000], average time=243940ms [0;0], summed up error=0,850325, overall time=243940ms, Run-0: error=0,850325, time=243940ms
+2013-02-11 10:32:30 [INFO]  batch ~ Run [1/1] with 6 Threads...
+2013-02-11 10:32:31 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:36:34 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:36:34 [DEBUG] NeuralNetworkWrapper ~ learning = 243281 ms (6 threads)
+2013-02-11 10:37:08 [INFO]  batch ~ SCORE [batch] ThreadCount=6 average error=0,850325 [0,000000;0,000000], average time=243281ms [0;0], summed up error=0,850325, overall time=243281ms, Run-0: error=0,850325, time=243281ms
+2013-02-11 10:37:08 [INFO]  batch ~ Run [1/1] with 7 Threads...
+2013-02-11 10:37:09 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:41:12 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:41:12 [DEBUG] NeuralNetworkWrapper ~ learning = 242783 ms (7 threads)
+2013-02-11 10:41:46 [INFO]  batch ~ SCORE [batch] ThreadCount=7 average error=0,850325 [0,000000;0,000000], average time=242783ms [0;0], summed up error=0,850325, overall time=242783ms, Run-0: error=0,850325, time=242783ms
+2013-02-11 10:41:46 [INFO]  batch ~ Run [1/1] with 8 Threads...
+2013-02-11 10:41:47 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:45:50 [DEBUG] org.neuroph.core.learning.IterativeLearning[Thread 1] ~ stopped because it exceeded MAXIMAL iterations = 3
+2013-02-11 10:45:50 [DEBUG] NeuralNetworkWrapper ~ learning = 242664 ms (8 threads)
+2013-02-11 10:46:24 [INFO]  batch ~ SCORE [batch] ThreadCount=8 average error=0,850325 [0,000000;0,000000], average time=242664ms [0;0], summed up error=0,850325, overall time=242664ms, Run-0: error=0,850325, time=242664ms
+2013-02-11 10:46:24 [INFO]  batch_parallel ~ Run [1/1] with 1 Threads...
+2013-02-11 10:46:25 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:53:54 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 10:53:54 [DEBUG] NeuralNetworkWrapper ~ learning = 449289 ms (1 threads)
+2013-02-11 10:54:29 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=1 average error=0,850325 [0,000000;0,000000], average time=449289ms [0;0], summed up error=0,850325, overall time=449289ms, Run-0: error=0,850325, time=449289ms
+2013-02-11 10:54:29 [INFO]  batch_parallel ~ Run [1/1] with 2 Threads...
+2013-02-11 10:54:30 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 10:58:58 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 10:58:58 [DEBUG] NeuralNetworkWrapper ~ learning = 268872 ms (2 threads)
+2013-02-11 10:59:15 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=2 average error=0,855936 [0,000000;0,000000], average time=268872ms [0;0], summed up error=0,855936, overall time=268872ms, Run-0: error=0,855936, time=268872ms
+2013-02-11 10:59:15 [INFO]  batch_parallel ~ Run [1/1] with 3 Threads...
+2013-02-11 10:59:15 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 11:03:23 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 11:03:23 [DEBUG] NeuralNetworkWrapper ~ learning = 247575 ms (3 threads)
+2013-02-11 11:03:58 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=3 average error=0,851702 [0,000000;0,000000], average time=247576ms [0;0], summed up error=0,851702, overall time=247576ms, Run-0: error=0,851702, time=247576ms
+2013-02-11 11:03:58 [INFO]  batch_parallel ~ Run [1/1] with 4 Threads...
+2013-02-11 11:03:59 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 11:07:48 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 11:07:48 [DEBUG] NeuralNetworkWrapper ~ learning = 229078 ms (4 threads)
+2013-02-11 11:08:06 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=4 average error=0,856314 [0,000000;0,000000], average time=229078ms [0;0], summed up error=0,856314, overall time=229078ms, Run-0: error=0,856314, time=229078ms
+2013-02-11 11:08:06 [INFO]  batch_parallel ~ Run [1/1] with 5 Threads...
+2013-02-11 11:08:07 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 11:11:39 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 11:11:39 [DEBUG] NeuralNetworkWrapper ~ learning = 211758 ms (5 threads)
+2013-02-11 11:11:53 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=5 average error=0,857974 [0,000000;0,000000], average time=211759ms [0;0], summed up error=0,857974, overall time=211759ms, Run-0: error=0,857974, time=211759ms
+2013-02-11 11:11:53 [INFO]  batch_parallel ~ Run [1/1] with 6 Threads...
+2013-02-11 11:11:54 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 11:15:05 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 11:15:05 [DEBUG] NeuralNetworkWrapper ~ learning = 190940 ms (6 threads)
+2013-02-11 11:15:22 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=6 average error=0,864066 [0,000000;0,000000], average time=190940ms [0;0], summed up error=0,864066, overall time=190940ms, Run-0: error=0,864066, time=190940ms
+2013-02-11 11:15:22 [INFO]  batch_parallel ~ Run [1/1] with 7 Threads...
+2013-02-11 11:15:23 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 11:18:44 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 11:18:44 [DEBUG] NeuralNetworkWrapper ~ learning = 201824 ms (7 threads)
+2013-02-11 11:19:00 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=7 average error=0,864247 [0,000000;0,000000], average time=201824ms [0;0], summed up error=0,864247, overall time=201824ms, Run-0: error=0,864247, time=201824ms
+2013-02-11 11:19:00 [INFO]  batch_parallel ~ Run [1/1] with 8 Threads...
+2013-02-11 11:19:01 [DEBUG] NeuralNetworkWrapper ~ start learning!
+2013-02-11 11:23:00 [DEBUG] BatchWorker ~ Stopped after iterations: 3
+2013-02-11 11:23:00 [DEBUG] NeuralNetworkWrapper ~ learning = 239322 ms (8 threads)
+2013-02-11 11:23:17 [INFO]  batch_parallel ~ SCORE [batch_parallel] ThreadCount=8 average error=0,872164 [0,000000;0,000000], average time=239322ms [0;0], summed up error=0,872164, overall time=239322ms, Run-0: error=0,872164, time=239322ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=1 average error=0,149107 [0,000000;0,000000], average time=267427ms [0;0], summed up error=0,149107, overall time=267427ms, Run-0: error=0,149107, time=267427ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=2 average error=0,149107 [0,000000;0,000000], average time=267736ms [0;0], summed up error=0,149107, overall time=267736ms, Run-0: error=0,149107, time=267736ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=3 average error=0,149107 [0,000000;0,000000], average time=265214ms [0;0], summed up error=0,149107, overall time=265214ms, Run-0: error=0,149107, time=265214ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=4 average error=0,149107 [0,000000;0,000000], average time=264476ms [0;0], summed up error=0,149107, overall time=264476ms, Run-0: error=0,149107, time=264476ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=5 average error=0,149107 [0,000000;0,000000], average time=265019ms [0;0], summed up error=0,149107, overall time=265019ms, Run-0: error=0,149107, time=265019ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=6 average error=0,149107 [0,000000;0,000000], average time=263708ms [0;0], summed up error=0,149107, overall time=263708ms, Run-0: error=0,149107, time=263708ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=7 average error=0,149107 [0,000000;0,000000], average time=264516ms [0;0], summed up error=0,149107, overall time=264516ms, Run-0: error=0,149107, time=264516ms
+2013-02-11 11:23:17 [SCORE] pmlp ~ SCORE [pmlp] ThreadCount=8 average error=0,149107 [0,000000;0,000000], average time=267848ms [0;0], summed up error=0,149107, overall time=267848ms, Run-0: error=0,149107, time=267848ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=1 average error=0,850325 [0,000000;0,000000], average time=245668ms [0;0], summed up error=0,850325, overall time=245668ms, Run-0: error=0,850325, time=245668ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=2 average error=0,850325 [0,000000;0,000000], average time=245590ms [0;0], summed up error=0,850325, overall time=245590ms, Run-0: error=0,850325, time=245590ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=3 average error=0,850325 [0,000000;0,000000], average time=224610ms [0;0], summed up error=0,850325, overall time=224610ms, Run-0: error=0,850325, time=224610ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=4 average error=0,850325 [0,000000;0,000000], average time=247277ms [0;0], summed up error=0,850325, overall time=247277ms, Run-0: error=0,850325, time=247277ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=5 average error=0,850325 [0,000000;0,000000], average time=243940ms [0;0], summed up error=0,850325, overall time=243940ms, Run-0: error=0,850325, time=243940ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=6 average error=0,850325 [0,000000;0,000000], average time=243281ms [0;0], summed up error=0,850325, overall time=243281ms, Run-0: error=0,850325, time=243281ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=7 average error=0,850325 [0,000000;0,000000], average time=242783ms [0;0], summed up error=0,850325, overall time=242783ms, Run-0: error=0,850325, time=242783ms
+2013-02-11 11:23:17 [SCORE] batch ~ SCORE [batch] ThreadCount=8 average error=0,850325 [0,000000;0,000000], average time=242664ms [0;0], summed up error=0,850325, overall time=242664ms, Run-0: error=0,850325, time=242664ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=1 average error=0,850325 [0,000000;0,000000], average time=449289ms [0;0], summed up error=0,850325, overall time=449289ms, Run-0: error=0,850325, time=449289ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=2 average error=0,855936 [0,000000;0,000000], average time=268872ms [0;0], summed up error=0,855936, overall time=268872ms, Run-0: error=0,855936, time=268872ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=3 average error=0,851702 [0,000000;0,000000], average time=247576ms [0;0], summed up error=0,851702, overall time=247576ms, Run-0: error=0,851702, time=247576ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=4 average error=0,856314 [0,000000;0,000000], average time=229078ms [0;0], summed up error=0,856314, overall time=229078ms, Run-0: error=0,856314, time=229078ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=5 average error=0,857974 [0,000000;0,000000], average time=211759ms [0;0], summed up error=0,857974, overall time=211759ms, Run-0: error=0,857974, time=211759ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=6 average error=0,864066 [0,000000;0,000000], average time=190940ms [0;0], summed up error=0,864066, overall time=190940ms, Run-0: error=0,864066, time=190940ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=7 average error=0,864247 [0,000000;0,000000], average time=201824ms [0;0], summed up error=0,864247, overall time=201824ms, Run-0: error=0,864247, time=201824ms
+2013-02-11 11:23:17 [SCORE] batch_parallel ~ SCORE [batch_parallel] ThreadCount=8 average error=0,872164 [0,000000;0,000000], average time=239322ms [0;0], summed up error=0,872164, overall time=239322ms, Run-0: error=0,872164, time=239322ms

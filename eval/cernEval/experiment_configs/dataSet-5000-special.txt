@@ -1,0 +1,11 @@
+min_threads: 5
+max_threads: 7
+dataset: data/preparedData/5000rows.txt
+training_to_test_ratio: 0.5
+input_neurons: 2853
+hidden_neurons: 100
+output_neurons: 1
+runs: 1
+max_iteration: 3
+sync_frequency:0.25
+learners: clonebased_revised-arithmeticmean, clonebased_revised-genetic
